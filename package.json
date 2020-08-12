@@ -21,7 +21,7 @@
     "react-scripts": "3.4.1",
     "react-toastify": "^6.0.8"
   },
-  "proxy": "http://localhost:8080/api",
+  "proxy": "https://mern-app-ecommerce.herokuapp.com/api",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

@@ -20,7 +20,7 @@ const ForgetPassword = ({history}) => {
     if (email) {
       setFormData({ ...formData, textChange: 'Submitting' });
       axios
-        .put('http://localhost:8080/api/forgotpassword', {
+        .put(`${process.env.REACT_APP_API_URL}/forgotpassword`, {
           email
         })
         .then(res => {
