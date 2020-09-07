@@ -17,8 +17,7 @@ const AddProduct = () => {
         photo: "",
         formData: '',
     })
-    const { name, description, price, categories, category,
-        shipping, quantity, formData } = values;
+    const { name, description, price, categories,quantity, formData } = values;
 
     const loadCategory = () => {
         axios
