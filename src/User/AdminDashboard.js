@@ -11,6 +11,7 @@ const AdminDashboard = () => {
                 <div>
                     <ul>
                         <li><Link to='/create/category'>Create category</Link></li>
+                        <li><Link to='/create/sub/category'>Create subCategory</Link></li>
                         <li><Link to='/create/product'>Create Product</Link></li>
                         <li><Link to='/admin/orders'>Show Products</Link></li>
                         <li><Link to='/admin/products'>Manage Products</Link></li>
