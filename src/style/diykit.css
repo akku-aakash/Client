@@ -1,0 +1,40 @@
+.diy{
+    background-color: #f0f0f0;
+}
+.unique{
+    background-color: #f0f0f0;
+}
+.pro14{
+    background-color: #f0f0f0;
+    padding-top: 15px;
+}
+.diy144{
+    background-color: #f0f0f0;
+    padding-top: 15px;
+}
+.diy145{
+    background-color: #f0f0f0;
+    padding-top: 15px;
+}
+.diy121{
+    width: 150px;
+    height: 50px;
+    margin-top: 40px !important;
+    margin-bottom: 80px !important;
+    margin: auto;
+}
+.diy122{
+    background-color: #2e3640;
+    width: 130px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 21px;
+    font-weight: bold;
+    color: #f1bc19;
+    border-radius: 6px;
+}
+.diy122:hover{
+    text-decoration: none;
+    color: #f1bc19;
+}

@@ -13,7 +13,7 @@ const Search = () => {
         results: [],
         searched: false
     })
-
+    
     const [x, setx] = useState(0)
 
     const { categories, category, search, searched, results } = data

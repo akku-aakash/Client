@@ -15,6 +15,7 @@ import AdminRoute from './helpers/AdminRoute';
 
 import Order from './Admin/Order';
 import AddCategory from './Admin/AddCategory';
+import AddSubCategory from './Admin/AddSubcategory';
 import AddProduct from './Admin/AddProduct';
 import ManageProduct from './Admin/ManageProducts';
 import UpdateProduct from './Admin/UpdateProducts';
@@ -22,15 +23,17 @@ import UpdateProduct from './Admin/UpdateProducts';
 import Products from './core/Products';
 import Cart from './core/Cart';
 import Home from './core/Home';
-import Menu from './core/Menu';
 import Shop from './core/Shop';
+import Diykit from './homeCore/Diykits';
+import Exp from './homeCore/Experience';
+import Special from './homeCore/SpecialSer';
+import Unique from './homeCore/Unique';
 
 const Routes = () => {
 
     return (
         <div>
             <BrowserRouter>
-            <Menu />
                 <Switch>
                     <Route path='/' exact render={props => <Home {...props} />} />
                     <Route path='/shop' exact render={props => <Shop {...props} />} />
@@ -39,11 +42,16 @@ const Routes = () => {
                     <Route path='/users/activate/:token' exact render={props => <Activate {...props} />} />
                     <Route path='/users/password/forget' exact render={props => <ForgetPassword {...props} />} />
                     <Route path='/users/password/reset/:token' exact render={props => <ResetPassword {...props} />} />
+                    <Route path='/products/diykit' exact render={props => <Diykit {...props} />} />
+                    <Route path='/products/experience' exact render={props => <Exp {...props} />} />
+                    <Route path='/products/special/services' exact render={props => <Special {...props} />} />
+                    <Route path='/products/unique/gifts' exact render={props => <Unique {...props} />} />
                     
                     <Route path='/product/:productId' exact component={Products} />    
                     <Route path='/cart' exact component={Cart} />            
                     <AdminRoute path='/admin/dashboard' exact component={AdminDashboard} />
-                    <AdminRoute path='/create/category' exact component={AddCategory} />              
+                    <AdminRoute path='/create/category' exact component={AddCategory} />    
+                    <AdminRoute path='/create/sub/category' exact component={AddSubCategory} />              
                     <AdminRoute path='/create/product' exact component={AddProduct} />        
                     <AdminRoute path='/admin/orders' exact component={Order} />        
                     <AdminRoute path='/admin/products' exact component={ManageProduct} />        

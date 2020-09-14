@@ -1,112 +1,86 @@
-import React, { useState, useEffect } from 'react';
-import Card from './Card';
-import axios from 'axios';
-import Carddd from './Carddd'
-import { Link } from 'react-router-dom'
-import Bunny from '../images_icons/logo.svg'
-import '../style/product.css';
-import AliceCarousel from 'react-alice-carousel'
-import "react-alice-carousel/lib/alice-carousel.css";
-import { Row, Col, Container } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
 import { isAuth } from '../helpers/auth';
+import { Container, Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom'
 import { itemTotal } from '../helpers/CartHelper'
+import Bunny from '../images_icons/logo.svg'
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify'
+import Carddd from '../core/Carddd';
+import AliceCarousel from 'react-alice-carousel'
+import '../style/diykit.css'
 
+const Diykits = () => {
 
-const Products = (props) => {
-    const [product, setProduct] = useState({})
-    const [relatedProduct, setRelatedProduct] = useState([])
-    const [des, setDes] = useState([]);
-    const [inc, setInc] = useState([]);
-    const [exc, setExc] = useState([]);
-    const [bef, setBef] = useState([]);
+    const [productByCelebrate, setProductByCelebrate] = useState([])
+    const [productByParty, setProductByParty] = useState([])
+    const [productByPersonal, setProductByPersonal] = useState([])
+
+    const loadProductByPersonal = () => {
+        axios
+            .get(`${process.env.REACT_APP_API_URL}/products/by/sub/category?subCategory=5f5e4394fa54ca2988fb3e9e`)
+            .then(res => {
+                setProductByPersonal(res.data);
+            })
+            .catch(err => {
+                toast.error(`Server Error`, err);
+            });
+    }
+
+    const loadProductByCelebrate = () => {
+        axios
+            .get(`${process.env.REACT_APP_API_URL}/products/by/sub/category?subCategory=5f5e437dfa54ca2988fb3e9c`)
+            .then(res => {
+                setProductByCelebrate(res.data);
+            })
+            .catch(err => {
+                toast.error(`Server Error`, err);
+            });
+    }
+
+    const loadProductByParty = () => {
+        axios
+            .get(`${process.env.REACT_APP_API_URL}/products/by/sub/category?subCategory=5f5e4388fa54ca2988fb3e9d`)
+            .then(res => {
+                setProductByParty(res.data);
+            })
+            .catch(err => {
+                toast.error(`Server Error`, err);
+            });
+    }
 
     useEffect(() => {
-        const productId = props.match.params.productId
-        loadSingleProduct(productId)
-        relatedProductFetch(productId)
-    }, [props])
+        loadProductByCelebrate();
+        loadProductByParty();
+        loadProductByPersonal();
+    }, [])
 
-    const loadSingleProduct = async productId => {
-        await axios.get(`${process.env.REACT_APP_API_URL}/product/${productId}`)
-            .then(res => {
-                setProduct(res.data)
-                setDes(res.data.descriptiona)
-                setInc(res.data.inclusiona)
-                setExc(res.data.exclusiona)
-                setBef(res.data.beforeyoua)
-            })
-            .catch(err => {
-                console.log(err)
-            })
+    const state = {
+        galleryItems: productByCelebrate
+            .map((product, i) => {
+                return (
+                    <div>
+                        <Carddd key={i} product={product} />
+                    </div>
+                )
+            }
+            )
     }
-
-    const relatedProductFetch = (productId) => {
-        axios.get(`${process.env.REACT_APP_API_URL}/products/related/${productId}`)
-            .then(res => {
-                setRelatedProduct(res.data);
-            })
-            .catch(err => {
-                console.log(err)
-            })
-    }
-
-    const changeScreen = () => {
-        const proo = document.querySelector('.pro6')
-        proo.style.marginLeft = '0vw';
-
-        var element = document.querySelector(".pro10");
-        element.classList.add("acctive");
-        var element1 = document.querySelector(".pro11");
-        element1.classList.remove("acctive");
-        var element2 = document.querySelector(".pro12");
-        element2.classList.remove("acctive");
-        var element3 = document.querySelector(".pro13");
-        element3.classList.remove("acctive");
-    }
-    const changeScreen1 = () => {
-        const prooo = document.querySelector('.pro6')
-        prooo.style.marginLeft = '-100vw';
-
-        var element = document.querySelector(".pro10");
-        element.classList.remove("acctive");
-        var element1 = document.querySelector(".pro11");
-        element1.classList.add("acctive");
-        var element2 = document.querySelector(".pro12");
-        element2.classList.remove("acctive");
-        var element3 = document.querySelector(".pro13");
-        element3.classList.remove("acctive");
-    }
-    const changeScreen2 = () => {
-        const proooo = document.querySelector('.pro6')
-        proooo.style.marginLeft = '-200vw';
-
-        var element = document.querySelector(".pro10");
-        element.classList.remove("acctive");
-        var element1 = document.querySelector(".pro11");
-        element1.classList.remove("acctive");
-        var element2 = document.querySelector(".pro12");
-        element2.classList.add("acctive");
-        var element3 = document.querySelector(".pro13");
-        element3.classList.remove("acctive");
-    }
-    const changeScreen3 = () => {
-        const prooooo = document.querySelector('.pro6')
-        prooooo.style.marginLeft = '-300vw';
-
-        var element = document.querySelector(".pro10");
-        element.classList.remove("acctive");
-        var element1 = document.querySelector(".pro11");
-        element1.classList.remove("acctive");
-        var element2 = document.querySelector(".pro12");
-        element2.classList.remove("acctive");
-        var element3 = document.querySelector(".pro13");
-        element3.classList.add("acctive");
-    }
-
-
 
     const state1 = {
-        galleryItems: relatedProduct
+        galleryItems: productByPersonal
+            .map((product, i) => {
+                return (
+                    <div>
+                        <Carddd key={i} product={product} />
+                    </div>
+                )
+            }
+            )
+    }
+
+    const state2 = {
+        galleryItems: productByParty
             .map((product, i) => {
                 return (
                     <div>
@@ -120,13 +94,14 @@ const Products = (props) => {
     const responsive = {
         0: { items: 1 },
         550: { items: 2 },
-        820:{ items: 3 },
+        820: { items: 3 },
         1200: { items: 4 },
         1400: { items: 5 },
     }
 
     return (
-        <div className="pro">
+        <div className="diy">
+            <ToastContainer />
             <div className="home2">
                 <div className="home22">
                     <Link to="/"><img src={Bunny} alt="" /></Link>
@@ -177,60 +152,46 @@ const Products = (props) => {
                     </ul>
                 </div>
             </div>
-            <div>
-                {
-                    product && product.description &&
-                    <Card product={product} showViewProductButthon={false} />
-                }
-            </div>
-            <div className="pro2">
-                <div className="pro3">
-                    <ul className="pro4">
-                        <li onClick={changeScreen}><button className="pro10 acctive">Description</button></li>
-                        <li onClick={changeScreen1}><button className="pro11">Inclusion & Exclusions</button></li>
-                        <li onClick={changeScreen2}><button className="pro12">Before you Order</button></li>
-                        <li onClick={changeScreen3}><button className="pro13">Refund & Cancelation Policy</button></li>
-                    </ul>
-                </div>
-                <div className="pro5">
-                    <div className="pro6">
-                        <div className="pro7">
-                            <div className="pro8">
-                                <p>{product.description}</p>
-                                <ul className="pro9">{des.map((element, i) => (
-                                    <div key={i}>{element != null ? <li>{element}</li> : <h1 className="prooo">d</h1>}</div>
-                                ))}</ul>
-                            </div>
+            <div className="pro14">
+                <h2 style={{ textAlign: 'center' }}>Celebration DIY Kit</h2>
+                <div className="pro15">
+                    <div className="home114">
+                        <div className="home112">
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
                         </div>
-                        <div className="pro7">
-                            <div className="pro8">
-                                <h3>Inclusions</h3>
-                                <ul>{inc.map((element, i) => (
-                                    <div key={i}>{element != null ? <li>{element}</li> : <h1 className="prooo">d</h1>}</div>
-                                ))}</ul>
-                                <h3>Exclusions</h3>
-                                <ul>{exc.map((element, i) => (
-                                    <div key={i}>{element != null ? <li>{element}</li> : <h1 className="prooo">d</h1>}</div>
-                                ))}</ul>
-                            </div>
-                        </div>
-                        <div className="pro7">
-                            <div className="pro8">
-                                <ul>{bef.map((element, i) => (
-                                    <div key={i}>{element != null ? <li>{element}</li> : <h1 className="prooo">d</h1>}</div>
-                                ))}</ul>
-                            </div>
-                        </div>
-                        <div className="pro7">
-                            <div className="pro8">
-                                <p>{product.description}</p>
-                            </div>
+                        <h1><i className="fa fa-star-half-o"></i></h1>
+                        <div className="home113">
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
                         </div>
                     </div>
                 </div>
+                <div className="pro16">
+                    <AliceCarousel
+                        items={state.galleryItems}
+                        responsive={responsive}
+                        autoPlayInterval={5000}
+                        autoPlayDirection="rtl"
+                        autoPlay={false}
+                        fadeOutAnimation={true}
+                        mouseTrackingEnabled={true}
+                        playButtonEnabled={false}
+                        disableAutoPlayOnAction={true}
+                        dotsDisabled={true}
+                        buttonsDisabled={true}
+                    />
+                </div>
+                <div className="diy121">
+                    <Link to='/products/subCategory/5f5e437dfa54ca2988fb3e9c'> <p className="diy122">View More</p></Link>
+                </div>
             </div>
-            <div className="pro14">
-                <h2 style={{ textAlign: 'center' }}>Related Products</h2>
+            <div className="diy144">
+                <h2 style={{ textAlign: 'center' }}>Personalised Prints</h2>
                 <div className="pro15">
                     <div className="home114">
                         <div className="home112">
@@ -260,7 +221,49 @@ const Products = (props) => {
                         playButtonEnabled={false}
                         disableAutoPlayOnAction={true}
                         dotsDisabled={true}
+                        buttonsDisabled={true}
                     />
+                </div>
+                <div className="diy121">
+                    <Link to='/products/subCategory/5f5e4394fa54ca2988fb3e9e'> <p className="diy122">View More</p></Link>
+                </div>
+            </div>
+            <div className="diy145">
+                <h2 style={{ textAlign: 'center' }}>Party Bunting</h2>
+                <div className="pro15">
+                    <div className="home114">
+                        <div className="home112">
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                        </div>
+                        <h1><i className="fa fa-star-half-o"></i></h1>
+                        <div className="home113">
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+                <div className="pro16">
+                    <AliceCarousel
+                        items={state2.galleryItems}
+                        responsive={responsive}
+                        autoPlayInterval={5000}
+                        autoPlayDirection="rtl"
+                        autoPlay={true}
+                        fadeOutAnimation={true}
+                        mouseTrackingEnabled={true}
+                        playButtonEnabled={false}
+                        disableAutoPlayOnAction={true}
+                        dotsDisabled={true}
+                        buttonsDisabled={true}
+                    />
+                </div>
+                <div className="diy121">
+                    <Link to='/products/subCategory/5f5e4388fa54ca2988fb3e9d'> <p className="diy122">View More</p></Link>
                 </div>
             </div>
             <div className="home15">
@@ -316,8 +319,8 @@ const Products = (props) => {
                     </Container>
                 </div>
             </div>
-        </div >
+        </div>
     );
-}
+};
 
-export default Products;
+export default Diykits;

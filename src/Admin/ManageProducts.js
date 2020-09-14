@@ -11,10 +11,6 @@ const ManageProducts = () => {
     const token = getCookie('token');
     const {_id} = isAuth();
 
-    useEffect(()=>{
-        getProducts();
-    },[]);
-
     const getProducts = () => {
         axios
         .get(`${process.env.REACT_APP_API_URL}/product?limit=undefined`,
@@ -27,6 +23,10 @@ const ManageProducts = () => {
           .then(res => setProducts(res.data))
           .catch(err => console.error(err));
     }
+
+    useEffect(()=>{
+        getProducts();
+    },[getProducts()]);
 
 
     const deleteProducts =(productId) => {

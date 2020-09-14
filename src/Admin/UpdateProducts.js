@@ -12,6 +12,8 @@ const UpdateProduct = ({ match }) => {
         price: '',
         categories: [],
         category: '',
+        subcategories: [],
+        subCategory: '',
         shipping: ' ',
         quantity: '',
         photo: "",
@@ -19,7 +21,7 @@ const UpdateProduct = ({ match }) => {
     })
 
     const { name, description, price, categories, category,
-        shipping, quantity, formData } = values;
+        shipping, quantity, formData,subcategories } = values;
 
     const loadCategory = () => {
         axios
@@ -32,6 +34,17 @@ const UpdateProduct = ({ match }) => {
                 toast.error(`Error To Your Information ${err.response.statusText}`);
             });
     };
+
+    const loadsubCategory = () => {
+        axios
+            .get(`${process.env.REACT_APP_API_URL}/sub/category`)
+            .then(res => {
+                setValues({ ...values, subcategories: res.data });
+            })
+            .catch(err => {
+                toast.error(`Error To Your Information ${err.response.statusText}`);
+            });
+    }
 
     const getSingleProduct = (productId) => {
         axios
@@ -91,6 +104,7 @@ const UpdateProduct = ({ match }) => {
         <Layout title='product' description='create Product' >
             <ToastContainer />
             <h1>Add Product</h1>
+            <button onClick={loadsubCategory}>subcategories</button>
             <Form onSubmit={handleSubmit}>
                 <Form.Group >
                     <input type="file" name='photo' accept='image/*' onChange={handleChange('photo')} />
@@ -116,6 +130,16 @@ const UpdateProduct = ({ match }) => {
                 </Form.Group>
                 <Form.Group >
                     <Form.Control type="number" placeholder="Quantity" value={quantity} onChange={handleChange('quantity')} />
+                </Form.Group>
+                <Form.Group >
+                    <select onChange={handleChange('subCategory')} >
+                        <option>Please Select</option>
+                        {subcategories && subcategories.map((f, i) =>
+                            (<option key={i} value={f._id}>
+                                {f.name}
+                            </option>)
+                        )}
+                    </select>
                 </Form.Group>
                 <Form.Group >
                     <select onChange={handleChange('shipping')} >

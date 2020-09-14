@@ -66,33 +66,6 @@ body{
     padding: 0px 10px;
     color: rgb(247, 196, 30);
 }
-@media screen and (max-width: 450px){
-    .home2 div:nth-child(1){
-        text-align: start;
-    }
-    .home2 img{
-        width: 350px;
-        height: 60px;
-        line-height: 80px;
-        margin-top: 10px;
-        text-align: center;
-    }
-    .home4{
-        width: 50%;
-        position: relative;
-        top: -70px;
-        margin-left: auto;
-        display: flex;
-        justify-content: flex-end;
-        padding-right: 5px;
-    }
-    .home4 a{
-        font-size: 30px;
-        line-height: 80px;
-        padding: 0px 5px;
-        color: rgb(247, 196, 30);
-    }
-}
 .home3{
     color: white;
 }
@@ -145,21 +118,6 @@ body{
 .home64 h4{
     font-size: 22px;
     padding-left: 4px;
-}
-@media screen and (max-width: 450px){
-    .home64{
-        position: absolute;
-        margin-top: 150px;
-        margin-left: 3%;
-        z-index: 9;
-    }
-    .home64 h2{
-        font-size: 34px;
-    }
-    .home64 h4{
-        font-size: 19px;
-        text-align:center;
-    }
 }
 .home9{
     height: 100vh;

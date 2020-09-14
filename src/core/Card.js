@@ -1,14 +1,24 @@
 import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import ShowImage from './ShowImage';
-import moment from 'moment';
 import { addItem, updateItem, removeItem } from '../helpers/CartHelper'
+import '../style/card.css';
+import { Container, Row, Col } from 'react-bootstrap';
 
-const Card = ({ product, 
-    showViewProductButthon = true, 
-    showAtToCart = true, 
+const Card = ({ product,
+    showViewProductButthon = true,
+    showAtToCart = true,
     cartUpdate = false,
     showRemoveProductButton = false }) => {
+
+
+    const { _id, name, description } = product;
+
+    const [proo, setProo] = useState({
+        _id,
+        name,
+        description
+    })
 
     const [shop, setShop] = useState(false);
 
@@ -28,21 +38,21 @@ const Card = ({ product,
     const showCartButton = (showAtToCart) => {
         return (
             showAtToCart && (
-                <button onClick={addToCart} className='btn btn-outline-danger mt-2 mb-2'>
+                <button onClick={addToCart} className='btncart'>
                     Add to cart</button>
             )
         )
     }
 
     const addToCart = () => {
-        addItem(product, () => {
+        addItem(proo, () => {
             setRedirect(true);
         })
     }
-  
+
     const shouldGo = shop => {
-        if(shop) {
-            return <Redirect to='/shop' /> 
+        if (shop) {
+            return <Redirect to='/shop' />
         }
     }
 
@@ -59,12 +69,11 @@ const Card = ({ product,
         }
     }
 
-
     const showCartUpdateOption = cartUpdate => {
         return cartUpdate && <div>
             <div className='input-group mb-3'>
                 <div className='input-group-prepend'>
-                    <span className='input-group-text'>Adjust Quantity</span>
+                    <p className='input-group-text'>Adjust Quantity</p>
                 </div>
                 <input type='number' onChange={handleChange(product._id)} value={count} className='form-control' />
             </div>
@@ -78,42 +87,54 @@ const Card = ({ product,
                     removeItem(product._id)
                     setShop(true)
                 }}
-                className='btn btn-outline-danger mt-2 mb-2'>
-                Remove Button
+                    className='btn btn-outline-danger mt-2 mb-2'>
+                    Remove Button
                 </button>
             )
         )
     }
 
     return (
-        <div>
-            <div className='col mb-3'>
-                {shouldRedirect(redirect)}
-                {shouldGo(shop)}
-                <div className='card'>
-                    <div className='card-header'>{product.name} </div>
-                    <div className='card-body'>
-                        <ShowImage item={product} url="product" />
-                        <p>{product.description.substring(0, 100)}</p>
-                        <p>${product.price}</p>
-                        <p>Category: {product.category && product.category.name}</p>
-                        <p>Added on {moment(product.createdAt).fromNow()}</p>
-                        {
-                            product.quantity > 0 ? <span>In stock</span> : <span>Out of Stock</span>
-                        }
-
-
-                        <Link to={`/product/${product._id}`}>
-                            {showViewButton(showViewProductButthon)}
-                        </Link>
-
-                        <Link>
-                            {showCartButton(showAtToCart)}
-                        </Link>
-                        {showRemoveButton(showRemoveProductButton)}
-                        {showCartUpdateOption(cartUpdate)}
-                    </div>
-                </div>
+        <div className="card">
+            {shouldRedirect(redirect)}
+            {shouldGo(shop)}
+            <div className="card1">
+                <Container fluid>
+                    <Row>
+                        <Col sm={12} md={5}>
+                            <ShowImage item={product} url="product" />
+                        </Col>
+                        <Col sm={12} md={7}>
+                            <div className="card2">
+                                <h2>{product.name} </h2>
+                                {
+                                    product.quantity > 0 ? <p>In stock</p> : <p>Out of Stock</p>
+                                }
+                                <h3>${product.price}</h3>
+                                <p>FREE Shipping</p>
+                                <p>{product.description.substring(0, 300)}</p>
+                                <div className="card3">
+                                    <div className="card4">
+                                        <input type="text" placeholder="Pin Code" />
+                                        <p>Pin Code Availability</p>
+                                    </div>
+                                    <div className="card4">
+                                        <input type="text" placeholder="Apply Promo Code" />
+                                        <p>Promo Code Availability</p>
+                                    </div>
+                                </div>
+                                <Link to={`/product/${product._id}`}>
+                                    {showViewButton(showViewProductButthon)}
+                                </Link>
+                                <Link>
+                                    {showCartButton(showAtToCart)}
+                                </Link>
+                            </div>
+                        </Col>
+                    </Row>
+                </Container>
+                {showRemoveButton(showRemoveProductButton)}
+                {showCartUpdateOption(cartUpdate)}
             </div>
         </div>
     );

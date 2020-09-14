@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify'
 import { Container, Row, Col } from 'react-bootstrap';
 import Cardd from './Cardd';
-import Search from './Search'
 import '../style/home.css'
 import AliceCarousel from 'react-alice-carousel'
 import "react-alice-carousel/lib/alice-carousel.css";
@@ -14,6 +13,8 @@ import Serv from '../images_icons/rocking.svg'
 import Bunny from '../images_icons/logo.svg'
 import Cel from '../images_icons/cel.jfif'
 import Cel1 from '../images_icons/cell1.jfif'
+import { isAuth } from '../helpers/auth';
+import { itemTotal } from '../helpers/CartHelper'
 
 const Home = () => {
   const [productBySell, setProductBySell] = useState([])
@@ -22,7 +23,7 @@ const Home = () => {
   const loadProductBySell = () => {
 
     axios
-      .get(`${process.env.REACT_APP_API_URL}/product?sortBy=sold&order=desc&limit=6`)
+      .get(`${process.env.REACT_APP_API_URL}/products/by/category?category=5f5cb4ec96c8182940a61402`)
       .then(res => {
         setProductBySell(res.data);
       })
@@ -35,7 +36,7 @@ const Home = () => {
   const loadProductByArrival = () => {
 
     axios
-      .get(`${process.env.REACT_APP_API_URL}/product?sortBy=createdAt&order=desc&limit=6`)
+      .get(`${process.env.REACT_APP_API_URL}/products/by/category?category=5f5cb4bd96c8182940a61400`)
       .then(res => {
         setProductByArrival(res.data);
       })
@@ -57,39 +58,27 @@ const Home = () => {
     })
   }, [])
 
+  // const state = {
+  //   galleryItems: productByArrival.map((product, i) => (<Cardd key={i} product={product} />)),
+  // }
 
-
-
-  const state = {
-    galleryItems: productByArrival.map((product, i) => (<Cardd key={i} product={product} />)),
-  }
-
-  const state1 = {
-    galleryItems: productBySell
-      .map((product, i) => {
-        return (
-          <div>
-            <Cardd key={i} product={product} />
-          </div>
-        )
-      }
-      )
-  }
+  // const state1 = {
+  //   galleryItems: productBySell
+  //     .map((product, i) => {
+  //       return (
+  //         <div>
+  //           <Cardd key={i} product={product} />
+  //         </div>
+  //       )
+  //     }
+  //     )
+  // }
 
   const responsive = {
     0: { items: 1 },
     1024: { items: 3 },
   }
 
-  const onSlideChange = (e) => {
-    console.debug('Item`s position during a change: ', e.item)
-    console.debug('Slide`s position during a change: ', e.slide)
-  }
-
-  const onSlideChanged = (e) => {
-    console.debug('Item`s position after changes: ', e.item)
-    console.debug('Slide`s position after changes: ', e.slide)
-  }
   return (
     <div className="homee">
       <ToastContainer />
@@ -116,12 +105,17 @@ const Home = () => {
       </div>
       <div className="home2">
         <div className="home22">
-          <img src={Bunny} alt="" />
+          <Link to="/"><img src={Bunny} alt="" /></Link>
         </div>
         <div className="home4">
-          <Link><i className="fa fa-instagram"></i></Link>
-          <Link><i className="fa fa-instagram"></i></Link>
-          <Link><i className="fa fa-instagram"></i></Link>
+          <Link to="/cart"><i className="fa fa-shopping-cart"></i> <sup><small>{itemTotal()}</small></sup></Link>
+          {
+            isAuth() && isAuth().role === 0 && <Link to="/user/dashboard"><i className="fa fa-user"></i></Link>
+          }
+          {
+            isAuth() && isAuth().role === 1 && <Link to="/admin/dashboard"><i className="fa fa-user"></i></Link>
+          }
+          <Link to="/shop"><i className="fa fa-search"></i></Link>
         </div>
       </div>
       <div className="home5">
@@ -136,25 +130,25 @@ const Home = () => {
               <Link onClick={() => {
                 const navlinks = document.querySelector('.navlink')
                 navlinks.classList.toggle("open");
-              }} className="link" style={{ backgroundColor: "rgb(247, 196, 30)" }} to='/'> PARTY SERVICES</Link>
+              }} className="link" style={{ backgroundColor: "rgb(247, 196, 30)" }} to='/products/unique/gifts'>UNIQUE GIFTS</Link>
             </li>
             <li>
               <Link onClick={() => {
                 const navlinks = document.querySelector('.navlink')
                 navlinks.classList.toggle("open");
-              }} className="link" to="/study/material">GIFTS AND DIY KITS</Link>
+              }} className="link" to="/products/diykit">DIY KITS</Link>
             </li>
             <li>
               <Link onClick={() => {
                 const navlinks = document.querySelector('.navlink')
                 navlinks.classList.toggle("open");
-              }} className="link" to="/solutions">PARTY RENTALS</Link>
+              }} className="link" to="/products/experience">EXPERIENCES</Link>
             </li>
             <li>
               <Link onClick={() => {
                 const navlinks = document.querySelector('.navlink')
                 navlinks.classList.toggle("open");
-              }} className="link" to="/video/lectures">ADD-ONS</Link>
+              }} className="link" to="/products/special/services">SPECIAL SERVICES</Link>
             </li>
           </ul>
         </div>
@@ -195,7 +189,7 @@ const Home = () => {
         </div>
         <div className="home10">
           <AliceCarousel
-            items={state.galleryItems}
+            // items={state.galleryItems}
             responsive={responsive}
             autoPlayInterval={5000}
             autoPlayDirection="rtl"
@@ -204,8 +198,6 @@ const Home = () => {
             mouseTrackingEnabled={true}
             playButtonEnabled={false}
             disableAutoPlayOnAction={true}
-            onSlideChange={onSlideChange}
-            onSlideChanged={onSlideChanged}
             dotsDisabled={true}
           />
         </div>
@@ -234,7 +226,7 @@ const Home = () => {
         </div>
         <div className="home115">
           <AliceCarousel
-            items={state1.galleryItems}
+            // items={state1.galleryItems}
             responsive={responsive}
             autoPlayInterval={5000}
             autoPlayDirection="rtl"
@@ -243,8 +235,6 @@ const Home = () => {
             mouseTrackingEnabled={true}
             playButtonEnabled={false}
             disableAutoPlayOnAction={true}
-            onSlideChange={onSlideChange}
-            onSlideChanged={onSlideChanged}
             dotsDisabled={true}
           />
         </div>
@@ -252,7 +242,6 @@ const Home = () => {
           <Link to='/shop'> <p className="home121">View More</p></Link>
         </div>
       </div>
-
       <div className="home13">
         <h2 style={{ textAlign: 'center' }}>Our Top Services</h2>
         <div className="home91">
@@ -444,10 +433,8 @@ const Home = () => {
           </Container>
         </div>
       </div>
-    </div>
+      </div>
   );
 }
 
 export default Home;
-
-// <Search />

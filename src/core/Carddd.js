@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { addItem } from '../helpers/CartHelper'
-import '../style/cardd.css';
+import '../style/carddd.css';
 
 const Cardd = ({ product,
     showAtToCart = true, }) => {
@@ -20,7 +20,7 @@ const Cardd = ({ product,
     const showCartButton = (showAtToCart) => {
         return (
             showAtToCart && (
-                <button onClick={addToCart} className='chbutton'>
+                <button onClick={addToCart} className='chhbutton'>
                     <i className="fa fa-cart-plus" aria-hidden="true"></i><p>Add to cart</p></button>
             )
         )
@@ -43,7 +43,7 @@ const Cardd = ({ product,
         const arr = item.photo
 
         return (
-            <div className='ch2'>
+            <div className='chh2'>
                 <img src={`${process.env.REACT_APP_API_URL}/${url}/photo/${item._id}?photoId=${arr[0]._id}`}
                     alt={item.name}
                 />
@@ -52,16 +52,16 @@ const Cardd = ({ product,
     }
 
     return (
-        <div className="ch">
-            <div className="ch1">
+        <div className="chh">
+            <div className="chh1">
                 {shouldRedirect(redirect)}
-                <Link className="ch1" to={`/product/${product._id}`}>
+                <Link className="chh1" to={`/product/${product._id}`}>
                     <ShowImage url="product" item={product} />
                 </Link>
-                <div className="ch3">
-                    <h3>{product.name.substring(0, 20)}</h3>
+                <div className="chh3">
+                    <h3>{product.name.substring(0, 15)}</h3>
                     <h4>${product.price}</h4>
-                    <div className="ch4">
+                    <div className="chh4">
                         <Link>
                             {showCartButton(showAtToCart)}
                         </Link>

@@ -1,132 +1,102 @@
-import React, { useState, useEffect } from 'react';
-import Card from './Card';
-import axios from 'axios';
-import Carddd from './Carddd'
-import { Link } from 'react-router-dom'
-import Bunny from '../images_icons/logo.svg'
-import '../style/product.css';
-import AliceCarousel from 'react-alice-carousel'
-import "react-alice-carousel/lib/alice-carousel.css";
-import { Row, Col, Container } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
 import { isAuth } from '../helpers/auth';
+import { Container, Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom'
 import { itemTotal } from '../helpers/CartHelper'
+import Bunny from '../images_icons/logo.svg'
+import AliceCarousel from 'react-alice-carousel'
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify'
+import Cardd from '../core/Cardd';
 
+const Experience = () => {
 
-const Products = (props) => {
-    const [product, setProduct] = useState({})
-    const [relatedProduct, setRelatedProduct] = useState([])
-    const [des, setDes] = useState([]);
-    const [inc, setInc] = useState([]);
-    const [exc, setExc] = useState([]);
-    const [bef, setBef] = useState([]);
+    const [productByBallon, setProductByBallon] = useState([])
+    const [productBySurprise, setProductBySurprise] = useState([])
+    const [productBySoul, setProductBySoul] = useState([])
 
-    useEffect(() => {
-        const productId = props.match.params.productId
-        loadSingleProduct(productId)
-        relatedProductFetch(productId)
-    }, [props])
-
-    const loadSingleProduct = async productId => {
-        await axios.get(`${process.env.REACT_APP_API_URL}/product/${productId}`)
+    const loadProductByBallon = () => {
+        axios
+            .get(`${process.env.REACT_APP_API_URL}/products/by/sub/category?subCategory=5f5e4394fa54ca2988fb3e9e`)
             .then(res => {
-                setProduct(res.data)
-                setDes(res.data.descriptiona)
-                setInc(res.data.inclusiona)
-                setExc(res.data.exclusiona)
-                setBef(res.data.beforeyoua)
+                setProductByBallon(res.data);
             })
             .catch(err => {
-                console.log(err)
-            })
+                toast.error(`Server Error`, err);
+            });
     }
 
-    const relatedProductFetch = (productId) => {
-        axios.get(`${process.env.REACT_APP_API_URL}/products/related/${productId}`)
+    const loadProductBySurprise = () => {
+        axios
+            .get(`${process.env.REACT_APP_API_URL}/products/by/sub/category?subCategory=5f5e437dfa54ca2988fb3e9c`)
             .then(res => {
-                setRelatedProduct(res.data);
+                setProductBySurprise(res.data);
             })
             .catch(err => {
-                console.log(err)
+                toast.error(`Server Error`, err);
+            });
+    }
+
+    const loadProductBySoul = () => {
+        axios
+            .get(`${process.env.REACT_APP_API_URL}/products/by/sub/category?subCategory=5f5e4388fa54ca2988fb3e9d`)
+            .then(res => {
+                setProductBySoul(res.data);
             })
+            .catch(err => {
+                toast.error(`Server Error`, err);
+            });
     }
 
-    const changeScreen = () => {
-        const proo = document.querySelector('.pro6')
-        proo.style.marginLeft = '0vw';
+    useEffect(()=>{
+        loadProductByBallon()
+        loadProductBySoul()
+        loadProductBySurprise()
+    },[])
 
-        var element = document.querySelector(".pro10");
-        element.classList.add("acctive");
-        var element1 = document.querySelector(".pro11");
-        element1.classList.remove("acctive");
-        var element2 = document.querySelector(".pro12");
-        element2.classList.remove("acctive");
-        var element3 = document.querySelector(".pro13");
-        element3.classList.remove("acctive");
-    }
-    const changeScreen1 = () => {
-        const prooo = document.querySelector('.pro6')
-        prooo.style.marginLeft = '-100vw';
-
-        var element = document.querySelector(".pro10");
-        element.classList.remove("acctive");
-        var element1 = document.querySelector(".pro11");
-        element1.classList.add("acctive");
-        var element2 = document.querySelector(".pro12");
-        element2.classList.remove("acctive");
-        var element3 = document.querySelector(".pro13");
-        element3.classList.remove("acctive");
-    }
-    const changeScreen2 = () => {
-        const proooo = document.querySelector('.pro6')
-        proooo.style.marginLeft = '-200vw';
-
-        var element = document.querySelector(".pro10");
-        element.classList.remove("acctive");
-        var element1 = document.querySelector(".pro11");
-        element1.classList.remove("acctive");
-        var element2 = document.querySelector(".pro12");
-        element2.classList.add("acctive");
-        var element3 = document.querySelector(".pro13");
-        element3.classList.remove("acctive");
-    }
-    const changeScreen3 = () => {
-        const prooooo = document.querySelector('.pro6')
-        prooooo.style.marginLeft = '-300vw';
-
-        var element = document.querySelector(".pro10");
-        element.classList.remove("acctive");
-        var element1 = document.querySelector(".pro11");
-        element1.classList.remove("acctive");
-        var element2 = document.querySelector(".pro12");
-        element2.classList.remove("acctive");
-        var element3 = document.querySelector(".pro13");
-        element3.classList.add("acctive");
-    }
-
-
-
-    const state1 = {
-        galleryItems: relatedProduct
+    const responsive = {
+        0: { items: 1 },
+        1024: { items: 3 },
+      }
+    
+    const state = {
+        galleryItems: productByBallon
             .map((product, i) => {
                 return (
                     <div>
-                        <Carddd key={i} product={product} />
+                        <Cardd key={i} product={product} />
                     </div>
                 )
             }
             )
     }
 
-    const responsive = {
-        0: { items: 1 },
-        550: { items: 2 },
-        820:{ items: 3 },
-        1200: { items: 4 },
-        1400: { items: 5 },
+    const state1 = {
+        galleryItems: productBySurprise
+            .map((product, i) => {
+                return (
+                    <div>
+                        <Cardd key={i} product={product} />
+                    </div>
+                )
+            }
+            )
+    }
+
+    const state2 = {
+        galleryItems: productBySoul
+            .map((product, i) => {
+                return (
+                    <div>
+                        <Cardd key={i} product={product} />
+                    </div>
+                )
+            }
+            )
     }
 
     return (
-        <div className="pro">
+        <div>
             <div className="home2">
                 <div className="home22">
                     <Link to="/"><img src={Bunny} alt="" /></Link>
@@ -177,61 +147,9 @@ const Products = (props) => {
                     </ul>
                 </div>
             </div>
-            <div>
-                {
-                    product && product.description &&
-                    <Card product={product} showViewProductButthon={false} />
-                }
-            </div>
-            <div className="pro2">
-                <div className="pro3">
-                    <ul className="pro4">
-                        <li onClick={changeScreen}><button className="pro10 acctive">Description</button></li>
-                        <li onClick={changeScreen1}><button className="pro11">Inclusion & Exclusions</button></li>
-                        <li onClick={changeScreen2}><button className="pro12">Before you Order</button></li>
-                        <li onClick={changeScreen3}><button className="pro13">Refund & Cancelation Policy</button></li>
-                    </ul>
-                </div>
-                <div className="pro5">
-                    <div className="pro6">
-                        <div className="pro7">
-                            <div className="pro8">
-                                <p>{product.description}</p>
-                                <ul className="pro9">{des.map((element, i) => (
-                                    <div key={i}>{element != null ? <li>{element}</li> : <h1 className="prooo">d</h1>}</div>
-                                ))}</ul>
-                            </div>
-                        </div>
-                        <div className="pro7">
-                            <div className="pro8">
-                                <h3>Inclusions</h3>
-                                <ul>{inc.map((element, i) => (
-                                    <div key={i}>{element != null ? <li>{element}</li> : <h1 className="prooo">d</h1>}</div>
-                                ))}</ul>
-                                <h3>Exclusions</h3>
-                                <ul>{exc.map((element, i) => (
-                                    <div key={i}>{element != null ? <li>{element}</li> : <h1 className="prooo">d</h1>}</div>
-                                ))}</ul>
-                            </div>
-                        </div>
-                        <div className="pro7">
-                            <div className="pro8">
-                                <ul>{bef.map((element, i) => (
-                                    <div key={i}>{element != null ? <li>{element}</li> : <h1 className="prooo">d</h1>}</div>
-                                ))}</ul>
-                            </div>
-                        </div>
-                        <div className="pro7">
-                            <div className="pro8">
-                                <p>{product.description}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className="pro14">
-                <h2 style={{ textAlign: 'center' }}>Related Products</h2>
-                <div className="pro15">
+            <div className="home11">
+                <h2 style={{ textAlign: 'center' }}>Top Personalized Boxes</h2>
+                <div className="home111">
                     <div className="home114">
                         <div className="home112">
                             <p></p>
@@ -248,19 +166,99 @@ const Products = (props) => {
                         </div>
                     </div>
                 </div>
-                <div className="pro16">
+                <div className="home115">
                     <AliceCarousel
-                        items={state1.galleryItems}
+                        items={state.galleryItems}
                         responsive={responsive}
                         autoPlayInterval={5000}
                         autoPlayDirection="rtl"
-                        autoPlay={true}
+                        autoPlay={false}
                         fadeOutAnimation={true}
                         mouseTrackingEnabled={true}
                         playButtonEnabled={false}
                         disableAutoPlayOnAction={true}
                         dotsDisabled={true}
+                        buttonsDisabled={true}
                     />
+                </div>
+                <div className="home12">
+                    <Link to='/shop'> <p className="home121">View More</p></Link>
+                </div>
+            </div>
+            <div className="home11">
+                <h2 style={{ textAlign: 'center' }}>Top Personalized Boxes</h2>
+                <div className="home111">
+                    <div className="home114">
+                        <div className="home112">
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                        </div>
+                        <h1><i className="fa fa-star-half-o"></i></h1>
+                        <div className="home113">
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+                <div className="home115">
+                    <AliceCarousel
+                        items={state1.galleryItems}
+                        responsive={responsive}
+                        autoPlayInterval={5000}
+                        autoPlayDirection="rtl"
+                        autoPlay={false}
+                        fadeOutAnimation={true}
+                        mouseTrackingEnabled={true}
+                        playButtonEnabled={false}
+                        disableAutoPlayOnAction={true}
+                        dotsDisabled={true}
+                        buttonsDisabled={true}
+                    />
+                </div>
+                <div className="home12">
+                    <Link to='/shop'> <p className="home121">View More</p></Link>
+                </div>
+            </div>
+            <div className="home11">
+                <h2 style={{ textAlign: 'center' }}>Top Personalized Boxes</h2>
+                <div className="home111">
+                    <div className="home114">
+                        <div className="home112">
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                        </div>
+                        <h1><i className="fa fa-star-half-o"></i></h1>
+                        <div className="home113">
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+                <div className="home115">
+                    <AliceCarousel
+                        items={state2.galleryItems}
+                        responsive={responsive}
+                        autoPlayInterval={5000}
+                        autoPlayDirection="rtl"
+                        autoPlay={false}
+                        fadeOutAnimation={true}
+                        mouseTrackingEnabled={true}
+                        playButtonEnabled={false}
+                        disableAutoPlayOnAction={true}
+                        dotsDisabled={true}
+                        buttonsDisabled={true}
+                    />
+                </div>
+                <div className="home12">
+                    <Link to='/shop'> <p className="home121">View More</p></Link>
                 </div>
             </div>
             <div className="home15">
@@ -272,7 +270,7 @@ const Products = (props) => {
                                     <h3>About Us</h3>
                                     <p>Bunny Bash sells online personaized props and gifts
                                     birthday and baby sower decoration at home, and
-                    birthday surprise home delivery at Bangalore, and Mumbai</p>
+                                    birthday surprise home delivery at Bangalore, and Mumbai</p>
                                 </div>
                             </Col>
                             <Col xs={12} sm={6} md={4} lg={2}>
@@ -316,8 +314,8 @@ const Products = (props) => {
                     </Container>
                 </div>
             </div>
-        </div >
+        </div>
     );
-}
+};
 
-export default Products;
+export default Experience;
