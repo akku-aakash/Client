@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { addItem } from '../helpers/CartHelper'
 import '../style/cardd.css';
@@ -41,12 +41,12 @@ const Cardd = ({ product,
     const ShowImage = ({ item, url }) => {
 
         const arr = item.photo
-
+        
         return (
             <div className='ch2'>
-                <img src={`${process.env.REACT_APP_API_URL}/${url}/photo/${item._id}?photoId=${arr[0]._id}`}
-                    alt={item.name}
-                />
+                {
+                    arr && arr[0] && <img src={`${process.env.REACT_APP_API_URL}/${url}/photo/${item._id}?photoId=${arr[0]._id}`} alt={item.name} />
+                }
             </div>
         );
     }

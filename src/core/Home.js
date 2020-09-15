@@ -20,9 +20,10 @@ const Home = () => {
   const loadProductBySell = () => {
 
     axios
-      .get(`${process.env.REACT_APP_API_URL}/products/by/category?category=5f5cb4ec96c8182940a61402`)
+      .get(`${process.env.REACT_APP_API_URL}/products/by/category?category=5f5f13b20f137d00170ba26c`)
       .then(res => {
         setProductBySell(res.data);
+        console.log(res.data)
       })
       .catch(err => {
         toast.error(`Server Error`, err);
@@ -33,9 +34,10 @@ const Home = () => {
   const loadProductByArrival = () => {
 
     axios
-      .get(`${process.env.REACT_APP_API_URL}/products/by/category?category=5f5cb4bd96c8182940a61400`)
+      .get(`${process.env.REACT_APP_API_URL}/products/by/category?category=5f5f13d60f137d00170ba26e`)
       .then(res => {
         setProductByArrival(res.data);
+        console.log(res.data)
       })
       .catch(err => {
         toast.error(`Server Error`, err);
@@ -55,21 +57,21 @@ const Home = () => {
     })
   }, [])
 
-  // const state = {
-  //   galleryItems: productByArrival.map((product, i) => (<Cardd key={i} product={product} />)),
-  // }
+  const state = {
+    galleryItems: productByArrival.map((product, i) => (<Cardd key={i} product={product} />)),
+  }
 
-  // const state1 = {
-  //   galleryItems: productBySell
-  //     .map((product, i) => {
-  //       return (
-  //         <div>
-  //           <Cardd key={i} product={product} />
-  //         </div>
-  //       )
-  //     }
-  //     )
-  // }
+  const state1 = {
+    galleryItems: productBySell
+      .map((product, i) => {
+        return (
+          <div>
+            <Cardd key={i} product={product} />
+          </div>
+        )
+      }
+      )
+  }
 
   const responsive = {
     0: { items: 1 },
@@ -136,7 +138,7 @@ const Home = () => {
         </div>
         <div className="home10">
           <AliceCarousel
-            // items={state.galleryItems}
+            items={state.galleryItems}
             responsive={responsive}
             autoPlayInterval={5000}
             autoPlayDirection="rtl"
@@ -173,7 +175,7 @@ const Home = () => {
         </div>
         <div className="home115">
           <AliceCarousel
-            // items={state1.galleryItems}
+            items={state1.galleryItems}
             responsive={responsive}
             autoPlayInterval={5000}
             autoPlayDirection="rtl"
@@ -327,7 +329,7 @@ const Home = () => {
           </Row>
         </Container>
       </div>
-      </div>
+    </div>
   );
 }
 

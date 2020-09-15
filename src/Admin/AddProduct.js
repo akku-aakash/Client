@@ -120,6 +120,7 @@ const AddProduct = () => {
                 toast.error(err);
             })
         }
+        console.log(formData)
     }
 
 

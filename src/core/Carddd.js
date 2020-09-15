@@ -44,9 +44,9 @@ const Cardd = ({ product,
 
         return (
             <div className='chh2'>
-                <img src={`${process.env.REACT_APP_API_URL}/${url}/photo/${item._id}?photoId=${arr[0]._id}`}
-                    alt={item.name}
-                />
+            {
+              arr && arr[0] && <img src={`${process.env.REACT_APP_API_URL}/${url}/photo/${item._id}?photoId=${arr[0]._id}`} alt={item.name} />
+            }
             </div>
         );
     }
