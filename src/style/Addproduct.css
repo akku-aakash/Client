@@ -1,0 +1,16 @@
+.addpro1{
+    width: 95%;
+    margin: auto;
+}
+.addpro1 h1{
+    text-align: center;
+    margin: 20px 0px 30px 0;
+}
+.addpro2{
+    background-color: rgb(236, 29, 29);
+    color: white;
+    font-weight: bold;
+    height: 35px;
+    padding: 0px 10px;
+    border: 1px solid red;
+}

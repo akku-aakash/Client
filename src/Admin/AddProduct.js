@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import Layout from '../core/Layout';
 import { isAuth, getCookie } from '../helpers/auth';
 import { toast, ToastContainer } from 'react-toastify';
 import { Form, Button } from 'react-bootstrap';
 import axios from "axios";
+import '../style/Addproduct.css'
+import isEmpty from 'validator/lib/isEmpty'
+import isLength from 'validator/lib/isLength'
 
 const AddProduct = () => {
     const [values, setValues] = useState({
@@ -24,9 +26,9 @@ const AddProduct = () => {
         beforeyoubuy: [{ name: '' }],
     })
     const { name, description, price,
-        categories, quantity, formData,
+        categories, quantity, formData, category,
         subcategories, subCategory, descriptiona,
-        inclusive, exclusive, beforeyoubuy } = values;
+        inclusive, exclusive, beforeyoubuy} = values;
 
     const loadCategory = () => {
         axios
@@ -74,38 +76,50 @@ const AddProduct = () => {
     }
 
     const handleSubmit = e => {
-        for (var i = 0; i < descriptiona.length; i++) {
-            formData.append(`description${i}`, descriptiona[i].name)
-        }
-        for (var i = 0; i < inclusive.length; i++) {
-            formData.append(`inclusive${i}`, inclusive[i].name)
-        }
-        for (var i = 0; i < exclusive.length; i++) {
-            formData.append(`exclusive${i}`, exclusive[i].name)
-        }
-        for (var i = 0; i < beforeyoubuy.length; i++) {
-            formData.append(`beforeyoubuy${i}`, beforeyoubuy[i].name)
-        }
+
         e.preventDefault();
 
-        fetch(`${process.env.REACT_APP_API_URL}/product/create/${isAuth()._id}`, {
-            method: 'POST',
-            headers: {
-                Accept: 'application/json',
-                Authorization: `Bearer ${token}`
-            },
-            body: formData
-        }).then(res => {
-            res.json().then(ress => {
-                toast.success(ress.name);
-                toast.error(ress.error);
-                console.log(ress)
-            });
-        }).catch(err => {
-            console.log(err);
-            toast.error(err);
-        })
-        console.log(formData)
+        if (isEmpty(description) || isEmpty(price) || isEmpty(quantity) || isEmpty(name) || isEmpty(subCategory) || isEmpty(category) ) {
+            toast.error('All fields required')
+        }
+        else if (!isLength(description, { min: 50, max: 1000 })) {
+            toast.error('description must contain 50 words min ')
+        }
+        else {
+            for (var i = 0; i < descriptiona.length; i++) {
+                formData.append(`description${i}`, descriptiona[i].name)
+            }
+            for (var i = 0; i < inclusive.length; i++) {
+                formData.append(`inclusive${i}`, inclusive[i].name)
+            }
+            for (var i = 0; i < exclusive.length; i++) {
+                formData.append(`exclusive${i}`, exclusive[i].name)
+            }
+            for (var i = 0; i < beforeyoubuy.length; i++) {
+                formData.append(`beforeyoubuy${i}`, beforeyoubuy[i].name)
+            }
+
+            fetch(`${process.env.REACT_APP_API_URL}/product/create/${isAuth()._id}`, {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    Authorization: `Bearer ${token}`
+                },
+                body: formData
+            }).then(res => {
+                res.json().then(ress => {
+                    if (ress.error) {
+                        toast.error(ress.error.message)
+                    }
+                    else {
+                        toast.success("product added successfully!!!");
+                    }
+                });
+            }).catch(err => {
+                console.log(err);
+                toast.error(err);
+            })
+        }
     }
 
 
@@ -119,7 +133,6 @@ const AddProduct = () => {
 
     const handleAddShareholder = () => {
         setValues({ ...values, descriptiona: descriptiona.concat([{ name: "" }]) })
-        console.log(values)
     };
 
     const handleinclusive = idx => evt => {
@@ -163,133 +176,146 @@ const AddProduct = () => {
 
 
     return (
-        <Layout title='product' description='create Product' >
+        <div className="addpro">
             <ToastContainer />
-            <h1>Add Product</h1>
-            <button onClick={loadsubCategory}>subcategories</button>
-            <Form onSubmit={handleSubmit}>
-                <Form.Group >
-                    <input type="file" name='photo' multiple accept='image/*' onChange={handleChange('photo')} />
-                </Form.Group>
-                <Form.Group >
-                    <Form.Control type="text" placeholder="Name" value={name} onChange={handleChange('name')} />
-                </Form.Group>
-                <Form.Group >
-                    <select onChange={handleChange('category')} >
-                        <option>Please Select</option>
-                        {categories && categories.map((c, i) =>
-                            (<option key={i} value={c._id}>
-                                {c.name}
-                            </option>)
-                        )}
-                    </select>
-                </Form.Group>
-                <Form.Group >
-                    <textarea type="text" placeholder="description" value={description} onChange={handleChange('description')} />
-                </Form.Group>
-                <Form.Group >
-                    <Form.Control type="number" placeholder="price" value={price} onChange={handleChange('price')} />
-                </Form.Group>
-                <Form.Group >
-                    <select onChange={handleChange('subCategory')} >
-                        <option>Please Select</option>
-                        {subcategories && subcategories.map((f, i) =>
-                            (<option key={i} value={f._id}>
-                                {f.name}
-                            </option>)
-                        )}
-                    </select>
-                </Form.Group>
-                <Form.Group >
-                    <Form.Control type="number" placeholder="Quantity" value={quantity} onChange={handleChange('quantity')} />
-                </Form.Group>
-                <Form.Group >
-                    <select onChange={handleChange('shipping')} >
-                        <option>Please Select</option>
-                        <option value="0">No</option>
-                        <option value="1">Yes</option>
-                    </select>
-                </Form.Group>
+            <div className="addpro1">
+                <h1>Add Product</h1>
+
+                <button onClick={loadsubCategory} className="addpro2">Load Subcategories</button>
+                <p>Please Click on the load subcategories button before fill the entries of products.</p>
+                <Form onSubmit={handleSubmit}>
+                    <Form.Group>
+                        <Form.Label>Choose Images</Form.Label>
+                        <Form.Control type="file" name='photo' multiple accept='image/*' onChange={handleChange('photo')} />
+                    </Form.Group>
+                    <Form.Group >
+                        <Form.Label>Product Name</Form.Label>
+                        <Form.Control type="text" placeholder="Enter Product Name" value={name} onChange={handleChange('name')} />
+                    </Form.Group>
+                    <Form.Group >
+                        <Form.Label>Choose Categories</Form.Label><br />
+                        <select onChange={handleChange('category')} >
+                            <option>Please Select</option>
+                            {categories && categories.map((c, i) =>
+                                (<option key={i} value={c._id}>
+                                    {c.name}
+                                </option>)
+                            )}
+                        </select>
+                    </Form.Group>
+                    <Form.Group >
+                        <Form.Label>Description</Form.Label>
+                        <Form.Control as="textarea" rows="4" placeholder="Enter Description" value={description} onChange={handleChange('description')} />
+                    </Form.Group>
+                    <Form.Group >
+                        <Form.Label>Price</Form.Label>
+                        <Form.Control type="number" placeholder="price" value={price} onChange={handleChange('price')} />
+                    </Form.Group>
+                    <Form.Group >
+                        <Form.Label>Choose Subcategy </Form.Label><br />
+                        <select onChange={handleChange('subCategory')} >
+                            <option>Please Select</option>
+                            {subcategories && subcategories.map((f, i) =>
+                                (<option key={i} value={f._id}>
+                                    {f.name}
+                                </option>)
+                            )}
+                        </select>
+                    </Form.Group>
+                    <Form.Group >
+                        <Form.Label>Product Quantity</Form.Label>
+                        <Form.Control type="number" placeholder="Quantity" value={quantity} onChange={handleChange('quantity')} />
+                    </Form.Group>
+                    <Form.Group >
+                        <Form.Label>Shipping Available</Form.Label><br />
+                        <select onChange={handleChange('shipping')} >
+                            <option>Please Select</option>
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </Form.Group>
 
 
-
-                {descriptiona.map((shareholder, idx) => (
-                    <div className="shareholder">
-                        <input
-                            type="text"
-                            placeholder={`description ${idx + 1} `}
-                            value={shareholder.name}
-                            onChange={handleShareholderNameChange(idx)}
-                        />
-                    </div>
-                ))}
-                <button
-                    type="button"
-                    onClick={handleAddShareholder}
-                >
-                    Add Shareholder
-                </button>
-
+                    <Form.Label>Add description main points</Form.Label>
+                    {descriptiona.map((shareholder, idx) => (
+                        <Form.Group>
+                            <Form.Control
+                                type="text"
+                                placeholder={`description ${idx + 1} `}
+                                value={shareholder.name}
+                                onChange={handleShareholderNameChange(idx)}
+                            />
+                        </Form.Group>
+                    ))}
+                    <button
+                        onClick={handleAddShareholder}
+                    >
+                        Add More Points on Description
+                </button><br /><br />
 
 
-                {inclusive.map((shareholder, idx) => (
-                    <div className="shareholder">
-                        <input
-                            type="text"
-                            placeholder={`inclusive ${idx + 1} `}
-                            value={shareholder.name}
-                            onChange={handleinclusive(idx)}
-                        />
-                    </div>
-                ))}
-                <button
-                    type="button"
-                    onClick={handleinclusivearr}
-                >
-                    Add Shareholder
-                </button>
+                    <Form.Label>Add Inclusive points</Form.Label>
+                    {inclusive.map((shareholder, idx) => (
+                        <div className="shareholder">
+                            <Form.Control
+                                type="text"
+                                placeholder={`inclusive ${idx + 1} `}
+                                value={shareholder.name}
+                                onChange={handleinclusive(idx)}
+                            />
+                        </div>
+                    ))}
+                    <button
+                        type="button"
+                        onClick={handleinclusivearr}
+                    >
+                        Add More Points on inclusive
+                </button><br /><br />
 
+                    <Form.Label>Add Exclusive points</Form.Label>
+                    {exclusive.map((shareholder, idx) => (
+                        <div className="shareholder">
+                            <Form.Control
+                                type="text"
+                                placeholder={`exclusive ${idx + 1} `}
+                                value={shareholder.name}
+                                onChange={hancleexclusive(idx)}
+                            />
+                        </div>
+                    ))}
+                    <button
+                        type="button"
+                        onClick={handleexclusivearr}
+                    >
+                        Add More Points on Exclusive
+            </button><br /> <br />
 
-                {exclusive.map((shareholder, idx) => (
-                    <div className="shareholder">
-                        <input
-                            type="text"
-                            placeholder={`exclusive ${idx + 1} `}
-                            value={shareholder.name}
-                            onChange={hancleexclusive(idx)}
-                        />
-                    </div>
-                ))}
-                <button
-                    type="button"
-                    onClick={handleexclusivearr}
-                >
-                    Add Shareholder
-            </button>
-
-
-                {beforeyoubuy.map((shareholder, idx) => (
-                    <div className="shareholder">
-                        <input
-                            type="text"
-                            placeholder={`before yoy buy ${idx + 1} `}
-                            value={shareholder.name}
-                            onChange={handlebeforeyou(idx)}
-                        />
-                    </div>
-                ))}
-                <button
-                    type="button"
-                    onClick={handlebeforeyouarr}
-                >
-                    Add Shareholder
-            </button>
-                <br />
-                <Button variant="danger" type="submit">
-                    Create Product
+                    <Form.Label>Add Before You Buy</Form.Label>
+                    {beforeyoubuy.map((shareholder, idx) => (
+                        <div className="shareholder">
+                            <Form.Control
+                                type="text"
+                                placeholder={`before yoy buy ${idx + 1} `}
+                                value={shareholder.name}
+                                onChange={handlebeforeyou(idx)}
+                            />
+                        </div>
+                    ))}
+                    <button
+                        type="button"
+                        onClick={handlebeforeyouarr}
+                    >
+                        Add Before You Buy
+                     </button>
+                    <br />
+                    <br />
+                    <br />
+                    <Button variant="danger" type="submit">
+                        Create Product
                 </Button>
-            </Form>
-        </Layout>
+                </Form>
+            </div>
+        </div>
     );
 }
 

@@ -20,7 +20,8 @@
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
-    "react-toastify": "^6.0.8"
+    "react-toastify": "^6.0.8",
+    "validator": "^13.1.1"
   },
   "proxy": "https://mern-app-ecommerce.herokuapp.com/api",
   "scripts": {
