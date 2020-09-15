@@ -28,7 +28,7 @@ const AddProduct = () => {
     const { name, description, price,
         categories, quantity, formData, category,
         subcategories, subCategory, descriptiona,
-        inclusive, exclusive, beforeyoubuy } = values;
+        inclusive, exclusive, beforeyoubuy, photo } = values;
 
     const loadCategory = () => {
         axios
@@ -113,6 +113,7 @@ const AddProduct = () => {
                     }
                     else {
                         toast.success("product added successfully!!!");
+                        formData.delete("photo")
                     }
                 });
             }).catch(err => {
