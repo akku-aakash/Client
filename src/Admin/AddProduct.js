@@ -28,7 +28,7 @@ const AddProduct = () => {
     const { name, description, price,
         categories, quantity, formData, category,
         subcategories, subCategory, descriptiona,
-        inclusive, exclusive, beforeyoubuy} = values;
+        inclusive, exclusive, beforeyoubuy } = values;
 
     const loadCategory = () => {
         axios
@@ -79,7 +79,7 @@ const AddProduct = () => {
 
         e.preventDefault();
 
-        if (isEmpty(description) || isEmpty(price) || isEmpty(quantity) || isEmpty(name) || isEmpty(subCategory) || isEmpty(category) ) {
+        if (isEmpty(description) || isEmpty(price) || isEmpty(quantity) || isEmpty(name) || isEmpty(subCategory) || isEmpty(category)) {
             toast.error('All fields required')
         }
         else if (!isLength(description, { min: 50, max: 1000 })) {
@@ -248,6 +248,7 @@ const AddProduct = () => {
                         </Form.Group>
                     ))}
                     <button
+                        type="button"
                         onClick={handleAddShareholder}
                     >
                         Add More Points on Description
