@@ -41,18 +41,19 @@ body{
     background-color: rgb(37, 36, 36);
     height: 80px !important;
 }
-.home2 div:nth-child(1){
+.home22{
     text-align: center;
 }
 .home2 img{
-    width: 350px;
+    width: 150px;
     height: 60px;
     line-height: 80px;
     margin-top: 10px;
     text-align: center;
+    z-index: 9;
 }
 .home4{
-    width: 50%;
+    width: 30%;
     position: relative;
     top: -70px;
     margin-left: auto;

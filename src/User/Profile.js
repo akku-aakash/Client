@@ -37,7 +37,7 @@ const Profile = (props) => {
                 setValues({ ...values, error: true })
             });
     }
-
+    
     const updateProfile = (userId, token, user) => {
         axios
             .put(`${process.env.REACT_APP_API_URL}/user/${userId}`,

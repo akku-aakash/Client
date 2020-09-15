@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Layout from '../core/Layout';
-import { isAuth, getCookie } from '../helpers/auth';
+import { isAuth, getCookie, signout } from '../helpers/auth';
 import { Link } from 'react-router-dom';
 import axios from "axios";
 import moment from 'moment';
+import { ToastContainer, toast } from 'react-toastify';
 
-const UserDashboard = () => {
-    const [history, setHistory] = useState([])
+const UserDashboard = ({ history }) => {
+    const [historyPro, setHistoryProduct] = useState([])
     const { name, email, role } = isAuth();
     const token = getCookie('token');
 
@@ -16,9 +17,16 @@ const UserDashboard = () => {
                 Authorization: `Bearer ${token}`
             }
         }).then(res => {
-            setHistory(res.data);
+            setHistoryProduct(res.data);
         }).catch(err => {
             console.log(err)
+        })
+    }
+
+    const handleLogout = () => {
+        signout(() => {
+            history.push('/');
+            toast.success('Signout Successfully');
         })
     }
 
@@ -28,13 +36,17 @@ const UserDashboard = () => {
 
     return (
         <div>
+            <ToastContainer />
             <Layout title='User Dashboard' description={`hello ${name}`}>
                 <div>
                     <ul>
+                        <li>{isAuth() && isAuth().role === 1 && <Link to="/admin/dashboard">Admin work</Link>}</li>
                         <li><Link to={`/profile/${isAuth()._id}`}>Update Profile</Link></li>
                         <li><Link to='/cart'>Cart</Link></li>
+                        <li>{isAuth() && <button onClick={handleLogout} > Logout </button>}</li>
                     </ul>
                 </div>
+
 
                 <div>
                     <h3>User Info</h3>
@@ -48,7 +60,7 @@ const UserDashboard = () => {
                     <h3 className="card-header">Purchase history</h3>
                     <ul className="list-group">
                         <li className="list-group-item">
-                            {history.map((h, i) => {
+                            {historyPro.map((h, i) => {
                                 return (
                                     <div key={i}>
                                         <hr />

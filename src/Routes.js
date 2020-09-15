@@ -28,12 +28,15 @@ import Diykit from './homeCore/Diykits';
 import Exp from './homeCore/Experience';
 import Special from './homeCore/SpecialSer';
 import Unique from './homeCore/Unique';
+import Menu from './core/Menu'
+import Footer from './core/Footer';
 
 const Routes = () => {
 
     return (
         <div>
             <BrowserRouter>
+                <Menu />
                 <Switch>
                     <Route path='/' exact render={props => <Home {...props} />} />
                     <Route path='/shop' exact render={props => <Shop {...props} />} />
@@ -46,19 +49,20 @@ const Routes = () => {
                     <Route path='/products/experience' exact render={props => <Exp {...props} />} />
                     <Route path='/products/special/services' exact render={props => <Special {...props} />} />
                     <Route path='/products/unique/gifts' exact render={props => <Unique {...props} />} />
-                    
-                    <Route path='/product/:productId' exact component={Products} />    
-                    <Route path='/cart' exact component={Cart} />            
+
+                    <Route path='/product/:productId' exact component={Products} />
+                    <Route path='/cart' exact component={Cart} />
                     <AdminRoute path='/admin/dashboard' exact component={AdminDashboard} />
-                    <AdminRoute path='/create/category' exact component={AddCategory} />    
-                    <AdminRoute path='/create/sub/category' exact component={AddSubCategory} />              
-                    <AdminRoute path='/create/product' exact component={AddProduct} />        
-                    <AdminRoute path='/admin/orders' exact component={Order} />        
-                    <AdminRoute path='/admin/products' exact component={ManageProduct} />        
-                    <AdminRoute path='/admin/product/update/:productId' exact component={UpdateProduct} />        
-                    <PrivateRoute path = '/profile/:userId' exact component={Profile} />   
-                    <PrivateRoute path = '/user/dashboard' exact component={Dashboard} />     
+                    <AdminRoute path='/create/category' exact component={AddCategory} />
+                    <AdminRoute path='/create/sub/category' exact component={AddSubCategory} />
+                    <AdminRoute path='/create/product' exact component={AddProduct} />
+                    <AdminRoute path='/admin/orders' exact component={Order} />
+                    <AdminRoute path='/admin/products' exact component={ManageProduct} />
+                    <AdminRoute path='/admin/product/update/:productId' exact component={UpdateProduct} />
+                    <PrivateRoute path='/profile/:userId' exact component={Profile} />
+                    <PrivateRoute path='/user/dashboard' exact component={Dashboard} />
                 </Switch>
+                <Footer />
             </BrowserRouter>
         </div>
     );

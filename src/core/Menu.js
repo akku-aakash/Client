@@ -1,66 +1,58 @@
-import React, {Fragment} from 'react';
+import React, { Fragment } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { signout, isAuth } from '../helpers/auth';
-import { ToastContainer, toast } from 'react-toastify';
-import { Navbar, Nav } from 'react-bootstrap';
-import {itemTotal} from '../helpers/CartHelper'
+import { itemTotal } from '../helpers/CartHelper'
+import Bunny from '../images_icons/logo.svg'
 
-const isActive = (history, path) => {
-    if (history.location.pathname === path) {
-        return { color: '#ff9900' }
-    }
-    else {
-        return { color: "blue" };
-    }
-}
+const Menu = () => {
 
-
-const Menu = ({history}) => {
-    const handleLogout= () => {
-        signout(() => {
-            history.push('/');
-            toast.success('Signout Successfully');
-        })
-    }
-    return(
-    <div>
-        <ToastContainer />
-        <Navbar expand="lg">
-            <Navbar.Brand ><Link to='/'>E-commerce</Link></Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="ml-auto">
-
-                    <Nav.Link ><Link style={isActive(history, '/')} to='/'> Home </Link></Nav.Link>
-                    <Nav.Link ><Link style={isActive(history, '/shop')} to='/shop'> Shop </Link></Nav.Link>
-                    <Nav.Link ><Link style={isActive(history, '/cart')} to='/cart'> Cart <sup><small>{itemTotal()}</small></sup> </Link></Nav.Link>
-                    
-                    {
-                        isAuth()  && isAuth().role === 0 && <Nav.Link ><Link style={isActive(history, '/user/dashboard')} to='/user/dashboard'> Dashboard </Link></Nav.Link>
-                    }
-                    {
-                        isAuth()&& isAuth().role === 1 && <Nav.Link ><Link style={isActive(history, '/admin/dashboard')} to='/admin/dashboard'> Dashboard </Link></Nav.Link>
-                    }
-
-
-                    {
-                        !isAuth() && 
-                        <Fragment>
-                        <Nav.Link ><Link style={isActive(history, '/register')} to='/register'> SignUp </Link></Nav.Link>
-                        <Nav.Link ><Link style={isActive(history, '/login')} to='/login'> SignIn </Link></Nav.Link>
-                        </Fragment>
-                    }
-                    {
-                        isAuth() && 
-                        <Fragment>
-                        <Nav.Link ><button  onClick={handleLogout} className='btn btn-link p-0 m-0 pb-2 min'> Logout </button></Nav.Link>
-                        </Fragment>
-                    }
-
-                </Nav>
-            </Navbar.Collapse>
-        </Navbar>
-    </div>
+    return (
+        <Fragment>
+            <div className="home2">
+                <div className="home22">
+                    <Link to="/"><img src={Bunny} alt="" /></Link>
+                </div>
+                <div className="home4">
+                    <Link to="/cart"><i className="fa fa-shopping-cart"></i> <sup><small>{itemTotal()}</small></sup></Link>
+                    <Link to="/user/dashboard"><i className="fa fa-user"></i></Link>
+                    <Link to="/shop"><i className="fa fa-search"></i></Link>
+                </div>
+            </div>
+            <div className="home5">
+                <div className="nav">
+                    <div className="hamburger">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <ul className="navlink">
+                        <li>
+                            <Link onClick={() => {
+                                const navlinks = document.querySelector('.navlink')
+                                navlinks.classList.toggle("open");
+                            }} className="link" style={{ backgroundColor: "rgb(247, 196, 30)" }} to='/products/unique/gifts'>UNIQUE GIFTS</Link>
+                        </li>
+                        <li>
+                            <Link onClick={() => {
+                                const navlinks = document.querySelector('.navlink')
+                                navlinks.classList.toggle("open");
+                            }} className="link" to="/products/diykit">DIY KITS</Link>
+                        </li>
+                        <li>
+                            <Link onClick={() => {
+                                const navlinks = document.querySelector('.navlink')
+                                navlinks.classList.toggle("open");
+                            }} className="link" to="/products/experience">EXPERIENCES</Link>
+                        </li>
+                        <li>
+                            <Link onClick={() => {
+                                const navlinks = document.querySelector('.navlink')
+                                navlinks.classList.toggle("open");
+                            }} className="link" to="/products/special/services">SPECIAL SERVICES</Link>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </Fragment>
     )
 }
 
