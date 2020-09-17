@@ -7,13 +7,13 @@ const AdminDashboard = () => {
     const { name, email, role } = isAuth();
     return (
         <div>
-        <Layout title='User Dashboard' description={`hello ${name}`}>
+        <Layout title='Admin Dashboard' description={`Hello ${name}`}>
                 <div>
                     <ul>
-                        <li><Link to='/create/category'>Create category</Link></li>
+                        <li><Link to='/create/category'>Create Category</Link></li>
                         <li><Link to='/create/sub/category'>Create subCategory</Link></li>
                         <li><Link to='/create/product'>Create Product</Link></li>
-                        <li><Link to='/admin/orders'>Show Products</Link></li>
+                        <li><Link to='/admin/orders'>Show Orders</Link></li>
                         <li><Link to='/admin/products'>Manage Products</Link></li>
                     </ul>
                 </div>

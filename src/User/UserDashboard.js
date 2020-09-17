@@ -37,7 +37,7 @@ const UserDashboard = ({ history }) => {
     return (
         <div>
             <ToastContainer />
-            <Layout title='User Dashboard' description={`hello ${name}`}>
+            <Layout title='User Dashboard' description={`Hello ${name}`}>
                 <div>
                     <ul>
                         <li>{isAuth() && isAuth().role === 1 && <Link to="/admin/dashboard">Admin work</Link>}</li>

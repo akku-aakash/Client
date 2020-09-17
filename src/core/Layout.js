@@ -1,15 +1,17 @@
 import React from 'react'
 import '../style.css'
 
-const Layout = ({ title = 'Title', description = 'Description',className ,children }) => {
+const Layout = ({ title = 'Title', description = 'Description', className, children }) => {
     return (
         <div>
             <div className='jumbotron'>
-            <h2>{title}</h2>
-            <p className='lead'>{description}</p>
+                <div className='jumbotron1'>
+                    <h2>{title}</h2>
+                    <p>{description}</p>
+                </div>
             </div>
             <div className={className}>
-            {children}
+                {children}
             </div>
         </div>
     )

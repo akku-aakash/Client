@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import {Form, Button} from 'react-bootstrap';
+import Layout from '../core/Layout';
 
 const ResetPassword = ({ match }) => {
   const [formData, setFormData] = useState({
@@ -55,9 +56,8 @@ const ResetPassword = ({ match }) => {
 
 
   return (
-    <div >
+    <Layout title='Reset Password' description='Enter Your Password'>
       <ToastContainer />
-      <h1 className='text-2xl font-extrabold'> Reset Your Password </h1>
       <Form onSubmit={handleSubmit} >
         <Form.Group>
           <Form.Control type="password" placeholder="Password" onChange={handleChange('password1')} value={password1} />
@@ -69,8 +69,7 @@ const ResetPassword = ({ match }) => {
           Sign In
         </Button>
       </Form>
-
-    </div>
+      </Layout>
   );
 };
 

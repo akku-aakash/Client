@@ -26,8 +26,8 @@ const ManageProducts = () => {
 
     useEffect(()=>{
         getProducts();
-    },[getProducts()]);
-
+    },[]);
+    
 
     const deleteProducts =(productId) => {
         axios

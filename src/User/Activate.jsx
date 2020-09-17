@@ -49,7 +49,7 @@ const Activate = ({ match }) => {
   };
 
   return (
-    <Layout title='Activation page' description='Active your account'>
+    <Layout title='Account Activation' description='Activate Your Account'>
     <div className='min-h-screen bg-gray-100 text-gray-900 flex justify-center'>
       {isAuth() ? <Redirect to='/' /> : null}
       <ToastContainer />

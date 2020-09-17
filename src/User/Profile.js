@@ -79,7 +79,7 @@ const Profile = (props) => {
     }
 
     return (
-        <Layout title='Profile update' description={`hey ${name} want to update your profile `}>
+        <Layout title='Update Profile' description={`Hey ${name} want to update your profile `}>
             <Form onSubmit={clickSubmit}>
                 <Form.Group controlId="formBasicName">
                     <Form.Label>Name</Form.Label>

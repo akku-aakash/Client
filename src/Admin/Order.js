@@ -88,7 +88,7 @@ const Order = (props) => {
                 </h1>
             )
         } else {
-            return <h1>no orders</h1>
+            return <h1>No Orders Now !!!</h1>
         }
 
     }
@@ -103,8 +103,8 @@ const Order = (props) => {
     )
 
     return (
-        <Layout title='Orders'
-            description={`Hey ${isAuth().name} here are the orders`} >
+        <Layout title='Your Orders'
+            description={`Hey ${isAuth().name} check out your orders !!!`} >
             <div>
                 <div>
                     {showOrderLength(orders)}

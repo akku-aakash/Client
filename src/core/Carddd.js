@@ -6,11 +6,12 @@ import '../style/carddd.css';
 const Cardd = ({ product,
     showAtToCart = true, }) => {
 
-    const {_id, name, description} = product;
+    const {_id, name, description, price} = product;
 
     const [proo, setProo] = useState({
         _id,
         name,
+        price,
         description
     })
 
@@ -60,7 +61,7 @@ const Cardd = ({ product,
                 </Link>
                 <div className="chh3">
                     <h3>{product.name.substring(0, 15)}</h3>
-                    <h4>${product.price}</h4>
+                    <h4><i className="fa fa-inr"></i>{product.price}</h4>
                     <div className="chh4">
                         <Link>
                             {showCartButton(showAtToCart)}

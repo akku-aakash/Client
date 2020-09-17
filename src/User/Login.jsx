@@ -4,6 +4,7 @@ import axios from 'axios';
 import { authenticate, isAuth } from '../helpers/auth';
 import { Link, Redirect } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap'
+import Layout from '../core/Layout'
 
 const Login = ({ history }) => {
   const [formData, setFormData] = useState({
@@ -35,7 +36,7 @@ const Login = ({ history }) => {
               textChange: 'signin Successfully done'
             });
             console.log(isAuth());
-            isAuth.role === 1 ? history.push('/admin/dashboard'): history.push('user/dashboard')
+            isAuth.role === 1 ? history.push('/admin/dashboard') : history.push('user/dashboard')
             toast.success(`Hey ${res.data.user.name}, Welcome back!`);
           });
         })
@@ -56,12 +57,10 @@ const Login = ({ history }) => {
 
 
   return (
-    <div>
+    <Layout title='Sign In' description='Enter your Account Details'>
       {isAuth() ? <Redirect to='/' /> : null}
       <ToastContainer />
-      <h1 className='text-2xl font-extrabold'> Sign In for Instagram</h1>
       <Form onSubmit={handleSubmit}>
-
         <Form.Group>
           <Form.Control type="email" placeholder="Enter email" onChange={handleChange('email')} value={email} />
         </Form.Group>
@@ -80,10 +79,10 @@ const Login = ({ history }) => {
           </Form.Text>
         </Form.Group>
         <Form.Group>
-        <Link to='/users/password/forget'>Forget password?</Link>
+          <Link to='/users/password/forget'>Forget password?</Link>
         </Form.Group>
       </Form>
-    </div>
+    </Layout>
   );
 };
 

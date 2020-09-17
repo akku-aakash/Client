@@ -12,12 +12,13 @@ const Card = ({ product,
     showRemoveProductButton = false }) => {
 
 
-    const { _id, name, description } = product;
+    const { _id, name, description,price } = product;
 
     const [proo, setProo] = useState({
         _id,
         name,
-        description
+        description,
+        price
     })
 
     const [shop, setShop] = useState(false);
@@ -110,7 +111,7 @@ const Card = ({ product,
                                 {
                                     product.quantity > 0 ? <p>In stock</p> : <p>Out of Stock</p>
                                 }
-                                <h3>${product.price}</h3>
+                                <h3><i className="fa fa-inr"></i>{product.price}</h3>
                                 <p>FREE Shipping</p>
                                 <p>{product.description.substring(0, 300)}</p>
                                 <div className="card3">

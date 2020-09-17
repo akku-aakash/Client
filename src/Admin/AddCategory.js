@@ -47,12 +47,12 @@ const AddCategory = () => {
     }
 
     return (
-        <Layout title='category' description='enter category name' >
+        <Layout title='Category' description='Enter Category name' >
             <ToastContainer />
             <h1>Add category</h1>
             <Form onSubmit={handleSubmit}>
                 <Form.Group >
-                    <Form.Control type="text" placeholder="Name" onChange={handleChange} value={name} />
+                    <Form.Control type="text" placeholder="Enter Name" onChange={handleChange} value={name} />
                 </Form.Group>
                 <Button variant="danger" type="submit">
                     Create Category

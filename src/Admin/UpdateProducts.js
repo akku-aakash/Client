@@ -21,7 +21,7 @@ const UpdateProduct = ({ match }) => {
     })
 
     const { name, description, price, categories, category,
-        shipping, quantity, formData,subcategories } = values;
+        shipping, quantity, formData, subcategories } = values;
 
     const loadCategory = () => {
         axios
@@ -73,9 +73,19 @@ const UpdateProduct = ({ match }) => {
     const token = getCookie('token');
 
     const handleChange = name => e => {
-        const value = name === 'photo' ? e.target.files[0] : e.target.value
-        setValues({ ...values, [name]: value })
-        formData.set(name, value);
+
+        switch (name) {
+            case 'photo':
+                const phooto = e.target.files;
+                for (let i = 0; i < phooto.length; i++) {
+                    formData.append("photo", phooto[i]);
+                }
+                break;
+            default:
+                setValues({ ...values, [name]: e.target.value })
+                formData.set(name, e.target.value);
+                break;
+        }
     }
 
     const updateProducts = (productId, formData) => {
@@ -103,22 +113,18 @@ const UpdateProduct = ({ match }) => {
     return (
         <Layout title='product' description='create Product' >
             <ToastContainer />
-            <h1>Add Product</h1>
-            <button onClick={loadsubCategory}>subcategories</button>
+            <button onClick={loadsubCategory} className="addpro2">Load Subcategories</button>
             <Form onSubmit={handleSubmit}>
-                <Form.Group >
-                    <input type="file" name='photo' accept='image/*' onChange={handleChange('photo')} />
+                <Form.Group>
+                    <Form.Label>Choose Images</Form.Label>
+                    <Form.Control type="file" name='photo' multiple accept='image/*' onChange={handleChange('photo')} />
                 </Form.Group>
                 <Form.Group >
-                    <Form.Control type="text" placeholder="Name" value={name} onChange={handleChange('name')} />
+                    <Form.Label>Product Name</Form.Label>
+                    <Form.Control type="text" placeholder="Enter Product Name" value={name} onChange={handleChange('name')} />
                 </Form.Group>
                 <Form.Group >
-                    <textarea type="text" placeholder="description" value={description} onChange={handleChange('description')} />
-                </Form.Group>
-                <Form.Group >
-                    <Form.Control type="number" placeholder="price" value={price} onChange={handleChange('price')} />
-                </Form.Group>
-                <Form.Group >
+                    <Form.Label>Choose Categories</Form.Label><br />
                     <select onChange={handleChange('category')} >
                         <option>Please Select</option>
                         {categories && categories.map((c, i) =>
@@ -129,9 +135,15 @@ const UpdateProduct = ({ match }) => {
                     </select>
                 </Form.Group>
                 <Form.Group >
-                    <Form.Control type="number" placeholder="Quantity" value={quantity} onChange={handleChange('quantity')} />
+                    <Form.Label>Description</Form.Label>
+                    <Form.Control as="textarea" rows="4" placeholder="Enter Description" value={description} onChange={handleChange('description')} />
                 </Form.Group>
                 <Form.Group >
+                    <Form.Label>Price</Form.Label>
+                    <Form.Control type="number" placeholder="price" value={price} onChange={handleChange('price')} />
+                </Form.Group>
+                <Form.Group >
+                    <Form.Label>Choose Subcategy </Form.Label><br />
                     <select onChange={handleChange('subCategory')} >
                         <option>Please Select</option>
                         {subcategories && subcategories.map((f, i) =>
@@ -142,6 +154,11 @@ const UpdateProduct = ({ match }) => {
                     </select>
                 </Form.Group>
                 <Form.Group >
+                    <Form.Label>Product Quantity</Form.Label>
+                    <Form.Control type="number" placeholder="Quantity" value={quantity} onChange={handleChange('quantity')} />
+                </Form.Group>
+                <Form.Group >
+                    <Form.Label>Shipping Available</Form.Label><br />
                     <select onChange={handleChange('shipping')} >
                         <option>Please Select</option>
                         <option value="0">No</option>

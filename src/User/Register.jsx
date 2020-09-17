@@ -12,7 +12,7 @@ const Register = () => {
     email: '',
     password1: '',
     password2: '',
-    textChange : 'Register'
+    textChange: 'Register'
   });
 
   const { name, email, password1, password2 } = formData;
@@ -58,40 +58,37 @@ const Register = () => {
     }
   };
 
-
-
   return (
-    <Layout title='Register Page' description='Register your account'>
-    <div >
-      {isAuth() ? <Redirect to='/' /> : null}
-      <ToastContainer />
-      <h1 className='text-2xl font-extrabold'> Sign Up for Instagram</h1>
-      <Form onSubmit={handleSubmit}>
-        <Form.Group >
-          <Form.Control type="text" placeholder="name" onChange={handleChange('name')} value={name} />
-        </Form.Group>
-        <Form.Group>
-          <Form.Control type="email" placeholder="Enter email" onChange={handleChange('email')} value={email} />
-        </Form.Group>
-        <Form.Group>
-          <Form.Control type="password" placeholder="Password" onChange={handleChange('password1')} value={password1} />
-        </Form.Group>
-        <Form.Group>
-          <Form.Control type="password" placeholder="confirm Password" onChange={handleChange('password2')} value={password2} />
-        </Form.Group>
-        <Button variant="danger" type="submit">
-          {formData.textChange}
-        </Button>
-        <Form.Group>
-          <Form.Text className="text-muted">
-          <h6>Already have an account ?
+    <Layout title='Register' description='Enter Your Details'>
+      <div >
+        {isAuth() ? <Redirect to='/' /> : null}
+        <ToastContainer />
+        <Form onSubmit={handleSubmit}>
+          <Form.Group >
+            <Form.Control type="text" placeholder="name" onChange={handleChange('name')} value={name} />
+          </Form.Group>
+          <Form.Group>
+            <Form.Control type="email" placeholder="Enter email" onChange={handleChange('email')} value={email} />
+          </Form.Group>
+          <Form.Group>
+            <Form.Control type="password" placeholder="Password" onChange={handleChange('password1')} value={password1} />
+          </Form.Group>
+          <Form.Group>
+            <Form.Control type="password" placeholder="confirm Password" onChange={handleChange('password2')} value={password2} />
+          </Form.Group>
+          <Button variant="danger" type="submit">
+            {formData.textChange}
+          </Button>
+          <Form.Group>
+            <Form.Text className="text-muted">
+              <h6>Already have an account ?
         <a href='/login' target='_self'>
-              <span className='ml-4'>Sign In</span>
-            </a></h6>
-          </Form.Text>
-        </Form.Group>
-      </Form>
-    </div>
+                  <span className='ml-4'>Sign In</span>
+                </a></h6>
+            </Form.Text>
+          </Form.Group>
+        </Form>
+      </div>
     </Layout>
   );
 };

@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { itemTotal } from '../helpers/CartHelper'
-import Bunny from '../images_icons/logo.svg'
+import Bunny from '../images_icons/bunny.svg'
 
 const Menu = () => {
 

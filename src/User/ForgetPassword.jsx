@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import { Form, Button } from 'react-bootstrap'
+import Layout from '../core/Layout';
 
-const ForgetPassword = ({history}) => {
+const ForgetPassword = ({ history }) => {
   const [formData, setFormData] = useState({
     email: ''
   });
@@ -24,16 +25,16 @@ const ForgetPassword = ({history}) => {
           email
         })
         .then(res => {
-          
-            setFormData({
-              ...formData,
-              email: '',
-            });
-            toast.success(`Please check your email`);
-          
+
+          setFormData({
+            ...formData,
+            email: '',
+          });
+          toast.success(`Please check your email`);
+
         })
         .catch(err => {
-        console.log(err.response)
+          console.log(err.response)
           toast.error(err.response.data.error);
         });
     } else {
@@ -41,19 +42,17 @@ const ForgetPassword = ({history}) => {
     }
   };
 
-  
-  return (
-    <div >
-      <ToastContainer />
-            <h1 className='text-2xl font-extrabold'> Forget Password </h1>
-            <Form onSubmit={handleSubmit}>
 
-            <Form.Group>
-              <Form.Control type="email" placeholder="Enter email" onChange={handleChange('email')} value={email} />
-            </Form.Group>
-            <Button variant="danger" type="submit"> Submit </Button>
-            </Form>
-            </div>
+  return (
+    <Layout title='Forget Password' description='Enter Your Email'>
+      <ToastContainer />
+      <Form onSubmit={handleSubmit}>
+        <Form.Group>
+          <Form.Control type="email" placeholder="Enter email" onChange={handleChange('email')} value={email} />
+        </Form.Group>
+        <Button variant="danger" type="submit"> Submit </Button>
+      </Form>
+    </Layout>
   );
 };
 
