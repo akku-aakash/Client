@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import axios from "axios";
 import moment from 'moment';
 import { ToastContainer, toast } from 'react-toastify';
+import Menu from '../core/Menu'
 
 const UserDashboard = ({ history }) => {
     const [historyPro, setHistoryProduct] = useState([])
@@ -18,6 +19,7 @@ const UserDashboard = ({ history }) => {
             }
         }).then(res => {
             setHistoryProduct(res.data);
+            console.log(res.data)
         }).catch(err => {
             console.log(err)
         })
@@ -36,6 +38,7 @@ const UserDashboard = ({ history }) => {
 
     return (
         <div>
+            <Menu />
             <ToastContainer />
             <Layout title='User Dashboard' description={`Hello ${name}`}>
                 <div>
@@ -64,11 +67,15 @@ const UserDashboard = ({ history }) => {
                                 return (
                                     <div key={i}>
                                         <hr />
+                                        <p>status : {h.status}</p>
+                                        <p>Total price : <i className="fa fa-inr"></i>{h.amount}</p>
+                                        <hr />
                                         {h.products.map((p, i) => {
                                             return (
                                                 <div key={i}>
                                                     <h6>Product name: {p.name}</h6>
-                                                    <h6>Product price: ${p.price}</h6>
+                                                    <h6>Count: {p.count}</h6>
+                                                    <h6>Product price: <i className="fa fa-inr"></i>{p.price}</h6>
                                                     <h6>
                                                         Purchased date:{" "}
                                                         {moment(h.createdAt).fromNow()}

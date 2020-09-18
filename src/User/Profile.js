@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Fragment } from 'react';
 import axios from "axios";
 import { isAuth, getCookie, updateUser } from '../helpers/auth';
 import { Form, Button } from 'react-bootstrap'
 import Layout from '../core/Layout';
+import Menu from '../core/Menu'
 
 const Profile = (props) => {
 
@@ -79,6 +80,8 @@ const Profile = (props) => {
     }
 
     return (
+        <Fragment>
+        <Menu />
         <Layout title='Update Profile' description={`Hey ${name} want to update your profile `}>
             <Form onSubmit={clickSubmit}>
                 <Form.Group controlId="formBasicName">
@@ -94,6 +97,7 @@ const Profile = (props) => {
                  </Button>
             </Form>
         </Layout>
+        </Fragment>
     );
 }
 

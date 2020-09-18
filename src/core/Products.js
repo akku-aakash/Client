@@ -2,14 +2,11 @@ import React, { useState, useEffect } from 'react';
 import Card from './Card';
 import axios from 'axios';
 import Carddd from './Carddd'
-import { Link } from 'react-router-dom'
-import Bunny from '../images_icons/logo.svg'
 import '../style/product.css';
 import AliceCarousel from 'react-alice-carousel'
 import "react-alice-carousel/lib/alice-carousel.css";
-import { Row, Col, Container } from 'react-bootstrap';
-import { isAuth } from '../helpers/auth';
-import { itemTotal } from '../helpers/CartHelper'
+import Menu from './Menu'
+
 
 
 const Products = (props) => {
@@ -127,6 +124,7 @@ const Products = (props) => {
 
     return (
         <div className="pro">
+            <Menu />
             <div>
                 {
                     product && product.description &&

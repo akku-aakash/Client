@@ -1,0 +1,18 @@
+.maincart5{
+    width: 98%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+}
+.maincart3{
+    width: 63%;
+}
+.maincart4 {
+    width: 35%;
+    margin-left: auto;
+}
+.maincart1{
+    font-size: 30px;
+    text-align: center;
+    color: orange;
+}

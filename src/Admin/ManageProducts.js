@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import Layout from '../core/Layout';
 import {isAuth, getCookie} from '../helpers/auth';
 import axios from "axios";
 import {toast, ToastContainer} from 'react-toastify'
 import {Link} from 'react-router-dom';
+import Menu from '../core/Menu'
 
 const ManageProducts = () => {
     const [products, setProducts] = useState([]);
@@ -46,6 +47,8 @@ const ManageProducts = () => {
 
 
     return (
+        <Fragment>
+        <Menu />
         <Layout title='Manage Products' description = {`${isAuth().name} manage your products`}>
         <ToastContainer />
         <div>
@@ -65,6 +68,7 @@ const ManageProducts = () => {
         </ul>
         </div>
         </Layout>
+        </Fragment>
     );
 };
 

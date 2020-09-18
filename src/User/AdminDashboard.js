@@ -2,11 +2,13 @@ import React from 'react';
 import Layout from '../core/Layout';
 import { isAuth } from '../helpers/auth';
 import { Link } from 'react-router-dom';
+import Menu from '../core/Menu'
 
 const AdminDashboard = () => {
     const { name, email, role } = isAuth();
     return (
         <div>
+        <Menu />
         <Layout title='Admin Dashboard' description={`Hello ${name}`}>
                 <div>
                     <ul>

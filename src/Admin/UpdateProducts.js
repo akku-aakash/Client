@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import Layout from '../core/Layout';
 import { isAuth, getCookie } from '../helpers/auth';
 import { toast, ToastContainer } from 'react-toastify';
 import { Form, Button } from 'react-bootstrap';
 import axios from "axios";
+import Menu from '../core/Menu'
 
 const UpdateProduct = ({ match }) => {
     const [values, setValues] = useState({
@@ -111,65 +112,68 @@ const UpdateProduct = ({ match }) => {
     }
 
     return (
-        <Layout title='product' description='create Product' >
-            <ToastContainer />
-            <button onClick={loadsubCategory} className="addpro2">Load Subcategories</button>
-            <Form onSubmit={handleSubmit}>
-                <Form.Group>
-                    <Form.Label>Choose Images</Form.Label>
-                    <Form.Control type="file" name='photo' multiple accept='image/*' onChange={handleChange('photo')} />
-                </Form.Group>
-                <Form.Group >
-                    <Form.Label>Product Name</Form.Label>
-                    <Form.Control type="text" placeholder="Enter Product Name" value={name} onChange={handleChange('name')} />
-                </Form.Group>
-                <Form.Group >
-                    <Form.Label>Choose Categories</Form.Label><br />
-                    <select onChange={handleChange('category')} >
-                        <option>Please Select</option>
-                        {categories && categories.map((c, i) =>
-                            (<option key={i} value={c._id}>
-                                {c.name}
-                            </option>)
-                        )}
-                    </select>
-                </Form.Group>
-                <Form.Group >
-                    <Form.Label>Description</Form.Label>
-                    <Form.Control as="textarea" rows="4" placeholder="Enter Description" value={description} onChange={handleChange('description')} />
-                </Form.Group>
-                <Form.Group >
-                    <Form.Label>Price</Form.Label>
-                    <Form.Control type="number" placeholder="price" value={price} onChange={handleChange('price')} />
-                </Form.Group>
-                <Form.Group >
-                    <Form.Label>Choose Subcategy </Form.Label><br />
-                    <select onChange={handleChange('subCategory')} >
-                        <option>Please Select</option>
-                        {subcategories && subcategories.map((f, i) =>
-                            (<option key={i} value={f._id}>
-                                {f.name}
-                            </option>)
-                        )}
-                    </select>
-                </Form.Group>
-                <Form.Group >
-                    <Form.Label>Product Quantity</Form.Label>
-                    <Form.Control type="number" placeholder="Quantity" value={quantity} onChange={handleChange('quantity')} />
-                </Form.Group>
-                <Form.Group >
-                    <Form.Label>Shipping Available</Form.Label><br />
-                    <select onChange={handleChange('shipping')} >
-                        <option>Please Select</option>
-                        <option value="0">No</option>
-                        <option value="1">Yes</option>
-                    </select>
-                </Form.Group>
-                <Button variant="danger" type="submit">
-                    Create Product
+        <Fragment>
+            <Menu />
+            <Layout title='product' description='create Product' >
+                <ToastContainer />
+                <button onClick={loadsubCategory} className="addpro2">Load Subcategories</button>
+                <Form onSubmit={handleSubmit}>
+                    <Form.Group>
+                        <Form.Label>Choose Images</Form.Label>
+                        <Form.Control type="file" name='photo' multiple accept='image/*' onChange={handleChange('photo')} />
+                    </Form.Group>
+                    <Form.Group >
+                        <Form.Label>Product Name</Form.Label>
+                        <Form.Control type="text" placeholder="Enter Product Name" value={name} onChange={handleChange('name')} />
+                    </Form.Group>
+                    <Form.Group >
+                        <Form.Label>Choose Categories</Form.Label><br />
+                        <select onChange={handleChange('category')} >
+                            <option>Please Select</option>
+                            {categories && categories.map((c, i) =>
+                                (<option key={i} value={c._id}>
+                                    {c.name}
+                                </option>)
+                            )}
+                        </select>
+                    </Form.Group>
+                    <Form.Group >
+                        <Form.Label>Description</Form.Label>
+                        <Form.Control as="textarea" rows="4" placeholder="Enter Description" value={description} onChange={handleChange('description')} />
+                    </Form.Group>
+                    <Form.Group >
+                        <Form.Label>Price</Form.Label>
+                        <Form.Control type="number" placeholder="price" value={price} onChange={handleChange('price')} />
+                    </Form.Group>
+                    <Form.Group >
+                        <Form.Label>Choose Subcategy </Form.Label><br />
+                        <select onChange={handleChange('subCategory')} >
+                            <option>Please Select</option>
+                            {subcategories && subcategories.map((f, i) =>
+                                (<option key={i} value={f._id}>
+                                    {f.name}
+                                </option>)
+                            )}
+                        </select>
+                    </Form.Group>
+                    <Form.Group >
+                        <Form.Label>Product Quantity</Form.Label>
+                        <Form.Control type="number" placeholder="Quantity" value={quantity} onChange={handleChange('quantity')} />
+                    </Form.Group>
+                    <Form.Group >
+                        <Form.Label>Shipping Available</Form.Label><br />
+                        <select onChange={handleChange('shipping')} >
+                            <option>Please Select</option>
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </Form.Group>
+                    <Button variant="danger" type="submit">
+                        Create Product
                 </Button>
-            </Form>
-        </Layout>
+                </Form>
+            </Layout>
+        </Fragment>
     );
 }
 

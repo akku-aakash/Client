@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { isAuth } from '../helpers/auth';
-import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
-import { itemTotal } from '../helpers/CartHelper'
-import Bunny from '../images_icons/logo.svg'
 import AliceCarousel from 'react-alice-carousel'
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify'
 import Cardd from '../core/Cardd';
+import Menu from '../core/Menu'
 
 const Experience = () => {
 
@@ -17,7 +14,7 @@ const Experience = () => {
 
     const loadProductByBallon = () => {
         axios
-            .get(`${process.env.REACT_APP_API_URL}/products/by/sub/category?subCategory=5f5e4394fa54ca2988fb3e9e`)
+            .get(`${process.env.REACT_APP_API_URL}/products/by/sub/category?subCategory=5f5f13080f137d00170ba263`)
             .then(res => {
                 setProductByBallon(res.data);
             })
@@ -28,7 +25,7 @@ const Experience = () => {
 
     const loadProductBySurprise = () => {
         axios
-            .get(`${process.env.REACT_APP_API_URL}/products/by/sub/category?subCategory=5f5e437dfa54ca2988fb3e9c`)
+            .get(`${process.env.REACT_APP_API_URL}/products/by/sub/category?subCategory=5f5f131d0f137d00170ba264`)
             .then(res => {
                 setProductBySurprise(res.data);
             })
@@ -39,7 +36,7 @@ const Experience = () => {
 
     const loadProductBySoul = () => {
         axios
-            .get(`${process.env.REACT_APP_API_URL}/products/by/sub/category?subCategory=5f5e4388fa54ca2988fb3e9d`)
+            .get(`${process.env.REACT_APP_API_URL}/products/by/sub/category?subCategory=5f5f13300f137d00170ba265`)
             .then(res => {
                 setProductBySoul(res.data);
             })
@@ -97,6 +94,7 @@ const Experience = () => {
 
     return (
         <div>
+            <Menu />
             <div className="home11">
                 <h2 style={{ textAlign: 'center' }}>Top Personalized Boxes</h2>
                 <div className="home111">

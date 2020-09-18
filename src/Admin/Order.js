@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import Layout from '../core/Layout';
 import { isAuth, getCookie } from '../helpers/auth';
 import axios from "axios";
 import moment from 'moment'
+import Menu from '../core/Menu'
 
 const Order = (props) => {
     const [orders, setOrders] = useState([])
@@ -103,6 +104,8 @@ const Order = (props) => {
     )
 
     return (
+        <Fragment>
+        <Menu />
         <Layout title='Your Orders'
             description={`Hey ${isAuth().name} check out your orders !!!`} >
             <div>
@@ -120,7 +123,7 @@ const Order = (props) => {
                                       order transaction id =  {o.transaction_id}
                                     </li>
                                     <li>
-                                       order amount = ${o.amount}
+                                       order amount = <i className="fa fa-inr"></i>  {o.amount}
                                     </li>
                                     <li>
                                        order by = {o.user.name}
@@ -139,7 +142,7 @@ const Order = (props) => {
                                         return(
                                         <div key={pIndex}>
                                         {showInput('Product name', p.name)}
-                                        {showInput('Product price $', p.price)}
+                                        {showInput('Product price Rs', p.price)}
                                         {showInput('Product total', p.count)}
                                         {showInput('Product Id', p._id)}
                                         </div>
@@ -152,6 +155,7 @@ const Order = (props) => {
                 </div>
             </div>
         </Layout>
+        </Fragment>
     );
 }
 

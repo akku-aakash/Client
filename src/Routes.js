@@ -28,7 +28,6 @@ import Diykit from './homeCore/Diykits';
 import Exp from './homeCore/Experience';
 import Special from './homeCore/SpecialSer';
 import Unique from './homeCore/Unique';
-import Menu from './core/Menu'
 import Footer from './core/Footer';
 
 const Routes = () => {
@@ -36,7 +35,6 @@ const Routes = () => {
     return (
         <div>
             <BrowserRouter>
-                <Menu />
                 <Switch>
                     <Route path='/' exact render={props => <Home {...props} />} />
                     <Route path='/shop' exact render={props => <Shop {...props} />} />

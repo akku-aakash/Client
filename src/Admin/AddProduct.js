@@ -6,6 +6,7 @@ import axios from "axios";
 import '../style/Addproduct.css'
 import isEmpty from 'validator/lib/isEmpty'
 import isLength from 'validator/lib/isLength'
+import Menu from '../core/Menu'
 
 const AddProduct = () => {
     const [values, setValues] = useState({
@@ -28,7 +29,7 @@ const AddProduct = () => {
     const { name, description, price,
         categories, quantity, formData, category,
         subcategories, subCategory, descriptiona,
-        inclusive, exclusive, beforeyoubuy, photo } = values;
+        inclusive, exclusive, beforeyoubuy} = values;
 
     const loadCategory = () => {
         axios
@@ -179,6 +180,7 @@ const AddProduct = () => {
 
     return (
         <div className="addpro">
+            <Menu />
             <ToastContainer />
             <div className="addpro1">
                 <h1>Add Product</h1>

@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import {Form, Button} from 'react-bootstrap';
 import Layout from '../core/Layout';
+import Menu from '../core/Menu'
 
 const ResetPassword = ({ match }) => {
   const [formData, setFormData] = useState({
@@ -56,6 +57,8 @@ const ResetPassword = ({ match }) => {
 
 
   return (
+    <Fragment>
+    <Menu />
     <Layout title='Reset Password' description='Enter Your Password'>
       <ToastContainer />
       <Form onSubmit={handleSubmit} >
@@ -70,6 +73,7 @@ const ResetPassword = ({ match }) => {
         </Button>
       </Form>
       </Layout>
+      </Fragment>
   );
 };
 

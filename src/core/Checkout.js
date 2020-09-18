@@ -35,8 +35,6 @@ const Checkout = ({ products }) => {
             )
             .then(res => {
                 console.log(res.data)
-                //empty cart 
-                //req for order 
 
                 const createOrderData = {
                     products:products,
@@ -76,7 +74,7 @@ const Checkout = ({ products }) => {
 
     const getTotal = () => {
         return products.reduce((currentValue, nextValue) => {
-            return currentValue + nextValue.count * nextValue.price
+            return currentValue + nextValue.count * nextValue.price 
         }, 0)
     }
 
@@ -107,7 +105,7 @@ const Checkout = ({ products }) => {
 
                 const paymentData = {
                     PaymentMethodNonce: nonce,
-                    amount: getTotal(products)
+                    amount: ( getTotal(products) / 80 )
                 }
 
                  processPayment(userId, token, paymentData)
@@ -166,7 +164,7 @@ const Checkout = ({ products }) => {
         <div>
         <ToastContainer />
         {showLoading(data.loading)}
-            <h2>Total: ${getTotal()}</h2>
+            <h2>Total: <i class="fa fa-inr"></i>{getTotal()}</h2>
             {showCheckout()}
             {ShowError(data.error)}
         </div>

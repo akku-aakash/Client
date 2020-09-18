@@ -1,26 +1,14 @@
 import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import ShowImage from './ShowImage';
+import ShowImage from './ShowCartPro';
 import { addItem, updateItem, removeItem } from '../helpers/CartHelper'
-import '../style/card.css';
+import '../style/CartPro.css';
 import { Container, Row, Col } from 'react-bootstrap';
 
 const Card = ({ product,
     showViewProductButthon = true,
-    showAtToCart = true,
     cartUpdate = false,
     showRemoveProductButton = false }) => {
-
-
-    const { _id, name, description,price, quantity } = product;
-
-    const [proo, setProo] = useState({
-        _id,
-        name,
-        description,
-        price,
-        quantity
-    })
 
     const [shop, setShop] = useState(false);
 
@@ -31,26 +19,12 @@ const Card = ({ product,
     const showViewButton = (showViewProductButthon) => {
         return (
             showViewProductButthon && (
-                <button className='btn btn-outline-primary mt-2 mb-2'>
-                    View product</button>
+                <button className="bttncart">
+                    View </button>
             )
         )
     }
 
-    const showCartButton = (showAtToCart) => {
-        return (
-            showAtToCart && (
-                <button onClick={addToCart} className='btncart'>
-                    Add to cart</button>
-            )
-        )
-    }
-
-    const addToCart = () => {
-        addItem(proo, () => {
-            setRedirect(true);
-        })
-    }
 
     const shouldGo = shop => {
         if (shop) {
@@ -72,11 +46,9 @@ const Card = ({ product,
     }
 
     const showCartUpdateOption = cartUpdate => {
-        return cartUpdate && <div>
-            <div className='input-group mb-3'>
-                <div className='input-group-prepend'>
-                    <p className='input-group-text'>Adjust Quantity</p>
-                </div>
+        return cartUpdate && <div className="carttAd">
+            <div className="carttAd1">
+                <p>Adjust Quantity</p>
                 <input type='number' onChange={handleChange(product._id)} value={count} className='form-control' />
             </div>
         </div>
@@ -85,57 +57,42 @@ const Card = ({ product,
     const showRemoveButton = showRemoveProductButton => {
         return (
             showRemoveProductButton && (
-                <button onClick={() => {
+                <button className="bttncart1" onClick={() => {
                     removeItem(product._id)
                     setShop(true)
-                }}
-                    className='btn btn-outline-danger mt-2 mb-2'>
-                    Remove Button
+                }}>
+                    Remove
                 </button>
             )
         )
     }
 
     return (
-        <div className="card">
+        <div className="cartt">
             {shouldRedirect(redirect)}
             {shouldGo(shop)}
-            <div className="card1">
+            <div className="cartt1">
                 <Container fluid>
                     <Row>
                         <Col sm={12} md={5}>
                             <ShowImage item={product} url="product" />
                         </Col>
                         <Col sm={12} md={7}>
-                            <div className="card2">
+                            <div className="cartt2">
                                 <h2>{product.name} </h2>
                                 {
-                                    product.quantity > 0 ? <p>In stock</p> : <p>Out of Stock</p>
+                                    product.quantity > 0 ? <p className="cartt3">In stock</p> : <p className="cartt3">Out of Stock</p>
                                 }
                                 <h3><i className="fa fa-inr"></i>{product.price}</h3>
-                                <p>FREE Shipping</p>
-                                <p>{product.description.substring(0, 300)}</p>
-                                <div className="card3">
-                                    <div className="card4">
-                                        <input type="text" placeholder="Pin Code" />
-                                        <p>Pin Code Availability</p>
-                                    </div>
-                                    <div className="card4">
-                                        <input type="text" placeholder="Apply Promo Code" />
-                                        <p>Promo Code Availability</p>
-                                    </div>
-                                </div>
+                                <p className="cartt4">{product.description.substring(0, 300)}</p>
                                 <Link to={`/product/${product._id}`}>
                                     {showViewButton(showViewProductButthon)}
                                 </Link>
-                                <Link>
-                                    {showCartButton(showAtToCart)}
-                                </Link>
+                                {showRemoveButton(showRemoveProductButton)}
                             </div>
                         </Col>
                     </Row>
                 </Container>
-                {showRemoveButton(showRemoveProductButton)}
                 {showCartUpdateOption(cartUpdate)}
             </div>
         </div>

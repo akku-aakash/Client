@@ -1,9 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import Menu from '../core/Menu'
 
 const SpecialSer = () => {
     return (
         <div>
+        <Menu />
         </div>
     );
 };

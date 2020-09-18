@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { isAuth } from '../helpers/auth';
-import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
-import { itemTotal } from '../helpers/CartHelper'
-import Bunny from '../images_icons/logo.svg'
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify'
 import Carddd from '../core/Carddd';
 import AliceCarousel from 'react-alice-carousel'
 import '../style/diykit.css'
+import Menu from '../core/Menu'
 
 const Diykits = () => {
 
@@ -18,7 +15,7 @@ const Diykits = () => {
 
     const loadProductByPersonal = () => {
         axios
-            .get(`${process.env.REACT_APP_API_URL}/products/by/sub/category?subCategory=5f5e4394fa54ca2988fb3e9e`)
+            .get(`${process.env.REACT_APP_API_URL}/products/by/sub/category?subCategory=5f5f12f10f137d00170ba262`)
             .then(res => {
                 setProductByPersonal(res.data);
             })
@@ -29,7 +26,7 @@ const Diykits = () => {
 
     const loadProductByCelebrate = () => {
         axios
-            .get(`${process.env.REACT_APP_API_URL}/products/by/sub/category?subCategory=5f5e437dfa54ca2988fb3e9c`)
+            .get(`${process.env.REACT_APP_API_URL}/products/by/sub/category?subCategory=5f5f12b00f137d00170ba260`)
             .then(res => {
                 setProductByCelebrate(res.data);
             })
@@ -40,7 +37,7 @@ const Diykits = () => {
 
     const loadProductByParty = () => {
         axios
-            .get(`${process.env.REACT_APP_API_URL}/products/by/sub/category?subCategory=5f5e4388fa54ca2988fb3e9d`)
+            .get(`${process.env.REACT_APP_API_URL}/products/by/sub/category?subCategory=5f5f12ce0f137d00170ba261`)
             .then(res => {
                 setProductByParty(res.data);
             })
@@ -101,6 +98,7 @@ const Diykits = () => {
 
     return (
         <div className="diy">
+            <Menu />
             <ToastContainer />
             <div className="pro14">
                 <h2 style={{ textAlign: 'center' }}>Celebration DIY Kit</h2>

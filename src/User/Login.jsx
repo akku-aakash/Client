@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import { authenticate, isAuth } from '../helpers/auth';
 import { Link, Redirect } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap'
 import Layout from '../core/Layout'
+import Menu from '../core/Menu'
 
 const Login = ({ history }) => {
   const [formData, setFormData] = useState({
@@ -57,32 +58,35 @@ const Login = ({ history }) => {
 
 
   return (
-    <Layout title='Sign In' description='Enter your Account Details'>
-      {isAuth() ? <Redirect to='/' /> : null}
-      <ToastContainer />
-      <Form onSubmit={handleSubmit}>
-        <Form.Group>
-          <Form.Control type="email" placeholder="Enter email" onChange={handleChange('email')} value={email} />
-        </Form.Group>
-        <Form.Group>
-          <Form.Control type="password" placeholder="Password" onChange={handleChange('password1')} value={password1} />
-        </Form.Group>
-        <Button variant="danger" type="submit">
-          Sign In
+    <Fragment>
+      <Menu />
+      <Layout title='Sign In' description='Enter your Account Details'>
+        {isAuth() ? <Redirect to='/' /> : null}
+        <ToastContainer />
+        <Form onSubmit={handleSubmit}>
+          <Form.Group>
+            <Form.Control type="email" placeholder="Enter email" onChange={handleChange('email')} value={email} />
+          </Form.Group>
+          <Form.Group>
+            <Form.Control type="password" placeholder="Password" onChange={handleChange('password1')} value={password1} />
+          </Form.Group>
+          <Button variant="danger" type="submit">
+            Sign In
         </Button>
-        <Form.Group>
-          <Form.Text className="text-muted">
-            <h6>Don't have an account ?
+          <Form.Group>
+            <Form.Text className="text-muted">
+              <h6>Don't have an account ?
         <a href='/register' target='_self'>
-                <span className='ml-2'>Sign Up</span>
-              </a></h6>
-          </Form.Text>
-        </Form.Group>
-        <Form.Group>
-          <Link to='/users/password/forget'>Forget password?</Link>
-        </Form.Group>
-      </Form>
-    </Layout>
+                  <span className='ml-2'>Sign Up</span>
+                </a></h6>
+            </Form.Text>
+          </Form.Group>
+          <Form.Group>
+            <Link to='/users/password/forget'>Forget password?</Link>
+          </Form.Group>
+        </Form>
+      </Layout>
+    </Fragment>
   );
 };
 

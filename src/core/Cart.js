@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import Layout from './Layout';
-import Card from './Card';
+import Card from '../homeCore/CartPro';
 import { getCart } from '../helpers/CartHelper'
 import { Link } from 'react-router-dom';
 import Checkout from './Checkout';
+import '../style/maincart.css';
+import Menu from './Menu'
 
 const Cart = () => {
     const [items, setItems] = useState([]);
@@ -14,9 +16,7 @@ const Cart = () => {
 
     const showItems = items => {
         return (
-            <div>
-                <h2>Your cart has {`${items.length}`}</h2>
-                <hr />
+            <div className="maincart">
                 {
                     items.map((p, i) => (
                         <Card product={p}
@@ -32,36 +32,30 @@ const Cart = () => {
 
     const noItemsMessage = () => {
         return (
-            <h2>Your cart is empty. <br />
-                <Link to='/shop'>continue Shopping</Link>
-            </h2>
+            <Link className="maincart1" to='/shop'>Continue Shopping</Link>
         )
     }
 
     return (
-
-        <Layout title='shopping cart'
-            description='manage your cart items'>
-            <div>
-                {
-                    items.length > 0 ? showItems(items) : noItemsMessage()
-                }
-            </div>
-            <div className='col-6'>
-                <h2>Your cart summary</h2>
-                <hr />
-                <Checkout products={items} />
-            </div>
-        </Layout>
-
+        <Fragment >
+            <Menu />
+            <Layout title='Shopping Cart' description={`Your cart has ${items.length} products`}>
+                <div className="maincart2">
+                    <div className="maincart5">
+                        <div className="maincart3">
+                            {
+                                items.length > 0 ? showItems(items) : noItemsMessage()
+                            }
+                        </div>
+                        <div className="maincart4">
+                            <h2>Your cart summary</h2>
+                            <Checkout products={items} />
+                        </div>
+                    </div>
+                </div>
+            </Layout>
+        </Fragment>
     );
 }
 
 export default Cart;
-
-
-// <Card product={res.data}
-// showAtToCart={false}
-// cartUpdate={true}
-// showRemoveProductButton={true}
-// />

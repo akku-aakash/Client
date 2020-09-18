@@ -1,0 +1,60 @@
+.cartt{
+    background-color: #f0f0f0;
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+}
+@media screen and (max-width: 550px){
+    .cartt{
+        background-color: #f0f0f0;
+        width: 100% !important;
+        padding: 20px 0px;
+    }
+}
+.cartt1{
+    width: 100%;
+}
+.carttPic1 img{
+    width: 100%;
+    height: 35vh;
+}
+.cartt2 h3{
+    color: rgb(252, 32, 32);
+}
+.cartt3{
+    color: #ffa705;
+    margin-top: -10px;
+}
+.cartt4{
+
+}
+.bttncart{
+    text-align: center;
+    width: 90px;
+    height: 30px;
+    border-radius: 5px;
+    margin-right: 20px;
+    border: 2.5px solid #f1a519;
+    background-color:  #f1a519;
+    color: white;
+}
+.bttncart1{
+    text-align: center;
+    width: 90px;
+    height: 30px;
+    border-radius: 5px;
+    outline: none;
+    border: 2.5px solid tomato;
+    background-color: tomato;
+    color: white;
+}
+.carttAd1{
+    text-align: center;
+    width: 50%;
+    margin: auto;
+    margin-top: 20px;
+}
+.carttAd1 p{
+    font-weight: bold;
+    margin: 10px 0px 5px 0px;
+}

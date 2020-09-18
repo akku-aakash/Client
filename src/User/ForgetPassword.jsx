@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import { Form, Button } from 'react-bootstrap'
 import Layout from '../core/Layout';
+import Menu from '../core/Menu'
 
 const ForgetPassword = ({ history }) => {
   const [formData, setFormData] = useState({
@@ -44,6 +45,8 @@ const ForgetPassword = ({ history }) => {
 
 
   return (
+    <Fragment>
+    <Menu />
     <Layout title='Forget Password' description='Enter Your Email'>
       <ToastContainer />
       <Form onSubmit={handleSubmit}>
@@ -53,6 +56,7 @@ const ForgetPassword = ({ history }) => {
         <Button variant="danger" type="submit"> Submit </Button>
       </Form>
     </Layout>
+    </Fragment>
   );
 };
 

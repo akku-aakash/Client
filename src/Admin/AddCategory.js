@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import Layout from '../core/Layout';
 import { isAuth, getCookie } from '../helpers/auth';
 import { toast, ToastContainer } from 'react-toastify';
 import { Form, Button } from 'react-bootstrap';
 import axios from 'axios';
+import Menu from '../core/Menu'
 
 const AddCategory = () => {
 
@@ -47,6 +48,8 @@ const AddCategory = () => {
     }
 
     return (
+        <Fragment>
+        <Menu />
         <Layout title='Category' description='Enter Category name' >
             <ToastContainer />
             <h1>Add category</h1>
@@ -59,6 +62,7 @@ const AddCategory = () => {
                 </Button>
             </Form>
         </Layout>
+        </Fragment>
     );
 }
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import jwt from 'jsonwebtoken';
@@ -6,6 +6,7 @@ import { isAuth } from '../helpers/auth';
 import { Redirect } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap'
 import Layout from '../core/Layout';
+import Menu from '../core/Menu'
 
 const Activate = ({ match }) => {
   const [formData, setFormData] = useState({
@@ -49,6 +50,8 @@ const Activate = ({ match }) => {
   };
 
   return (
+    <Fragment>
+    <Menu />
     <Layout title='Account Activation' description='Activate Your Account'>
     <div className='min-h-screen bg-gray-100 text-gray-900 flex justify-center'>
       {isAuth() ? <Redirect to='/' /> : null}
@@ -72,6 +75,7 @@ const Activate = ({ match }) => {
 
     </div>
     </Layout>
+    </Fragment>
   );
 };
 

@@ -4,6 +4,7 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify'
 import Carddd from '../core/Carddd';
 import AliceCarousel from 'react-alice-carousel'
+import Menu from '../core/Menu'
 
 const Unique = () => {
     const [productByPhoto, setProductByPhoto] = useState([])
@@ -13,7 +14,7 @@ const Unique = () => {
 
     const loadProductByPhoto = () => {
         axios
-            .get(`${process.env.REACT_APP_API_URL}/products/by/sub/category?subCategory=5f5e4394fa54ca2988fb3e9e`)
+            .get(`${process.env.REACT_APP_API_URL}/products/by/sub/category?subCategory=5f5f134a0f137d00170ba267`)
             .then(res => {
                 setProductByPhoto(res.data);
             })
@@ -24,7 +25,7 @@ const Unique = () => {
 
     const loadProductByGreeting = () => {
         axios
-            .get(`${process.env.REACT_APP_API_URL}/products/by/sub/category?subCategory=5f5e437dfa54ca2988fb3e9c`)
+            .get(`${process.env.REACT_APP_API_URL}/products/by/sub/category?subCategory=5f5f135b0f137d00170ba269`)
             .then(res => {
                 setProductByGreeting(res.data);
             })
@@ -35,7 +36,7 @@ const Unique = () => {
 
     const loadProductByQuirky = () => {
         axios
-            .get(`${process.env.REACT_APP_API_URL}/products/by/sub/category?subCategory=5f5e4388fa54ca2988fb3e9d`)
+            .get(`${process.env.REACT_APP_API_URL}/products/by/sub/category?subCategory=5f5f136c0f137d00170ba26a`)
             .then(res => {
                 setProductByQuirky(res.data);
             })
@@ -46,7 +47,7 @@ const Unique = () => {
 
     const loadProductByVirtual = () => {
         axios
-            .get(`${process.env.REACT_APP_API_URL}/products/by/sub/category?subCategory=5f5e4388fa54ca2988fb3e9d`)
+            .get(`${process.env.REACT_APP_API_URL}/products/by/sub/category?subCategory=5f5f137c0f137d00170ba26b`)
             .then(res => {
                 setProductByVirtual(res.data);
             })
@@ -121,6 +122,8 @@ const Unique = () => {
 
     return (
         <div className="unique">
+            <Menu />
+            <ToastContainer />
             <div className="pro14">
                 <h2 style={{ textAlign: 'center' }}>Greeting Cards</h2>
                 <div className="pro15">
