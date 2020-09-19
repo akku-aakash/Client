@@ -1,6 +1,93 @@
 .diy{
     background-color: #f0f0f0;
 }
+.diy2{
+    height: 65vh;
+    padding-top: 60px;
+    margin-bottom: 25px;
+}
+.diy3{
+    background: linear-gradient(90deg, palegreen, rgb(248, 139, 139));
+    background-color: wheat;
+    width: 85%;
+    height: 55vh;
+    margin: auto;
+    border-radius: 55px;
+}
+.diy4{
+    width: 82%;
+    margin: auto;
+    background-color: rgb(157, 207, 236);
+    height: 62vh;
+    position: relative;
+    top: -25px;
+    border-radius: 50px;
+    overflow: hidden;
+}
+.diy5 img{
+    height: 55vh;
+}
+.diy6{
+    position: absolute;
+    top: 170px;
+    left: 10%;
+}
+.diy6 h3{
+    font-size: 35px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS';
+}
+.diy6 h5{
+    font-size: 21px;
+}
+.diy7{
+    position: absolute;
+    top: 5px;
+    left: 45%;
+}
+.diy7 img{
+    height: 70vh;
+}
+.diy8{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.diy8 img{
+    height: 55vh;
+}
+@media screen and (max-width : 950px){
+    .diy3{
+        width: 95%;
+    }
+    .diy4{
+        width: 90%;
+    }
+    .diy6 h3{
+        font-size: 32px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS';
+    }
+    .diy6 h5{
+        font-size: 19.5px;
+    }
+}
+@media screen and (max-width : 700px){
+    .diy3{
+        width: 100%;
+    }
+    .diy4{
+        width: 90%;
+    }
+    .diy6 h3{
+        font-size: 32px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS';
+    }
+    .diy6 h5{
+        font-size: 19.5px;
+    }
+    .diy7 img{
+        height: 0vh;
+    }
+}
 .unique{
     background-color: #f0f0f0;
 }
@@ -17,7 +104,7 @@
     padding-top: 15px;
 }
 .diy121{
-    width: 150px;
+    width: 130px;
     height: 50px;
     margin-top: 40px !important;
     margin-bottom: 80px !important;

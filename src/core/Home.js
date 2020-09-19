@@ -13,8 +13,10 @@ import Serv from '../images_icons/rocking.svg'
 import Cel from '../images_icons/cel.jfif'
 import Cel1 from '../images_icons/cell1.jfif'
 import Menu from './Menu'
+import Loading from '../homeCore/LoadingPage';
 
 const Home = () => {
+  const [loading, setLoading] = useState(true);
   const [productBySell, setProductBySell] = useState([])
   const [productByArrival, setProductByArrival] = useState([])
   const [productByExp, setProductByExp] = useState([]);
@@ -25,6 +27,7 @@ const Home = () => {
       .get(`${process.env.REACT_APP_API_URL}/products/by/category?category=5f5f13b20f137d00170ba26c`)
       .then(res => {
         setProductBySell(res.data);
+        setLoading(false);
       })
       .catch(err => {
         toast.error(`Server Error`, err);
@@ -102,7 +105,8 @@ const Home = () => {
 
   const responsive = {
     0: { items: 1 },
-    1024: { items: 3 },
+    800: { items: 2 },
+    1200: { items: 3 },
   }
 
   return (
@@ -113,11 +117,10 @@ const Home = () => {
           <Row>
             <Col sm={12} md={4}>
               <div className="home1">
-                <a href="https://www.instagram.com/axactstudios/" rel="noopener noreferrer" target="_blank"><i className="fa fa-google-plus"></i></a>
+              <a href="https://www.instagram.com/axactstudios/" rel="noopener noreferrer" target="_blank"><i className="fa fa-whatsapp"></i></a>
                 <a href="https://www.instagram.com/axactstudios/" rel="noopener noreferrer" target="_blank"><i className="fa fa-facebook"></i></a>
                 <a href="https://www.instagram.com/axactstudios/" rel="noopener noreferrer" target="_blank" ><i className="fa fa-instagram"></i></a>
                 <a href="https://www.instagram.com/axactstudios/" rel="noopener noreferrer" target="_blank"><i className="fa fa-linkedin"></i></a>
-                <a href="https://www.instagram.com/axactstudios/" rel="noopener noreferrer" target="_blank"><i className="fa fa-github"></i></a>
               </div>
             </Col>
             <Col sm={12} md={4}>
@@ -146,7 +149,7 @@ const Home = () => {
         </div>
       </div>
       <div className="home9">
-        <h2 style={{ textAlign: 'center' }}>Top DIY Boxes</h2>
+        <h2 style={{ textAlign: 'center' }}>TOP DIY KITS</h2>
         <div className="home91">
           <div className="home94">
             <div className="home92">
@@ -164,26 +167,29 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="home10">
-          <AliceCarousel
-            items={state.galleryItems}
-            responsive={responsive}
-            autoPlayInterval={5000}
-            autoPlayDirection="rtl"
-            autoPlay={true}
-            fadeOutAnimation={true}
-            mouseTrackingEnabled={true}
-            playButtonEnabled={false}
-            disableAutoPlayOnAction={true}
-            dotsDisabled={true}
-          />
-        </div>
+        {
+          loading ? <Loading /> :
+            <div className="home10">
+              <AliceCarousel
+                items={state.galleryItems}
+                responsive={responsive}
+                autoPlayInterval={5000}
+                autoPlayDirection="rtl"
+                autoPlay={true}
+                fadeOutAnimation={true}
+                mouseTrackingEnabled={true}
+                playButtonEnabled={false}
+                disableAutoPlayOnAction={true}
+                dotsDisabled={true}
+              />
+            </div>
+        }
         <div className="home12">
           <Link to='/shop'> <p className="home121">View More</p></Link>
         </div>
       </div>
       <div className="home11">
-        <h2 style={{ textAlign: 'center' }}>Top Personalized Boxes</h2>
+        <h2 style={{ textAlign: 'center' }}>TOP UNIQUE GIFTS</h2>
         <div className="home111">
           <div className="home114">
             <div className="home112">
@@ -201,26 +207,29 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="home115">
-          <AliceCarousel
-            items={state1.galleryItems}
-            responsive={responsive}
-            autoPlayInterval={5000}
-            autoPlayDirection="rtl"
-            autoPlay={true}
-            fadeOutAnimation={true}
-            mouseTrackingEnabled={true}
-            playButtonEnabled={false}
-            disableAutoPlayOnAction={true}
-            dotsDisabled={true}
-          />
-        </div>
+        {
+          loading ? <Loading /> :
+            <div className="home115">
+              <AliceCarousel
+                items={state1.galleryItems}
+                responsive={responsive}
+                autoPlayInterval={5000}
+                autoPlayDirection="rtl"
+                autoPlay={true}
+                fadeOutAnimation={true}
+                mouseTrackingEnabled={true}
+                playButtonEnabled={false}
+                disableAutoPlayOnAction={true}
+                dotsDisabled={true}
+              />
+            </div>
+        }
         <div className="home12">
           <Link to='/shop'> <p className="home121">View More</p></Link>
         </div>
       </div>
-      <div className="home11">
-        <h2 style={{ textAlign: 'center' }}>Top Experiences Boxes</h2>
+      <div className="home1111">
+        <h2 style={{ textAlign: 'center', letterSpacing: '1.5px', fontWeight: 'bold' }}>TOP EXPERIENCES</h2>
         <div className="home111">
           <div className="home114">
             <div className="home112">
@@ -238,20 +247,23 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="home115">
-          <AliceCarousel
-            items={state2.galleryItems}
-            responsive={responsive}
-            autoPlayInterval={5000}
-            autoPlayDirection="rtl"
-            autoPlay={true}
-            fadeOutAnimation={true}
-            mouseTrackingEnabled={true}
-            playButtonEnabled={false}
-            disableAutoPlayOnAction={true}
-            dotsDisabled={true}
-          />
-        </div>
+        {
+          loading ? <Loading /> :
+            <div className="home115">
+              <AliceCarousel
+                items={state2.galleryItems}
+                responsive={responsive}
+                autoPlayInterval={5000}
+                autoPlayDirection="rtl"
+                autoPlay={true}
+                fadeOutAnimation={true}
+                mouseTrackingEnabled={true}
+                playButtonEnabled={false}
+                disableAutoPlayOnAction={true}
+                dotsDisabled={true}
+              />
+            </div>
+        }
         <div className="home12">
           <Link to='/shop'> <p className="home121">View More</p></Link>
         </div>

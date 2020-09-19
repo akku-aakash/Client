@@ -120,7 +120,7 @@ body{
     min-height: 50px;
 }
 .home6{
-    background-color: rgb(50, 204, 204);
+    background-color: #17bbd0;
     height: 67vh;
     width: 100%;
     overflow: hidden !important;
@@ -166,9 +166,26 @@ body{
     font-size: 22px;
     padding-left: 4px;
 }
+@media screen and (max-width : 450px) {
+    .home64{
+        position: absolute;
+        top: 22%;
+        left: 8%;
+        z-index: 12;
+    }
+    .home64 h2{
+        font-family:  Garamond,serif;
+        font-weight: bold;
+        font-size: 38px;
+    }
+    .home64 h4{
+        font-size: 22px;
+        padding-left: 4px;
+    }   
+}
 .home9{
-    height: 100vh;
-    background-color: rgb(242, 255, 230);
+    margin-bottom: 40px;
+    background-color: white;
 }
 .home9 h2{
     padding-top: 25px;
@@ -255,14 +272,18 @@ body{
     margin: -6px 0px;
 }
 .home11{
-    height: 100vh;
+    background-color: #f0f0f0 ;
+    padding-bottom: 40px;
+}
+.home1111{
+    margin: 30px 0;
     background-color: white;
 }
 .home111{
     height: 40px;
 }
 .home114{
-    width: 350px;
+    width: 332px;
     display: flex;
     margin: auto;
     margin-top: -8px;
@@ -478,8 +499,9 @@ body{
 
 
 .home14{
-    background-color:white;
-    margin: 50px 0;
+    background-color: #f0f0f0 ;
+    margin-top: 50px ;
+    padding-bottom: 50px;
 }
 .home141{
     margin-top: 40px;

@@ -5,6 +5,9 @@ import { ToastContainer, toast } from 'react-toastify'
 import Carddd from '../core/Carddd';
 import AliceCarousel from 'react-alice-carousel'
 import Menu from '../core/Menu'
+import Ballon from '../images_icons/Baloons.svg'
+import Deco from '../images_icons/bunting.svg'
+import Serv from '../images_icons/rocking.svg'
 
 const Unique = () => {
     const [productByPhoto, setProductByPhoto] = useState([])
@@ -124,6 +127,25 @@ const Unique = () => {
         <div className="unique">
             <Menu />
             <ToastContainer />
+            <div className="diy2">
+                <div className="diy3">
+                    <div className="diy4">
+                        <div className="diy5">
+                            <img src={Ballon} alt="" />
+                        </div>
+                        <div className="diy6">
+                            <h3>Welcome To BunnyBash</h3>
+                            <h5>Parties | Rentals | Moments</h5>
+                        </div>
+                        <div className="diy7">
+                            <img src={Serv} alt="" />
+                        </div>
+                        <div className="diy8">
+                            <img src={Deco} alt="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div className="pro14">
                 <h2 style={{ textAlign: 'center' }}>Greeting Cards</h2>
                 <div className="pro15">

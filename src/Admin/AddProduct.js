@@ -9,6 +9,7 @@ import isLength from 'validator/lib/isLength'
 import Menu from '../core/Menu'
 
 const AddProduct = () => {
+    
     const [values, setValues] = useState({
         name: '',
         description: '',
@@ -26,6 +27,7 @@ const AddProduct = () => {
         exclusive: [{ name: '' }],
         beforeyoubuy: [{ name: '' }],
     })
+
     const { name, description, price,
         categories, quantity, formData, category,
         subcategories, subCategory, descriptiona,

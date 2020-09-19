@@ -45,17 +45,17 @@ const Experience = () => {
             });
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         loadProductByBallon()
         loadProductBySoul()
         loadProductBySurprise()
-    },[])
+    }, [])
 
     const responsive = {
         0: { items: 1 },
         1024: { items: 3 },
-      }
-    
+    }
+
     const state = {
         galleryItems: productByBallon
             .map((product, i) => {
@@ -94,9 +94,10 @@ const Experience = () => {
 
     return (
         <div>
+            <ToastContainer />
             <Menu />
             <div className="home11">
-                <h2 style={{ textAlign: 'center' }}>Top Personalized Boxes</h2>
+                <h2 style={{ textAlign: 'center' }}>Baloon Decoration</h2>
                 <div className="home111">
                     <div className="home114">
                         <div className="home112">
@@ -134,7 +135,7 @@ const Experience = () => {
                 </div>
             </div>
             <div className="home11">
-                <h2 style={{ textAlign: 'center' }}>Top Personalized Boxes</h2>
+                <h2 style={{ textAlign: 'center' }}>Surprise Delivery</h2>
                 <div className="home111">
                     <div className="home114">
                         <div className="home112">
@@ -172,7 +173,7 @@ const Experience = () => {
                 </div>
             </div>
             <div className="home11">
-                <h2 style={{ textAlign: 'center' }}>Top Personalized Boxes</h2>
+                <h2 style={{ textAlign: 'center' }}>Soul Ecstacy</h2>
                 <div className="home111">
                     <div className="home114">
                         <div className="home112">

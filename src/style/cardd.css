@@ -1,18 +1,19 @@
 .ch{
-    background-color: rgba(230, 251, 255,1);
-    max-width: 350px;
-    height: 48vh;
+    background-color: #c0fdf3;
+    max-width: 335px;
+    height: 49vh;
 }
-.ch1:hover{
+.ch:hover{
     text-decoration: none;
+    box-shadow: 5px 5px 15px #707070;
 }
 .ch2 img{
     width: 100%;
-    height: 33vh !important;
+    height: 34vh !important;
 }
 .ch3 h3{
     text-align: center;
-    color: white;
+    color: rgb(3, 3, 3);
     font-weight: 600;
     font-size: 25px;
     letter-spacing: 2px;
@@ -20,7 +21,7 @@
 .ch3 h4{
     text-align: center;
     color: red;
-    margin: -15px 0px 0px 0px;
+    margin: -12px 0px 0px 0px;
 }
 .ch4{
     text-align: center !important;
