@@ -77,10 +77,15 @@
     height: 35px;
 }
 .pro14{
-    background-color: rgb(148, 148, 148);
+    background-color: #f0f0f0;
     padding-top: 15px;
+    padding-bottom: 10px;
 }
-
+.pro1411{
+    background-color: #f0f0f0;
+    padding-top: 15px;
+    padding-bottom: 50px;
+}
 .alice-carousel__prev-btn,
 .alice-carousel__next-btn {
   display: inline-block !important;
@@ -93,23 +98,31 @@
 }
 
 .alice-carousel__next-btn {
-    position: relative;
-     left: 40.5% !important;
+     position: relative;
+     left: 45% !important;
 }
 
   .alice-carousel__prev-btn{
       position: relative;
-      left: 38.5% !important;
+      left: 39.8% !important;
+  }
+
+  @media screen and (max-width: 650px){
+    .alice-carousel__next-btn {
+        position: relative;
+        left: 45.5% !important;
+   }
+   
+     .alice-carousel__prev-btn{
+         position: relative;
+         left: 30.8% !important;
+     }
   }
   .alice-carousel__prev-btn [data-area]::after,
   .alice-carousel__next-btn [data-area]::after {
     position: relative;
     content: attr(data-area);
     text-transform: capitalize; }
-
-.alice-carousel__prev-btn {
-  text-align: right !important;
-}
 
 .alice-carousel__prev-btn-item,
 .alice-carousel__next-btn-item {
@@ -120,8 +133,16 @@
   border-radius: 50%;
   background-color:orange !important;
   color: white !important;
-  line-height: 40px; }
+  line-height: 40px; 
+}
+.alice-carousel__prev-btn-item{
+    padding-right: 3px;
+}
+.alice-carousel__next-btn-item{
+    padding-left: 3px;   
+}
 
   .alice-carousel__prev-btn-item:hover,
   .alice-carousel__next-btn-item:hover {
-    color: orange !important;}
+    color: #ff6a06 !important;
+}

@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { itemTotal } from '../helpers/CartHelper'
 import Bunny from '../images_icons/bunny.svg'
+import {FaUser, FaCartArrowDown, FaSearch} from 'react-icons/fa';
 
 const Menu = () => {
 
@@ -12,9 +13,9 @@ const Menu = () => {
                     <Link to="/"><img src={Bunny} alt="" /></Link>
                 </div>
                 <div className="home4">
-                    <Link to="/cart"><i className="fa fa-shopping-cart"></i> <sup><small>{itemTotal()}</small></sup></Link>
-                    <Link to="/user/dashboard"><i className="fa fa-user"></i></Link>
-                    <Link to="/shop"><i className="fa fa-search"></i></Link>
+                    <Link to="/cart"><p><FaCartArrowDown/></p><sup><small>{itemTotal()}</small></sup></Link>
+                    <Link to="/user/dashboard"><p><FaUser/></p></Link>
+                    <Link to="/shop"><p><FaSearch /></p></Link>
                 </div>
             </div>
             <div className="home5">

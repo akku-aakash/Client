@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify'
 import { Container, Row, Col } from 'react-bootstrap';
 import Cardd from './Cardd';
+import Cardd1 from './Cardd1';
+import Cardd2 from './Cardd2';
 import '../style/home.css'
 import AliceCarousel from 'react-alice-carousel'
 import "react-alice-carousel/lib/alice-carousel.css";
@@ -84,7 +86,7 @@ const Home = () => {
       .map((product, i) => {
         return (
           <div>
-            <Cardd key={i} product={product} />
+            <Cardd1 key={i} product={product} />
           </div>
         )
       }
@@ -96,7 +98,7 @@ const Home = () => {
       .map((product, i) => {
         return (
           <div>
-            <Cardd key={i} product={product} />
+            <Cardd2 key={i} product={product} />
           </div>
         )
       }
@@ -117,10 +119,11 @@ const Home = () => {
           <Row>
             <Col sm={12} md={4}>
               <div className="home1">
-                <a href="https://www.instagram.com/axactstudios/" rel="noopener noreferrer" target="_blank"><i className="fa fa-whatsapp"></i></a>
-                <a href="https://www.instagram.com/axactstudios/" rel="noopener noreferrer" target="_blank"><i className="fa fa-facebook"></i></a>
-                <a href="https://www.instagram.com/axactstudios/" rel="noopener noreferrer" target="_blank" ><i className="fa fa-instagram"></i></a>
-                <a href="https://www.instagram.com/axactstudios/" rel="noopener noreferrer" target="_blank"><i className="fa fa-linkedin"></i></a>
+                <a href="https://wa.link/963jrk" rel="noopener noreferrer" target="_blank"><i className="fa fa-whatsapp"></i></a>
+                <a href="https://www.facebook.com/bunnybash.in/" rel="noopener noreferrer" target="_blank"><i className="fa fa-facebook"></i></a>
+                <a href="https://www.instagram.com/bunnybash_india/" rel="noopener noreferrer" target="_blank" ><i className="fa fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/bunny-bash-events-and-rentals/" rel="noopener noreferrer" target="_blank"><i className="fa fa-linkedin"></i></a>
+                <a href="https://twitter.com/bunnybash_in" rel="noopener noreferrer" target="_blank"><i className="fa fa-twitter"></i></a>
               </div>
             </Col>
             <Col sm={12} md={4}>

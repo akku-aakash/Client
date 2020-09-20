@@ -30,6 +30,7 @@ import Exp from './homeCore/Experience';
 import Special from './homeCore/SpecialSer';
 import Unique from './homeCore/Unique';
 import Footer from './core/Footer';
+import ErrorPage from './homeCore/ErrorPage';
 
 const Routes = () => {
 
@@ -61,6 +62,7 @@ const Routes = () => {
                     <AdminRoute path='/admin/product/update/:productId' exact component={UpdateProduct} />
                     <PrivateRoute path='/profile/:userId' exact component={Profile} />
                     <PrivateRoute path='/user/dashboard' exact component={Dashboard} />
+                    <Route component={ErrorPage} />
                 </Switch>
                 <Footer />
             </BrowserRouter>

@@ -24,8 +24,11 @@ body{
     line-height: 35px;
 }
 .home1 a{
-    padding: 0px 4.5px;
+    margin: 0px 2.5px;
+    padding: 0px 4px;
     color: black;
+    border: 2px solid #9c9c9c;
+    border-radius: 50px;
 }
 @media screen and (max-width: 800px){
     .home{
@@ -48,10 +51,10 @@ body{
 }
 .home2 img{
     width: 250px;
-    height: 60px;
+    height: 50px;
     line-height: 80px;
     position: relative;
-    margin-top: 9px;
+    margin-top: 12px;
     z-index: 8;
 }
 .home4{
@@ -63,18 +66,19 @@ body{
     justify-content: flex-end;
     padding-right: 70px;
 }
-.home4 a{
-    font-size: 35px;
+.home4 p{
+    font-size: 32px;
     line-height: 80px;
-    padding: 0px 10px;
+    margin: 0 9px;
     color: rgb(247, 196, 30);
 }
 @media screen and (max-width: 770px){
     .home4{
         padding-right: 20px;
     }
-    .home4 a{
+    .home4 p{
         font-size: 34px;
+        margin: 0 7px;
     }
     .home22{
         width: 250px;
@@ -94,9 +98,9 @@ body{
     .home4{
         padding-right: 10px;
     }
-    .home4 a{
-        font-size: 30px;
-        padding: 0px 6px;
+    .home4 p{
+        font-size: 28px;
+        margin: 0px 4px;
     }
     .home22{
         width: 200px;
@@ -604,6 +608,13 @@ body{
     padding-top: 10px;
     list-style-type: none;
 }
+.home18 ul li a{
+    color: white;
+}
+.home18 ul li a:hover{
+    color: white;
+    text-decoration: none;
+}
 .home19{
     width: 90%;
     text-align: center;
@@ -618,6 +629,13 @@ body{
 .home19 ul{
     padding-top: 10px;
     list-style-type: none;
+}
+.home19 ul li a{
+    color: white;
+}
+.home19 ul li a:hover{
+    color: white;
+    text-decoration: none;
 }
 .home20{
     width: 90%;
@@ -646,12 +664,23 @@ body{
     margin-bottom: 20px;
     margin-left: 60px;
 }
+.home20 input::placeholder{
+    color: rgb(180, 180, 180);
+    font-size: 14px;
+}
 .home20 button{
     border: 2px solid white !important;
     outline: none;
     background-color: white;
     border-radius: 2px;
     padding: 0px 3px;
+    margin-left: 60px;
+}
+.home20 h6{
+    font-size: 15px;
+    padding-top: 15px;
+    padding-bottom: 2px;
+    color: white;
     margin-left: 60px;
 }
 @media screen and (max-width: 700px){

@@ -177,7 +177,7 @@ const Products = (props) => {
                     </div>
                 </div>
             </div>
-            <div className="pro14">
+            <div className="pro1411">
                 <h2 style={{ textAlign: 'center' }}>Related Products</h2>
                 <div className="pro15">
                     <div className="home114">
@@ -208,6 +208,7 @@ const Products = (props) => {
                         playButtonEnabled={false}
                         disableAutoPlayOnAction={true}
                         dotsDisabled={true}
+                        buttonsDisabled={true}
                     />
                 </div>
             </div>

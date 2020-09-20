@@ -1,7 +1,28 @@
 .ch{
     background-color: #c0fdf3;
     max-width: 335px;
-    border: 15px solid #c0fdf3;
+    border-top: 15px solid #c0fdf3;
+    border-left: 12px solid #c0fdf3;
+    border-right: 12px solid #c0fdf3;
+    border-bottom: 15px solid #c0fdf3;
+    box-sizing: border-box;
+}
+.chaaa1{
+    background-color: #ffcdb2;
+    max-width: 335px;
+    border-top: 15px solid #ffcdb2;
+    border-left: 12px solid #ffcdb2;
+    border-right: 12px solid #ffcdb2;
+    border-bottom: 15px solid #ffcdb2;
+    box-sizing: border-box;
+}
+.chaaa2{
+    background-color: #ffc4d6;
+    max-width: 335px;
+    border-top: 15px solid #ffc4d6;
+    border-left: 12px solid #ffc4d6;
+    border-right: 12px solid #ffc4d6;
+    border-bottom: 15px solid #ffc4d6;
     box-sizing: border-box;
 }
 .ch:hover{

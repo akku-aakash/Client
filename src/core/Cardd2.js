@@ -54,7 +54,7 @@ const Cardd = ({ product,
     }
 
     return (
-        <div className="ch">
+        <div className="chaaa2">
             <div className="ch1">
                 {shouldRedirect(redirect)}
                 <Link className="ch1" to={`/product/${product._id}`}>

@@ -19,11 +19,11 @@ const Footer = () => {
                             <div className="home18">
                                 <h3>Quick Link</h3>
                                 <ul>
-                                    <li>Bunny's Blog</li>
-                                    <li>Products</li>
-                                    <li>Services</li>
-                                    <li>Contact Us</li>
-                                    <li>FAQ</li>
+                                    <li><a href="jdfakkl">Bunny's Blog</a></li>
+                                    <li><a href="jdfakkl">Products</a></li>
+                                    <li><a href="jdfakkl">Services</a></li>
+                                    <li><a href="jdfakkl">Contact Us</a></li>
+                                    <li><a href="jdfakkl">FAQ</a></li>
                                 </ul>
                             </div>
                         </Col>
@@ -31,11 +31,11 @@ const Footer = () => {
                             <div className="home19">
                                 <h3>Follow Us</h3>
                                 <ul>
-                                    <li>Bunny's Blog</li>
-                                    <li>Products</li>
-                                    <li>Services</li>
-                                    <li>Contact Us</li>
-                                    <li>FAQ</li>
+                                <li><a href="jdfakkl">Bunny's Blog</a></li>
+                                <li><a href="jdfakkl">Products</a></li>
+                                <li><a href="jdfakkl">Services</a></li>
+                                <li><a href="jdfakkl">Contact Us</a></li>
+                                <li><a href="jdfakkl">FAQ</a></li>
                                 </ul>
                             </div>
                         </Col>
@@ -45,6 +45,7 @@ const Footer = () => {
                                 <h5>Stay up to date with our latest products.</h5>
                                 <input type="email" placeholder="Enter You Email Adress" /><br />
                                 <button>Submit</button>
+                                <h6>Contact Us :- 7760 299 299</h6>
                             </div>
                         </Col>
                     </Row>
