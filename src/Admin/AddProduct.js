@@ -9,7 +9,7 @@ import isLength from 'validator/lib/isLength'
 import Menu from '../core/Menu'
 
 const AddProduct = () => {
-    
+
     const [values, setValues] = useState({
         name: '',
         description: '',
@@ -26,12 +26,14 @@ const AddProduct = () => {
         inclusive: [{ name: '' }],
         exclusive: [{ name: '' }],
         beforeyoubuy: [{ name: '' }],
+        fakeprice: '',
+        active: ''
     })
 
     const { name, description, price,
         categories, quantity, formData, category,
         subcategories, subCategory, descriptiona,
-        inclusive, exclusive, beforeyoubuy} = values;
+        inclusive, exclusive, beforeyoubuy, fakeprice } = values;
 
     const loadCategory = () => {
         axios
@@ -214,8 +216,12 @@ const AddProduct = () => {
                         <Form.Control as="textarea" rows="4" placeholder="Enter Description" value={description} onChange={handleChange('description')} />
                     </Form.Group>
                     <Form.Group >
-                        <Form.Label>Price</Form.Label>
+                        <Form.Label>Actual Price</Form.Label>
                         <Form.Control type="number" placeholder="price" value={price} onChange={handleChange('price')} />
+                    </Form.Group>
+                    <Form.Group >
+                        <Form.Label>Fake Price</Form.Label>
+                        <Form.Control type="number" placeholder="fake price" value={fakeprice} onChange={handleChange('fakeprice')} />
                     </Form.Group>
                     <Form.Group >
                         <Form.Label>Choose Subcategy </Form.Label><br />
@@ -235,6 +241,14 @@ const AddProduct = () => {
                     <Form.Group >
                         <Form.Label>Shipping Available</Form.Label><br />
                         <select onChange={handleChange('shipping')} >
+                            <option>Please Select</option>
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </Form.Group>
+                    <Form.Group >
+                        <Form.Label>Product Active Status</Form.Label><br />
+                        <select onChange={handleChange('active')} >
                             <option>Please Select</option>
                             <option value="0">No</option>
                             <option value="1">Yes</option>

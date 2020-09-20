@@ -68,7 +68,7 @@
 .addmin{
     overflow: hidden;
     display: flex;
-    margin-top: -32.5px;
+    border-top: 2px solid rgb(160, 160, 160);
 }
 .admin{
     background-color: #da800c;
@@ -103,7 +103,14 @@
     color: white;
 }
 .admin2{
+    width: 84.8%;
 }
-.admin3 h3{
+.admin3 ul{
+    list-style-type: none;
+}
+.admin3 ul li{
+    opacity: 1;
     text-align: center;
+    font-size: 40px;
+    font-weight: bolder;
 }

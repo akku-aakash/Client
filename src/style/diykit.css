@@ -7,7 +7,7 @@
     margin-bottom: 25px;
 }
 .diy3{
-    background: linear-gradient(90deg, palegreen, rgb(248, 139, 139));
+    background: linear-gradient(90deg, #33e7ff, rgb(248, 139, 139));
     background-color: wheat;
     width: 85%;
     height: 55vh;
@@ -17,7 +17,7 @@
 .diy4{
     width: 82%;
     margin: auto;
-    background-color: rgb(157, 207, 236);
+    background-color: #33ffdd;
     height: 62vh;
     position: relative;
     top: -25px;

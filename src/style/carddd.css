@@ -3,18 +3,22 @@
     height: 24vh !important;
 }
 .chh{
-    background-color: rgba(230, 251, 255,1);
+    background-color: rgba(51, 255, 221, 0.7);;
     max-width: 250px;
-    min-height: 36vh;
+    min-height: 38.5vh;
+    border-top: 14px solid rgba(51, 255, 221, 0.7);
+    border-left: 12px solid rgba(51, 255, 221, 0.7);
+    border-right: 12px solid rgba(51, 255, 221, 0.7);
+    box-sizing: border-box;
 }
 .chh1:hover{
     text-decoration: none;
 }
 .chh3 h3{
     text-align: center;
-    color: black;
+    color: rgb(73, 73, 73);
     font-weight: 600;
-    font-size: 21px;
+    font-size: 20.5px;
     letter-spacing: 2px;
 }
 .chh3 h4{

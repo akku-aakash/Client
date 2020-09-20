@@ -12,7 +12,7 @@ const Card = ({ product,
     showRemoveProductButton = false }) => {
 
 
-    const { _id, name, description,price, quantity } = product;
+    const { _id, name, description, price, quantity } = product;
 
     const [proo, setProo] = useState({
         _id,
@@ -110,19 +110,22 @@ const Card = ({ product,
                             <div className="card2">
                                 <h2>{product.name} </h2>
                                 {
-                                    product.quantity > 0 ? <p>In stock</p> : <p>Out of Stock</p>
+                                    product.quantity > 0 ? <p style={{ color: 'green', fontWeight: 'bold' }}>In stock</p> : <p style={{ color: 'red', fontWeight: 'bold' }}>Out of Stock</p>
                                 }
-                                <h3><i className="fa fa-inr"></i>{product.price}</h3>
+                                {
+                                    product.active == 1 ?  <p style={{ color: 'green', fontWeight: 'bold' }}>Active</p> : <p style={{ color: 'red', fontWeight: 'bold' }}>Not Active Currently</p>
+                                }
+                                <h3><i className="fa fa-inr"></i>{product.price}  <span>{product.fakeprice}</span></h3> 
                                 <p>FREE Shipping</p>
                                 <p>{product.description.substring(0, 300)}</p>
                                 <div className="card3">
                                     <div className="card4">
                                         <input type="text" placeholder="Pin Code" />
-                                        <p>Pin Code Availability</p>
+                                        <p>Delivery Availability</p>
                                     </div>
                                     <div className="card4">
-                                        <input type="text" placeholder="Apply Promo Code" />
-                                        <p>Promo Code Availability</p>
+                                        <input type="text" placeholder="Promo Code" />
+                                        <p>Promo Code</p>
                                     </div>
                                 </div>
                                 <Link to={`/product/${product._id}`}>
