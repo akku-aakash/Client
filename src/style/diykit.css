@@ -33,11 +33,13 @@
     left: 10%;
 }
 .diy6 h3{
-    font-size: 35px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS';
+    font-size: 38px;
+    font-weight: bold;
+    font-family: "Shadows Into Light";
 }
 .diy6 h5{
     font-size: 21px;
+    font-family: "Shadows Into Light";
 }
 .diy7{
     position: absolute;
@@ -64,7 +66,7 @@
     }
     .diy6 h3{
         font-size: 32px;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS';
+        font-family: "Shadows Into Light";
     }
     .diy6 h5{
         font-size: 19.5px;
@@ -78,8 +80,8 @@
         width: 90%;
     }
     .diy6 h3{
-        font-size: 32px;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS';
+        font-size: 31px;
+        font-family: "Shadows Into Light";
     }
     .diy6 h5{
         font-size: 19.5px;

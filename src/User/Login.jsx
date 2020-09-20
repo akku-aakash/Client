@@ -4,8 +4,9 @@ import axios from 'axios';
 import { authenticate, isAuth } from '../helpers/auth';
 import { Link, Redirect } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap'
-import Layout from '../core/Layout'
 import Menu from '../core/Menu'
+import '../style/login.css'
+import Love from '../images_icons/login.svg'
 
 const Login = ({ history }) => {
   const [formData, setFormData] = useState({
@@ -59,33 +60,47 @@ const Login = ({ history }) => {
 
   return (
     <Fragment>
+      <ToastContainer />
+      {isAuth() ? <Redirect to='/' /> : null}
       <Menu />
-      <Layout title='Sign In' description='Enter your Account Details'>
-        {isAuth() ? <Redirect to='/' /> : null}
-        <ToastContainer />
-        <Form onSubmit={handleSubmit}>
-          <Form.Group>
-            <Form.Control type="email" placeholder="Enter email" onChange={handleChange('email')} value={email} />
-          </Form.Group>
-          <Form.Group>
-            <Form.Control type="password" placeholder="Password" onChange={handleChange('password1')} value={password1} />
-          </Form.Group>
-          <Button variant="danger" type="submit">
-            Sign In
-        </Button>
-          <Form.Group>
-            <Form.Text className="text-muted">
-              <h6>Don't have an account ?
-        <a href='/register' target='_self'>
-                  <span className='ml-2'>Sign Up</span>
-                </a></h6>
-            </Form.Text>
-          </Form.Group>
-          <Form.Group>
-            <Link to='/users/password/forget'>Forget password?</Link>
-          </Form.Group>
-        </Form>
-      </Layout>
+      <div className="login">
+        <div className="login1">
+          <div className="login11">
+            <h2>Tell us.</h2>
+            <h2>Your Special Dates will turn those into</h2>
+            <h2 className="login113">Memories</h2>
+          </div>
+          <div className="login12">
+            <img src={Love} alt="love img" />
+          </div>
+        </div>
+        <div className="login2">
+          <div className="login22">
+            <h2>Sign In <span>| Sign Up</span></h2>
+            <Form onSubmit={handleSubmit}>
+              <Form.Group >
+                <Form.Control type="email" placeholder="Enter email" onChange={handleChange('email')} value={email} />
+              </Form.Group>
+              <Form.Group >
+                <Form.Control type="password" placeholder="Password" onChange={handleChange('password1')} value={password1} />
+              </Form.Group>
+              <Form.Group className="login23">
+                <Link className="login27" to='/users/password/forget'>Forget password?</Link>
+              </Form.Group>
+              <Form.Group className="login26">
+                <Form.Text>
+                  <h6>Don't have an account ?
+                 <a href='/register' target='_self'>
+                      <span className='ml-2'>Sign Up</span>
+                    </a>
+                  </h6>
+                </Form.Text>
+              </Form.Group>
+              <Button className="login25" type="submit"> Log In</Button>
+            </Form>
+          </div>
+        </div>
+      </div>
     </Fragment>
   );
 };

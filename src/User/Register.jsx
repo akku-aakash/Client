@@ -4,8 +4,9 @@ import axios from 'axios';
 import { isAuth } from '../helpers/auth';
 import { Redirect } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap'
-import Layout from '../core/Layout';
 import Menu from '../core/Menu'
+import '../style/login.css'
+import Reg from '../images_icons/register.svg'
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -41,7 +42,6 @@ const Register = () => {
               password2: '',
               textChange: 'Submitted'
             });
-
             toast.success(res.data.message);
           })
           .catch(err => {
@@ -49,7 +49,8 @@ const Register = () => {
               ...formData,
               textChange: 'Sign Up'
             });
-            toast.error(err.response.data.errors);
+            toast.error(err.response);
+            console.log(err);
           });
       } else {
         toast.error("Passwords don't matches");
@@ -62,37 +63,46 @@ const Register = () => {
   return (
     <Fragment>
       <Menu />
-      <Layout title='Register' description='Enter Your Details'>
-        <div >
-          {isAuth() ? <Redirect to='/' /> : null}
-          <ToastContainer />
-          <Form onSubmit={handleSubmit}>
-            <Form.Group >
-              <Form.Control type="text" placeholder="name" onChange={handleChange('name')} value={name} />
-            </Form.Group>
-            <Form.Group>
-              <Form.Control type="email" placeholder="Enter email" onChange={handleChange('email')} value={email} />
-            </Form.Group>
-            <Form.Group>
-              <Form.Control type="password" placeholder="Password" onChange={handleChange('password1')} value={password1} />
-            </Form.Group>
-            <Form.Group>
-              <Form.Control type="password" placeholder="confirm Password" onChange={handleChange('password2')} value={password2} />
-            </Form.Group>
-            <Button variant="danger" type="submit">
-              {formData.textChange}
-            </Button>
-            <Form.Group>
-              <Form.Text className="text-muted">
-                <h6>Already have an account ?
-        <a href='/login' target='_self'>
-                    <span className='ml-4'>Sign In</span>
-                  </a></h6>
-              </Form.Text>
-            </Form.Group>
-          </Form>
+      {isAuth() ? <Redirect to='/' /> : null}
+      <ToastContainer />
+      <div className="reg">
+        <div className="reg1">
+          <div className="reg11">
+            <h2>Some people look for a beautiful place.</h2>
+            <h2>We make a place beautiful for you.</h2>
+          </div>
+          <div className="reg12">
+            <img src={Reg} alt="register image" />
+          </div>
         </div>
-      </Layout>
+        <div className="reg2">
+          <div className="reg21">
+            <h2>Sign Up <span>| Sign In</span></h2>
+            <Form onSubmit={handleSubmit}>
+              <Form.Group >
+                <Form.Control type="text" placeholder="name" onChange={handleChange('name')} value={name} />
+              </Form.Group>
+              <Form.Group>
+                <Form.Control type="email" placeholder="Enter email" onChange={handleChange('email')} value={email} />
+              </Form.Group>
+              <Form.Group>
+                <Form.Control type="password" placeholder="Password" onChange={handleChange('password1')} value={password1} />
+              </Form.Group>
+              <Form.Group>
+                <Form.Control type="password" placeholder="confirm Password" onChange={handleChange('password2')} value={password2} />
+              </Form.Group>
+              <Form.Group>
+                <Form.Text className="text-muted" className="reg23">
+                  <h6>Already have an account ?  <a href='/login' target='_self'><span>Sign In</span></a></h6>
+                </Form.Text>
+              </Form.Group>
+              <Button className="reg22" type="submit">
+                {formData.textChange}
+              </Button>
+            </Form>
+          </div>
+        </div>
+      </div>
     </Fragment>
   );
 };

@@ -51,30 +51,30 @@ const Activate = ({ match }) => {
 
   return (
     <Fragment>
-    <Menu />
-    <Layout title='Account Activation' description='Activate Your Account'>
-    <div className='min-h-screen bg-gray-100 text-gray-900 flex justify-center'>
-      {isAuth() ? <Redirect to='/' /> : null}
-      <ToastContainer />
-      <h1 className='text-2xl font-extrabold'>
-        Welcome {name}
-      </h1>
-      <Form onSubmit={handleSubmit} >
-        <Button variant="danger" type="submit">
-          <span className='ml-3'>Activate your Account</span>
-        </Button>
-        <Form.Group>
-          <Form.Text className="text-muted">
-            <h6>Signup again ? ?
+      <Menu />
+      <Layout title='Account Activation' description='Activate Your Account'>
+        <div className='min-h-screen bg-gray-100 text-gray-900 flex justify-center'>
+          {isAuth() ? <Redirect to='/' /> : null}
+          <ToastContainer />
+          <h1 className='text-2xl font-extrabold'>
+            Welcome {name}
+          </h1>
+          <Form onSubmit={handleSubmit} >
+            <Button variant="danger" type="submit">
+              <span className='ml-3'>Activate your Account</span>
+            </Button>
+            <Form.Group>
+              <Form.Text className="text-muted">
+                <h6>Signup again ? ?
                 <a href='/register' target='_self'>
-                <span className='ml-2'>Sign Up</span>
-              </a></h6>
-          </Form.Text>
-        </Form.Group>
-      </Form>
+                    <span className='ml-2'>Sign Up</span>
+                  </a></h6>
+              </Form.Text>
+            </Form.Group>
+          </Form>
 
-    </div>
-    </Layout>
+        </div>
+      </Layout>
     </Fragment>
   );
 };

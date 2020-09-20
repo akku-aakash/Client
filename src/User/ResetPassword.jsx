@@ -1,9 +1,10 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
-import {Form, Button} from 'react-bootstrap';
-import Layout from '../core/Layout';
+import { Form, Button } from 'react-bootstrap';
 import Menu from '../core/Menu'
+import '../style/login.css'
+import Forgot from '../images_icons/resetpass.svg'
 
 const ResetPassword = ({ match }) => {
   const [formData, setFormData] = useState({
@@ -58,22 +59,33 @@ const ResetPassword = ({ match }) => {
 
   return (
     <Fragment>
-    <Menu />
-    <Layout title='Reset Password' description='Enter Your Password'>
+      <Menu />
       <ToastContainer />
-      <Form onSubmit={handleSubmit} >
-        <Form.Group>
-          <Form.Control type="password" placeholder="Password" onChange={handleChange('password1')} value={password1} />
-        </Form.Group>
-        <Form.Group>
-          <Form.Control type="password" placeholder="Confirm Password" onChange={handleChange('password2')} value={password2} />
-        </Form.Group>
-        <Button variant="danger" type="submit">
-          Sign In
-        </Button>
-      </Form>
-      </Layout>
-      </Fragment>
+      <div className="reg">
+        <div className="reg1">
+          <div className="reg11">
+            <h2>Reset Password</h2>
+          </div>
+          <div className="reg12">
+            <img src={Forgot} alt="reset password pic" />
+          </div>
+        </div>
+        <div className="reg2">
+          <div className="reg21">
+            <h2>Enter Your Passwords</h2>
+            <Form onSubmit={handleSubmit} >
+              <Form.Group>
+                <Form.Control type="password" placeholder="Password" onChange={handleChange('password1')} value={password1} />
+              </Form.Group>
+              <Form.Group>
+                <Form.Control type="password" placeholder="Confirm Password" onChange={handleChange('password2')} value={password2} />
+              </Form.Group>
+              <Button className="reg22" type="submit">Submit</Button>
+            </Form>
+          </div>
+        </div>
+      </div>
+    </Fragment>
   );
 };
 

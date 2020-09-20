@@ -2,10 +2,11 @@ import React, { useState, Fragment } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import { Form, Button } from 'react-bootstrap'
-import Layout from '../core/Layout';
 import Menu from '../core/Menu'
+import '../style/login.css'
+import Forgot from '../images_icons/resetpass.svg'
 
-const ForgetPassword = ({ history }) => {
+const ForgetPassword = () => {
   const [formData, setFormData] = useState({
     email: ''
   });
@@ -46,16 +47,29 @@ const ForgetPassword = ({ history }) => {
 
   return (
     <Fragment>
-    <Menu />
-    <Layout title='Forget Password' description='Enter Your Email'>
       <ToastContainer />
-      <Form onSubmit={handleSubmit}>
-        <Form.Group>
-          <Form.Control type="email" placeholder="Enter email" onChange={handleChange('email')} value={email} />
-        </Form.Group>
-        <Button variant="danger" type="submit"> Submit </Button>
-      </Form>
-    </Layout>
+      <Menu />
+      <div className="reg">
+        <div className="reg1">
+          <div className="reg11">
+            <h2>Forgot Password</h2>
+          </div>
+          <div className="reg12">
+            <img src={Forgot} alt="forgot password pic" />
+          </div>
+        </div>
+        <div className="reg2">
+          <div className="reg21">
+            <h2>Enter Your Email</h2>
+            <Form onSubmit={handleSubmit}>
+              <Form.Group>
+                <Form.Control type="email" placeholder="Enter email" onChange={handleChange('email')} value={email} />
+              </Form.Group>
+              <Button className="reg22" type="submit"> Submit </Button>
+            </Form>
+          </div>
+        </div>
+      </div>
     </Fragment>
   );
 };

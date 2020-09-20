@@ -14,15 +14,16 @@
 .ch3 h3{
     text-align: center;
     color: rgb(77, 77, 77) !important;
-    font-weight: 600;
-    font-size: 24px;
+    font-weight: 800;
+    font-size: 28px;
     letter-spacing: 2px;
+    font-family: "Shadows Into Light";
 }
 .ch3 h4{
     text-align: center;
     color: rgb(223, 21, 21);
     font-size: 23px;
-    margin: -12px 0px 0px 0px;
+    margin: -10px 0px 0px 0px;
 }
 .ch4{
     text-align: center !important;

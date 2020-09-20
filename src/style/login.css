@@ -1,0 +1,211 @@
+.login{
+    display: flex;
+    flex-direction: row;
+    background-color: #f0f0f0;
+    padding-bottom: 30px;
+}
+@media screen and (max-width : 750px) {
+    .login{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
+.login1{
+    margin-top: 50px;
+    width: 60%;
+}
+.login11{
+    width: 60%;
+    margin: auto;
+}
+.login11 h2{
+    font-family: "Shadows Into Light";
+    font-weight: 800;
+    font-size: 32px;
+}
+.login113{
+    color: #f1bc19;
+}
+.login12 img{
+    width: 100%;
+    height: 50vh;
+}
+.login2{
+    width: 40%;
+}
+.login22{
+    width: 70%;
+    margin: auto;
+    margin-top: 80px;
+}
+.login22 h2{
+    font-family: "Shadows Into Light";
+    font-size: 34px;
+    padding-bottom: 20px;
+    font-weight: 700;
+    color: #f1bc19;
+}
+.login22 h2 span{
+    color: black;
+}
+.login25{
+    background-color: #f1bc19;
+    border: none;
+    border-radius: 3px;
+    font-style: italic;
+}
+.login25:hover{
+    background-color: #f1bc19;
+}
+.login26 h6{
+    font-style: italic;
+}
+.login26 a{
+    color: #f1bc19;
+}
+.login23{
+    margin-top: -8px !important;
+    width: 150px;
+}
+.login27{
+    margin-top: -50px !important;
+    color: rgb(245, 75, 75);
+    font-style: italic;
+}
+.login27:hover{
+    color: #f1bc19;
+    text-decoration: none;
+}
+@media screen and (max-width : 800px) {
+    .login{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .login2{
+        width: 100%;
+    }
+    .login1{
+        width: 100%;
+    }
+    .login11{
+        width: 70%;
+    }
+}
+@media screen and (max-width : 550px) {
+    .login22{
+        width: 80%;
+        margin-top: 40px;
+    }   
+    .login11{
+        width: 80%;
+    }
+    .login11 h2{
+        font-family: "Shadows Into Light";
+        font-size: 30px;
+    }
+}
+
+
+/**
+* REGISTER PAGE
+**/
+
+.reg{
+    display: flex;
+    background-color: #f0f0f0;
+    padding-bottom: 30px;
+}
+.reg1{
+    width: 60%;
+}
+.reg11{
+    width: 60%;
+    margin: auto;
+    margin-top: 50px;
+}
+.reg11 h2{
+    font-family: "Shadows Into Light";
+    font-weight: 800;
+    font-size: 32px;
+}
+.reg12 img{
+    width: 100%;
+    height: 70vh;
+}
+.reg2{
+    width: 40%;
+}
+.reg21{
+    width: 75%;
+    margin: auto;
+    margin-top: 80px;
+}
+.reg21 h2{
+    font-family: "Shadows Into Light";
+    font-size: 34px;
+    padding-bottom: 20px;
+    font-weight: 700;
+    color: #f1bc19;
+}
+.reg21 h2 span{
+    color: black;
+}
+.reg22{
+    background-color: #f1bc19;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    font-style: italic;
+}
+.reg22:hover{
+    background-color: #f1bc19;
+    text-decoration: none;
+}
+.reg23 h6{
+    font-style: italic;
+}
+.reg23 h6 a{
+    color: #f1bc19;
+}
+.reg23 h6 a:hover{
+    color: #f1bc19;
+}
+@media screen and (max-width : 950px) {
+    .reg1{
+        width: 50%;
+    }
+    .reg2{
+        width: 50%;
+    }
+    .reg11{
+        width: 70%;
+    }
+}
+@media screen and (max-width : 750px) {
+    .reg{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .reg2{
+        width: 100%;
+    }
+    .reg1{
+        width: 100%;
+    }
+    .reg11{
+        width: 80%;
+    }
+}
+@media screen and (max-width : 550px) {
+    .reg21{
+        width: 80%;
+        margin-top: 40px;
+    }   
+    .reg11{
+        width: 85%;
+    }
+    .reg11 h2{
+        font-family: "Shadows Into Light";
+        font-size: 30px;
+    }
+}
