@@ -131,7 +131,7 @@ const Experience = () => {
                     />
                 </div>
                 <div className="home12">
-                    <Link to='/shop'> <p className="home121">View More</p></Link>
+                    <Link to='/products/subCategory/5f5f13080f137d00170ba263'> <p className="home121">View More</p></Link>
                 </div>
             </div>
             <div className="home11">
@@ -169,7 +169,7 @@ const Experience = () => {
                     />
                 </div>
                 <div className="home12">
-                    <Link to='/shop'> <p className="home121">View More</p></Link>
+                    <Link to='/products/subCategory/5f5f131d0f137d00170ba264'> <p className="home121">View More</p></Link>
                 </div>
             </div>
             <div className="home11">
@@ -207,7 +207,7 @@ const Experience = () => {
                     />
                 </div>
                 <div className="home12">
-                    <Link to='/shop'> <p className="home121">View More</p></Link>
+                    <Link to='/products/subCategory/5f5f13300f137d00170ba265'> <p className="home121">View More</p></Link>
                 </div>
             </div>
         </div>

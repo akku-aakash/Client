@@ -156,7 +156,7 @@ const Diykits = () => {
                     />
                 </div>
                 <div className="diy121">
-                    <Link to='/products/subCategory/5f5e437dfa54ca2988fb3e9c'> <p className="diy122">View More</p></Link>
+                    <Link to='/products/subCategory/5f5f12b00f137d00170ba260'> <p className="diy122">View More</p></Link>
                 </div>
             </div>
             <div className="diy144">
@@ -194,7 +194,7 @@ const Diykits = () => {
                     />
                 </div>
                 <div className="diy121">
-                    <Link to='/products/subCategory/5f5e4394fa54ca2988fb3e9e'> <p className="diy122">View More</p></Link>
+                    <Link to='/products/subCategory/5f5f12f10f137d00170ba262'> <p className="diy122">View More</p></Link>
                 </div>
             </div>
             <div className="diy145">
@@ -232,7 +232,7 @@ const Diykits = () => {
                     />
                 </div>
                 <div className="diy121">
-                    <Link to='/products/subCategory/5f5e4388fa54ca2988fb3e9d'> <p className="diy122">View More</p></Link>
+                    <Link to='/products/subCategory/5f5f12ce0f137d00170ba261'> <p className="diy122">View More</p></Link>
                 </div>
             </div>
         </div>

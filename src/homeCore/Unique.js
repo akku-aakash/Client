@@ -181,7 +181,7 @@ const Unique = () => {
                     />
                 </div>
                 <div className="diy121">
-                    <Link to='/products/subCategory/5f5e437dfa54ca2988fb3e9c'> <p className="diy122">View More</p></Link>
+                    <Link to='/products/subCategory/5f5f135b0f137d00170ba269'> <p className="diy122">View More</p></Link>
                 </div>
             </div>
             <div className="diy144">
@@ -219,7 +219,7 @@ const Unique = () => {
                     />
                 </div>
                 <div className="diy121">
-                    <Link to='/products/subCategory/5f5e4394fa54ca2988fb3e9e'> <p className="diy122">View More</p></Link>
+                    <Link to='/products/subCategory/5f5f134a0f137d00170ba267'> <p className="diy122">View More</p></Link>
                 </div>
             </div>
             <div className="diy145">
@@ -257,7 +257,7 @@ const Unique = () => {
                     />
                 </div>
                 <div className="diy121">
-                    <Link to='/products/subCategory/5f5e4388fa54ca2988fb3e9d'> <p className="diy122">View More</p></Link>
+                    <Link to='/products/subCategory/5f5f136c0f137d00170ba26a'> <p className="diy122">View More</p></Link>
                 </div>
             </div>
             <div className="diy145">
@@ -295,7 +295,7 @@ const Unique = () => {
                     />
                 </div>
                 <div className="diy121">
-                    <Link to='/products/subCategory/5f5e4388fa54ca2988fb3e9d'> <p className="diy122">View More</p></Link>
+                    <Link to='/products/subCategory/5f5f137c0f137d00170ba26b'> <p className="diy122">View More</p></Link>
                 </div>
             </div>
         </div>

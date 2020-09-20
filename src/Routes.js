@@ -20,6 +20,7 @@ import AddProduct from './Admin/AddProduct';
 import ManageProduct from './Admin/ManageProducts';
 import UpdateProduct from './Admin/UpdateProducts';
 
+import CategoryPro from './core/CategoryPro';
 import Products from './core/Products';
 import Cart from './core/Cart';
 import Home from './core/Home';
@@ -49,6 +50,7 @@ const Routes = () => {
                     <Route path='/products/unique/gifts' exact render={props => <Unique {...props} />} />
 
                     <Route path='/product/:productId' exact component={Products} />
+                    <Route path='/products/subCategory/:productId' exact component={CategoryPro} />
                     <Route path='/cart' exact component={Cart} />
                     <AdminRoute path='/admin/dashboard' exact component={AdminDashboard} />
                     <AdminRoute path='/create/category' exact component={AddCategory} />
