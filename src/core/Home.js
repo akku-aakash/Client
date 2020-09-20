@@ -117,7 +117,7 @@ const Home = () => {
           <Row>
             <Col sm={12} md={4}>
               <div className="home1">
-              <a href="https://www.instagram.com/axactstudios/" rel="noopener noreferrer" target="_blank"><i className="fa fa-whatsapp"></i></a>
+                <a href="https://www.instagram.com/axactstudios/" rel="noopener noreferrer" target="_blank"><i className="fa fa-whatsapp"></i></a>
                 <a href="https://www.instagram.com/axactstudios/" rel="noopener noreferrer" target="_blank"><i className="fa fa-facebook"></i></a>
                 <a href="https://www.instagram.com/axactstudios/" rel="noopener noreferrer" target="_blank" ><i className="fa fa-instagram"></i></a>
                 <a href="https://www.instagram.com/axactstudios/" rel="noopener noreferrer" target="_blank"><i className="fa fa-linkedin"></i></a>
@@ -185,7 +185,7 @@ const Home = () => {
             </div>
         }
         <div className="home12">
-          <Link to='/shop'> <p className="home121">View More</p></Link>
+          <Link to='/products/diykit'> <p className="home121">View More</p></Link>
         </div>
       </div>
       <div className="home11">
@@ -225,7 +225,7 @@ const Home = () => {
             </div>
         }
         <div className="home12">
-          <Link to='/shop'> <p className="home121">View More</p></Link>
+          <Link to='/products/unique/gifts'> <p className="home121">View More</p></Link>
         </div>
       </div>
       <div className="home1111">
@@ -265,7 +265,7 @@ const Home = () => {
             </div>
         }
         <div className="home12">
-          <Link to='/shop'> <p className="home121">View More</p></Link>
+          <Link to='/products/experience'> <p className="home121">View More</p></Link>
         </div>
       </div>
       <div className="home14">

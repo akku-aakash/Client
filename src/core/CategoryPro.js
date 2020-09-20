@@ -17,7 +17,7 @@ const Products = (props) => {
     }, [props])
 
     const loadSingleProduct = subCatId => {
-        axios.get(`${process.env.REACT_APP_API_URL}/products/by/sub/category?subCategory=${subCatId}`)
+        axios.get(`${process.env.REACT_APP_API_URL}/products/by/sub/category?subCategory=${subCatId}&limit=50`)
             .then(res => {
                 setProduct(res.data)
             })
