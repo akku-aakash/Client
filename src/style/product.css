@@ -10,9 +10,6 @@
 .pro4 li{
     width: 25% !important;
 }
-.pro4 li{
-    width: 25% !important;
-}
 .pro4 li button{
     width: 100% !important;
     height: 45px;
@@ -48,6 +45,16 @@
     margin-left: 3%;
     padding-right: 60px;
     margin-top: 25px;
+}
+@media screen and (max-width: 750px){
+    .pro4 li button{
+        letter-spacing: 0px;
+        font-size:14px;
+        overflow: hidden;
+    }
+    .pro8{
+        width: 95%;
+    }
 }
 .pro8 ul{
     margin-left: 20px;

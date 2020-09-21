@@ -13,7 +13,7 @@ const Menu = () => {
                     <Link to="/"><img src={Bunny} alt="" /></Link>
                 </div>
                 <div className="home4">
-                    <Link to="/cart"><p><FaCartArrowDown/></p><sup><small>{itemTotal()}</small></sup></Link>
+                    <Link to="/cart"><p><FaCartArrowDown/><sup><small>{itemTotal()}</small></sup></p></Link>
                     <Link to="/user/dashboard"><p><FaUser/></p></Link>
                     <Link to="/shop"><p><FaSearch /></p></Link>
                 </div>

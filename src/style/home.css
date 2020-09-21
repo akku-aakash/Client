@@ -102,6 +102,12 @@ body{
         font-size: 28px;
         margin: 0px 4px;
     }
+    .home4 p sup{
+        font-size: 20px;
+        background-color: brown;
+        position: absolute;
+        top: 24px;
+    }
     .home22{
         width: 200px;
         margin: auto;
