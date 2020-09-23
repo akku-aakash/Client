@@ -13,7 +13,7 @@ const Menu = () => {
         hamburger.addEventListener("click", () => {
             navlinks.classList.toggle("open");
         })
-    })
+    },[])
 
     return (
         <Fragment>

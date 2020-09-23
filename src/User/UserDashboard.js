@@ -31,12 +31,6 @@ const UserDashboard = ({ history }) => {
     }
 
     useEffect(() => {
-        const hamburger = document.querySelector('.hamburger');
-        const navlinks = document.querySelector('.navlink')
-
-        hamburger.addEventListener("click", () => {
-            navlinks.classList.toggle("open");
-        })
         init()
     }, [])
 

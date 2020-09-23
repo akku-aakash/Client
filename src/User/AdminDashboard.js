@@ -1,17 +1,11 @@
 import React, { useEffect } from 'react';
-import { isAuth, signout } from '../helpers/auth';
+import { isAuth } from '../helpers/auth';
 import { Link } from 'react-router-dom';
 import Menu from '../core/Menu'
 
-const AdminDashboard = ({ history }) => {
+const AdminDashboard = () => {
 
     const { name, email } = isAuth();
-
-    const handleLogout = () => {
-        signout(() => {
-            history.push('/');
-        })
-    }
 
     useEffect(() => {
         const hamburgerr = document.querySelector('.nav_btn');
