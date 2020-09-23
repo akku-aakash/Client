@@ -2,10 +2,10 @@ import React, { useEffect, useState, Fragment } from 'react';
 import axios from "axios";
 import { isAuth, getCookie, updateUser } from '../helpers/auth';
 import { Form, Button } from 'react-bootstrap'
-import Layout from '../core/Layout';
+import Love from '../images_icons/login.svg'
 import Menu from '../core/Menu'
 
-const Profile = (props) => {
+const Profile = () => {
 
     const [values, setValues] = useState({
         name: '',
@@ -60,7 +60,7 @@ const Profile = (props) => {
                     }
                 }
             ).then((res) => {
-                updateUser( res.data , () => {
+                updateUser(res.data, () => {
                     setValues({
                         ...values,
                         name: res.data.name,
@@ -90,37 +90,51 @@ const Profile = (props) => {
     return (
         <Fragment>
             <Menu />
-            <Layout title='Update Profile' description={`Hey ${name} want to update your profile `}>
-                <Form onSubmit={clickSubmit}>
-                    <Form.Group controlId="formBasicName">
-                        <Form.Label>Name</Form.Label>
-                        <Form.Control type="text" onChange={handleChange('name')} value={name} placeholder="Enter email" />
-                    </Form.Group>
-                    <Form.Group >
-                        <Form.Label>Email</Form.Label>
-                        <Form.Control type="email" onChange={handleChange('email')} value={email} placeholder="Enter email" />
-                    </Form.Group>
-                    <Form.Group >
-                        <Form.Label>Street</Form.Label>
-                        <Form.Control type="text" onChange={handleChange('street')} value={street} placeholder="Enter house number and street" />
-                    </Form.Group>
-                    <Form.Group >
-                        <Form.Label>City</Form.Label>
-                        <Form.Control type="text" onChange={handleChange('city')} value={city} placeholder="Enter city" />
-                    </Form.Group>
-                    <Form.Group >
-                        <Form.Label>State</Form.Label>
-                        <Form.Control type="text" onChange={handleChange('state')} value={state} placeholder="Enter State" />
-                    </Form.Group>
-                    <Form.Group >
-                        <Form.Label>Phone</Form.Label>
-                        <Form.Control type="number" onChange={handleChange('phone')} value={phone} placeholder="Enter Phone number" />
-                    </Form.Group>
-                    <Button variant="primary" type="submit">
-                        Submit
-                    </Button>
-                </Form>
-            </Layout>
+            <div className="login">
+                <div className="login1">
+                    <div className="login11">
+                        <h2>Update Profile.</h2>
+                        <h2>Your Special Dates will turn those into</h2>
+                        <h2 className="login113">Memories</h2>
+                    </div>
+                    <div className="login12">
+                        <img src={Love} alt="love img" />
+                    </div>
+                </div>
+                <div className="login2">
+                    <div className="login22">
+                        <Form onSubmit={clickSubmit}>
+                            <Form.Group controlId="formBasicName">
+                                <Form.Label>Name</Form.Label>
+                                <Form.Control type="text" onChange={handleChange('name')} value={name} placeholder="Enter email" />
+                            </Form.Group>
+                            <Form.Group >
+                                <Form.Label>Email</Form.Label>
+                                <Form.Control type="email" onChange={handleChange('email')} value={email} placeholder="Enter email" />
+                            </Form.Group>
+                            <Form.Group >
+                                <Form.Label>Street</Form.Label>
+                                <Form.Control type="text" onChange={handleChange('street')} value={street} placeholder="Enter house number and street" />
+                            </Form.Group>
+                            <Form.Group >
+                                <Form.Label>City</Form.Label>
+                                <Form.Control type="text" onChange={handleChange('city')} value={city} placeholder="Enter city" />
+                            </Form.Group>
+                            <Form.Group >
+                                <Form.Label>State</Form.Label>
+                                <Form.Control type="text" onChange={handleChange('state')} value={state} placeholder="Enter State" />
+                            </Form.Group>
+                            <Form.Group >
+                                <Form.Label>Phone</Form.Label>
+                                <Form.Control type="number" onChange={handleChange('phone')} value={phone} placeholder="Enter Phone number" />
+                            </Form.Group>
+                            <Button className="login25" type="submit">
+                                Submit
+                            </Button>
+                        </Form>
+                    </div>
+                </div>
+            </div>
         </Fragment>
     );
 }

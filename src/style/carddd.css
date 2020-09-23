@@ -20,11 +20,11 @@
         border-left: 12px solid rgba(51, 255, 221, 0.7);
         border-right: 12px solid rgba(51, 255, 221, 0.7);
         box-sizing: border-box;
-        margin-left: 5px;
+        margin: 0px 15px;
     }
     .chh2 img{
         width: 100%;
-        height: 40vh !important;
+        height: 38vh !important;
     }
 }
 .chh1:hover{

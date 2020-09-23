@@ -116,6 +116,7 @@
 **/
 .ud00{
     background-color: #f0f0f0;
+    overflow: hidden;
 }
 .ud0{
     margin: 60px 0;
@@ -267,9 +268,9 @@
     width: (100% - 250px);
     padding: 20px;
     margin-left: 250px;
-    min-height: 98.5vh;
+    min-height: 80.5vh !important;
     transition: 0.5s;
-    margin-top: -98.4vh;
+    margin-top: -39.4% !important;
     position: relative;
     background-color: #f0f0f0;
   }
@@ -278,9 +279,9 @@
     width: (100% - 250px);
     padding: 20px;
     margin-left: 250px;
-    min-height: 98.5vh;
+    min-height: 80.5vh !important;
     transition: 0.5s;
-    margin-top: -98.4vh;
+    margin-top: -39.4% !important;
     position: relative;
     background-color: #f0f0f0;
   }
