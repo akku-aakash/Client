@@ -1,74 +1,111 @@
-import React, { useState, useEffect, Fragment } from 'react';
-import Layout from '../core/Layout';
-import {isAuth, getCookie} from '../helpers/auth';
+import React, { useState, useEffect } from 'react';
+import { isAuth, getCookie } from '../helpers/auth';
 import axios from "axios";
-import {toast, ToastContainer} from 'react-toastify'
-import {Link} from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify'
+import { Link } from 'react-router-dom';
 import Menu from '../core/Menu'
 
 const ManageProducts = () => {
     const [products, setProducts] = useState([]);
-    
+
     const token = getCookie('token');
-    const {_id} = isAuth();
+    const { _id } = isAuth();
 
     const getProducts = () => {
         axios
-        .get(`${process.env.REACT_APP_API_URL}/product?limit=undefined`,
-            {
-                headers: {
-                    Authorization: `Bearer ${token}`
+            .get(`${process.env.REACT_APP_API_URL}/product?limit=undefined`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
                 }
-            }
-        )
-          .then(res => setProducts(res.data))
-          .catch(err => console.error(err));
+            )
+            .then(res => setProducts(res.data))
+            .catch(err => console.error(err));
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         getProducts();
-    },[]);
-    
+        const hamburgerr = document.querySelector('.nav_btn');
+        const navlinksss = document.querySelector('.mobile_nav_items')
 
-    const deleteProducts =(productId) => {
-        axios
-          .delete(`${process.env.REACT_APP_API_URL}/product/${productId}/${_id}`,
-          {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
+        hamburgerr.addEventListener("click", () => {
+            navlinksss.classList.toggle("active");
         })
-          .then(res => {
-              getProducts();
-              toast('Product deleted successfully')
-          })
-          .catch(err => console.error(err));
+    }, []);
+
+
+    const deleteProducts = (productId) => {
+        axios
+            .delete(`${process.env.REACT_APP_API_URL}/product/${productId}/${_id}`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                })
+            .then(res => {
+                getProducts();
+                toast('Product deleted successfully')
+            })
+            .catch(err => console.error(err));
     }
 
 
     return (
-        <Fragment>
-        <Menu />
-        <Layout title='Manage Products' description = {`${isAuth().name} manage your products`}>
-        <ToastContainer />
         <div>
-        <h4>total {products.length} products</h4>
-        <ul>
-        {products.map((p,i) => {
-            return(
-                <li key={i}>
-            <strong>{p.name}</strong>
-            <Link to={`/admin/product/update/${p._id}`}>
-            <span>update</span>
-            </Link>
-            <button onClick={() => deleteProducts(p._id)}>Delete</button>
-            </li>
-            )
-        })}
-        </ul>
+            <Menu />
+            <ToastContainer />
+
+            <div class="mobile_nav">
+                <div class="nav_bar">
+                    <img src={`https://www.flaticon.com/svg/static/icons/svg/3135/3135715.svg`} class="mobile_profile_image" alt="" />
+                    <i class="fa fa-bars nav_btn"></i>
+                </div>
+                <div class="mobile_nav_items">
+                    <Link className="admin1" to='/admin/dashboard'><i class="fa fa-desktop"></i>Dashboard</Link>
+                    <Link className="admin1" to='/create/category'><i class="fa fa-desktop"></i>Create Category</Link>
+                    <Link className="admin1" to='/create/sub/category'><i class="fa fa-desktop"></i>Create subCategory</Link>
+                    <Link className="admin1" to='/create/product'><i class="fa fa-desktop"></i>Create Product</Link>
+                    <Link className="admin1" to='/create/events'><i class="fa fa-desktop"></i>Create Event</Link>
+                    <Link className="admin1" to='/admin/orders'><i class="fa fa-desktop"></i>Show Orders</Link>
+                    <Link className="admin1" to='/admin/products'><i class="fa fa-desktop"></i>Manage Products</Link>
+                    <Link className="admin1" to={`/profile/${isAuth()._id}`}><i class="fa fa-desktop"></i>Edit Profile</Link>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <div class="profile_info">
+                    <img src={`https://www.flaticon.com/svg/static/icons/svg/3135/3135715.svg`} class="profile_image" alt="" />
+                    <h4>{isAuth().name}</h4>
+                </div>
+                <Link className="admin1" to='/admin/dashboard'><i class="fa fa-desktop"></i>Dashboard</Link>
+                <Link className="admin1" to='/create/category'><i class="fa fa-desktop"></i>Create Category</Link>
+                <Link className="admin1" to='/create/sub/category'><i class="fa fa-desktop"></i>Create subCategory</Link>
+                <Link className="admin1" to='/create/product'><i class="fa fa-desktop"></i>Create Product</Link>
+                <Link className="admin1" to='/create/events'><i class="fa fa-desktop"></i>Create Event</Link>
+                <Link className="admin1" to='/admin/orders'><i class="fa fa-desktop"></i>Show Orders</Link>
+                <Link className="admin1" to='/admin/products'><i class="fa fa-desktop"></i>Manage Products</Link>
+                <Link className="admin1" to={`/profile/${isAuth()._id}`}><i class="fa fa-desktop"></i>Edit Profile</Link>
+            </div>
+
+
+            <div className="content1">
+                <h4>total {products.length} products</h4>
+                <ul>
+                    {products.map((p, i) => {
+                        return (
+                            <li key={i}>
+                                <strong>{p.name}</strong>
+                                <Link to={`/admin/product/update/${p._id}`}>
+                                    <span>update</span>
+                                </Link>
+                                <button onClick={() => deleteProducts(p._id)}>Delete</button>
+                            </li>
+                        )
+                    })}
+                </ul>
+            </div>
         </div>
-        </Layout>
-        </Fragment>
     );
 };
 

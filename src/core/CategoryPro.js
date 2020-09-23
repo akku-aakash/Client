@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Carddd from './Carddd'
+import Cardd from './Cardd'
 import '../style/product.css';
-import AliceCarousel from 'react-alice-carousel'
-import "react-alice-carousel/lib/alice-carousel.css";
 import Menu from './Menu'
+import { Col, Row, Container } from 'react-bootstrap'
 
 const Products = (props) => {
 
@@ -24,26 +23,6 @@ const Products = (props) => {
             .catch(err => {
                 console.log(err)
             })
-    }
-
-    const state1 = {
-        galleryItems: product
-            .map((product, i) => {
-                return (
-                    <div>
-                        <Carddd key={i} product={product} />
-                    </div>
-                )
-            }
-            )
-    }
-
-    const responsive = {
-        0: { items: 1 },
-        550: { items: 2 },
-        820: { items: 3 },
-        1200: { items: 4 },
-        1400: { items: 5 },
     }
 
     return (
@@ -69,18 +48,21 @@ const Products = (props) => {
                     </div>
                 </div>
                 <div className="pro16">
-                    <AliceCarousel
-                        items={state1.galleryItems}
-                        responsive={responsive}
-                        autoPlayInterval={5000}
-                        autoPlayDirection="rtl"
-                        autoPlay={true}
-                        fadeOutAnimation={true}
-                        mouseTrackingEnabled={true}
-                        playButtonEnabled={false}
-                        disableAutoPlayOnAction={true}
-                        dotsDisabled={true}
-                    />
+                    <Container fluid >
+                        <Row>
+                            {
+                                product
+                                    .map((product, i) => {
+                                        return (
+                                            <Col xs={12} sm={6} lg={4} style={{margin:"10px 0px 40px 0px"}}>
+                                                <Cardd key={i} product={product} />
+                                            </Col>
+                                        )
+                                    }
+                                    )
+                            }
+                        </Row>
+                    </Container>
                 </div>
             </div>
         </div >

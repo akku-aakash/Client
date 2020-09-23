@@ -1,10 +1,19 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { itemTotal } from '../helpers/CartHelper'
 import Bunny from '../images_icons/bunny.svg'
 import {FaUser, FaCartArrowDown, FaSearch} from 'react-icons/fa';
 
 const Menu = () => {
+
+    useEffect(() => {
+        const hamburger = document.querySelector('.hamburger');
+        const navlinks = document.querySelector('.navlink')
+
+        hamburger.addEventListener("click", () => {
+            navlinks.classList.toggle("open");
+        })
+    })
 
     return (
         <Fragment>

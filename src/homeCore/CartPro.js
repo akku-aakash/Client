@@ -28,7 +28,7 @@ const Card = ({ product,
 
     const shouldGo = shop => {
         if (shop) {
-            return <Redirect to='/shop' />
+            return <Redirect to='/' />
         }
     }
 

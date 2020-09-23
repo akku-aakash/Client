@@ -1,13 +1,13 @@
-import React, { useState, useEffect, Fragment } from 'react';
-import Layout from '../core/Layout';
+import React, { useState, useEffect } from 'react';
 import { isAuth, getCookie } from '../helpers/auth';
 import axios from "axios";
 import moment from 'moment'
 import Menu from '../core/Menu'
+import { Link } from 'react-router-dom'
 
 const Order = (props) => {
     const [orders, setOrders] = useState([])
-    const [statusValue, setStatusValue] =useState([])
+    const [statusValue, setStatusValue] = useState([])
 
     const token = getCookie('token');
     const userId = isAuth()._id;
@@ -42,15 +42,21 @@ const Order = (props) => {
     useEffect(() => {
         loadOrders();
         loadStatusValue()
+        const hamburgerr = document.querySelector('.nav_btn');
+        const navlinksss = document.querySelector('.mobile_nav_items')
+
+        hamburgerr.addEventListener("click", () => {
+            navlinksss.classList.toggle("active");
+        })
     }, [])
 
     const handleStatusChange = (e, orderId) => {
         let status = e.target.value
         const updateOrderStatus = () => {
             axios.put(`${process.env.REACT_APP_API_URL}/order/${orderId}/status/${userId}`,
-             {
-                status, orderId
-            }, {
+                {
+                    status, orderId
+                }, {
                 headers: {
                     Accept: 'application/json',
                     'Content-Type': 'application/json',
@@ -67,17 +73,17 @@ const Order = (props) => {
 
     const showStatus = (ox) => (
         <div>
-        <h3>Status: {ox.status}</h3>
-        <select onChange={(e) => handleStatusChange(e,ox._id)}>
-        <option>Update Status</option>
-        {statusValue.map((status, index) => {
-            return(
-                <option key={index} value={status}>
-            {status}
-            </option>
-            )
-        })}
-        </select>
+            <h3>Status: {ox.status}</h3>
+            <select onChange={(e) => handleStatusChange(e, ox._id)}>
+                <option>Update Status</option>
+                {statusValue.map((status, index) => {
+                    return (
+                        <option key={index} value={status}>
+                            {status}
+                        </option>
+                    )
+                })}
+            </select>
         </div>
     )
 
@@ -96,19 +102,51 @@ const Order = (props) => {
 
     const showInput = (key, value) => (
         <div>
-        <div>
-        <div>{key}</div>
-        </div>
-        <input type='text' value={value} className='form-control' readOnly/>
+            <div>
+                <div>{key}</div>
+            </div>
+            <input type='text' value={value} className='form-control' readOnly />
         </div>
     )
 
     return (
-        <Fragment>
-        <Menu />
-        <Layout title='Your Orders'
-            description={`Hey ${isAuth().name} check out your orders !!!`} >
-            <div>
+        <div>
+            <Menu />
+
+            <div class="mobile_nav">
+                <div class="nav_bar">
+                    <img src={`https://www.flaticon.com/svg/static/icons/svg/3135/3135715.svg`} class="mobile_profile_image" alt="" />
+                    <i class="fa fa-bars nav_btn"></i>
+                </div>
+                <div class="mobile_nav_items">
+                    <Link className="admin1" to='/admin/dashboard'><i class="fa fa-desktop"></i>Dashboard</Link>
+                    <Link className="admin1" to='/create/category'><i class="fa fa-desktop"></i>Create Category</Link>
+                    <Link className="admin1" to='/create/sub/category'><i class="fa fa-desktop"></i>Create subCategory</Link>
+                    <Link className="admin1" to='/create/product'><i class="fa fa-desktop"></i>Create Product</Link>
+                    <Link className="admin1" to='/create/events'><i class="fa fa-desktop"></i>Create Event</Link>
+                    <Link className="admin1" to='/admin/orders'><i class="fa fa-desktop"></i>Show Orders</Link>
+                    <Link className="admin1" to='/admin/products'><i class="fa fa-desktop"></i>Manage Products</Link>
+                    <Link className="admin1" to={`/profile/${isAuth()._id}`}><i class="fa fa-desktop"></i>Edit Profile</Link>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <div class="profile_info">
+                    <img src={`https://www.flaticon.com/svg/static/icons/svg/3135/3135715.svg`} class="profile_image" alt="" />
+                    <h4>{isAuth().name}</h4>
+                </div>
+                <Link className="admin1" to='/admin/dashboard'><i class="fa fa-desktop"></i>Dashboard</Link>
+                <Link className="admin1" to='/create/category'><i class="fa fa-desktop"></i>Create Category</Link>
+                <Link className="admin1" to='/create/sub/category'><i class="fa fa-desktop"></i>Create subCategory</Link>
+                <Link className="admin1" to='/create/product'><i class="fa fa-desktop"></i>Create Product</Link>
+                <Link className="admin1" to='/create/events'><i class="fa fa-desktop"></i>Create Event</Link>
+                <Link className="admin1" to='/admin/orders'><i class="fa fa-desktop"></i>Show Orders</Link>
+                <Link className="admin1" to='/admin/products'><i class="fa fa-desktop"></i>Manage Products</Link>
+                <Link className="admin1" to={`/profile/${isAuth()._id}`}><i class="fa fa-desktop"></i>Edit Profile</Link>
+            </div>
+
+
+            <div className="content1">
                 <div>
                     {showOrderLength(orders)}
                     {orders.map((o, i) => {
@@ -117,35 +155,35 @@ const Order = (props) => {
                                 <h3><span>Order : {o._id}</span></h3>
                                 <ul>
                                     <li>
-                                      {showStatus(o)}
+                                        {showStatus(o)}
                                     </li>
                                     <li>
-                                      order transaction id =  {o.transaction_id}
+                                        order transaction id =  {o.transaction_id}
                                     </li>
                                     <li>
-                                       order amount = <i className="fa fa-inr"></i>  {o.amount}
+                                        order amount = <i className="fa fa-inr"></i>  {o.amount}
                                     </li>
                                     <li>
-                                       order by = {o.user.name}
+                                        order by = {o.user.name}
                                     </li>
                                     <li>
 
-                                       order on = {moment(o.createdAt).fromNow()}
+                                        order on = {moment(o.createdAt).fromNow()}
                                     </li>
                                     <li>
-                                    order shipped = {o.address}
+                                        order shipped = {o.address}
                                     </li>
                                 </ul>
                                 <h3>total products: {o.products.length}</h3>
                                 {
                                     o.products.map((p, pIndex) => {
-                                        return(
-                                        <div key={pIndex}>
-                                        {showInput('Product name', p.name)}
-                                        {showInput('Product price Rs', p.price)}
-                                        {showInput('Product total', p.count)}
-                                        {showInput('Product Id', p._id)}
-                                        </div>
+                                        return (
+                                            <div key={pIndex}>
+                                                {showInput('Product name', p.name)}
+                                                {showInput('Product price Rs', p.price)}
+                                                {showInput('Product total', p.count)}
+                                                {showInput('Product Id', p._id)}
+                                            </div>
                                         )
                                     })
                                 }
@@ -154,8 +192,7 @@ const Order = (props) => {
                     })}
                 </div>
             </div>
-        </Layout>
-        </Fragment>
+        </div>
     );
 }
 

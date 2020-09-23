@@ -194,7 +194,6 @@ const AddProduct = () => {
             <Menu />
             <ToastContainer />
 
-
             <div class="mobile_nav">
                 <div class="nav_bar">
                     <img src={`https://www.flaticon.com/svg/static/icons/svg/3135/3135715.svg`} class="mobile_profile_image" alt="" />
@@ -229,7 +228,7 @@ const AddProduct = () => {
 
 
             <div className="content">
-                <h1>Add Product</h1>
+                <h1>Add Event</h1>
 
                 <button onClick={loadsubCategory} className="addpro2">Load Subcategories</button>
                 <p>Please Click on the load subcategories button before fill the entries of products.</p>

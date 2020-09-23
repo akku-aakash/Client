@@ -17,6 +17,7 @@ import Order from './Admin/Order';
 import AddCategory from './Admin/AddCategory';
 import AddSubCategory from './Admin/AddSubcategory';
 import AddProduct from './Admin/AddProduct';
+import Events from './Admin/AddEvents';
 import ManageProduct from './Admin/ManageProducts';
 import UpdateProduct from './Admin/UpdateProducts';
 
@@ -24,7 +25,6 @@ import CategoryPro from './core/CategoryPro';
 import Products from './core/Products';
 import Cart from './core/Cart';
 import Home from './core/Home';
-import Shop from './core/Shop';
 import Diykit from './homeCore/Diykits';
 import Exp from './homeCore/Experience';
 import Special from './homeCore/SpecialSer';
@@ -39,7 +39,6 @@ const Routes = () => {
             <BrowserRouter>
                 <Switch>
                     <Route path='/' exact render={props => <Home {...props} />} />
-                    <Route path='/shop' exact render={props => <Shop {...props} />} />
                     <Route path='/register' exact render={props => <Register {...props} />} />
                     <Route path='/login' exact render={props => <Login {...props} />} />
                     <Route path='/users/activate/:token' exact render={props => <Activate {...props} />} />
@@ -57,6 +56,7 @@ const Routes = () => {
                     <AdminRoute path='/create/category' exact component={AddCategory} />
                     <AdminRoute path='/create/sub/category' exact component={AddSubCategory} />
                     <AdminRoute path='/create/product' exact component={AddProduct} />
+                    <AdminRoute path='/create/events' exact component={Events} />
                     <AdminRoute path='/admin/orders' exact component={Order} />
                     <AdminRoute path='/admin/products' exact component={ManageProduct} />
                     <AdminRoute path='/admin/product/update/:productId' exact component={UpdateProduct} />

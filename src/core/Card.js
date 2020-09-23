@@ -54,7 +54,7 @@ const Card = ({ product,
 
     const shouldGo = shop => {
         if (shop) {
-            return <Redirect to='/shop' />
+            return <Redirect to='/' />
         }
     }
 
@@ -113,7 +113,7 @@ const Card = ({ product,
                                     product.quantity > 0 ? <p style={{ color: 'green', fontWeight: 'bold' }}>In stock</p> : <p style={{ color: 'red', fontWeight: 'bold' }}>Out of Stock</p>
                                 }
                                 {
-                                    product.active == 1 ?  <p style={{ color: 'green', fontWeight: 'bold' }}>Active</p> : <p style={{ color: 'red', fontWeight: 'bold' }}>Not Active Currently</p>
+                                    product.active = 1 ?  <p style={{ color: 'green', fontWeight: 'bold' }}>Active</p> : <p style={{ color: 'red', fontWeight: 'bold' }}>Not Active Currently</p>
                                 }
                                 <h3><i className="fa fa-inr"></i>{product.price}  <span>{product.fakeprice}</span></h3> 
                                 <p>FREE Shipping</p>

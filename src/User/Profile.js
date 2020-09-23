@@ -15,10 +15,11 @@ const Profile = (props) => {
         street: '',
         state: "",
         city: '',
+        phone: '',
         success: false
     })
 
-    const { name, password, email, city, street, state } = values
+    const { name, password, email, city, street, state, phone } = values
 
     const userId = isAuth()._id;
     const token = getCookie('token');
@@ -33,11 +34,10 @@ const Profile = (props) => {
                 }
             )
             .then(res => {
-                console.log(res.data)
                 setValues({
                     ...values, name: res.data.name, email: res.data.email,
                     city: res.data.Address.city, street: res.data.Address.street,
-                    state: res.data.Address.state
+                    state: res.data.Address.state, phone: res.data.phone
                 })
             })
             .catch(err => {
@@ -46,8 +46,8 @@ const Profile = (props) => {
             });
     }
 
-    const updateProfile = (userId, token, email, password, name, street, city, state) => {
-        const user = { email, password, name, Address: { street, city, state } }
+    const updateProfile = (userId, token, email, password, name, street, city, state, phone) => {
+        const user = { email, password, name, Address: { street, city, state }, phone }
         axios
             .put(`${process.env.REACT_APP_API_URL}/user/${userId}`,
                 {
@@ -60,14 +60,14 @@ const Profile = (props) => {
                     }
                 }
             ).then((res) => {
-                console.log(res.data)
-                updateUser(res.data, () => {
+                updateUser( res.data , () => {
                     setValues({
                         ...values,
                         name: res.data.name,
                         email: res.data.email,
                         success: true
                     })
+                    alert('update done')
                 })
             }).catch((err) => {
                 console.log(err);
@@ -84,7 +84,7 @@ const Profile = (props) => {
 
     const clickSubmit = (e) => {
         e.preventDefault();
-        updateProfile(userId, token, email, password, name, street, city, state);
+        updateProfile(userId, token, email, password, name, street, city, state, phone);
     }
 
     return (
@@ -112,9 +112,13 @@ const Profile = (props) => {
                         <Form.Label>State</Form.Label>
                         <Form.Control type="text" onChange={handleChange('state')} value={state} placeholder="Enter State" />
                     </Form.Group>
+                    <Form.Group >
+                        <Form.Label>Phone</Form.Label>
+                        <Form.Control type="number" onChange={handleChange('phone')} value={phone} placeholder="Enter Phone number" />
+                    </Form.Group>
                     <Button variant="primary" type="submit">
                         Submit
-         </Button>
+                    </Button>
                 </Form>
             </Layout>
         </Fragment>

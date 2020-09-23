@@ -50,7 +50,7 @@ const Login = ({ history }) => {
             textChange: 'Sign In'
           });
           console.log(err.response);
-          toast.error(err.response.data.errors);
+          toast.error('Something went wrong');
         });
     } else {
       toast.error('Please fill all fields');

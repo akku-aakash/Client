@@ -12,6 +12,12 @@ const Cart = () => {
 
     useEffect(() => {
         setItems(getCart());
+        const hamburger = document.querySelector('.hamburger');
+        const navlinks = document.querySelector('.navlink')
+
+        hamburger.addEventListener("click", () => {
+            navlinks.classList.toggle("open");
+        })
     }, [])
 
     const showItems = items => {
@@ -32,7 +38,7 @@ const Cart = () => {
 
     const noItemsMessage = () => {
         return (
-            <Link className="maincart1" to='/shop'>Continue Shopping</Link>
+            <Link className="maincart1" to='/'>Continue Shopping</Link>
         )
     }
 
