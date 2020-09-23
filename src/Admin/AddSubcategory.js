@@ -20,7 +20,7 @@ const AddCategory = () => {
         hamburgerr.addEventListener("click", () => {
             navlinksss.classList.toggle("active");
         })
-    },[])
+    }, [])
 
     const handleChange = (e) => {
         setName(e.target.value);
@@ -94,15 +94,17 @@ const AddCategory = () => {
 
             <ToastContainer />
             <div className="content">
-                <h1>Add Sub Category</h1>
-                <Form onSubmit={handleSubmit}>
-                    <Form.Group >
-                        <Form.Control type="text" placeholder="Enter Name" onChange={handleChange} value={name} />
-                    </Form.Group>
-                    <Button variant="danger" type="submit">
-                        Create SubCategory
+                <div className="catt0">
+                    <h1>Add Sub Category</h1>
+                    <Form onSubmit={handleSubmit}>
+                        <Form.Group className="catt">
+                            <Form.Control type="text" placeholder="Enter Name" onChange={handleChange} value={name} />
+                        </Form.Group>
+                        <Button className="login25" type="submit">
+                            Create SubCategory
                 </Button>
-                </Form>
+                    </Form>
+                </div>
             </div>
         </div>
     );

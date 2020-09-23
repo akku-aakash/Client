@@ -105,7 +105,7 @@ const Checkout = ({ products }) => {
 
                 const paymentData = {
                     PaymentMethodNonce: nonce,
-                    amount: ( getTotal(products) / 80 )
+                    amount: getTotal(products)
                 }
 
                  processPayment(userId, token, paymentData)

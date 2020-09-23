@@ -2,10 +2,11 @@ import React, { useEffect } from 'react';
 import { isAuth } from '../helpers/auth';
 import { Link } from 'react-router-dom';
 import Menu from '../core/Menu'
+import SRC from '../images_icons/undraw_pure_love_ay8a.svg'
 
 const AdminDashboard = () => {
 
-    const { name, email } = isAuth();
+    const { name } = isAuth();
 
     useEffect(() => {
         const hamburgerr = document.querySelector('.nav_btn');
@@ -54,10 +55,7 @@ const AdminDashboard = () => {
 
 
             <div className="content1">
-                <ul>
-                    <li>{name}</li>
-                    <li>{email}</li>
-                </ul>
+            <img className="addminn" src={SRC} alt="admin dashboard"/>
             </div>
         </div>
     );

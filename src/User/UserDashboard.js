@@ -65,20 +65,21 @@ const UserDashboard = ({ history }) => {
                     </div>
                 </div>
             </div>
-            <div className="card mb-5" id="oorder">
-                <h3 className="card-header">Your Orders</h3>
-                <ul className="list-group">
-                    <li className="list-group-item">
+            
+            <div className="ud7" id="oorder">
+                <h3 className="ud8">Your Orders</h3>
+                <ul className="ud9">
+                    <li className="ud10">
                         {historyPro.map((h, i) => {
                             return (
-                                <div key={i}>
+                                <div key={i} className="ud11">
                                     <hr />
                                     <p>status : {h.status}</p>
                                     <p>Total price : <i className="fa fa-inr"></i>{h.amount}</p>
                                     <hr />
                                     {h.products.map((p, i) => {
                                         return (
-                                            <div key={i}>
+                                            <div key={i} className="ud12">
                                                 <h6>Product name: {p.name}</h6>
                                                 <h6>Count: {p.count}</h6>
                                                 <h6>Product price: <i className="fa fa-inr"></i>{p.price}</h6>

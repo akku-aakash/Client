@@ -4,6 +4,7 @@ import axios from "axios";
 import { toast, ToastContainer } from 'react-toastify'
 import { Link } from 'react-router-dom';
 import Menu from '../core/Menu'
+import { Button } from 'react-bootstrap'
 
 const ManageProducts = () => {
     const [products, setProducts] = useState([]);
@@ -90,17 +91,20 @@ const ManageProducts = () => {
 
 
             <div className="content1">
-                <h4>total {products.length} products</h4>
-                <ul>
+                <h1 className="addpro22">Total {products.length} products</h1>
+                <ul className="addpro23">
                     {products.map((p, i) => {
                         return (
-                            <li key={i}>
+                            <li key={i} className="addpro24">
+                                <hr />
                                 <strong>{p.name}</strong>
-                                <Link to={`/admin/product/update/${p._id}`}>
+                                <Link className="addpro26" to={`/admin/product/update/${p._id}`}>
                                     <span>update</span>
                                 </Link>
-                                <button onClick={() => deleteProducts(p._id)}>Delete</button>
+                                <Button className="addpro25" onClick={() => deleteProducts(p._id)}>Delete</Button>
+                                <hr />
                             </li>
+
                         )
                     })}
                 </ul>

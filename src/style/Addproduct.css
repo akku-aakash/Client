@@ -1,7 +1,3 @@
-.addpro1{
-    width: 95%;
-    margin: auto;
-}
 .addpro1 h1{
     text-align: center;
     margin: 20px 0px 30px 0;
@@ -13,4 +9,60 @@
     height: 35px;
     padding: 0px 10px;
     border: 1px solid red;
+    letter-spacing: 1px;
+}
+.addminn{
+    width: 100%;
+    height: 60vh;
+}
+.addpro22{
+    text-align: center;
+    font-family: "Shadows Into Light";
+    font-weight: bold;
+    font-size: 45px;
+    margin-bottom: 30px;   
+}
+.addpro23{
+    list-style-type: none;
+}
+.addpro24{
+    font-size: 18px;
+    margin: 10px 0px;
+}
+.addpro25{
+    margin-left: 18px;
+    background-color: rgb(255, 60, 60);
+    border: 2px solid rgb(165, 164, 164);
+}
+.addpro26{
+    margin-left: 18px;
+    color: rgb(0, 4, 255);
+}
+.addpro25:hover{
+    background-color: rgb(255, 60, 60);
+    border: 2px solid rgb(165, 165, 165);
+}
+.catt0{
+    width: 70%;
+    margin: auto;
+}
+.catt0 h1{
+    text-align: center;
+    font-family: "Shadows Into Light";
+    font-weight: bold;
+    font-size: 45px;
+    margin-bottom: 30px;
+}
+.addpro3{
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 900px) {
+    .addpro3{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
 }

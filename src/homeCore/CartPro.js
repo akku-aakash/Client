@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import ShowImage from './ShowCartPro';
-import { addItem, updateItem, removeItem } from '../helpers/CartHelper'
+import { updateItem, removeItem } from '../helpers/CartHelper'
 import '../style/CartPro.css';
 import { Container, Row, Col } from 'react-bootstrap';
 
@@ -34,7 +34,7 @@ const Card = ({ product,
 
     const shouldRedirect = redirect => {
         if (redirect) {
-            return <Redirect to='/cart' />
+            return <Redirect to='/' />
         }
     }
 
@@ -43,6 +43,7 @@ const Card = ({ product,
         if (e.target.value >= 1) {
             updateItem(productId, e.target.value)
         }
+        setRedirect(true)
     }
 
     const showCartUpdateOption = cartUpdate => {

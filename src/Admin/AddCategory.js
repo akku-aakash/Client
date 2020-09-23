@@ -94,15 +94,17 @@ const AddCategory = () => {
             </div>
 
             <div className="content">
+            <div className="catt0">
                 <h1>Add category</h1>
                 <Form onSubmit={handleSubmit}>
-                    <Form.Group >
+                    <Form.Group className="catt">
                         <Form.Control type="text" placeholder="Enter Name" onChange={handleChange} value={name} />
                     </Form.Group>
-                    <Button variant="danger" type="submit">
+                    <Button className="login25" type="submit">
                         Create Category
-                </Button>
+                    </Button>
                 </Form>
+                </div>
             </div>
         </div>
     );

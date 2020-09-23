@@ -229,7 +229,7 @@ const AddProduct = () => {
 
 
             <div className="content">
-                <h1>Add Product</h1>
+                <h1 className="addpro22">Add Product</h1>
 
                 <button onClick={loadsubCategory} className="addpro2">Load Subcategories</button>
                 <p>Please Click on the load subcategories button before fill the entries of products.</p>
@@ -242,60 +242,64 @@ const AddProduct = () => {
                         <Form.Label>Product Name</Form.Label>
                         <Form.Control type="text" placeholder="Enter Product Name" value={name} onChange={handleChange('name')} />
                     </Form.Group>
-                    <Form.Group >
-                        <Form.Label>Choose Categories</Form.Label><br />
-                        <select onChange={handleChange('category')} >
-                            <option>Please Select</option>
-                            {categories && categories.map((c, i) =>
-                                (<option key={i} value={c._id}>
-                                    {c.name}
-                                </option>)
-                            )}
-                        </select>
-                    </Form.Group>
+                    <div className="addpro3">
+                        <Form.Group >
+                            <Form.Label>Choose Categories</Form.Label><br />
+                            <select onChange={handleChange('category')} >
+                                <option>Please Select</option>
+                                {categories && categories.map((c, i) =>
+                                    (<option key={i} value={c._id}>
+                                        {c.name}
+                                    </option>)
+                                )}
+                            </select>
+                        </Form.Group>
+                        <Form.Group >
+                            <Form.Label>Choose Subcategy </Form.Label><br />
+                            <select onChange={handleChange('subCategory')} >
+                                <option>Please Select</option>
+                                {subcategories && subcategories.map((f, i) =>
+                                    (<option key={i} value={f._id}>
+                                        {f.name}
+                                    </option>)
+                                )}
+                            </select>
+                        </Form.Group>
+                        <Form.Group >
+                            <Form.Label>Shipping Available</Form.Label><br />
+                            <select onChange={handleChange('shipping')} >
+                                <option>Please Select</option>
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
+                            </select>
+                        </Form.Group>
+                        <Form.Group >
+                            <Form.Label>Product Active Status</Form.Label><br />
+                            <select onChange={handleChange('active')} >
+                                <option>Please Select</option>
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
+                            </select>
+                        </Form.Group>
+                    </div>
                     <Form.Group >
                         <Form.Label>Description</Form.Label>
                         <Form.Control as="textarea" rows="4" placeholder="Enter Description" value={description} onChange={handleChange('description')} />
                     </Form.Group>
-                    <Form.Group >
-                        <Form.Label>Actual Price</Form.Label>
-                        <Form.Control type="number" placeholder="price" value={price} onChange={handleChange('price')} />
-                    </Form.Group>
-                    <Form.Group >
-                        <Form.Label>Fake Price</Form.Label>
-                        <Form.Control type="number" placeholder="fake price" value={fakeprice} onChange={handleChange('fakeprice')} />
-                    </Form.Group>
-                    <Form.Group >
-                        <Form.Label>Choose Subcategy </Form.Label><br />
-                        <select onChange={handleChange('subCategory')} >
-                            <option>Please Select</option>
-                            {subcategories && subcategories.map((f, i) =>
-                                (<option key={i} value={f._id}>
-                                    {f.name}
-                                </option>)
-                            )}
-                        </select>
-                    </Form.Group>
-                    <Form.Group >
-                        <Form.Label>Product Quantity</Form.Label>
-                        <Form.Control type="number" placeholder="Quantity" value={quantity} onChange={handleChange('quantity')} />
-                    </Form.Group>
-                    <Form.Group >
-                        <Form.Label>Shipping Available</Form.Label><br />
-                        <select onChange={handleChange('shipping')} >
-                            <option>Please Select</option>
-                            <option value="0">No</option>
-                            <option value="1">Yes</option>
-                        </select>
-                    </Form.Group>
-                    <Form.Group >
-                        <Form.Label>Product Active Status</Form.Label><br />
-                        <select onChange={handleChange('active')} >
-                            <option>Please Select</option>
-                            <option value="0">No</option>
-                            <option value="1">Yes</option>
-                        </select>
-                    </Form.Group>
+                    <div className="addpro3">
+                        <Form.Group >
+                            <Form.Label>Actual Price</Form.Label>
+                            <Form.Control type="number" placeholder="price in rs" value={price} onChange={handleChange('price')} />
+                        </Form.Group>
+                        <Form.Group >
+                            <Form.Label>Sale Price</Form.Label>
+                            <Form.Control type="number" placeholder="Sale price in rs" value={fakeprice} onChange={handleChange('fakeprice')} />
+                        </Form.Group>
+                        <Form.Group >
+                            <Form.Label>Product Quantity</Form.Label>
+                            <Form.Control type="number" placeholder="Quantity" value={quantity} onChange={handleChange('quantity')} />
+                        </Form.Group>
+                    </div>
 
 
                     <Form.Label>Add description main points</Form.Label>
@@ -373,7 +377,7 @@ const AddProduct = () => {
                     <br />
                     <br />
                     <br />
-                    <Button variant="danger" type="submit">
+                    <Button className="login25" type="submit">
                         Create Product
                 </Button>
                 </Form>

@@ -5,7 +5,7 @@ import moment from 'moment'
 import Menu from '../core/Menu'
 import { Link } from 'react-router-dom'
 
-const Order = (props) => {
+const Order = () => {
     const [orders, setOrders] = useState([])
     const [statusValue, setStatusValue] = useState([])
 
@@ -90,12 +90,12 @@ const Order = (props) => {
     const showOrderLength = orders => {
         if (orders.length > 0) {
             return (
-                <h1 className='text-danger display-2'>
+                <h1 className="addpro22" style={{color:"red"}}>
                     Total orders: {orders.length}
                 </h1>
             )
         } else {
-            return <h1>No Orders Now !!!</h1>
+            return <h1 className="addpro22" style={{color:"orange"}}>No Orders Now !!!</h1>
         }
 
     }
