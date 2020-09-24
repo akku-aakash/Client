@@ -25,7 +25,6 @@ const Card = ({ product,
         )
     }
 
-
     const shouldGo = shop => {
         if (shop) {
             return <Redirect to='/' />
@@ -84,7 +83,7 @@ const Card = ({ product,
                                 {
                                     product.quantity > 0 ? <p className="cartt3">In stock</p> : <p className="cartt3">Out of Stock</p>
                                 }
-                                <h3><i className="fa fa-inr"></i>{product.price}</h3>
+                                <h3><i className="fa fa-inr"></i>{product.price} <span style={{color:'orange', textDecoration:'line-through'}}><i className="fa fa-inr"></i>{product.fakeprice}</span></h3>
                                 <p className="cartt4">{product.description.substring(0, 300)}</p>
                                 <Link to={`/product/${product._id}`}>
                                     {showViewButton(showViewProductButthon)}

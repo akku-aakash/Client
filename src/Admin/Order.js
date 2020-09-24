@@ -32,6 +32,7 @@ const Order = () => {
                 Authorization: `Bearer ${token}`
             }
         }).then((res) => {
+            console.log(res.data)
             let sexaa = res.data
             setOrders(sexaa);
         }).catch((err) => {
@@ -90,12 +91,12 @@ const Order = () => {
     const showOrderLength = orders => {
         if (orders.length > 0) {
             return (
-                <h1 className="addpro22" style={{color:"red"}}>
+                <h1 className="addpro22" style={{ color: "red" }}>
                     Total orders: {orders.length}
                 </h1>
             )
         } else {
-            return <h1 className="addpro22" style={{color:"orange"}}>No Orders Now !!!</h1>
+            return <h1 className="addpro22" style={{ color: "orange" }}>No Orders Now !!!</h1>
         }
 
     }
@@ -167,11 +168,17 @@ const Order = () => {
                                         order by = {o.user.name}
                                     </li>
                                     <li>
+                                        Email of buyer = {o.user.email}
+                                    </li>
+                                    <li>
 
                                         order on = {moment(o.createdAt).fromNow()}
                                     </li>
                                     <li>
-                                        order shipped = {o.address}
+                                        order shipped = {o.user.Address.street}, {o.user.Address.city}, {o.user.Address.state}
+                                    </li>
+                                    <li>
+                                        Contact Number = {o.user.phone}
                                     </li>
                                 </ul>
                                 <h3>total products: {o.products.length}</h3>

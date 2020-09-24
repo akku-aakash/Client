@@ -109,16 +109,12 @@ const Profile = () => {
                                 <Form.Control type="text" onChange={handleChange('name')} value={name} placeholder="Enter email" />
                             </Form.Group>
                             <Form.Group >
-                                <Form.Label>Email</Form.Label>
-                                <Form.Control type="email" onChange={handleChange('email')} value={email} placeholder="Enter email" />
-                            </Form.Group>
-                            <Form.Group >
                                 <Form.Label>Street</Form.Label>
                                 <Form.Control type="text" onChange={handleChange('street')} value={street} placeholder="Enter house number and street" />
                             </Form.Group>
                             <Form.Group >
-                                <Form.Label>City</Form.Label>
-                                <Form.Control type="text" onChange={handleChange('city')} value={city} placeholder="Enter city" />
+                                <Form.Label>Pincode/City</Form.Label>
+                                <Form.Control type="text" onChange={handleChange('city')} value={city} placeholder="Enter city and pincode" />
                             </Form.Group>
                             <Form.Group >
                                 <Form.Label>State</Form.Label>

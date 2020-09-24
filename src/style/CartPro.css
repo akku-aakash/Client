@@ -3,6 +3,7 @@
     width: 100%;
     padding: 20px;
     border-radius: 10px;
+    margin-bottom: 25px;
 }
 @media screen and (max-width: 550px){
     .cartt{
@@ -24,9 +25,6 @@
 .cartt3{
     color: #ffa705;
     margin-top: -10px;
-}
-.cartt4{
-
 }
 .bttncart{
     text-align: center;

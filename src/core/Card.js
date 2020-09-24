@@ -12,14 +12,15 @@ const Card = ({ product,
     showRemoveProductButton = false }) => {
 
 
-    const { _id, name, description, price, quantity } = product;
+    const { _id, name,fakeprice ,description, price, quantity } = product;
 
     const [proo, setProo] = useState({
         _id,
         name,
         description,
         price,
-        quantity
+        quantity,
+        fakeprice
     })
 
     const [shop, setShop] = useState(false);

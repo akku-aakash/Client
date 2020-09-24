@@ -6,14 +6,15 @@ import '../style/cardd.css';
 const Cardd = ({ product,
     showAtToCart = true, }) => {
 
-    const {_id, name, description, price, quantity} = product;
+    const {_id, name, description, fakeprice,price, quantity} = product;
 
     const [proo, setProo] = useState({
         _id,
         name,
         description,
         price,
-        quantity
+        quantity,
+        fakeprice
     })
 
 

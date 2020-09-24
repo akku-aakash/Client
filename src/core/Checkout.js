@@ -4,8 +4,9 @@ import { isAuth, getCookie } from '../helpers/auth'
 import { getBraintreeClientTOken, createOrder } from './apiCore';
 import DropIn from 'braintree-web-drop-in-react'
 import axios from 'axios';
-import {toast, ToastContainer} from 'react-toastify'
-import {emptyCart} from '../helpers/CartHelper';
+import { toast, ToastContainer } from 'react-toastify'
+import { emptyCart } from '../helpers/CartHelper';
+import { Form } from 'react-bootstrap'
 
 const Checkout = ({ products }) => {
     const [data, setData] = useState({
@@ -15,11 +16,15 @@ const Checkout = ({ products }) => {
         instance: {},
         address: '',
         loading: false,
-        address: ''
+        street: '',
+        city: '',
+        state: ''
     })
 
     const userId = isAuth() && isAuth()._id;
     const token = getCookie('token');
+    const { Address } = isAuth()
+    data.address = Address.street + ", " + Address.city + ", " + Address.state
 
     const processPayment = (userId, token, paymentData) => {
         axios
@@ -37,7 +42,7 @@ const Checkout = ({ products }) => {
                 console.log(res.data)
 
                 const createOrderData = {
-                    products:products,
+                    products: products,
                     transaction_id: res.data.transaction.id,
                     amount: res.data.transaction.amount,
                     address: data.address
@@ -50,12 +55,11 @@ const Checkout = ({ products }) => {
                 emptyCart(() => {
                     console.log('purchased done');
                 })
-                
-                setData({loading:false})
+
+                setData({ loading: false })
             })
             .catch(err => console.error(err));
     }
-    
 
     const getToken = (userId, token) => {
         getBraintreeClientTOken(userId, token)
@@ -63,7 +67,7 @@ const Checkout = ({ products }) => {
                 if (data.error) {
                     setData({ ...data, error: data.error })
                 } else {
-                    setData({ ...data,  clientToken: data.clientToken })
+                    setData({ ...data, clientToken: data.clientToken })
                 }
             })
     }
@@ -74,7 +78,7 @@ const Checkout = ({ products }) => {
 
     const getTotal = () => {
         return products.reduce((currentValue, nextValue) => {
-            return currentValue + nextValue.count * nextValue.price 
+            return currentValue + nextValue.count * nextValue.price
         }, 0)
     }
 
@@ -85,13 +89,13 @@ const Checkout = ({ products }) => {
                 <Link to='/login'>
                     <button>
                         sign in for checkout
-            </button>
+                    </button>
                 </Link>
             )
     }
 
     const Buy = () => {
-        setData({loading:true})
+        setData({ loading: true })
         //send the nonce to your server
         //nonce = data.instance.requestPaymentMethod()
         let nonce;
@@ -108,7 +112,7 @@ const Checkout = ({ products }) => {
                     amount: getTotal(products)
                 }
 
-                 processPayment(userId, token, paymentData)
+                processPayment(userId, token, paymentData)
 
             })
             .catch(err => {
@@ -117,25 +121,15 @@ const Checkout = ({ products }) => {
             })
     }
 
-    const handleAddress = e => {
-        setData({...data, address:e.target.value})
-    }
-
     const showDropIn = () => {
 
         return (
             <div onBlur={() => setData({ ...data, error: '' })}>
                 {data.clientToken !== null && products.length > 0 ? (
                     <div>
-                    <div className='form-group mb-3'>
-                    <label>Delivery Adress</label>
-                    <textarea onChange={handleAddress}
-                    value={data.address}
-                    placeholder='type your address' />
-                    </div>
                         <DropIn options={{
                             authorization: data.clientToken,
-                            paypal:{
+                            paypal: {
                                 flow: 'vault'
                             }
                         }} onInstance={instance => data.instance = instance} />
@@ -154,7 +148,7 @@ const Checkout = ({ products }) => {
     }
 
     const showLoading = (loading) => {
-        return(
+        return (
             loading && <h2>loading....</h2>
         )
 
@@ -162,10 +156,41 @@ const Checkout = ({ products }) => {
 
     return (
         <div>
-        <ToastContainer />
-        {showLoading(data.loading)}
+            <ToastContainer />
+            
+            {showLoading(data.loading)}
+            
             <h2>Total: <i class="fa fa-inr"></i>{getTotal()}</h2>
-            {showCheckout()}
+            
+            <div>
+                {
+                    isAuth().Address.city == "" ? <p>Update your address :-<Link to='/user/dashboard'>Update Address</Link></p> :
+                        <div>
+                            <Form.Group >
+                                <Form.Label>Delivery Address</Form.Label>
+                                <Form.Control type="text" placeholder="Delivery Address" value={data.address} />
+                            </Form.Group>
+                            {
+                                isAuth().phone == null ? <p>Update Your Phone <Link to='/user/dashboard'>Edit Profile</Link></p> :
+                                    <Form.Group>
+                                        <Form.Label>Phone Number</Form.Label>
+                                        <Form.Control type="text" value={isAuth().phone} />
+                                    </Form.Group>
+                            }
+                            <p>Note:- If you want to any change in Address or phone <Link to='/user/dashboard'>Edit Profile</Link></p>
+                        </div>
+                }
+            </div>
+            
+            <div>
+                {
+                    isAuth().Address.city == "" ? <p>For Check Out Please Edit Your Address</p> : <div>{
+                        isAuth().phone == null ? <p>Please Check your phone numbe for checkout</p> :
+                            showCheckout()
+                    }</div>
+                }
+            </div>
+            
             {ShowError(data.error)}
         </div>
     );
