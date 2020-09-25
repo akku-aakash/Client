@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import { isAuth, getCookie } from '../helpers/auth'
 import { generateTokenRazor, createOrder } from './apiCore';
 import { toast, ToastContainer } from 'react-toastify'
@@ -114,10 +114,10 @@ const Checkout = () => {
     const showDropIn = () => {
 
         return (
-            <div>
+            <div className="maincart10">
                 {products.length > 0 ? (
                     <div>
-                        <div>
+                        <div className="maincart11">
                             <Form.Group >
                                 <Form.Label>Delivery Address</Form.Label>
                                 <Form.Control type="text" placeholder="Delivery Address" value={data.address} />
@@ -126,9 +126,11 @@ const Checkout = () => {
                                 <Form.Label>Phone Number</Form.Label>
                                 <Form.Control type="text" value={data.phone} />
                             </Form.Group>
-                            <p>Note:- If you want to any change in Address or phone <Link to={`/profile/${isAuth()._id}`}>Edit them</Link></p>
+                            <p>Note :- Change Address or Phone <Link className="maincart111" to={`/profile/${isAuth()._id}`}>Edit now</Link></p>
                         </div>
+                        <div className="maincart12">
                         <button onClick={paymentHandler}>Pay Now</button>
+                        </div>
                     </div>
                 ) :
                     null
@@ -140,19 +142,19 @@ const Checkout = () => {
         <div>
             <ToastContainer />
 
-            <h2>Total: <i class="fa fa-inr"></i>{getTotal()}</h2>
+            <h2 className="maincart7">Total Amount: <i class="fa fa-inr"></i>{getTotal()}</h2>
 
-            <div>
+            <div className="maincart8">
                 {
-                    isAuth().Address.city == "" ? <div><p>For Check Out Please Edit Your Address</p><Link to={`/profile/${isAuth()._id}`}>Update Address</Link></div>
+                    isAuth().Address.city == "" ? <Redirect to={`/profile/${isAuth()._id}`} />
                         : <div>{
-                            isAuth().phone == null ? <div><p>Please Check your phone number before checkout</p><Link to={`/profile/${isAuth()._id}`}>Update Contact number</Link></div> :
+                            isAuth().phone == null ? <Redirect to={`/profile/${isAuth()._id}`} /> :
                                 showCheckout()
                         }</div>
                 }
             </div>
 
-            <div>
+            <div className="maincart9">
                 {
                     getCart().map((l, o) => (
                         l.category == "5f5f13c80f137d00170ba26d" ?

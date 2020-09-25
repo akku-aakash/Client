@@ -815,3 +815,20 @@ body{
         height: 4px;
     }
 }
+.home551{
+    padding: 50px 0;
+    width: 100%;
+    overflow: hidden;    
+}
+.home552{
+    width: 80%;
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+}
+.home553{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: coral;
+}

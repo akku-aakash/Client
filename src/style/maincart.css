@@ -9,12 +9,15 @@
 }
 .maincart4 {
     width: 35%;
-    margin-left: auto;
     background-color: #f0f0f0;
+    margin-bottom: 25px;
+    margin-left: auto !important;
+    padding-top: 10px ;
+    padding-bottom: 25px;
 }
 .maincart4 h2:nth-child(1){
     text-align: center;
-    color: rgb(255, 22, 22);
+    color: black;
     font-family: "Shadows Into Light";
     font-weight: bold;
     font-size: 45px;
@@ -44,4 +47,57 @@
         width: 100%;
         margin-left: auto;
     }
+}
+.maincart7{
+    color: rgb(28, 136, 28);
+    font-size: 25px;
+    margin: 15px 0px;
+}
+.maincart11{
+    width: 80%;
+    margin: auto;
+}
+.maincart11 p{
+    color: rgb(241, 98, 9);
+}
+.maincart111{
+    color: blue;
+    font-size: 16.5px;
+}
+.maincart12{
+    width: 50%;
+    text-align: center;
+    margin: auto;
+}
+.maincart12 button{
+    width: 115px;
+    height: 40px;
+    background-color: #f1bc19;
+    font-size: 20px;
+    outline: none;
+    color: white;
+    letter-spacing: 1px;
+    border: 3px solid rgb(224, 158, 36);
+    font-style: italic;
+}
+.maincart81 p{
+    color: red;
+    font-size: 17px;
+    text-align: center;
+}
+.maincart82{
+    color: blue;
+}
+.maincart8{
+    width: 80%;
+    margin: auto;
+    margin-top: 40px;
+}
+.maincart83 p{
+    color: red;
+    font-size: 17px;
+    text-align: center;
+}
+.maincart84{
+    color: blue;
 }
