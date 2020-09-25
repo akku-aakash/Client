@@ -39,7 +39,7 @@ const Menu = () => {
                             <Link onClick={() => {
                                 const navlinks = document.querySelector('.navlink')
                                 navlinks.classList.toggle("open");
-                            }} className="link" style={{ backgroundColor: "rgb(247, 196, 30)" }} to='/products/unique/gifts'>UNIQUE GIFTS</Link>
+                            }} className="link" style={{ backgroundColor: "rgb(247, 196, 30)", fontWeight:'bold' }} to='/products/unique/gifts'>UNIQUE GIFTS</Link>
                         </li>
                         <li>
                             <Link onClick={() => {
@@ -57,7 +57,7 @@ const Menu = () => {
                             <Link onClick={() => {
                                 const navlinks = document.querySelector('.navlink')
                                 navlinks.classList.toggle("open");
-                            }} className="link" to="/products/special/services">SPECIAL SERVICES</Link>
+                            }} className="link" to="/products/special/services">CELE BASH</Link>
                         </li>
                     </ul>
                 </div>

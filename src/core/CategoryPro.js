@@ -4,6 +4,7 @@ import Cardd from './Cardd'
 import '../style/product.css';
 import Menu from './Menu'
 import { Col, Row, Container } from 'react-bootstrap'
+import { Helmet } from 'react-helmet';
 
 const Products = (props) => {
 
@@ -11,7 +12,6 @@ const Products = (props) => {
 
     useEffect(() => {
         const subCatId = props.match.params.productId
-        console.log(subCatId)
         loadSingleProduct(subCatId)
     }, [props])
 
@@ -19,6 +19,7 @@ const Products = (props) => {
         axios.get(`${process.env.REACT_APP_API_URL}/products/by/sub/category?subCategory=${subCatId}&limit=50`)
             .then(res => {
                 setProduct(res.data)
+                console.log(res.data)
             })
             .catch(err => {
                 console.log(err)
@@ -27,6 +28,12 @@ const Products = (props) => {
 
     return (
         <div className="pro">
+            <Helmet>
+                <title>{props.match.params.productId}</title>
+                <meta name="description" content="fakdsfj adsjfkjasdhfj asdhfjkdsjkjkh" />
+                <meta name="author" content="Bunny Bash" />
+                <meta name="robots" content="index, follow"></meta>
+            </Helmet>
             <Menu />
             <div className="pro14">
                 <h2 style={{ textAlign: 'center' }}>Products</h2>
@@ -54,7 +61,7 @@ const Products = (props) => {
                                 product
                                     .map((product, i) => {
                                         return (
-                                            <Col xs={12} sm={6} lg={4} style={{margin:"10px 0px 40px 0px"}}>
+                                            <Col xs={12} sm={6} lg={4} style={{ margin: "10px 0px 40px 0px" }}>
                                                 <Cardd key={i} product={product} />
                                             </Col>
                                         )

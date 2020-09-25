@@ -8,6 +8,7 @@ import Menu from '../core/Menu'
 import Ballon from '../images_icons/Baloons.svg'
 import Deco from '../images_icons/bunting.svg'
 import Serv from '../images_icons/rocking.svg'
+import { Helmet } from 'react-helmet';
 
 const Unique = () => {
     const [productByPhoto, setProductByPhoto] = useState([])
@@ -125,6 +126,12 @@ const Unique = () => {
 
     return (
         <div className="unique">
+            <Helmet>
+                <title>Unique Category</title>
+                <meta name="description" content="Unique category" />
+                <meta name="author" content="Bunny Bash" />
+                <meta name="robots" content="index, follow"></meta>
+            </Helmet>
             <Menu />
             <ToastContainer />
             <div className="diy2">

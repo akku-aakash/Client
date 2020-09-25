@@ -5,6 +5,7 @@ import axios from "axios";
 import moment from 'moment';
 import { ToastContainer, toast } from 'react-toastify';
 import Menu from '../core/Menu'
+import { Helmet } from 'react-helmet'
 
 const UserDashboard = ({ history }) => {
     const [historyPro, setHistoryProduct] = useState([])
@@ -36,6 +37,12 @@ const UserDashboard = ({ history }) => {
 
     return (
         <div className="ud00">
+            <Helmet>
+                <title>{isAuth().name}</title>
+                <meta name="description" content={isAuth().Address.street} />
+                <meta name="author" content="Bunny Bash" />
+                <meta name="robots" content="index, follow"></meta>
+            </Helmet>
             <Menu />
             <ToastContainer />
             <div className="ud0">
@@ -56,7 +63,7 @@ const UserDashboard = ({ history }) => {
                 <div className="ud3">
                     <div className="ud4">
                         <ul>
-                            <li>{isAuth() && isAuth().role === 1 && <Link  to="/admin/dashboard" className="ud5">Admin work</Link>}</li>
+                            <li>{isAuth() && isAuth().role === 1 && <Link to="/admin/dashboard" className="ud5">Admin work</Link>}</li>
                             <li><Link className="ud5" to={`/profile/${isAuth()._id}`}>Update Profile</Link></li>
                             <li><Link className="ud5" to='/cart'>Your Cart</Link> </li>
                             <li>{isAuth() && <button onClick={handleLogout} > Logout </button>}</li>
@@ -65,37 +72,41 @@ const UserDashboard = ({ history }) => {
                     </div>
                 </div>
             </div>
-            
-            <div className="ud7" id="oorder">
-                <h3 className="ud8">Your Orders</h3>
-                <ul className="ud9">
-                    <li className="ud10">
-                        {historyPro.map((h, i) => {
-                            return (
-                                <div key={i} className="ud11">
-                                    <hr />
-                                    <p>status : {h.status}</p>
-                                    <p>Total price : <i className="fa fa-inr"></i>{h.amount}</p>
-                                    <hr />
-                                    {h.products.map((p, i) => {
-                                        return (
-                                            <div key={i} className="ud12">
-                                                <h6>Product name: {p.name}</h6>
-                                                <h6>Count: {p.count}</h6>
-                                                <h6>Product price: <i className="fa fa-inr"></i>{p.price}</h6>
-                                                <h6>
-                                                    Purchased date:{" "}
-                                                    {moment(h.createdAt).fromNow()}
-                                                </h6>
-                                            </div>
-                                        );
-                                    })}
-                                </div>
-                            );
-                        })}
-                    </li>
-                </ul>
-            </div>
+
+            {
+                historyPro.length == 0 ? <h1 className="norelpro" style={{ textAlign: 'center' }}>NO Orders</h1> :
+                    <div className="ud7" id="oorder">
+                        <h3 className="ud8">Your Orders</h3>
+                        <ul className="ud9">
+                            <li className="ud10">
+                                {historyPro.map((h, i) => {
+                                    return (
+                                        <div key={i} className="ud11">
+                                            <hr />
+                                            <p>status : {h.status}</p>
+                                            <p>Total price : <i className="fa fa-inr"></i>{h.amount}</p>
+                                            <hr />
+                                            {h.products.map((p, i) => {
+                                                return (
+                                                    <div key={i} className="ud12">
+                                                        <h6>Product name: {p.name}</h6>
+                                                        <h6>Count: {p.count}</h6>
+                                                        <h6>Product price: <i className="fa fa-inr"></i>{p.price}</h6>
+                                                        <h6>
+                                                            Purchased date:{" "}
+                                                            {moment(h.createdAt).fromNow()}
+                                                        </h6>
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
+                                    );
+                                })}
+                            </li>
+                        </ul>
+                    </div>
+            }
+
         </div>
     );
 }

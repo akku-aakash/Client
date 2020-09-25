@@ -24,7 +24,7 @@ const ShowImage = ({ item, url }) => {
     return (
         <div className="carttPic1" >
             {
-                arr && <img src={`${process.env.REACT_APP_API_URL}/${url}/photo/${item._id}?photoId=${arr[0]._id}`}
+                arr && arr[0] && <img src={`${process.env.REACT_APP_API_URL}/${url}/photo/${item._id}?photoId=${arr[0]._id}`}
                     alt={item.name}
                     className="main-img"
                 />

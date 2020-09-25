@@ -6,6 +6,7 @@ import Carddd from '../core/Carddd';
 import AliceCarousel from 'react-alice-carousel'
 import '../style/diykit.css'
 import Menu from '../core/Menu'
+import { Helmet } from 'react-helmet';
 import Ballon from '../images_icons/Baloons.svg'
 import Deco from '../images_icons/bunting.svg'
 import Serv from '../images_icons/rocking.svg'
@@ -101,6 +102,12 @@ const Diykits = () => {
     return (
         <div className="diy">
             <Menu />
+            <Helmet>
+                <title>DiyKits</title>
+                <meta name="description" content="diykit diykit" />
+                <meta name="author" content="Bunny Bash" />
+                <meta name="robots" content="index, follow"></meta>
+            </Helmet>
             <ToastContainer />
             <div className="diy2">
                 <div className="diy3">

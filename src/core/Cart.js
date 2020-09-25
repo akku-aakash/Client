@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import Checkout from './Checkout';
 import '../style/maincart.css';
 import Menu from './Menu'
+import {Helmet} from 'react-helmet'
 
 const Cart = () => {
     const [items, setItems] = useState([]);
@@ -38,6 +39,12 @@ const Cart = () => {
 
     return (
         <Fragment >
+            <Helmet>
+                <title>Bunny Bash Cart</title>
+                <meta name="description" content="fakdsfj adsjfkjasdhfj asdhfjkdsjkjkh" />
+                <meta name="author" content="Bunny Bash" />
+                <meta name="robots" content="index, follow"></meta>
+            </Helmet>
             <Menu />
             <Layout title='Shopping Cart' description={`Your cart has ${items.length} products`}>
                 <div className="maincart2">

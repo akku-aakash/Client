@@ -12,7 +12,7 @@ const Card = ({ product,
     showRemoveProductButton = false }) => {
 
 
-    const { _id, name,fakeprice ,description, price, quantity } = product;
+    const { _id, name,fakeprice ,description, price, quantity,category } = product;
 
     const [proo, setProo] = useState({
         _id,
@@ -20,7 +20,8 @@ const Card = ({ product,
         description,
         price,
         quantity,
-        fakeprice
+        fakeprice,
+        category
     })
 
     const [shop, setShop] = useState(false);
@@ -88,7 +89,6 @@ const Card = ({ product,
             showRemoveProductButton && (
                 <button onClick={() => {
                     removeItem(product._id)
-                    setShop(true)
                 }}
                     className='btn btn-outline-danger mt-2 mb-2'>
                     Remove Button

@@ -6,7 +6,7 @@ import '../style/cardd.css';
 const Cardd = ({ product,
     showAtToCart = true, }) => {
 
-    const {_id, fakeprice,name, description, price, quantity} = product;
+    const {_id, fakeprice,name, description, price, quantity, category} = product;
 
     const [proo, setProo] = useState({
         _id,
@@ -14,7 +14,8 @@ const Cardd = ({ product,
         description,
         price,
         quantity,
-        fakeprice
+        fakeprice,
+        category
     })
 
 
@@ -63,7 +64,7 @@ const Cardd = ({ product,
                 </Link>
                 <div className="ch3">
                     <h3>{product.name.substring(0, 20)}</h3>
-                    <h4><i className="fa fa-inr"></i>{product.price}</h4>
+                    <h4>Rs. {product.price}/-</h4>
                     <div className="ch4">
                         <Link>
                             {showCartButton(showAtToCart)}

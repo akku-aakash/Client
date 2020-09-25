@@ -4,7 +4,8 @@ import AliceCarousel from 'react-alice-carousel'
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify'
 import Cardd from '../core/Cardd';
-import Menu from '../core/Menu'
+import Menu from '../core/Menu';
+import { Helmet } from 'react-helmet';
 
 const Experience = () => {
 
@@ -94,6 +95,12 @@ const Experience = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Experiences</title>
+                <meta name="description" content="Experience fadsfasdf  adsfsadf " />
+                <meta name="author" content="Bunny Bash" />
+                <meta name="robots" content="index, follow"></meta>
+            </Helmet>
             <ToastContainer />
             <Menu />
             <div className="home11">

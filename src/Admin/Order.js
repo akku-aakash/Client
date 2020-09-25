@@ -152,8 +152,8 @@ const Order = () => {
                     {showOrderLength(orders)}
                     {orders.map((o, i) => {
                         return (
-                            <div key={i}>
-                                <h3><span>Order : {o._id}</span></h3>
+                            <div key={i} style={{ margin: '60px 0px' }}>
+                                <h3><span style={{ color: '#f1bc19' }}>Order : {o._id}</span></h3>
                                 <ul>
                                     <li>
                                         {showStatus(o)}
@@ -175,10 +175,10 @@ const Order = () => {
                                         order on = {moment(o.createdAt).fromNow()}
                                     </li>
                                     <li>
-                                        order shipped = {o.user.Address.street}, {o.user.Address.city}, {o.user.Address.state}
+                                        order shipped = {o.address}
                                     </li>
                                     <li>
-                                        Contact Number = {o.user.phone}
+                                        Contact Number = {o.phone}
                                     </li>
                                 </ul>
                                 <h3>total products: {o.products.length}</h3>
@@ -190,6 +190,7 @@ const Order = () => {
                                                 {showInput('Product price Rs', p.price)}
                                                 {showInput('Product total', p.count)}
                                                 {showInput('Product Id', p._id)}
+                                                {p.category == "5f5f13c80f137d00170ba26d" ? showInput('Order Type', 'Experience Service') : showInput('Order Type', 'Products')}
                                             </div>
                                         )
                                     })

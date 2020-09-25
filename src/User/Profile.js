@@ -4,6 +4,7 @@ import { isAuth, getCookie, updateUser } from '../helpers/auth';
 import { Form, Button } from 'react-bootstrap'
 import Love from '../images_icons/login.svg'
 import Menu from '../core/Menu'
+import {Helmet} from 'react-helmet'
 
 const Profile = () => {
 
@@ -89,6 +90,12 @@ const Profile = () => {
 
     return (
         <Fragment>
+        <Helmet>
+        <title>Edit {isAuth().name}</title>
+        <meta name="description" content={isAuth().Address.street} />
+        <meta name="author" content="Bunny Bash" />
+        <meta name="robots" content="index, follow"></meta>
+    </Helmet>
             <Menu />
             <div className="login">
                 <div className="login1">

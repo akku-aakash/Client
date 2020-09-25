@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify'
 import { Container, Row, Col } from 'react-bootstrap';
+import { Helmet } from 'react-helmet';
 import Cardd from './Cardd';
 import Cardd1 from './Cardd1';
 import Cardd2 from './Cardd2';
@@ -106,6 +107,13 @@ const Home = () => {
 
   return (
     <div className="homee">
+      <Helmet>
+        <title>Diy Decor box, unique gift ideas, surprise and experiences pan India</title>
+        <meta name="description" content="Buy online birthday decoration kit, diy decor box for an anniversary, baby shower and festivals. Explore unique gift ideas, birthday gifts, surprise gifts, virtual gifts. Book birthday and surprise planners, candlelight dinners, home surprises, and pan India experiences and activities for couples, families, and corporates." />
+        <meta name="keywords" content="diy decor box birthday decoration kit birthday decoration kit online unique gifts unique gift ideas birthday gifts anniversary gifts surprise gifts virtual gift ideas virtual gifts online surprise planners surprise party planners book surprises book experiences " />
+        <meta name="author" content="Bunny Bash" />
+        <meta name="robots" content="index, follow"></meta>
+      </Helmet>
       <ToastContainer />
       <div className="home">
         <Container fluid>

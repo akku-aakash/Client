@@ -6,10 +6,12 @@ import '../style/product.css';
 import AliceCarousel from 'react-alice-carousel'
 import "react-alice-carousel/lib/alice-carousel.css";
 import Menu from './Menu'
-
+import { Helmet } from 'react-helmet';
+import Loading from '../homeCore/LoadingPage';
 
 
 const Products = (props) => {
+    const [loading, setLoading] = useState(true);
     const [product, setProduct] = useState({})
     const [relatedProduct, setRelatedProduct] = useState([])
     const [des, setDes] = useState([]);
@@ -31,6 +33,7 @@ const Products = (props) => {
                 setInc(res.data.inclusiona)
                 setExc(res.data.exclusiona)
                 setBef(res.data.beforeyoua)
+                setLoading(false);
             })
             .catch(err => {
                 console.log(err)
@@ -124,6 +127,12 @@ const Products = (props) => {
 
     return (
         <div className="pro">
+            <Helmet>
+                <title>{product.name}</title>
+                <meta name="description" content={product.description} />
+                <meta name="author" content="Bunny Bash" />
+                <meta name="robots" content="index, follow"></meta>
+            </Helmet>
             <Menu />
             <div>
                 {
@@ -131,52 +140,56 @@ const Products = (props) => {
                     <Card product={product} showViewProductButthon={false} />
                 }
             </div>
-            <div className="pro2">
-                <div className="pro3">
-                    <ul className="pro4">
-                        <li onClick={changeScreen}><button className="pro10 acctive">Description</button></li>
-                        <li onClick={changeScreen1}><button className="pro11">Inclusion & Exclusions</button></li>
-                        <li onClick={changeScreen2}><button className="pro12">Before you Order</button></li>
-                        <li onClick={changeScreen3}><button className="pro13">Refund & Cancelation Policy</button></li>
-                    </ul>
-                </div>
-                <div className="pro5">
-                    <div className="pro6">
-                        <div className="pro7">
-                            <div className="pro8">
-                                <p>{product.description}</p>
-                                <ul className="pro9">{des.map((element, i) => (
-                                    <div key={i}>{element != null ? <li>{element}</li> : <h1 className="prooo">d</h1>}</div>
-                                ))}</ul>
-                            </div>
+            {
+                loading ? <Loading /> :
+                    <div className="pro2">
+                        <div className="pro3">
+                            <ul className="pro4">
+                                <li onClick={changeScreen}><button className="pro10 acctive">Description</button></li>
+                                <li onClick={changeScreen1}><button className="pro11">Inclusion & Exclusions</button></li>
+                                <li onClick={changeScreen2}><button className="pro12">Before you Order</button></li>
+                                <li onClick={changeScreen3}><button className="pro13">Refund & Cancelation Policy</button></li>
+                            </ul>
                         </div>
-                        <div className="pro7">
-                            <div className="pro8">
-                                <h3>Inclusions</h3>
-                                <ul>{inc.map((element, i) => (
-                                    <div key={i}>{element != null ? <li>{element}</li> : <h1 className="prooo">d</h1>}</div>
-                                ))}</ul>
-                                <h3>Exclusions</h3>
-                                <ul>{exc.map((element, i) => (
-                                    <div key={i}>{element != null ? <li>{element}</li> : <h1 className="prooo">d</h1>}</div>
-                                ))}</ul>
-                            </div>
-                        </div>
-                        <div className="pro7">
-                            <div className="pro8">
-                                <ul>{bef.map((element, i) => (
-                                    <div key={i}>{element != null ? <li>{element}</li> : <h1 className="prooo">d</h1>}</div>
-                                ))}</ul>
-                            </div>
-                        </div>
-                        <div className="pro7">
-                            <div className="pro8">
-                                <p>{product.description}</p>
+                        <div className="pro5">
+                            <div className="pro6">
+                                <div className="pro7">
+                                    <div className="pro8">
+                                        <p>{product.description}</p>
+                                        <ul className="pro9">{des.map((element, i) => (
+                                            <div key={i}>{element != null ? <li>{element}</li> : <h1 className="prooo">d</h1>}</div>
+                                        ))}</ul>
+                                    </div>
+                                </div>
+                                <div className="pro7">
+                                    <div className="pro8">
+                                        <h3>Inclusions</h3>
+                                        <ul>{inc.map((element, i) => (
+                                            <div key={i}>{element != null ? <li>{element}</li> : <h1 className="prooo">d</h1>}</div>
+                                        ))}</ul>
+                                        <h3>Exclusions</h3>
+                                        <ul>{exc.map((element, i) => (
+                                            <div key={i}>{element != null ? <li>{element}</li> : <h1 className="prooo">d</h1>}</div>
+                                        ))}</ul>
+                                    </div>
+                                </div>
+                                <div className="pro7">
+                                    <div className="pro8">
+                                        <ul>{bef.map((element, i) => (
+                                            <div key={i}>{element != null ? <li>{element}</li> : <h1 className="prooo">d</h1>}</div>
+                                        ))}</ul>
+                                    </div>
+                                </div>
+                                <div className="pro7">
+                                    <div className="pro8">
+                                        <p>{product.description}</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+            }
+
             <div className="pro1411">
                 <h2 style={{ textAlign: 'center' }}>Related Products</h2>
                 <div className="pro15">
@@ -197,19 +210,22 @@ const Products = (props) => {
                     </div>
                 </div>
                 <div className="pro16">
-                    <AliceCarousel
-                        items={state1.galleryItems}
-                        responsive={responsive}
-                        autoPlayInterval={5000}
-                        autoPlayDirection="rtl"
-                        autoPlay={true}
-                        fadeOutAnimation={true}
-                        mouseTrackingEnabled={true}
-                        playButtonEnabled={false}
-                        disableAutoPlayOnAction={true}
-                        dotsDisabled={true}
-                        buttonsDisabled={true}
-                    />
+                    {
+                        relatedProduct.length == 0 ? <h2 style={{ textAlign: 'center' }} className="norelpro">No Related Products Found</h2> :
+                            <AliceCarousel
+                                items={state1.galleryItems}
+                                responsive={responsive}
+                                autoPlayInterval={5000}
+                                autoPlayDirection="rtl"
+                                autoPlay={true}
+                                fadeOutAnimation={true}
+                                mouseTrackingEnabled={true}
+                                playButtonEnabled={false}
+                                disableAutoPlayOnAction={true}
+                                dotsDisabled={true}
+                                buttonsDisabled={true}
+                            />
+                    }
                 </div>
             </div>
         </div >
