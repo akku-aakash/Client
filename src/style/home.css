@@ -818,17 +818,30 @@ body{
 .home551{
     padding: 50px 0;
     width: 100%;
-    overflow: hidden;    
+    overflow: hidden;
+    padding-bottom: 80px;    
 }
 .home552{
-    width: 80%;
+    width: 70%;
     display: flex;
     margin: auto;
     justify-content: space-between;
 }
 .home553{
-    width: 200px;
-    height: 200px;
+    width: 175px;
+    height: 175px;
     border-radius: 50%;
-    background-color: coral;
+    background-color: #f2d395;
+    box-shadow: 10px 10px 15px rgb(112, 112, 112);
+}
+.home553 h1{
+    text-align: center;
+    line-height: 175px;
+    font-size: 100px;
+    color: black;
+}
+.home553 h2{
+    text-align: center;
+    font-size: 19px;
+    margin-top: 15px;
 }

@@ -17,6 +17,7 @@ import Cel from '../images_icons/cel.jfif'
 import Cel1 from '../images_icons/cell1.jfif'
 import Menu from './Menu'
 import Loading from '../homeCore/LoadingPage';
+import {FaUsers, FaUserGraduate, FaRegBuilding, FaUniversity} from 'react-icons/fa'
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
@@ -323,16 +324,20 @@ const Home = () => {
       <div className="home551">
         <div className="home552">
           <div className="home553">
-          adfdhja
+          <h1><FaUsers /></h1>
+          <h2>HR Workshops</h2>
           </div>
           <div className="home553">
-          adsfad
+          <h1><FaRegBuilding /></h1>
+          <h2>Corporates Events</h2>
           </div>
           <div className="home553">
-          adfa
+          <h1><FaUniversity /></h1>
+          <h2>Store Lunch</h2>
           </div>
           <div className="home553">
-          fadads
+          <h1><FaUserGraduate /></h1>
+          <h2>School Events</h2>
           </div>
         </div>
       </div>
