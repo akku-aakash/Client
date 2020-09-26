@@ -17,9 +17,7 @@ const Checkout = () => {
     const [products, setProducts] = useState([])
     const userId = isAuth() && isAuth()._id;
     const token = getCookie('token');
-    const { Address } = isAuth()
-    data.address = Address.street + ", " + Address.city + ", " + Address.state
-    data.phone = isAuth().phone
+
 
     const processPayment = (userId, token, paymentData, amount) => {
         const createOrderData = {
@@ -46,6 +44,10 @@ const Checkout = () => {
 
     useEffect(() => {
         setProducts(getCart());
+        if(isAuth()){
+            data.address = isAuth().Address.street + ", " + isAuth().Address.city + ", " + isAuth().Address.state
+            data.phone = isAuth().phone
+        }
     }, [])
 
     const loadScript = (src) => {
@@ -146,9 +148,9 @@ const Checkout = () => {
 
             <div className="maincart8">
                 {
-                    isAuth().Address.city == "" ? <Redirect to={`/profile/${isAuth()._id}`} />
+                    isAuth() && isAuth().Address.city == "" ? <Redirect to={`/profile/${isAuth()._id}`} />
                         : <div>{
-                            isAuth().phone == null ? <Redirect to={`/profile/${isAuth()._id}`} /> :
+                            isAuth() && isAuth().phone == null ? <Redirect to={`/profile/${isAuth()._id}`} /> :
                                 showCheckout()
                         }</div>
                 }
