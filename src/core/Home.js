@@ -24,7 +24,6 @@ import Icon3 from '../speicall/Special service 1.svg'
 import Icon4 from '../speicall/Special service 2.svg'
 import Icon5 from '../speicall/Special service 3.svg'
 import Icon6 from '../speicall/Special service 4.svg'
-import { FaUsers, FaUserGraduate, FaRegBuilding, FaUniversity } from 'react-icons/fa'
 
 const Home = () => {
   const [loading, setLoading] = useState(true);

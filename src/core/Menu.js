@@ -2,7 +2,7 @@ import React, { Fragment, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { itemTotal } from '../helpers/CartHelper'
 import Bunny from '../images_icons/bunny.svg'
-import {FaUser, FaCartArrowDown, FaSearch} from 'react-icons/fa';
+import { FaUser, FaCartArrowDown, FaHome } from 'react-icons/fa';
 
 const Menu = () => {
 
@@ -13,7 +13,7 @@ const Menu = () => {
         hamburger.addEventListener("click", () => {
             navlinks.classList.toggle("open");
         })
-    },[])
+    }, [])
 
     return (
         <Fragment>
@@ -22,9 +22,9 @@ const Menu = () => {
                     <Link to="/"><img src={Bunny} alt="" /></Link>
                 </div>
                 <div className="home4">
-                    <Link to="/cart"><p><FaCartArrowDown/><sup><small>{itemTotal()}</small></sup></p></Link>
-                    <Link to="/user/dashboard"><p><FaUser/></p></Link>
-                    <Link to="/shop"><p><FaSearch /></p></Link>
+                    <Link to="/"><p><FaHome /></p></Link>
+                    <Link to="/cart"><p><FaCartArrowDown /><sup><small>{itemTotal()}</small></sup></p></Link>
+                    <Link to="/user/dashboard"><p><FaUser /></p></Link>
                 </div>
             </div>
             <div className="home5">
@@ -39,7 +39,7 @@ const Menu = () => {
                             <Link onClick={() => {
                                 const navlinks = document.querySelector('.navlink')
                                 navlinks.classList.toggle("open");
-                            }} className="link" style={{ backgroundColor: "rgb(247, 196, 30)", fontWeight:'bold' }} to='/products/unique/gifts'>UNIQUE GIFTS</Link>
+                            }} className="link" style={{ backgroundColor: "rgb(247, 196, 30)", fontWeight: 'bold' }} to='/products/unique/gifts'>UNIQUE GIFTS</Link>
                         </li>
                         <li>
                             <Link onClick={() => {
