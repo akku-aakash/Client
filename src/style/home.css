@@ -3,7 +3,7 @@
     padding: 0px;
 }
 body{
-    font-family: 'Poppins';
+    font-family: 'Montserrat';
 }
 .homee{
     width: 100%;
@@ -374,7 +374,7 @@ body{
     margin-right: 100px !important;
 }
 .home10 {
-    margin: 80px 0% 30px 9%;
+    margin: 50px 0% 25px 9%;
     position: relative;
 }
 @media screen and (max-width: 450px){
@@ -384,7 +384,7 @@ body{
     }
 }
 .home115 {
-    margin: 85px 0% 30px 9%;
+    margin: 50px 0% 25px 9%;
     position: relative;
 }
 @media screen and (max-width: 450px){
@@ -401,9 +401,9 @@ body{
 }
 .home121{
     background-color: #2e3640;
-    height: 50px;
-    line-height: 50px;
-    font-size: 23px;
+    height: 45px;
+    line-height: 45px;
+    font-size: 22px;
     font-weight: bold;
     color: #efbf00;
     border-radius: 5px;
@@ -516,7 +516,6 @@ body{
 
 
 .home14{
-    background-color: #f0f0f0 ;
     margin-top: 50px ;
     padding-bottom: 50px;
 }
@@ -756,13 +755,14 @@ body{
 }
 
 .nav .navlink .link{
+    font-family: "Montserrat";
     font-size: 21px;
     letter-spacing: 1px;
-    font-weight: bolder;
     color: black;
     line-height: 8vh;
     padding: 2px 15px;
     border-radius: 10px;
+    font-weight: bolder;
 }
 .nav .navlink .link:hover{
     text-decoration: none;
@@ -815,33 +815,109 @@ body{
         height: 4px;
     }
 }
+/**
+* special services pages
+**/
 .home551{
-    padding: 50px 0;
     width: 100%;
     overflow: hidden;
-    padding-bottom: 80px;    
+    background-image: url('../images_icons/Baloons.svg');    
+    background-position: center;
+    background-size: cover;
+    background-color: #f0f0f0 ;
+    padding-bottom: 100px;
+    box-sizing: border-box;
+}
+.home551 h3{
+    font-weight: bolder;
+    letter-spacing: 1.5px;
+    padding-top: 30px;
 }
 .home552{
     width: 70%;
     display: flex;
     margin: auto;
     justify-content: space-between;
+    padding-top: 20px;
 }
 .home553{
-    width: 175px;
-    height: 175px;
+    width: 170px;
+    height: 170px;
     border-radius: 50%;
     background-color: #f2d395;
     box-shadow: 10px 10px 15px rgb(112, 112, 112);
 }
 .home553 h1{
     text-align: center;
-    line-height: 175px;
-    font-size: 100px;
+    line-height: 170px;
+    font-size: 85px;
     color: black;
 }
 .home553 h2{
     text-align: center;
-    font-size: 19px;
+    font-size: 17px;
     margin-top: 15px;
+}
+@media screen and (max-width: 1030px){
+    .home552{
+        width: 85%;
+    }
+}
+@media screen and (max-width: 900px){
+    .home552{
+        width: 90%;
+    }
+    .home553{
+        width: 155px;
+        height: 155px;
+    }
+    .home553 h1{
+        line-height: 155px;
+        font-size: 80px;
+    }
+}
+@media screen and (max-width: 750px){
+    .home552{
+        width: 90%;
+    }
+    .home553{
+        width: 135px;
+        height: 135px;
+    }
+    .home553 h1{
+        line-height: 135px;
+        font-size: 60px;
+    }
+}
+@media screen and (max-width: 650px){
+    .home552{
+        width: 95%;
+    }
+    .home553{
+        width: 115px;
+        height: 115px;
+    }
+    .home553 h1{
+        line-height: 115px;
+        font-size: 55px;
+    }
+}
+@media screen and (max-width: 500px){
+    .home552{
+        width: 96%;
+    }
+    .home553{
+        width: 80px;
+        height: 80px;
+    }
+    .home553 h1{
+        line-height: 80px;
+        font-size: 43px;
+    }
+    .home553 h2{
+        text-align: center;
+        font-size: 14px;
+        margin-top: 15px;
+        text-align: center;
+    }
 }

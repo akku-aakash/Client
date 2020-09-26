@@ -1,0 +1,17 @@
+.cele{
+    width: 95%;
+    margin: auto;
+}
+.cele1 img{
+    width: 100%;
+    height: 55vh;
+}
+.cele2 h1{
+    text-align: center;
+    font-family: "Shadows Into Light";
+    font-weight: bold;
+    font-size: 50px;
+    color: rgb(255, 41, 41);
+    letter-spacing: 2px;
+    padding: 20px 0;
+}

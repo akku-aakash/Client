@@ -17,7 +17,7 @@ import Cel from '../images_icons/cel.jfif'
 import Cel1 from '../images_icons/cell1.jfif'
 import Menu from './Menu'
 import Loading from '../homeCore/LoadingPage';
-import {FaUsers, FaUserGraduate, FaRegBuilding, FaUniversity} from 'react-icons/fa'
+import { FaUsers, FaUserGraduate, FaRegBuilding, FaUniversity } from 'react-icons/fa'
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
@@ -111,7 +111,7 @@ const Home = () => {
       <Helmet>
         <title>Diy Decor box, unique gift ideas, surprise and experiences pan India</title>
         <meta name="description" content="Buy online birthday decoration kit, diy decor box for an anniversary, baby shower and festivals. Explore unique gift ideas, birthday gifts, surprise gifts, virtual gifts. Book birthday and surprise planners, candlelight dinners, home surprises, and pan India experiences and activities for couples, families, and corporates." />
-        <meta name="keywords" content="diy decor box birthday decoration kit birthday decoration kit online unique gifts unique gift ideas birthday gifts anniversary gifts surprise gifts virtual gift ideas virtual gifts online surprise planners surprise party planners book surprises book experiences " />
+        <meta name="keywords" content="diy decor box, birthday decoration kit, birthday decoration kit online, unique gifts, unique gift ideas, birthday gifts, anniversary gifts, surprise gifts, virtual gift ideas, virtual gifts online, surprise planners, surprise party planners, book surprises, book experiences " />
         <meta name="author" content="Bunny Bash" />
         <meta name="robots" content="index, follow"></meta>
       </Helmet>
@@ -274,6 +274,44 @@ const Home = () => {
           <Link to='/products/experience'> <p className="home121">View More</p></Link>
         </div>
       </div>
+      <div className="home551">
+        <h3 style={{ textAlign: 'center' }}>Special Services</h3>
+        <div className="home91">
+          <div className="home94">
+            <div className="home92">
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+            </div>
+            <h1><i className="fa fa-gift"></i></h1>
+            <div className="home93">
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+            </div>
+          </div>
+        </div>
+        <div className="home552">
+          <div className="home553">
+            <h1><FaUsers /></h1>
+            <h2>HR Workshops</h2>
+          </div>
+          <div className="home553">
+            <h1><FaRegBuilding /></h1>
+            <h2>Corporates Events</h2>
+          </div>
+          <div className="home553">
+            <h1><FaUniversity /></h1>
+            <h2>Store Launch</h2>
+          </div>
+          <div className="home553">
+            <h1><FaUserGraduate /></h1>
+            <h2>School Events</h2>
+          </div>
+        </div>
+      </div>
       <div className="home14">
         <div className="home91">
           <div className="home94">
@@ -321,33 +359,11 @@ const Home = () => {
           </Row>
         </Container>
       </div>
-      <div className="home551">
-        <div className="home552">
-          <div className="home553">
-          <h1><FaUsers /></h1>
-          <h2>HR Workshops</h2>
-          </div>
-          <div className="home553">
-          <h1><FaRegBuilding /></h1>
-          <h2>Corporates Events</h2>
-          </div>
-          <div className="home553">
-          <h1><FaUniversity /></h1>
-          <h2>Store Lunch</h2>
-          </div>
-          <div className="home553">
-          <h1><FaUserGraduate /></h1>
-          <h2>School Events</h2>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
 
 export default Home;
-
-
 
 // <div className="home13">
 // <h2 style={{ textAlign: 'center' }}>Our Top Services</h2>

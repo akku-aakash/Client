@@ -31,6 +31,7 @@ import Special from './homeCore/SpecialSer';
 import Unique from './homeCore/Unique';
 import Footer from './core/Footer';
 import ErrorPage from './homeCore/ErrorPage';
+import Speciall from './homeCore/SpecialService';
 
 const Routes = () => {
 
@@ -48,6 +49,7 @@ const Routes = () => {
                     <Route path='/products/experience' exact render={props => <Exp {...props} />} />
                     <Route path='/products/special/services' exact render={props => <Special {...props} />} />
                     <Route path='/products/unique/gifts' exact render={props => <Unique {...props} />} />
+                    <Route path='/special/services' exact render={props => <Speciall {...props} />} />
 
                     <Route path='/product/:productId' exact component={Products} />
                     <Route path='/products/subCategory/:productId' exact component={CategoryPro} />

@@ -1,28 +1,19 @@
 .ch{
     background-color: #c0fdf1;
-    max-width: 335px;
-    border-top: 15px solid #c0fdf1;
-    border-left: 12px solid #c0fdf1;
-    border-right: 12px solid #c0fdf1;
-    border-bottom: 15px solid #c0fdf1;
+    max-width: 325px;
+    border-bottom: 10px solid #c0fdf1;
     box-sizing: border-box;
 }
 .chaaa1{
     background-color: #ffcdb2;
-    max-width: 335px;
-    border-top: 15px solid #ffcdb2;
-    border-left: 12px solid #ffcdb2;
-    border-right: 12px solid #ffcdb2;
-    border-bottom: 15px solid #ffcdb2;
+    max-width: 325px;
+    border-bottom: 10px solid #ffcdb2;
     box-sizing: border-box;
 }
 .chaaa2{
-    background-color: #ffc4d6;
-    max-width: 335px;
-    border-top: 15px solid #ffc4d6;
-    border-left: 12px solid #ffc4d6;
-    border-right: 12px solid #ffc4d6;
-    border-bottom: 15px solid #ffc4d6;
+    background-color: #fac6d5;
+    max-width: 325px;
+    border-bottom: 10px solid #ffc4d6;
     box-sizing: border-box;
 }
 .ch:hover{
@@ -30,21 +21,21 @@
 }
 .ch2 img{
     width: 100%;
-    height: 34vh !important;
+    height: 32vh !important;
 }
 .ch3 h3{
     text-align: center;
-    color: rgb(77, 77, 77) !important;
-    font-weight: 800;
-    font-size: 28px;
-    letter-spacing: 2px;
-    font-family: "Shadows Into Light";
+    color: black;
+    font-weight: 550;
+    font-size: 22px;
+    font-family: "chivo";
+    padding-top: 8px;
 }
 .ch3 h4{
     text-align: center;
     color: rgb(223, 21, 21);
-    font-size: 23px;
-    margin: -10px 0px 0px 0px;
+    font-size: 19px;
+    margin: -2px 0px 7px 0px;
 }
 .ch4{
     text-align: center !important;
@@ -52,27 +43,30 @@
 }
 .chbutton{
     color: black;
-    background-color: orange;
+    background-color: #efbf00;
     outline: none;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     text-align: center;
     display: flex;
     margin: auto;
     width: auto;
-    height: 29px !important;
+    height: 25.5px !important;
     align-items: center;
-    padding: 0px 6px 0 0px;
+    padding: 0px 4px 0 0px;
 }
 .chbutton i{
-    padding: 0 15px;
+    padding: 0 10px;
+    color: white;
 }
 .chbutton p{
-    background-color: rgb(252, 252, 136);
-    font-size: 14px;
-    border-radius: 6px;
-    padding: 0px 3px;
-    margin-top: 15px;
+    background-color: white;
+    font-size: 12px;
+    border-radius: 10px;
+    padding: 0px 8px;
+    margin-top: 16px;
+    line-height: 18px;
+    font-weight: bold;
 }
 @media screen and (max-width: 450px){
     .ch{

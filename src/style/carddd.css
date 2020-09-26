@@ -1,14 +1,11 @@
 .chh2 img{
     width: 100%;
-    height: 24vh !important;
+    height: 25vh !important;
 }
 .chh{
     background-color: rgba(51, 255, 221, 0.4);
-    max-width: 250px;
-    border-top: 10px solid rgba(51, 255, 221, 0.4);
-    border-left: 8px solid rgba(51, 255, 221, 0.4);
-    border-right: 8px solid rgba(51, 255, 221, 0.4);
-    border-bottom: 10px solid rgba(51, 255, 221, 0.4);
+    max-width: 260px;
+    border-bottom: 8px solid rgba(51, 255, 221, 0.4);
     box-sizing: border-box;
 }
 @media screen and (max-width: 550px){
@@ -16,9 +13,7 @@
         background-color: rgba(51, 255, 221, 0.4);
         max-width: 325px;
         min-height: 45vh;
-        border-top: 14px solid rgba(51, 255, 221, 0.4);
-        border-left: 12px solid rgba(51, 255, 221, 0.4);
-        border-right: 12px solid rgba(51, 255, 221, 0.4);
+        border-bottom: 12px solid rgba(51, 255, 221, 0.4);
         box-sizing: border-box;
         margin: 0px 15px;
     }
@@ -32,16 +27,17 @@
 }
 .chh3 h3{
     text-align: center;
-    color: rgb(73, 73, 73);
-    font-weight: 600;
-    font-size: 20.5px;
-    letter-spacing: 2px;
+    color: black;
+    font-weight: 550;
+    font-size: 22px;
+    font-family: "chivo";
+    padding-top: 4px;
 }
 .chh3 h4{
     text-align: center;
-    color: red;
-    margin: -12px 0px 1px 0px;
-    font-size:18px;
+    color: rgb(223, 21, 21);
+    font-size: 19px;
+    margin: -4px 0px 5px 0px;
 }
 .chh4{
     text-align: center !important;
@@ -49,25 +45,28 @@
 }
 .chhbutton{
     color: black;
-    background-color: orange;
+    background-color: #efbf00;
     outline: none;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     text-align: center;
     display: flex;
     margin: auto;
     width: auto;
-    height: 29px !important;
+    height: 25px !important;
     align-items: center;
-    padding: 0px 6px 0 0px;
+    padding: 0px 4px 0 0px;
 }
 .chhbutton i{
-    padding: 0 8px;
+    padding: 0 10px;
+    color: white;
 }
 .chhbutton p{
-    background-color: rgb(252, 252, 136);
-    font-size: 13px;
-    border-radius: 4px;
-    padding: 0px 3px;
+    background-color: white;
+    font-size: 12px;
+    border-radius: 10px;
+    padding: 0px 8px;
     margin-top: 16px;
+    line-height: 18px;
+    font-weight: bold;
 }
