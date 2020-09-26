@@ -17,6 +17,13 @@ import Cel from '../images_icons/cel.jfif'
 import Cel1 from '../images_icons/cell1.jfif'
 import Menu from './Menu'
 import Loading from '../homeCore/LoadingPage';
+import Icon from '../speicall/icon 1.svg'
+import Icon1 from '../speicall/icon 2.svg'
+import Icon2 from '../speicall/Icon 3.svg'
+import Icon3 from '../speicall/Special service 1.svg'
+import Icon4 from '../speicall/Special service 2.svg'
+import Icon5 from '../speicall/Special service 3.svg'
+import Icon6 from '../speicall/Special service 4.svg'
 import { FaUsers, FaUserGraduate, FaRegBuilding, FaUniversity } from 'react-icons/fa'
 
 const Home = () => {
@@ -295,21 +302,24 @@ const Home = () => {
         </div>
         <div className="home552">
           <div className="home553">
-            <h1><FaUsers /></h1>
+            <h1><img src={Icon2} alt="fad" /></h1>
             <h2>HR Workshops</h2>
           </div>
           <div className="home553">
-            <h1><FaRegBuilding /></h1>
+            <h1><img src={Icon} alt="fad" /></h1>
             <h2>Corporates Events</h2>
           </div>
           <div className="home553">
-            <h1><FaUniversity /></h1>
+            <h1><img src={Icon1} alt="fad" /></h1>
             <h2>Store Launch</h2>
           </div>
           <div className="home553">
-            <h1><FaUserGraduate /></h1>
+            <h1><img src={Icon2} alt="fad" /></h1>
             <h2>School Events</h2>
           </div>
+        </div>
+        <div className="home554">
+          <Link to='/special/services'> <p className="home555">View To More</p></Link>
         </div>
       </div>
       <div className="home14">

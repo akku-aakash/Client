@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify'
-import Carddd from '../core/Carddd';
+import Cardd from '../core/Cardd';
+import Cardd1 from '../core/Cardd1';
+import Cardd2 from '../core/Cardd2';
 import AliceCarousel from 'react-alice-carousel'
 import '../style/diykit.css'
 import Menu from '../core/Menu'
@@ -60,7 +62,7 @@ const Diykits = () => {
             .map((product, i) => {
                 return (
                     <div>
-                        <Carddd key={i} product={product} />
+                        <Cardd key={i} product={product} />
                     </div>
                 )
             }
@@ -72,7 +74,7 @@ const Diykits = () => {
             .map((product, i) => {
                 return (
                     <div>
-                        <Carddd key={i} product={product} />
+                        <Cardd1 key={i} product={product} />
                     </div>
                 )
             }
@@ -84,7 +86,7 @@ const Diykits = () => {
             .map((product, i) => {
                 return (
                     <div>
-                        <Carddd key={i} product={product} />
+                        <Cardd2 key={i} product={product} />
                     </div>
                 )
             }
@@ -93,11 +95,10 @@ const Diykits = () => {
 
     const responsive = {
         0: { items: 1 },
-        550: { items: 2 },
-        820: { items: 3 },
-        1200: { items: 4 },
-        1400: { items: 5 },
-    }
+        800: { items: 2 },
+        1200: { items: 3 },
+      }
+    
 
     return (
         <div className="diy">

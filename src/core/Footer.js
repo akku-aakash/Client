@@ -10,9 +10,10 @@ const Footer = () => {
                         <Col xs={12} sm={6} md={4} lg={4}>
                             <div className="home17">
                                 <h3>About Us</h3>
-                                <p>Bunny Bash sells online personaized props and gifts
-                                birthday and baby sower decoration at home, and
-                birthday surprise home delivery at Bangalore, and Mumbai</p>
+                                <p>Buy online birthday decoration kit, diy decor box for an anniversary, baby
+                                 shower and festivals. Explore unique gift ideas, birthday gifts, surprise gifts,
+                                  virtual gifts. Book birthday and surprise planners, candlelight dinners, home surprises,
+                                   and pan India experiences and activities for couples, families, and corporates.</p>
                             </div>
                         </Col>
                         <Col xs={12} sm={6} md={4} lg={2}>

@@ -825,7 +825,7 @@ body{
     background-position: center;
     background-size: cover;
     background-color: #f0f0f0 ;
-    padding-bottom: 100px;
+    padding-bottom: 40px;
     box-sizing: border-box;
 }
 .home551 h3{
@@ -848,10 +848,13 @@ body{
     box-shadow: 10px 10px 15px rgb(112, 112, 112);
 }
 .home553 h1{
-    text-align: center;
     line-height: 170px;
-    font-size: 85px;
+    font-size: 0px;
     color: black;
+}
+.home553 img{
+    width: 100%;
+    height: 11vh;
 }
 .home553 h2{
     text-align: center;
@@ -873,7 +876,10 @@ body{
     }
     .home553 h1{
         line-height: 155px;
-        font-size: 80px;
+    }
+    .home553 img{
+        width: 100%;
+        height: 10.5vh;
     }
 }
 @media screen and (max-width: 750px){
@@ -886,7 +892,10 @@ body{
     }
     .home553 h1{
         line-height: 135px;
-        font-size: 60px;
+    }
+    .home553 img{
+        width: 100%;
+        height: 9.5vh;
     }
 }
 @media screen and (max-width: 650px){
@@ -899,8 +908,26 @@ body{
     }
     .home553 h1{
         line-height: 115px;
-        font-size: 55px;
     }
+    .home553 img{
+        width: 100%;
+        height: 8vh;
+    }
+}
+.home554{
+    width: 140px;
+    margin: auto;
+    text-align: center;
+    margin-top: 100px;
+}
+.home555{
+    background-color: #2e3640;
+    height: 45px;
+    line-height: 45px;
+    font-size: 18.5px;
+    font-weight: bold;
+    color: #efbf00;
+    border-radius: 5px;
 }
 @media screen and (max-width: 500px){
     .home552{
@@ -912,12 +939,18 @@ body{
     }
     .home553 h1{
         line-height: 80px;
-        font-size: 43px;
     }
     .home553 h2{
         text-align: center;
         font-size: 14px;
         margin-top: 15px;
         text-align: center;
+    }
+    .home553 img{
+        width: 100%;
+        height: 6vh;
+    }
+    .home554{
+        margin-top: 90px !important;
     }
 }
