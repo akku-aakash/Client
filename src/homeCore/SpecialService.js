@@ -191,5 +191,3 @@ const SpecialService = () => {
 };
 
 export default SpecialService;
-
-//special/services
