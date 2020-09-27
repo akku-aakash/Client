@@ -3,10 +3,10 @@ import Menu from '../core/Menu'
 import { Helmet } from 'react-helmet';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
-import Img from '../imag/pic1.jpg'
+import Img3 from '../imag/pic4.jpg'
 import Img1 from '../imag/pic2.jpg'
 import Img2 from '../imag/pic3.jpg'
-import Img3 from '../imag/pic4.jpg'
+import Img from '../shimg/main.jpg'
 import '../style/ser.css'
 import Img4 from '../imag/pic5.jpg'
 import Img5 from '../imag/pic6.jpg'
@@ -92,7 +92,7 @@ const SpecialService = () => {
                         </Row>
                         <Row className="ssp111">
                             <Col sm={12} lg={6}>
-                                <div className="ssp2">
+                                <div className="ssp2 xss">
                                     <img src={Img3} alt="fasfdhjk" />
                                 </div>
                             </Col>
@@ -126,7 +126,7 @@ const SpecialService = () => {
                                 </div>
                             </Col>
                             <Col sm={12} lg={6}>
-                                <div className="ssp2">
+                                <div className="sspppp2">
                                     <img src={Img} alt="fasfdhjk" />
                                 </div>
                             </Col>

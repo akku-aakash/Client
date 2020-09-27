@@ -20,10 +20,10 @@ import Loading from '../homeCore/LoadingPage';
 import Icon from '../speicall/icon 1.svg'
 import Icon1 from '../speicall/icon 2.svg'
 import Icon2 from '../speicall/Icon 3.svg'
-import Icon3 from '../speicall/Special service 1.svg'
-import Icon4 from '../speicall/Special service 2.svg'
-import Icon5 from '../speicall/Special service 3.svg'
-import Icon6 from '../speicall/Special service 4.svg'
+import Icon3 from '../speicall/sp 1.svg'
+import Icon4 from '../speicall/sp 2.svg'
+import Icon5 from '../speicall/sp 3.svg'
+import Icon6 from '../speicall/sp 4.svg'
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
@@ -301,19 +301,19 @@ const Home = () => {
         </div>
         <div className="home552">
           <div className="home553">
-            <h1><img src={Icon2} alt="fad" /></h1>
+            <h1><img src={Icon3} alt="fad" /></h1>
             <h2>HR Workshops</h2>
           </div>
           <div className="home553">
-            <h1><img src={Icon} alt="fad" /></h1>
+            <h1><img src={Icon4} alt="fad" /></h1>
             <h2>Corporates Events</h2>
           </div>
           <div className="home553">
-            <h1><img src={Icon1} alt="fad" /></h1>
+            <h1><img src={Icon5} alt="fad" /></h1>
             <h2>Store Launch</h2>
           </div>
           <div className="home553">
-            <h1><img src={Icon2} alt="fad" /></h1>
+            <h1><img src={Icon6} alt="fad" /></h1>
             <h2>School Events</h2>
           </div>
         </div>

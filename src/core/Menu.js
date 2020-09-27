@@ -15,6 +15,51 @@ const Menu = () => {
         })
     }, [])
 
+    const changeScreen = () => {
+
+        var element = document.querySelector(".linkk1");
+        element.classList.add("actiii");
+        var element1 = document.querySelector(".linkk2");
+        element1.classList.remove("actiii");
+        var element2 = document.querySelector(".linkk3");
+        element2.classList.remove("actiii");
+        var element3 = document.querySelector(".linkk4");
+        element3.classList.remove("actiii");
+    }
+    const changeScreen1 = () => {
+
+        var element = document.querySelector(".linkk1");
+        element.classList.remove("actiii");
+        var element1 = document.querySelector(".linkk2");
+        element1.classList.add("actiii");
+        var element2 = document.querySelector(".linkk3");
+        element2.classList.remove("actiii");
+        var element3 = document.querySelector(".linkk4");
+        element3.classList.remove("actiii");
+    }
+    const changeScreen2 = () => {
+
+        var element = document.querySelector(".linkk1");
+        element.classList.remove("actiii");
+        var element1 = document.querySelector(".linkk2");
+        element1.classList.remove("actiii");
+        var element2 = document.querySelector(".linkk3");
+        element2.classList.add("actiii");
+        var element3 = document.querySelector(".linkk4");
+        element3.classList.remove("actiii");
+    }
+    const changeScreen3 = () => {
+
+        var element = document.querySelector(".linkk1");
+        element.classList.remove("actiii");
+        var element1 = document.querySelector(".linkk2");
+        element1.classList.remove("actiii");
+        var element2 = document.querySelector(".linkk3");
+        element2.classList.remove("actiii");
+        var element3 = document.querySelector(".linkk4");
+        element3.classList.add("actiii");
+    }
+
     return (
         <Fragment>
             <div className="home2">
@@ -39,25 +84,25 @@ const Menu = () => {
                             <Link onClick={() => {
                                 const navlinks = document.querySelector('.navlink')
                                 navlinks.classList.toggle("open");
-                            }} className="link" style={{ backgroundColor: "rgb(247, 196, 30)", fontWeight: 'bold' }} to='/products/unique/gifts'>UNIQUE GIFTS</Link>
+                            }} onPointerOver={changeScreen} className="link linkk1 actiii" to='/products/unique/gifts'>UNIQUE GIFTS</Link>
                         </li>
                         <li>
                             <Link onClick={() => {
                                 const navlinks = document.querySelector('.navlink')
                                 navlinks.classList.toggle("open");
-                            }} className="link" to="/products/diykit">DIY KITS</Link>
+                            }} onPointerOver={changeScreen1} className="link linkk2" to="/products/diykit">DIY KITS</Link>
                         </li>
                         <li>
                             <Link onClick={() => {
                                 const navlinks = document.querySelector('.navlink')
                                 navlinks.classList.toggle("open");
-                            }} className="link" to="/products/experience">EXPERIENCES</Link>
+                            }} onPointerOver={changeScreen2} className="link linkk3" to="/products/experience">EXPERIENCES</Link>
                         </li>
                         <li>
                             <Link onClick={() => {
                                 const navlinks = document.querySelector('.navlink')
                                 navlinks.classList.toggle("open");
-                            }} className="link" to="/products/special/services">CELE BASH</Link>
+                            }} onPointerOver={changeScreen3} className="link linkk4" to="/products/special/services">CELE BASH</Link>
                         </li>
                     </ul>
                 </div>
