@@ -12,7 +12,6 @@ const ShowImage = ({ item, url }) => {
             <div className="cardPic2">
                 {
                     arr && arr.map((element,i) => {
-                        console.log(element)
                         return(
                             <div className="cardPic3" onClick={change}>
                             <img src={`${process.env.REACT_APP_API_URL}/${url}/photo/${item._id}?photoId=${element._id}`}

@@ -322,6 +322,7 @@ const Home = () => {
         </div>
       </div>
       <div className="home14">
+      <h2 style={{ textAlign: 'center' , fontWeight:'bold'}}>Blogs</h2>
         <div className="home91">
           <div className="home94">
             <div className="home92">
