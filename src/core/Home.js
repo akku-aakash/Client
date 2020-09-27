@@ -318,7 +318,7 @@ const Home = () => {
           </div>
         </div>
         <div className="home554">
-          <Link to='/special/services'> <p className="home555">View To More</p></Link>
+          <Link to='/special/services'> <p className="home555">LEARN MORE</p></Link>
         </div>
       </div>
       <div className="home14">

@@ -64,7 +64,7 @@ const SpecialService = () => {
                                         <p>Because we know events are the most intrinsic way to make connections and get things done!</p>
                                         <p>A dedicated event manager listens to the client's needs, creating innovative responses and delivering an effective event solution.</p>
                                         <div className="ssp71">
-                                            <Link to='/products/unique/gifts'> <p className="home121">View More</p></Link>
+                                            <Link to='/special/services/corporate/event'> <p className="home121">Learn More</p></Link>
                                         </div>
                                     </div>
                                 </div>
@@ -79,7 +79,7 @@ const SpecialService = () => {
                                         <p>Our onsite creative or art workshops help the new team members to engage, interact and establish new social connections, also the OLD WINES can experience new creative skills that will not just for cubicles but can be passed on to wife, husband or kids. </p>
                                         <p>With more than 150+ pre-designed creative workshop list, every week is new learning for your team and employees. What are you waiting for! connect now and make these workshops part of your bucket list.</p>
                                         <div className="ssp71">
-                                            <Link to='/products/unique/gifts'> <p className="home121">View More</p></Link>
+                                            <Link to='/special/services/corporate/workshop'> <p className="home121">Learn More</p></Link>
                                         </div>
                                     </div>
                                 </div>
@@ -104,7 +104,7 @@ const SpecialService = () => {
                                         <p>Some schools have experienced content developers and in-house experienced event planning team, some run on franchisee model!</p>
                                         <p>In both the cases you will need event production team or theme decor team to execute your ideas professionally! You have landed and right place!</p>
                                         <div className="ssp71">
-                                            <Link to='/products/unique/gifts'> <p className="home121">View More</p></Link>
+                                            <Link to='/special/services/scholl/event'> <p className="home121">Learn More</p></Link>
                                         </div>
                                     </div>
                                 </div>
@@ -120,7 +120,7 @@ const SpecialService = () => {
                                         <p>In both the cases you will need event production team or theme decor team to execute your ideas professionally! You have landed and right place!</p>
 
                                         <div className="ssp71">
-                                            <Link to='/products/unique/gifts'> <p className="home121">View More</p></Link>
+                                            <Link to='/special/services/store/launch'> <p className="home121">Learn More</p></Link>
                                         </div>
                                     </div>
                                 </div>
@@ -134,6 +134,24 @@ const SpecialService = () => {
                     </Container>
                 </div>
                 <div className="ssp12">
+                    <h1 style={{ textAlign: 'center', fontSize:'32px' }}>Bengaluru Workshop</h1>
+                    <div className="home111">
+                        <div className="home114">
+                            <div className="home112">
+                                <p></p>
+                                <p></p>
+                                <p></p>
+                                <p></p>
+                            </div>
+                            <h1><i className="fa fa-star-half-o"></i></h1>
+                            <div className="home113">
+                                <p></p>
+                                <p></p>
+                                <p></p>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
                     <Container fluid>
                         <Row>
                             <Col sm={6} md={4} lg={3} >

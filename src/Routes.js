@@ -32,6 +32,10 @@ import Unique from './homeCore/Unique';
 import Footer from './core/Footer';
 import ErrorPage from './homeCore/ErrorPage';
 import Speciall from './homeCore/SpecialService';
+import Store from './homeCore/Store';
+import School from './homeCore/School';
+import CopEvent from './homeCore/CopEvent';
+import CopWork from './homeCore/CopWork';
 
 const Routes = () => {
 
@@ -50,6 +54,10 @@ const Routes = () => {
                     <Route path='/products/special/services' exact render={props => <Special {...props} />} />
                     <Route path='/products/unique/gifts' exact render={props => <Unique {...props} />} />
                     <Route path='/special/services' exact render={props => <Speciall {...props} />} />
+                    <Route path='/special/services/scholl/event' exact render={props => <School {...props} />} />
+                    <Route path='/special/services/corporate/event' exact render={props => <CopEvent {...props} />} />
+                    <Route path='/special/services/corporate/workshop' exact render={props => <CopWork {...props} />} />
+                    <Route path='/special/services/store/launch' exact render={props => <Store {...props} />} />
 
                     <Route path='/product/:productId' exact component={Products} />
                     <Route path='/products/subCategory/:productId' exact component={CategoryPro} />
