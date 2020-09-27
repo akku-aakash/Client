@@ -35,7 +35,6 @@ const CopEvent = () => {
             </Helmet>
             <Menu />
             <div className="ssp">
-                <h1 style={{ textAlign: 'center' }}>Corporate Events</h1>
                 <div className="home111">
                     <div className="home114">
                         <div className="home112">
