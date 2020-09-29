@@ -76,7 +76,7 @@ const Checkout = () => {
             generateTokenRazor(userId, token, getTotal)
                 .then(data => {
                     const options = {
-                        key: "rzp_test_rvpZbHrrXS14aL",
+                        key: "rzp_live_uWRIY5ByKxBfPZ",
                         name: "Bunny Bash",
                         description: "Some Description",
                         currency: "INR",
