@@ -297,9 +297,9 @@
     width: (100% - 250px);
     padding: 20px;
     margin-left: 250px;
-    min-height: 80.5vh !important;
+    min-height: 97.9vh !important;
     transition: 0.5s;
-    margin-top: -39.4% !important;
+    margin-top: -665px !important;
     position: relative;
     background-color: #f0f0f0;
   }
@@ -308,9 +308,9 @@
     width: (100% - 250px);
     padding: 20px;
     margin-left: 250px;
-    min-height: 80.5vh !important;
+    min-height: 97.9vh !important;
     transition: 0.5s;
-    margin-top: -39.4% !important;
+    margin-top: -665px !important;
     position: relative;
     background-color: #f0f0f0;
   }
@@ -333,12 +333,14 @@
         margin-top: -68px !important;
         padding: 10px 20px;
         transition: 0s;
+        min-height: 60.9vh !important;
     }
     .content1{
         margin-left: 0;
         margin-top: -68px !important;
         padding: 10px 20px;
         transition: 0s;
+        min-height: 60.9vh !important;
     }
     .mobile_nav{
       display: block;
