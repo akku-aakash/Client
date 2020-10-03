@@ -34,7 +34,7 @@ const AddProduct = () => {
     const { name, description, price,
         categories, quantity, formData, category,
         subcategories, subCategory, descriptiona,
-        inclusive, exclusive, beforeyoubuy, fakeprice } = values;
+        inclusive, exclusive, beforeyoubuy, fakeprice, photo } = values;
 
     const loadCategory = () => {
         axios
@@ -76,6 +76,7 @@ const AddProduct = () => {
         switch (name) {
             case 'photo':
                 const phooto = e.target.files;
+                setValues({ ...values, photo: URL.createObjectURL(e.target.files[0])})
                 for (let i = 0; i < phooto.length; i++) {
                     formData.append("photo", phooto[i]);
                 }
@@ -238,6 +239,7 @@ const AddProduct = () => {
                         <Form.Label>Choose Images</Form.Label>
                         <Form.Control type="file" name='photo' multiple accept='image/*' onChange={handleChange('photo')} />
                     </Form.Group>
+                    <img src={photo} style={{height:'100px', width:'100px'}} />
                     <Form.Group >
                         <Form.Label>Product Name</Form.Label>
                         <Form.Control type="text" placeholder="Enter Product Name" value={name} onChange={handleChange('name')} />
