@@ -168,7 +168,7 @@ body{
     margin-left: 16%;
 }
 .home64 h2{
-    font-family: "Shadows Into Light";
+    font-family: "Lato";
     font-weight: bold;
     font-size: 42px;
 }
@@ -186,18 +186,19 @@ body{
 @media screen and (max-width : 450px) {
     .home64{
         position: absolute;
-        top: 22%;
-        left: 8%;
+        top: 23.5%;
+        left: auto;
         z-index: 12;
     }
     .home64 h2{
-        font-family:  Garamond,serif;
         font-weight: bold;
-        font-size: 38px;
+        font-size: 36px;
+        font-family: "Lato" !important;
     }
     .home64 h4{
         font-size: 22px;
         padding-left: 4px;
+        font-family: "Lato";
     }   
 }
 .home9{

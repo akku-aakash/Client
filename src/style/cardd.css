@@ -21,7 +21,7 @@
 }
 .ch2 img{
     width: 100%;
-    height: 41vh !important;
+    height: auto;
 }
 .ch3 h3{
     text-align: center;
@@ -33,9 +33,10 @@
 }
 .ch3 h4{
     text-align: center;
-    color: rgb(223, 21, 21);
+    color: rgb(223, 68, 21);
     font-size: 19px;
     margin: -2px 0px 7px 0px;
+    letter-spacing: 1px;
 }
 .ch4{
     text-align: center !important;
@@ -68,7 +69,7 @@
     line-height: 18px;
     font-weight: bold;
 }
-@media screen and (max-width: 450px){
+@media screen and (max-width: 435px){
     .ch{
         max-width: 385px;
     }
@@ -80,6 +81,6 @@
     }
     .ch2 img{
         width: 100%;
-        height: 43vh !important;
+        height: auto !important;
     }   
 }

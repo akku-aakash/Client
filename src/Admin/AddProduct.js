@@ -95,7 +95,7 @@ const AddProduct = () => {
         if (isEmpty(description) || isEmpty(price) || isEmpty(quantity) || isEmpty(name) || isEmpty(subCategory) || isEmpty(category)) {
             toast.error('All fields required')
         }
-        else if (!isLength(description, { min: 50, max: 1000 })) {
+        else if (!isLength(description, { min: 150, max: 1000 })) {
             toast.error('description must contain 50 words min ')
         }
         else {
@@ -285,7 +285,7 @@ const AddProduct = () => {
                         </Form.Group>
                     </div>
                     <Form.Group >
-                        <Form.Label>Description</Form.Label>
+                        <Form.Label>Description <span style={{color:'red'}}>{description.length} / 150</span></Form.Label>
                         <Form.Control as="textarea" rows="4" placeholder="Enter Description" value={description} onChange={handleChange('description')} />
                     </Form.Group>
                     <div className="addpro3">

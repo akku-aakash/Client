@@ -17,9 +17,6 @@ import Cel from '../images_icons/cel.jfif'
 import Cel1 from '../images_icons/cell1.jfif'
 import Menu from './Menu'
 import Loading from '../homeCore/LoadingPage';
-import Icon from '../speicall/icon 1.svg'
-import Icon1 from '../speicall/icon 2.svg'
-import Icon2 from '../speicall/Icon 3.svg'
 import Icon3 from '../speicall/sp 1.svg'
 import Icon4 from '../speicall/sp 2.svg'
 import Icon5 from '../speicall/sp 3.svg'
@@ -116,7 +113,7 @@ const Home = () => {
     <div className="homee">
       <Helmet>
         <title>Diy Decor box, unique gift ideas, surprise and experiences pan India</title>
-        <meta name="description" content="Buy online birthday decoration kit, diy decor box for an anniversary, baby shower and festivals. Explore unique gift ideas, birthday gifts, surprise gifts, virtual gifts. Book birthday and surprise planners, candlelight dinners, home surprises, and pan India experiences and activities for couples, families, and corporates." />
+        <meta name="description" content="Buy online DIY decoration kit for birthday, anniversary, baby shower and festivals. Explore unique gift ideas, birthday gifts, surprise gifts, virtual gifts. Book birthday and surprise planners, candlelight dinners, home surprises, and pan India experiences and activities for couples, families, and corporates." />
         <meta name="keywords" content="diy decor box, birthday decoration kit, birthday decoration kit online, unique gifts, unique gift ideas, birthday gifts, anniversary gifts, surprise gifts, virtual gift ideas, virtual gifts online, surprise planners, surprise party planners, book surprises, book experiences " />
         <meta name="author" content="Bunny Bash" />
         <meta name="robots" content="index, follow"></meta>
