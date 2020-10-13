@@ -62,6 +62,7 @@ const UpdateProduct = ({ match }) => {
                     category: res.data.category._id,
                     shipping: res.data.shipping,
                     quantity: res.data.quantity,
+                    fakeprice : res.data.fakeprice,
                     formData: new FormData()
                 })
             })
@@ -183,12 +184,12 @@ const UpdateProduct = ({ match }) => {
                         <Form.Control as="textarea" rows="4" placeholder="Enter Description" value={description} onChange={handleChange('description')} />
                     </Form.Group>
                     <Form.Group >
-                        <Form.Label>Actual Price</Form.Label>
-                        <Form.Control type="number" placeholder="price" value={price} onChange={handleChange('price')} />
+                        <Form.Label>Sales Price</Form.Label>
+                        <Form.Control type="number" placeholder="Sales price" value={price} onChange={handleChange('price')} />
                     </Form.Group>
                     <Form.Group >
-                        <Form.Label>Fake Price</Form.Label>
-                        <Form.Control type="number" placeholder="fake price" value={fakeprice} onChange={handleChange('fakeprice')} />
+                        <Form.Label>Actual Price</Form.Label>
+                        <Form.Control type="number" placeholder="Actual price" value={fakeprice} onChange={handleChange('fakeprice')} />
                     </Form.Group>
                     <Form.Group >
                         <Form.Label>Choose Subcategy </Form.Label><br />

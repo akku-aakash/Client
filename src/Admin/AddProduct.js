@@ -290,12 +290,12 @@ const AddProduct = () => {
                     </Form.Group>
                     <div className="addpro3">
                         <Form.Group >
-                            <Form.Label>Actual Price</Form.Label>
-                            <Form.Control type="number" placeholder="price in rs" value={price} onChange={handleChange('price')} />
+                            <Form.Label>Sales Price</Form.Label>
+                            <Form.Control type="number" placeholder="Sales price in rs" value={price} onChange={handleChange('price')} />
                         </Form.Group>
                         <Form.Group >
-                            <Form.Label>Sale Price</Form.Label>
-                            <Form.Control type="number" placeholder="Sale price in rs" value={fakeprice} onChange={handleChange('fakeprice')} />
+                            <Form.Label>Actual Price</Form.Label>
+                            <Form.Control type="number" placeholder="Actual price in rs" value={fakeprice} onChange={handleChange('fakeprice')} />
                         </Form.Group>
                         <Form.Group >
                             <Form.Label>Product Quantity</Form.Label>
@@ -309,7 +309,7 @@ const AddProduct = () => {
                         <Form.Group>
                             <Form.Control
                                 type="text"
-                                placeholder={`description ${idx + 1} `}
+                                placeholder={`Description point ${idx + 1} `}
                                 value={shareholder.name}
                                 onChange={handleShareholderNameChange(idx)}
                             />
@@ -328,7 +328,7 @@ const AddProduct = () => {
                         <div className="shareholder">
                             <Form.Control
                                 type="text"
-                                placeholder={`inclusive ${idx + 1} `}
+                                placeholder={`Inclusive point ${idx + 1} `}
                                 value={shareholder.name}
                                 onChange={handleinclusive(idx)}
                             />
@@ -338,7 +338,7 @@ const AddProduct = () => {
                         type="button"
                         onClick={handleinclusivearr}
                     >
-                        Add More Points on inclusive
+                        Add More Points Inclusive
                 </button><br /><br />
 
                     <Form.Label>Add Exclusive points</Form.Label>
@@ -346,7 +346,7 @@ const AddProduct = () => {
                         <div className="shareholder">
                             <Form.Control
                                 type="text"
-                                placeholder={`exclusive ${idx + 1} `}
+                                placeholder={`Exclusive point ${idx + 1} `}
                                 value={shareholder.name}
                                 onChange={hancleexclusive(idx)}
                             />
@@ -364,7 +364,7 @@ const AddProduct = () => {
                         <div className="shareholder">
                             <Form.Control
                                 type="text"
-                                placeholder={`before yoy buy ${idx + 1} `}
+                                placeholder={`Before Yoy Buy point ${idx + 1} `}
                                 value={shareholder.name}
                                 onChange={handlebeforeyou(idx)}
                             />

@@ -129,7 +129,7 @@ const Home = () => {
                 <a href="https://www.instagram.com/bunnybash_india/" rel="noopener noreferrer" target="_blank" ><i className="fa fa-instagram"></i></a>
                 <a href="https://www.linkedin.com/company/bunny-bash-events-and-rentals/" rel="noopener noreferrer" target="_blank"><i className="fa fa-linkedin"></i></a>
                 <a href="https://twitter.com/bunnybash_in" rel="noopener noreferrer" target="_blank"><i className="fa fa-twitter"></i></a>
-                <a href="https://twitter.com/bunnybash_in" rel="noopener noreferrer" target="_blank"><i className="fa fa-youtube-play"></i></a>
+                <a href="https://www.youtube.com/c/bunnybash" rel="noopener noreferrer" target="_blank"><i className="fa fa-youtube-play"></i></a>
               </div>
             </Col>
             <Col sm={12} md={4}>

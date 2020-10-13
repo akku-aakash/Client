@@ -148,7 +148,7 @@ const Products = (props) => {
                                 <li onClick={changeScreen}><button className="pro10 acctive">Description</button></li>
                                 <li onClick={changeScreen1}><button className="pro11">Inclusion & Exclusions</button></li>
                                 <li onClick={changeScreen2}><button className="pro12">Before you Order</button></li>
-                                <li onClick={changeScreen3}><button className="pro13">Refund & Cancelation Policy</button></li>
+                                <li onClick={changeScreen3}><button className="pro13">Refund & Cancellation Policy</button></li>
                             </ul>
                         </div>
                         <div className="pro5">
