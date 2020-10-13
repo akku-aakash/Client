@@ -4,7 +4,16 @@ import { itemTotal } from '../helpers/CartHelper'
 import Bunny from '../images_icons/bunny.svg'
 import { FaUser, FaCartArrowDown, FaHome } from 'react-icons/fa';
 
-const Menu = () => {
+const isActive = (history, path) => {
+    if (history.location.pathname === path) {
+        return { backgroundColor: '#f1bc19' }
+    }
+    else {
+        return { backgroundColor: "transparent" };
+    }
+}
+
+const Menu = ({history}) => {
 
     useEffect(() => {
         const hamburger = document.querySelector('.hamburger');
@@ -17,47 +26,20 @@ const Menu = () => {
 
     const changeScreen = () => {
 
-        var element = document.querySelector(".linkk1");
-        element.classList.add("actiii");
-        var element1 = document.querySelector(".linkk2");
-        element1.classList.remove("actiii");
-        var element2 = document.querySelector(".linkk3");
-        element2.classList.remove("actiii");
-        var element3 = document.querySelector(".linkk4");
-        element3.classList.remove("actiii");
+        const navlinks = document.querySelector('.navlink')
+        navlinks.classList.toggle("open");
     }
     const changeScreen1 = () => {
-
-        var element = document.querySelector(".linkk1");
-        element.classList.remove("actiii");
-        var element1 = document.querySelector(".linkk2");
-        element1.classList.add("actiii");
-        var element2 = document.querySelector(".linkk3");
-        element2.classList.remove("actiii");
-        var element3 = document.querySelector(".linkk4");
-        element3.classList.remove("actiii");
+        const navlinks = document.querySelector('.navlink')
+        navlinks.classList.toggle("open");
     }
     const changeScreen2 = () => {
-
-        var element = document.querySelector(".linkk1");
-        element.classList.remove("actiii");
-        var element1 = document.querySelector(".linkk2");
-        element1.classList.remove("actiii");
-        var element2 = document.querySelector(".linkk3");
-        element2.classList.add("actiii");
-        var element3 = document.querySelector(".linkk4");
-        element3.classList.remove("actiii");
+        const navlinks = document.querySelector('.navlink')
+        navlinks.classList.toggle("open");
     }
     const changeScreen3 = () => {
-
-        var element = document.querySelector(".linkk1");
-        element.classList.remove("actiii");
-        var element1 = document.querySelector(".linkk2");
-        element1.classList.remove("actiii");
-        var element2 = document.querySelector(".linkk3");
-        element2.classList.remove("actiii");
-        var element3 = document.querySelector(".linkk4");
-        element3.classList.add("actiii");
+        const navlinks = document.querySelector('.navlink')
+        navlinks.classList.toggle("open");
     }
 
     return (
@@ -81,28 +63,16 @@ const Menu = () => {
                     </div>
                     <ul className="navlink">
                         <li>
-                            <Link onClick={() => {
-                                const navlinks = document.querySelector('.navlink')
-                                navlinks.classList.toggle("open");
-                            }} onPointerOver={changeScreen} className="link linkk1 actiii" to='/products/unique/gifts'>UNIQUE GIFTS</Link>
+                            <Link style={isActive(history, '/products/unique/gifts')} onClick={changeScreen} className="link linkk1 actiii" to='/products/unique/gifts'>UNIQUE GIFTS</Link>
                         </li>
                         <li>
-                            <Link onClick={() => {
-                                const navlinks = document.querySelector('.navlink')
-                                navlinks.classList.toggle("open");
-                            }} onPointerOver={changeScreen1} className="link linkk2" to="/products/diykit">DIY KITS</Link>
+                            <Link style={isActive(history, '/products/diykit')}  onClick={changeScreen1} className="link linkk2" to="/products/diykit">DIY KITS</Link>
                         </li>
                         <li>
-                            <Link onClick={() => {
-                                const navlinks = document.querySelector('.navlink')
-                                navlinks.classList.toggle("open");
-                            }} onPointerOver={changeScreen2} className="link linkk3" to="/products/experience">EXPERIENCES</Link>
+                            <Link style={isActive(history, '/products/experience')} onClick={changeScreen2} className="link linkk3" to="/products/experience">EXPERIENCES</Link>
                         </li>
                         <li>
-                            <Link onClick={() => {
-                                const navlinks = document.querySelector('.navlink')
-                                navlinks.classList.toggle("open");
-                            }} onPointerOver={changeScreen3} className="link linkk4" to="/products/special/services">CELE BASH</Link>
+                            <Link style={isActive(history, '/products/special/services')} onClick={changeScreen3} className="link linkk4" to="/products/special/services"> CELE BASH </Link>
                         </li>
                     </ul>
                 </div>

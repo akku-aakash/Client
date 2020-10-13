@@ -172,7 +172,7 @@ const Unique = () => {
                         </div>
                     </div>
                 </div>
-                <div className="pro16">
+                <div className="home115">
                     <AliceCarousel
                         items={state.galleryItems}
                         responsive={responsive}
@@ -210,7 +210,7 @@ const Unique = () => {
                         </div>
                     </div>
                 </div>
-                <div className="pro16">
+                <div className="home115">
                     <AliceCarousel
                         items={state1.galleryItems}
                         responsive={responsive}
@@ -248,7 +248,7 @@ const Unique = () => {
                         </div>
                     </div>
                 </div>
-                <div className="pro16">
+                <div className="home115">
                     <AliceCarousel
                         items={state2.galleryItems}
                         responsive={responsive}
@@ -286,7 +286,7 @@ const Unique = () => {
                         </div>
                     </div>
                 </div>
-                <div className="pro16">
+                <div className="home115">
                     <AliceCarousel
                         items={state3.galleryItems}
                         responsive={responsive}

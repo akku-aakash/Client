@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState , useRef} from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import ShowImage from './ShowImage';
 import { addItem, updateItem, removeItem } from '../helpers/CartHelper'
 import '../style/card.css';
 import { Container, Row, Col } from 'react-bootstrap';
+import axios from 'axios'
+import { toast, ToastContainer } from 'react-toastify'
 
 const Card = ({ product,
     showViewProductButthon = true,
@@ -11,8 +13,10 @@ const Card = ({ product,
     cartUpdate = false,
     showRemoveProductButton = false }) => {
 
-
-    const { _id, name,fakeprice ,description, price, quantity,category } = product;
+    const [Pin, setPin] = useState('');
+    const [availPin, setavailPin] = useState([])
+    const ref1 = useRef()
+    const { _id, name, fakeprice, description, price, quantity, category } = product;
 
     const [proo, setProo] = useState({
         _id,
@@ -97,8 +101,22 @@ const Card = ({ product,
         )
     }
 
+    const checkPin = () => {
+        axios
+            .get(`${process.env.REACT_APP_API_URL}/delivery/availabe`, {
+                params: {
+                    Pincode: Pin
+                }
+            })
+            .then(res =>
+                setavailPin(res.data),
+            )
+            .catch(err => console.error(err));
+    }
+
     return (
         <div className="card">
+            <ToastContainer />
             {shouldRedirect(redirect)}
             {shouldGo(shop)}
             <div className="card1">
@@ -114,15 +132,21 @@ const Card = ({ product,
                                     product.quantity > 0 ? <p style={{ color: 'green', fontWeight: 'bold' }}>In stock</p> : <p style={{ color: 'red', fontWeight: 'bold' }}>Out of Stock</p>
                                 }
                                 {
-                                    product.active = 1 ?  <p style={{ color: 'green', fontWeight: 'bold' }}>Active</p> : <p style={{ color: 'red', fontWeight: 'bold' }}>Not Active Currently</p>
+                                    product.active = 1 ? <p style={{ color: 'green', fontWeight: 'bold' }}>Active</p> : <p style={{ color: 'red', fontWeight: 'bold' }}>Not Active Currently</p>
                                 }
-                                <h3><i className="fa fa-inr"></i>{product.price}  <span>{product.fakeprice}</span></h3> 
+                                <h3><i className="fa fa-inr"></i>{product.price}  <span>{product.fakeprice}</span></h3>
                                 <p>FREE Shipping</p>
                                 <p>{product.description.substring(0, 300)}</p>
                                 <div className="card3">
                                     <div className="card4">
-                                        <input type="text" placeholder="Pin Code" />
+                                        <input type="text" placeholder="Pin Code" value={Pin} onChange={(e) => setPin(e.target.value)} />
                                         <p>Delivery Availability</p>
+                                        {
+                                            availPin[0] && availPin[0].Has_Prepaid ? <div ref={ref1}>yes</div> : <div>{}</div>
+                                        }
+                                        {
+                                            Pin && <button onClick={checkPin}>Check</button>
+                                        }
                                     </div>
                                     <div className="card4">
                                         <input type="text" placeholder="Promo Code" />

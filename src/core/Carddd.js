@@ -63,7 +63,7 @@ const Cardd = ({ product,
                     <ShowImage url="product" item={product} />
                 </Link>
                 <div className="chh3">
-                    <h3>{product.name.substring(0, 15)}</h3>
+                    <h3>{product.name.substring(0, 40)}</h3>
                     <h4>Rs. {product.price}/-</h4>
                     <div className="chh4">
                         <Link>

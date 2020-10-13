@@ -1,6 +1,6 @@
 .chh2 img{
     width: 100%;
-    height: 25vh !important;
+    height: auto;
 }
 .chh{
     background-color: rgba(51, 255, 221, 0.4);
@@ -19,7 +19,7 @@
     }
     .chh2 img{
         width: 100%;
-        height: 38vh !important;
+        height: auto;
     }
 }
 .chh1:hover{
@@ -28,7 +28,7 @@
 .chh3 h3{
     text-align: center;
     color: black;
-    font-weight: 550;
+    font-weight: 400;
     font-size: 22px;
     font-family: "chivo";
     padding-top: 4px;
@@ -37,7 +37,8 @@
     text-align: center;
     color: rgb(223, 21, 21);
     font-size: 19px;
-    margin: -4px 0px 5px 0px;
+    font-weight: bold;
+    margin: -1px 0px 5px 0px;
 }
 .chh4{
     text-align: center !important;
