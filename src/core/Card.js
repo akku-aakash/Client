@@ -42,11 +42,13 @@ const Card = ({ product,
 
         if (availCoup.code === coupon) {
             if (firstuser) {
-                setpriiice(price-100)
+                setpriiice(price - 100)
             }
-            else{
-                setpriiice(price-0)
+            else {
+                setpriiice(price - 0)
             }
+        } else {
+            setpriiice(price - 0)
         }
     }
 
@@ -54,6 +56,10 @@ const Card = ({ product,
         checkCoup()
         pla()
     }, [coupon])
+
+    useEffect(() => {
+        checkPin()
+    },[Pin])
 
     const showViewButton = (showViewProductButthon) => {
         return (
@@ -214,8 +220,8 @@ const Card = ({ product,
                 showDropIn()}</div>
         ) : (
                 <Link to='/login'>
-                    <button>
-                        sign in for checkout
+                    <button className="btncart">
+                        Checkout
                     </button>
                 </Link>
             )
@@ -227,8 +233,8 @@ const Card = ({ product,
             <div className="maincart10">
                 {product && (
                     <div>
-                        <div className="maincart12">
-                            <button onClick={paymentHandler}>Pay Now</button>
+                        <div>
+                            <button className="btncart" onClick={paymentHandler}>Pay Now</button>
                         </div>
                     </div>
                 )
@@ -261,50 +267,52 @@ const Card = ({ product,
                                 {
                                     availCoup.code === coupon ? <h6>{
                                         firstuser === true ? <h3><i className="fa fa-inr"></i>{
-                                            priiice - 100
-                                        }</h3> : <h3><i className="fa fa-inr"></i>{product.price}  <span>{product.fakeprice}</span></h3>
+                                            priiice
+                                        }</h3> : <h3><i className="fa fa-inr"></i> {product.price}  <span> {product.fakeprice}</span></h3>
                                     }</h6> :
-                                        <h3><i className="fa fa-inr"></i>{product.price}  <span>{product.fakeprice}</span></h3>
+                                        <h3><i className="fa fa-inr"></i> {product.price}  <span> {product.fakeprice}</span> <sup>{((fakeprice - priiice) / fakeprice * 100).toFixed(0)}% off</sup></h3>
                                 }
                                 <p>FREE Shipping</p>
                                 <p>{product.description.substring(0, 300)}</p>
                                 <div className="card3">
                                     <div className="card4">
                                         <input type="text" placeholder="Pin Code" value={Pin} onChange={(e) => setPin(e.target.value)} />
+                                        <div className="coup">
                                         <p>Delivery Availability</p>
-                                        {
-                                            availPin[0] && availPin[0].Has_Prepaid ? <div ref={ref1}>yes</div> : <div>{}</div>
-                                        }
-                                        {
-                                            Pin && <button onClick={checkPin}>Check</button>
-                                        }
+                                        <p className="coup2">{
+                                            availPin[0] && availPin[0].Has_Prepaid ? <p style={{color:'green'}}><i class="fa fa-check-circle" aria-hidden="true"></i></p> : <p style={{color:'red'}}>{Pin && <p><i class="fa fa-times-circle" aria-hidden="true"></i></p>}</p>
+                                        }</p>
+                                        </div>
                                     </div>
                                     <div className="card4">
                                         <input type="text" placeholder="Promo Code" value={coupon} onChange={(e) => setCoupon(e.target.value)} />
+                                        <div className="coup">
                                         <p>Promo Code</p>
-                                        <h6>{availCoup.code}</h6>
-                                        {
-                                            availCoup.code === coupon ? <h6>{
-                                                firstuser === true ? <h3>Applied !!!</h3> : <h6>NOT Applied</h6>
-                                            }</h6> :
-                                            null
-                                        }
+                                        <p className="coup1">{
+                                            availCoup.code === coupon ? <p>{
+                                                firstuser === true ? <p style={{color:'green'}}>Applied !!!</p> : <p style={{color:'red'}}>NOT Applied!!!</p>
+                                            }</p> :
+                                                <p>{coupon && <p style={{color:'red'}}>NOT Applied!!!</p>}</p>
+                                        }</p>
+                                        </div>
                                     </div>
                                 </div>
                                 <Link to={`/product/${product._id}`}>
                                     {showViewButton(showViewProductButthon)}
                                 </Link>
-                                <Link>
-                                    {showCartButton(showAtToCart)}
-                                </Link>
-                                <div className="maincart8">
-                                    {
-                                        isAuth() && isAuth().Address.city == "" ? <Redirect to={`/profile/${isAuth()._id}`} />
-                                            : <div>{
-                                                isAuth() && isAuth().phone == null ? <Redirect to={`/profile/${isAuth()._id}`} /> :
-                                                    showCheckout()
-                                            }</div>
-                                    }
+                                <div className="finall">
+                                    <Link>
+                                        {showCartButton(showAtToCart)}
+                                    </Link>
+                                    <div className="finall1">
+                                        {
+                                            isAuth() && isAuth().Address.city == "" ? <Redirect to={`/profile/${isAuth()._id}`} />
+                                                : <div>{
+                                                    isAuth() && isAuth().phone == null ? <Redirect to={`/profile/${isAuth()._id}`} /> :
+                                                        showCheckout()
+                                                }</div>
+                                        }
+                                    </div>
                                 </div>
                             </div>
                         </Col>

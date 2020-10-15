@@ -116,6 +116,27 @@
     background-color: #f1bc19;
     border-radius: 10px;
 }
+.finall{
+    display: flex;
+}
+.finall1{
+    margin-left: 15px;
+}
+.coup{
+    display: flex;
+}
+.coup1{
+    position: absolute;
+    font-size: 14.5px;
+    margin-left: 100px;
+    margin-top: -9px;
+}
+.coup2{
+    position: absolute;
+    margin-top: -45px;
+    border-radius: 50%;
+    margin-left: 190px;
+}
 .card2 h2{
     font-weight: bold;
     font-size: 29px;
@@ -128,6 +149,11 @@
 .card2 h3 span{
     color: rgb(253, 56, 56);
     text-decoration: line-through;
+    font-size: 24.4px;
+}
+.card2 h3 sup{
+    color: #f1bc19;
+    font-size: 16px;
 }
 .card2 p:nth-child(4){
     margin: 18px 0px;
