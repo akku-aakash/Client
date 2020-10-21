@@ -83,7 +83,7 @@ const UserDashboard = ({ history }) => {
                                     return (
                                         <div key={i} className="ud11">
                                             <hr />
-                                            <p>status : {h.status}</p>
+                                            <p>status : {h.status}</p> <a target="_blank" href="http://bunnybash.shiprocket.co/">Check</a>
                                             <p>Total price : <i className="fa fa-inr"></i>{h.amount}</p>
                                             <hr />
                                             {h.products.map((p, i) => {
@@ -112,3 +112,16 @@ const UserDashboard = ({ history }) => {
 }
 
 export default UserDashboard;
+
+
+
+
+
+
+// src/Admin/AddProduct.js
+// src/core/Cardd.js
+// src/core/Checkout.js
+// src/core/Home.js
+// src/style.css
+// src/style/cardd.css
+// src/style/home.css

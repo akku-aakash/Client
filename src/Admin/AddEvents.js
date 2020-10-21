@@ -19,8 +19,6 @@ const AddProduct = () => {
         category: '',
         subcategories: [],
         subCategory: '',
-        shipping: ' ',
-        quantity: '',
         photo: [],
         formData: '',
         descriptiona: [{ name: '' }],
@@ -28,13 +26,15 @@ const AddProduct = () => {
         exclusive: [{ name: '' }],
         beforeyoubuy: [{ name: '' }],
         fakeprice: '',
-        active: ''
+        active: '',
+        city: [{ name: '' }],
+        Semail: ''
     })
 
     const { name, description, price,
-        categories, quantity, formData, category,
+        categories, formData, category,
         subcategories, subCategory, descriptiona,
-        inclusive, exclusive, beforeyoubuy, fakeprice } = values;
+        inclusive, exclusive, beforeyoubuy, fakeprice, city, Semail } = values;
 
     const loadCategory = () => {
         axios
@@ -67,6 +67,9 @@ const AddProduct = () => {
         hamburgerr.addEventListener("click", () => {
             navlinksss.classList.toggle("active");
         })
+    }, [subcategories])
+    useEffect(() => {
+        loadsubCategory()
     }, [])
 
     const token = getCookie('token');
@@ -91,7 +94,7 @@ const AddProduct = () => {
 
         e.preventDefault();
 
-        if (isEmpty(description) || isEmpty(price) || isEmpty(quantity) || isEmpty(name) || isEmpty(subCategory) || isEmpty(category)) {
+        if (isEmpty(description) || isEmpty(price) || isEmpty(Semail) || isEmpty(name) || isEmpty(subCategory) || isEmpty(category)) {
             toast.error('All fields required')
         }
         else if (!isLength(description, { min: 50, max: 1000 })) {
@@ -110,8 +113,11 @@ const AddProduct = () => {
             for (var i = 0; i < beforeyoubuy.length; i++) {
                 formData.append(`beforeyoubuy${i}`, beforeyoubuy[i].name)
             }
+            for (var j = 0; j < city.length; j++) {
+                formData.append(`city${j}`, city[j].name)
+            }
 
-            fetch(`${process.env.REACT_APP_API_URL}/product/create/${isAuth()._id}`, {
+            fetch(`${process.env.REACT_APP_API_URL}/service/create/${isAuth()._id}`, {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
@@ -188,6 +194,19 @@ const AddProduct = () => {
         console.log(values)
     };
 
+    const handleser = (idx) => evt => {
+        const newShareholders = city.map((shareholder, sidx) => {
+            if (idx !== sidx) return shareholder;
+            return { ...shareholder, name: evt.target.value };
+        });
+        setValues({ ...values, city: newShareholders })
+    }
+
+    const handleservarr = () => {
+        setValues({ ...values, city: city.concat([{ name: "" }]) })
+        console.log(values)
+    }
+
 
     return (
         <div className="addpro">
@@ -208,6 +227,7 @@ const AddProduct = () => {
                     <Link className="admin1" to='/create/events'><i class="fa fa-desktop"></i>Create Event</Link>
                     <Link className="admin1" to='/admin/orders'><i class="fa fa-desktop"></i>Show Orders</Link>
                     <Link className="admin1" to='/admin/products'><i class="fa fa-desktop"></i>Manage Products</Link>
+                    <Link className="admin1" to='/admin/service'><i class="fa fa-desktop"></i>Manage Event</Link>
                     <Link className="admin1" to={`/profile/${isAuth()._id}`}><i class="fa fa-desktop"></i>Edit Profile</Link>
                 </div>
             </div>
@@ -224,15 +244,13 @@ const AddProduct = () => {
                 <Link className="admin1" to='/create/events'><i class="fa fa-desktop"></i>Create Event</Link>
                 <Link className="admin1" to='/admin/orders'><i class="fa fa-desktop"></i>Show Orders</Link>
                 <Link className="admin1" to='/admin/products'><i class="fa fa-desktop"></i>Manage Products</Link>
+                <Link className="admin1" to='/admin/service'><i class="fa fa-desktop"></i>Manage Event</Link>
                 <Link className="admin1" to={`/profile/${isAuth()._id}`}><i class="fa fa-desktop"></i>Edit Profile</Link>
             </div>
 
 
             <div className="content">
                 <h1 className="addpro22">Add Event</h1>
-
-                <button onClick={loadsubCategory} className="addpro2">Load Subcategories</button>
-                <p>Please Click on the load subcategories button before fill the entries of products.</p>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group>
                         <Form.Label>Choose Images</Form.Label>
@@ -266,14 +284,6 @@ const AddProduct = () => {
                             </select>
                         </Form.Group>
                         <Form.Group >
-                            <Form.Label>Shipping Available</Form.Label><br />
-                            <select onChange={handleChange('shipping')} >
-                                <option>Please Select</option>
-                                <option value="0">No</option>
-                                <option value="1">Yes</option>
-                            </select>
-                        </Form.Group>
-                        <Form.Group >
                             <Form.Label>Product Active Status</Form.Label><br />
                             <select onChange={handleChange('active')} >
                                 <option>Please Select</option>
@@ -296,8 +306,8 @@ const AddProduct = () => {
                             <Form.Control type="number" placeholder="Sale price in rs" value={fakeprice} onChange={handleChange('fakeprice')} />
                         </Form.Group>
                         <Form.Group >
-                            <Form.Label>Product Quantity</Form.Label>
-                            <Form.Control type="number" placeholder="Quantity" value={quantity} onChange={handleChange('quantity')} />
+                            <Form.Label>Add email of serviceman</Form.Label>
+                            <Form.Control type="email" placeholder="Email" value={Semail} onChange={handleChange('Semail')} />
                         </Form.Group>
                     </div>
 
@@ -373,6 +383,25 @@ const AddProduct = () => {
                         onClick={handlebeforeyouarr}
                     >
                         Add Before You Buy
+                     </button>
+                    <br />
+                    <br />
+                    <Form.Label>Add city</Form.Label>
+                    {city.map((shareholder, idx) => (
+                        <div className="shareholder">
+                            <Form.Control
+                                type="text"
+                                placeholder={`Add city ${idx + 1} `}
+                                value={shareholder.name}
+                                onChange={handleser(idx)}
+                            />
+                        </div>
+                    ))}
+                    <button
+                        type="button"
+                        onClick={handleservarr}
+                    >
+                        Add more city
                      </button>
                     <br />
                     <br />

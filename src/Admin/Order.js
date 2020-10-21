@@ -127,6 +127,7 @@ const Order = () => {
                     <Link className="admin1" to='/create/events'><i class="fa fa-desktop"></i>Create Event</Link>
                     <Link className="admin1" to='/admin/orders'><i class="fa fa-desktop"></i>Show Orders</Link>
                     <Link className="admin1" to='/admin/products'><i class="fa fa-desktop"></i>Manage Products</Link>
+                    <Link className="admin1" to='/admin/service'><i class="fa fa-desktop"></i>Manage Event</Link>
                     <Link className="admin1" to={`/profile/${isAuth()._id}`}><i class="fa fa-desktop"></i>Edit Profile</Link>
                 </div>
             </div>
@@ -143,6 +144,7 @@ const Order = () => {
                 <Link className="admin1" to='/create/events'><i class="fa fa-desktop"></i>Create Event</Link>
                 <Link className="admin1" to='/admin/orders'><i class="fa fa-desktop"></i>Show Orders</Link>
                 <Link className="admin1" to='/admin/products'><i class="fa fa-desktop"></i>Manage Products</Link>
+                <Link className="admin1" to='/admin/service'><i class="fa fa-desktop"></i>Manage Event</Link>
                 <Link className="admin1" to={`/profile/${isAuth()._id}`}><i class="fa fa-desktop"></i>Edit Profile</Link>
             </div>
 

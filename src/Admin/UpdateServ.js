@@ -15,8 +15,7 @@ const UpdateProduct = ({ match }) => {
         category: '',
         subcategories: [],
         subCategory: '',
-        shipping: ' ',
-        quantity: '',
+        Semail: '',
         photo: "",
         fakeprice: ' ',
         formData: '',
@@ -24,7 +23,7 @@ const UpdateProduct = ({ match }) => {
     })
 
     const { name, description, price, categories, category,
-        shipping, quantity, formData, subcategories, fakeprice } = values;
+        Semail, formData, subcategories, fakeprice } = values;
 
     const loadCategory = () => {
         axios
@@ -51,7 +50,7 @@ const UpdateProduct = ({ match }) => {
 
     const getSingleProduct = (productId) => {
         axios
-            .get(`${process.env.REACT_APP_API_URL}/product/${productId}`)
+            .get(`${process.env.REACT_APP_API_URL}/service/${productId}`)
             .then(res => {
                 loadCategory()
                 setValues({
@@ -61,7 +60,7 @@ const UpdateProduct = ({ match }) => {
                     price: res.data.price,
                     category: res.data.category._id,
                     shipping: res.data.shipping,
-                    quantity: res.data.quantity,
+                    Semail: res.data.Semail,
                     fakeprice : res.data.fakeprice,
                     formData: new FormData()
                 })
@@ -78,6 +77,10 @@ const UpdateProduct = ({ match }) => {
             navlinksss.classList.toggle("active");
         })
     }, [])
+
+    useEffect(() => {
+        loadsubCategory()
+    },[categories])
 
 
     const token = getCookie('token');
@@ -100,7 +103,7 @@ const UpdateProduct = ({ match }) => {
 
     const updateProducts = (productId, formData) => {
 
-        fetch(`${process.env.REACT_APP_API_URL}/product/${productId}/${isAuth()._id}`, {
+        fetch(`${process.env.REACT_APP_API_URL}/service/${productId}/${isAuth()._id}`, {
             method: 'PUT',
             headers: {
                 Accept: 'applicaiton/json',
@@ -160,7 +163,6 @@ const UpdateProduct = ({ match }) => {
             </div>
 
             <div className="content1">
-                <button onClick={loadsubCategory} className="addpro2">Load Subcategories</button>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group>
                         <Form.Label>Choose Images</Form.Label>
@@ -205,16 +207,8 @@ const UpdateProduct = ({ match }) => {
                         </select>
                     </Form.Group>
                     <Form.Group >
-                        <Form.Label>Product Quantity</Form.Label>
-                        <Form.Control type="number" placeholder="Quantity" value={quantity} onChange={handleChange('quantity')} />
-                    </Form.Group>
-                    <Form.Group >
-                        <Form.Label>Shipping Available</Form.Label><br />
-                        <select onChange={handleChange('shipping')} >
-                            <option>Please Select</option>
-                            <option value="0">No</option>
-                            <option value="1">Yes</option>
-                        </select>
+                        <Form.Label>Service Email</Form.Label>
+                        <Form.Control type="email" placeholder="Service Email" value={Semail} onChange={handleChange('Semail')} />
                     </Form.Group>
                     <Form.Group >
                         <Form.Label>Product Active status</Form.Label><br />
@@ -225,7 +219,7 @@ const UpdateProduct = ({ match }) => {
                         </select>
                     </Form.Group>
                     <Button variant="danger" type="submit">
-                        Create Product
+                        Update Service
                 </Button>
                 </Form>
             </div>

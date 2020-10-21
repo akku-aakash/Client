@@ -20,6 +20,8 @@ import AddProduct from './Admin/AddProduct';
 import Events from './Admin/AddEvents';
 import ManageProduct from './Admin/ManageProducts';
 import UpdateProduct from './Admin/UpdateProducts';
+import ManageServ from './Admin/ManageServ';
+import UpdateServ from './Admin/UpdateServ';
 
 import CategoryPro from './core/CategoryPro';
 import Products from './core/Products';
@@ -36,6 +38,8 @@ import Store from './homeCore/Store';
 import School from './homeCore/School';
 import CopEvent from './homeCore/CopEvent';
 import CopWork from './homeCore/CopWork';
+import Service from './core/Service'
+import Servicepro from './Service/CategoryPro'
 
 const Routes = () => {
 
@@ -61,6 +65,8 @@ const Routes = () => {
 
                     <Route path='/product/:productId' exact component={Products} />
                     <Route path='/products/subCategory/:productId' exact component={CategoryPro} />
+                    <Route path='/service/:productId' exact component={Service} />
+                    <Route path='/service/subCategory/:productId' exact component={Servicepro} />
                     <Route path='/cart' exact component={Cart} />
                     <AdminRoute path='/admin/dashboard' exact component={AdminDashboard} />
                     <AdminRoute path='/create/category' exact component={AddCategory} />
@@ -72,6 +78,8 @@ const Routes = () => {
                     <AdminRoute path='/admin/product/update/:productId' exact component={UpdateProduct} />
                     <PrivateRoute path='/profile/:userId' exact component={Profile} />
                     <PrivateRoute path='/user/dashboard' exact component={Dashboard} />
+                    <AdminRoute path='/admin/service' exact component={ManageServ} />
+                    <AdminRoute path='/admin/service/update/:productId' exact component={UpdateServ} />
                     <Route component={ErrorPage} />
                 </Switch>
                 <Footer />

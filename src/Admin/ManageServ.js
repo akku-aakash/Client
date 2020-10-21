@@ -1,25 +1,61 @@
-import React, { useEffect } from 'react';
-import { isAuth } from '../helpers/auth';
+import React, { useState, useEffect } from 'react';
+import { isAuth, getCookie } from '../helpers/auth';
+import axios from "axios";
+import { toast, ToastContainer } from 'react-toastify'
 import { Link } from 'react-router-dom';
 import Menu from '../core/Menu'
-import SRC from '../images_icons/undraw_pure_love_ay8a.svg'
+import { Button } from 'react-bootstrap'
 
-const AdminDashboard = () => {
+const ManageProducts = () => {
+    const [products, setProducts] = useState([]);
 
-    const { name } = isAuth();
+    const token = getCookie('token');
+    const { _id } = isAuth();
+
+    const getProducts = () => {
+        axios
+            .get(`${process.env.REACT_APP_API_URL}/service?limit=undefined`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                }
+            )
+            .then(res => setProducts(res.data))
+            .catch(err => console.error(err));
+    }
 
     useEffect(() => {
+        getProducts();
         const hamburgerr = document.querySelector('.nav_btn');
         const navlinksss = document.querySelector('.mobile_nav_items')
 
         hamburgerr.addEventListener("click", () => {
             navlinksss.classList.toggle("active");
         })
-    })
+    }, []);
+
+
+    const deleteProducts = (productId) => {
+        axios
+            .delete(`${process.env.REACT_APP_API_URL}/service/${productId}/${_id}`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                })
+            .then(res => {
+                getProducts();
+                toast('Product deleted successfully')
+            })
+            .catch(err => console.error(err));
+    }
+
 
     return (
         <div>
             <Menu />
+            <ToastContainer />
 
             <div class="mobile_nav">
                 <div class="nav_bar">
@@ -42,7 +78,7 @@ const AdminDashboard = () => {
             <div class="sidebar">
                 <div class="profile_info">
                     <img src={`https://www.flaticon.com/svg/static/icons/svg/3135/3135715.svg`} class="profile_image" alt="" />
-                    <h4>{name}</h4>
+                    <h4>{isAuth().name}</h4>
                 </div>
                 <Link className="admin1" to='/admin/dashboard'><i class="fa fa-desktop"></i>Dashboard</Link>
                 <Link className="admin1" to='/create/category'><i class="fa fa-desktop"></i>Create Category</Link>
@@ -57,10 +93,26 @@ const AdminDashboard = () => {
 
 
             <div className="content1">
-            <img className="addminn" src={SRC} alt="admin dashboard"/>
+                <h1 className="addpro22">Total {products.length} products</h1>
+                <ul className="addpro23">
+                    {products.map((p, i) => {
+                        return (
+                            <li key={i} className="addpro24">
+                                <hr />
+                                <strong>{p.name}</strong>
+                                <Link className="addpro26" to={`/admin/service/update/${p._id}`}>
+                                    <span>update</span>
+                                </Link>
+                                <Button className="addpro25" onClick={() => deleteProducts(p._id)}>Delete</Button>
+                                <hr />
+                            </li>
+
+                        )
+                    })}
+                </ul>
             </div>
         </div>
     );
-}
+};
 
-export default AdminDashboard;
+export default ManageProducts;

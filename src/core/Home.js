@@ -6,7 +6,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { Helmet } from 'react-helmet';
 import Cardd from './Cardd';
 import Cardd1 from './Cardd1';
-import Cardd2 from './Cardd2';
+import Cardd2 from '../Service/Cardd';
 import '../style/home.css'
 import AliceCarousel from 'react-alice-carousel'
 import "react-alice-carousel/lib/alice-carousel.css";
@@ -58,7 +58,7 @@ const Home = () => {
   const loadProductByExp = () => {
 
     axios
-      .get(`${process.env.REACT_APP_API_URL}/products/by/category?category=5f5f13c80f137d00170ba26d`)
+      .get(`${process.env.REACT_APP_API_URL}/service/by/category?category=5f5f13c80f137d00170ba26d`)
       .then(res => {
         setProductByExp(res.data);
       })
@@ -237,6 +237,46 @@ const Home = () => {
           <Link to='/products/unique/gifts'> <p className="home121">View More</p></Link>
         </div>
       </div>
+      <div className="home1111">
+        <h2 style={{ textAlign: 'center', letterSpacing: '1.5px', fontWeight: 'bold' }}>TOP EXPERIENCES</h2>
+        <div className="home111">
+          <div className="home114">
+            <div className="home112">
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+            </div>
+            <h1><i className="fa fa-star-half-o"></i></h1>
+            <div className="home113">
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+            </div>
+          </div>
+        </div>
+        {
+          loading ? <Loading /> :
+            <div className="home115">
+              <AliceCarousel
+                items={state2.galleryItems}
+                responsive={responsive}
+                autoPlayInterval={5000}
+                autoPlayDirection="rtl"
+                autoPlay={true}
+                fadeOutAnimation={true}
+                mouseTrackingEnabled={true}
+                playButtonEnabled={false}
+                disableAutoPlayOnAction={true}
+                dotsDisabled={true}
+              />
+            </div>
+        }
+        <div className="home12">
+          <Link to='/products/experience'> <p className="home121">View More</p></Link>
+        </div>
+      </div>
       <div className="home551">
         <h3 style={{ textAlign: 'center' }}>Special Services</h3>
         <div className="home91">
@@ -279,7 +319,7 @@ const Home = () => {
         </div>
       </div>
       <div className="home14">
-      <h2 style={{ textAlign: 'center' , fontWeight:'bold'}}>Blogs</h2>
+        <h2 style={{ textAlign: 'center', fontWeight: 'bold' }}>Blogs</h2>
         <div className="home91">
           <div className="home94">
             <div className="home92">
@@ -326,142 +366,102 @@ const Home = () => {
           </Row>
         </Container>
       </div>
-    </div>
+    </div >
   );
 }
 
 export default Home;
 
+
+
 // <div className="home13">
-// <h2 style={{ textAlign: 'center' }}>Our Top Services</h2>
-// <div className="home91">
-//   <div className="home94">
-//     <div className="home92">
-//       <p></p>
-//       <p></p>
-//       <p></p>
-//       <p></p>
-//     </div>
-//     <h1><i className="fa fa-gift"></i></h1>
-//     <div className="home93">
-//       <p></p>
-//       <p></p>
-//       <p></p>
-//       <p></p>
-//     </div>
-//   </div>
-// </div>
-// <div className="home130">
-//   <Container fluid style={{ margin: "0px", padding: "0%" }}>
-//     <Row className="home134">
-//       <Col xs={12} sm={6} md={4} lg={3}>
-//         <div className="home131">
-//           <div className="home132"><i className="fa fa-star"></i></div>
-//           <h6>Birthday Party</h6>
-//           <div className="home133"><button>Read More</button></div>
+//           <h2 style={{ textAlign: 'center' }}>Our Top Services</h2>
+//           <div className="home91">
+//             <div className="home94">
+//               <div className="home92">
+//                 <p></p>
+//                 <p></p>
+//                 <p></p>
+//                 <p></p>
+//               </div>
+//               <h1><i className="fa fa-gift"></i></h1>
+//               <div className="home93">
+//                 <p></p>
+//                 <p></p>
+//                 <p></p>
+//                 <p></p>
+//               </div>
+//             </div>
+//           </div>
+//           <div className="home130">
+//             <Container fluid style={{ margin: "0px", padding: "0%" }}>
+//               <Row className="home134">
+//                 <Col xs={12} sm={6} md={4} lg={3}>
+//                   <div className="home131">
+//                     <div className="home132"><i className="fa fa-star"></i></div>
+//                     <h6>Birthday Party</h6>
+//                     <div className="home133"><button>Read More</button></div>
+//                   </div>
+//                 </Col>
+//                 <Col xs={12} sm={6} md={4} lg={3}>
+//                   <div className="home131">
+//                     <div className="home132"><i className="fa fa-star"></i></div>
+//                     <h6>Birthday Party</h6>
+//                     <div className="home133"><button>Read More</button></div>
+//                   </div>
+//                 </Col>
+//                 <Col xs={12} sm={6} md={4} lg={3}>
+//                   <div className="home131">
+//                     <div className="home132"><i className="fa fa-star"></i></div>
+//                     <h6>Birthday Party</h6>
+//                     <div className="home133"><button>Read More</button></div>
+//                   </div>
+//                 </Col>
+//                 <Col xs={12} sm={6} md={4} lg={3}>
+//                   <div className="home131">
+//                     <div className="home132"><i className="fa fa-star"></i></div>
+//                     <h6>Birthday Party</h6>
+//                     <div className="home133"><button>Read More</button></div>
+//                   </div>
+//                 </Col>
+//               </Row>
+//               <Row className="home134">
+//                 <Col xs={12} sm={6} md={4} lg={3}>
+//                   <div className="home131">
+//                     <div className="home132"><i className="fa fa-star"></i></div>
+//                     <h6>Birthday Party</h6>
+//                     <div className="home133"><button>Read More</button></div>
+//                   </div>
+//                 </Col>
+//                 <Col xs={12} sm={6} md={4} lg={3}>
+//                   <div className="home131">
+//                     <div className="home132"><i className="fa fa-star"></i></div>
+//                     <h6>Birthday Party</h6>
+//                     <div className="home133"><button>Read More</button></div>
+//                   </div>
+//                 </Col>
+//                 <Col xs={12} sm={6} md={4} lg={3}>
+//                   <div className="home131">
+//                     <div className="home132"><i className="fa fa-star"></i></div>
+//                     <h6>Birthday Party</h6>
+//                     <div className="home133"><button>Read More</button></div>
+//                   </div>
+//                 </Col>
+//                 <Col xs={12} sm={6} md={4} lg={3}>
+//                   <div className="home131">
+//                     <div className="home132"><i className="fa fa-star"></i></div>
+//                     <h6>Birthday Party</h6>
+//                     <div className="home133"><button>Read More</button></div>
+//                   </div>
+//                 </Col>
+//               </Row>
+//               <div className="home135">
+//                 <div className="home131">
+//                   <div className="home132"><i className="fa fa-star"></i></div>
+//                   <h6>Birthday Party</h6>
+//                   <div className="home133"><button>Read More</button></div>
+//                 </div>
+//               </div>
+//             </Container>
+//           </div>
 //         </div>
-//       </Col>
-//       <Col xs={12} sm={6} md={4} lg={3}>
-//         <div className="home131">
-//           <div className="home132"><i className="fa fa-star"></i></div>
-//           <h6>Birthday Party</h6>
-//           <div className="home133"><button>Read More</button></div>
-//         </div>
-//       </Col>
-//       <Col xs={12} sm={6} md={4} lg={3}>
-//         <div className="home131">
-//           <div className="home132"><i className="fa fa-star"></i></div>
-//           <h6>Birthday Party</h6>
-//           <div className="home133"><button>Read More</button></div>
-//         </div>
-//       </Col>
-//       <Col xs={12} sm={6} md={4} lg={3}>
-//         <div className="home131">
-//           <div className="home132"><i className="fa fa-star"></i></div>
-//           <h6>Birthday Party</h6>
-//           <div className="home133"><button>Read More</button></div>
-//         </div>
-//       </Col>
-//     </Row>
-//     <Row className="home134">
-//       <Col xs={12} sm={6} md={4} lg={3}>
-//         <div className="home131">
-//           <div className="home132"><i className="fa fa-star"></i></div>
-//           <h6>Birthday Party</h6>
-//           <div className="home133"><button>Read More</button></div>
-//         </div>
-//       </Col>
-//       <Col xs={12} sm={6} md={4} lg={3}>
-//         <div className="home131">
-//           <div className="home132"><i className="fa fa-star"></i></div>
-//           <h6>Birthday Party</h6>
-//           <div className="home133"><button>Read More</button></div>
-//         </div>
-//       </Col>
-//       <Col xs={12} sm={6} md={4} lg={3}>
-//         <div className="home131">
-//           <div className="home132"><i className="fa fa-star"></i></div>
-//           <h6>Birthday Party</h6>
-//           <div className="home133"><button>Read More</button></div>
-//         </div>
-//       </Col>
-//       <Col xs={12} sm={6} md={4} lg={3}>
-//         <div className="home131">
-//           <div className="home132"><i className="fa fa-star"></i></div>
-//           <h6>Birthday Party</h6>
-//           <div className="home133"><button>Read More</button></div>
-//         </div>
-//       </Col>
-//     </Row>
-//     <div className="home135">
-//       <div className="home131">
-//         <div className="home132"><i className="fa fa-star"></i></div>
-//         <h6>Birthday Party</h6>
-//         <div className="home133"><button>Read More</button></div>
-//       </div>
-//     </div>
-//   </Container>
-// </div>
-// </div>
-
-
-// <div className="home1111">
-// <h2 style={{ textAlign: 'center', letterSpacing: '1.5px', fontWeight: 'bold' }}>TOP EXPERIENCES</h2>
-// <div className="home111">
-//   <div className="home114">
-//     <div className="home112">
-//       <p></p>
-//       <p></p>
-//       <p></p>
-//       <p></p>
-//     </div>
-//     <h1><i className="fa fa-star-half-o"></i></h1>
-//     <div className="home113">
-//       <p></p>
-//       <p></p>
-//       <p></p>
-//       <p></p>
-//     </div>
-//   </div>
-// </div>
-// {
-//   loading ? <Loading /> :
-//     <div className="home115">
-//       <AliceCarousel
-//         items={state2.galleryItems}
-//         responsive={responsive}
-//         autoPlayInterval={5000}
-//         autoPlayDirection="rtl"
-//         autoPlay={true}
-//         fadeOutAnimation={true}
-//         mouseTrackingEnabled={true}
-//         playButtonEnabled={false}
-//         disableAutoPlayOnAction={true}
-//         dotsDisabled={true}
-//       />
-//     </div>
-// }
-// <div className="home12">
-//   <Link to='/products/experience'> <p className="home121">View More</p></Link>
-// </div>
-// </div>
