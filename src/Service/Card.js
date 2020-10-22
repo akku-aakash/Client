@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import ShowImage from './ShowImage';
 import '../style/card.css';
@@ -6,9 +6,9 @@ import { Container, Row, Col } from 'react-bootstrap';
 import axios from 'axios'
 import { toast, ToastContainer } from 'react-toastify'
 import { isAuth, getCookie } from '../helpers/auth'
-import { generateTokenRazor, createOrder } from '../core/apiCore';
+import { generateTokenRazor, createServiceOrder } from '../core/apiCore';
 
-const Card = ({ product}) => {
+const Card = ({ product }) => {
 
     const userId = isAuth() && isAuth()._id;
     const token = getCookie('token');
@@ -17,13 +17,16 @@ const Card = ({ product}) => {
     const [availPin, setavailPin] = useState([])
     const [coupon, setCoupon] = useState('');
     const [availCoup, setavailCoup] = useState([])
-    const ref1 = useRef()
-    const { _id, name, fakeprice, description, price, quantity, category } = product;
+    const { fakeprice, price } = product;
     const [priiice, setpriiice] = useState(price)
-    const [shop, setShop] = useState(false);
-    const [redirect, setRedirect] = useState(false);
-    const [count, setCount] = useState(product.count);
-
+    const [prio, setPrio] = useState([{
+        name: product.name,
+        description: product.Semail,
+        price: priiice,
+        Semail: product.Semail,
+        count: 1
+    }])
+    
     const pla = () => {
 
         if (availCoup.code === coupon) {
@@ -46,18 +49,6 @@ const Card = ({ product}) => {
     useEffect(() => {
         checkPin()
     }, [Pin])
-
-    const shouldGo = shop => {
-        if (shop) {
-            return <Redirect to='/' />
-        }
-    }
-
-    const shouldRedirect = redirect => {
-        if (redirect) {
-            return <Redirect to='/cart' />
-        }
-    }
 
     const checkPin = () => {
         axios
@@ -83,14 +74,14 @@ const Card = ({ product}) => {
 
     const processPayment = (userId, token, paymentData, amount) => {
         const createOrderData = {
-            products: product,
+            products: prio,
             transaction_id: paymentData.razorpay_payment_id,
             amount: (amount / 100),
             address: isAuth().address,
             phone: isAuth().phone
         }
 
-        createOrder(userId, token, createOrderData)
+        createServiceOrder(userId, token, createOrderData)
 
         toast.success('Order created successfully');
     }
@@ -178,8 +169,6 @@ const Card = ({ product}) => {
     return (
         <div className="card">
             <ToastContainer />
-            {shouldRedirect(redirect)}
-            {shouldGo(shop)}
             <div className="card1">
                 <Container fluid>
                     <Row>

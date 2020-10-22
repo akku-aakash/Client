@@ -48,3 +48,20 @@ export const createOrder = (userId, token, createOrderData) => {
 
 }
 
+
+export const createServiceOrder = (userId, token, createOrderData) => {
+    return fetch(`${process.env.REACT_APP_API_URL}/service/order/create/${userId}`, {
+        method: 'Post',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify({ order: createOrderData })
+    }).then(response => {
+        return response.json();
+    }).catch(err => {
+        return console.log(err);
+    })
+
+}

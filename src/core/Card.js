@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import ShowImage from './ShowImage';
 import { addItem, updateItem, removeItem } from '../helpers/CartHelper'
@@ -22,7 +22,6 @@ const Card = ({ product,
     const [availPin, setavailPin] = useState([])
     const [coupon, setCoupon] = useState('');
     const [availCoup, setavailCoup] = useState([])
-    const ref1 = useRef()
     const { _id, name, fakeprice, description, price, quantity, category } = product;
     const [priiice, setpriiice] = useState(price)
     const [shop, setShop] = useState(false);
@@ -37,6 +36,12 @@ const Card = ({ product,
         fakeprice,
         category
     })
+    const [pric , setPric] = useState([{
+        name: product.name,
+        price: priiice,
+        category: product.category,
+        count : 1
+    }])   
 
     const pla = () => {
 
@@ -152,7 +157,7 @@ const Card = ({ product,
 
     const processPayment = (userId, token, paymentData, amount) => {
         const createOrderData = {
-            products: product,
+            products: pric,
             transaction_id: paymentData.razorpay_payment_id,
             amount: (amount / 100),
             address: isAuth().address,

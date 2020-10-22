@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import ShowImage from './ShowCartPro';
 import { updateItem, removeItem } from '../helpers/CartHelper'
@@ -8,7 +8,8 @@ import { Container, Row, Col } from 'react-bootstrap';
 const Card = ({ product,
     showViewProductButthon = true,
     cartUpdate = false,
-    showRemoveProductButton = false }) => {
+    showRemoveProductButton = false,
+}) => {
 
     const [shop, setShop] = useState(false);
 
@@ -42,7 +43,6 @@ const Card = ({ product,
         if (e.target.value >= 1) {
             updateItem(productId, e.target.value)
         }
-        setRedirect(true)
     }
 
     const showCartUpdateOption = cartUpdate => {
@@ -83,7 +83,7 @@ const Card = ({ product,
                                 {
                                     product.quantity > 0 ? <p className="cartt3">In stock</p> : <p className="cartt3">Out of Stock</p>
                                 }
-                                <h3><i className="fa fa-inr"></i>{product.price} <span style={{color:'orange', textDecoration:'line-through'}}><i className="fa fa-inr"></i>{product.fakeprice}</span></h3>
+                                <h3><i className="fa fa-inr"></i>{product.price} <span style={{ color: 'orange', textDecoration: 'line-through' }}><i className="fa fa-inr"></i>{product.fakeprice}</span></h3>
                                 <p className="cartt4">{product.description.substring(0, 300)}</p>
                                 <Link to={`/product/${product._id}`}>
                                     {showViewButton(showViewProductButthon)}
