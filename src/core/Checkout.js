@@ -78,13 +78,10 @@ const Checkout = () => {
                     const options = {
                         key: "rzp_live_uWRIY5ByKxBfPZ",
                         name: "Bunny Bash",
-                        description: "Some Description",
+                        description: "Thank You for shopping with us.",
                         currency: "INR",
                         order_id: data.id,
                         handler: async (response) => {
-                            alert(response.razorpay_payment_id)
-                            alert(response.razorpay_order_id)
-                            alert(response.razorpay_signature)
                             console.log('payment done')
                             processPayment(userId, token, response, data.amount);
                         },
