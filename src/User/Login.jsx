@@ -6,7 +6,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap'
 import Menu from '../core/Menu'
 import '../style/login.css'
-import Love from '../images_icons/login.svg'
+import Love from '../images_icons/login.png'
 
 const Login = ({ history }) => {
   const [formData, setFormData] = useState({
@@ -65,18 +65,13 @@ const Login = ({ history }) => {
       <Menu />
       <div className="login">
         <div className="login1">
-          <div className="login11">
-            <h2>Tell us.</h2>
-            <h2>Your Special Dates will turn those into</h2>
-            <h2 className="login113">Memories</h2>
-          </div>
           <div className="login12">
             <img src={Love} alt="love img" />
           </div>
         </div>
         <div className="login2">
           <div className="login22">
-            <h2>Sign In <span>| Sign Up</span></h2>
+            <h2><span>Sign In</span> <span>| Sign Up</span></h2>
             <Form onSubmit={handleSubmit}>
               <Form.Group >
                 <Form.Control type="email" placeholder="Enter email" onChange={handleChange('email')} value={email} />

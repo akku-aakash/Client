@@ -9,6 +9,7 @@ const Card = ({ product,
     showViewProductButthon = true,
     cartUpdate = false,
     showRemoveProductButton = false,
+    setdm
 }) => {
 
     const [shop, setShop] = useState(false);
@@ -42,6 +43,7 @@ const Card = ({ product,
         setCount(e.target.value < 1 ? 1 : e.target.value)
         if (e.target.value >= 1) {
             updateItem(productId, e.target.value)
+            setdm()
         }
     }
 

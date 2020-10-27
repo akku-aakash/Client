@@ -6,7 +6,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { Helmet } from 'react-helmet';
 import Cardd from './Cardd';
 import Cardd1 from './Cardd1';
-import Cardd2 from '../Service/Cardd';
+import Cardd2 from '../Service/Cardd1';
 import '../style/home.css'
 import AliceCarousel from 'react-alice-carousel'
 import "react-alice-carousel/lib/alice-carousel.css";

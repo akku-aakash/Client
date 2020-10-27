@@ -7,16 +7,18 @@ import Cardd from '../Service/Cardd';
 import Menu from '../core/Menu';
 import { Helmet } from 'react-helmet';
 import '../style/Cele.css'
+import { Row, Col, Container } from 'react-bootstrap'
 
 const Experience = () => {
 
     const [productByBallon, setProductByBallon] = useState([])
     const [productBySurprise, setProductBySurprise] = useState([])
     const [productBySoul, setProductBySoul] = useState([])
+    const [city, setCity] = useState('Goa')
 
     const loadProductByBallon = () => {
         axios
-            .get(`${process.env.REACT_APP_API_URL}/service/by/sub/category?subCategory=5f5f13080f137d00170ba263`)
+            .get(`${process.env.REACT_APP_API_URL}/service/by/sub/category?subCategory=5f5f13080f137d00170ba263&search=${city}`)
             .then(res => {
                 setProductByBallon(res.data);
             })
@@ -27,7 +29,7 @@ const Experience = () => {
 
     const loadProductBySurprise = () => {
         axios
-            .get(`${process.env.REACT_APP_API_URL}/service/by/sub/category?subCategory=5f5f131d0f137d00170ba264`)
+            .get(`${process.env.REACT_APP_API_URL}/service/by/sub/category?subCategory=5f5f131d0f137d00170ba264&search=${city}`)
             .then(res => {
                 setProductBySurprise(res.data);
             })
@@ -38,7 +40,7 @@ const Experience = () => {
 
     const loadProductBySoul = () => {
         axios
-            .get(`${process.env.REACT_APP_API_URL}/service/by/sub/category?subCategory=5f5f13300f137d00170ba265`)
+            .get(`${process.env.REACT_APP_API_URL}/service/by/sub/category?subCategory=5f5f13300f137d00170ba265&search=${city}`)
             .then(res => {
                 setProductBySoul(res.data);
             })
@@ -51,7 +53,7 @@ const Experience = () => {
         loadProductByBallon()
         loadProductBySoul()
         loadProductBySurprise()
-    }, [])
+    }, [city])
 
     const responsive = {
         0: { items: 1 },
@@ -216,6 +218,60 @@ const Experience = () => {
                 </div>
                 <div className="home12">
                     <Link to='/service/subCategory/5f5f13300f137d00170ba265'> <p className="home121">View More</p></Link>
+                </div>
+            </div>
+            <div className="home13">
+                <h2 style={{ textAlign: 'center' }}>WHY US?</h2>
+                <div className="home91">
+                    <div className="home94">
+                        <div className="home92">
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                        </div>
+                        <h1><i className="fa fa-gift"></i></h1>
+                        <div className="home93">
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+                <div className="home130">
+                    <Container fluid style={{ margin: "0px", padding: "0%" }}>
+                        <Row className="home134">
+                            <Col xs={12} sm={6} md={4} lg={3}>
+                                <div className="home131">
+                                    <div className="home132"><i className="fa fa-star"></i></div>
+                                    <h6 style={{ color: '#f1bc19' }}>Experience with Experiments</h6>
+                                </div>
+                            </Col>
+                            <Col xs={12} sm={6} md={4} lg={3}>
+                                <div className="home131">
+                                    <div className="home132"><i className="fa fa-star"></i></div>
+                                    <h6><span style={{ color: 'black' }}>Living with</span></h6>
+                                    <h6 style={{ color: '#f1bc19' }}>#VocalForLocal</h6>
+                                    <h6><span style={{ color: 'black' }}>Dream</span></h6>
+                                </div>
+                            </Col>
+                            <Col xs={12} sm={6} md={4} lg={3}>
+                                <div className="home131">
+                                    <div className="home132"><i className="fa fa-star"></i></div>
+                                    <h6 style={{ color: '#f1bc19' }}>Hand Crafted</h6>
+                                    <h6 style={{ color: '#f1bc19' }}>Products</h6>
+                                </div>
+                            </Col>
+                            <Col xs={12} sm={6} md={4} lg={3}>
+                                <div className="home131">
+                                    <div className="home132"><i className="fa fa-star"></i></div>
+                                    <h6 style={{ color: '#f1bc19' }}>Promotion DIY</h6>
+                                    <h6 style={{ color: '#f1bc19' }}>Culture</h6>
+                                </div>
+                            </Col>
+                        </Row>
+                    </Container>
                 </div>
             </div>
         </div>

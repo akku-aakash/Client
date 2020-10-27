@@ -26,9 +26,13 @@
 .login113{
     color: #f1bc19;
 }
+.login12 {
+    width: 70%;
+    margin: auto;
+}
 .login12 img{
-    width: 100%;
-    height: 50vh;
+    width: 90%;
+    height: auto;
 }
 .login2{
     width: 40%;
@@ -39,13 +43,18 @@
     margin-top: 80px;
 }
 .login22 h2{
-    font-family: "Shadows Into Light";
-    font-size: 34px;
+    font-size: 28px;
     padding-bottom: 20px;
     font-weight: 700;
     color: #f1bc19;
 }
-.login22 h2 span{
+.login22 h2 span:nth-child(1){
+    color: black;
+    background-color: #f1bc19;
+    padding: 3px 12px;
+    border-radius: 12px;
+}
+.login22 h2 span:nth-child(2){
     color: black;
 }
 .login25{
@@ -53,6 +62,9 @@
     border: none;
     border-radius: 3px;
     font-style: italic;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
 }
 .login25:hover{
     background-color: #f1bc19;
@@ -141,13 +153,18 @@
     margin-top: 80px;
 }
 .reg21 h2{
-    font-family: "Shadows Into Light";
-    font-size: 34px;
+    font-size: 28px;
     padding-bottom: 20px;
     font-weight: 700;
     color: #f1bc19;
 }
-.reg21 h2 span{
+.reg21 h2 span:nth-child(1){
+    color: black;
+    background-color: #f1bc19;
+    padding: 3px 12px;
+    border-radius: 12px;
+}
+.reg21 h2 span:nth-child(2){
     color: black;
 }
 .reg22{

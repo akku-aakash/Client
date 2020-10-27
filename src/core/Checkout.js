@@ -6,7 +6,7 @@ import { toast, ToastContainer } from 'react-toastify'
 import { emptyCart, getCart } from '../helpers/CartHelper';
 import { Form } from 'react-bootstrap'
 
-const Checkout = () => {
+const Checkout = ({ dm }) => {
     const [data, setData] = useState({
         address: '',
         date: '',
@@ -44,11 +44,12 @@ const Checkout = () => {
 
     useEffect(() => {
         setProducts(getCart());
-        if(isAuth()){
+        getTotal()
+        if (isAuth()) {
             data.address = isAuth().Address.street + ", " + isAuth().Address.city + ", " + isAuth().Address.state
             data.phone = isAuth().phone
         }
-    }, [])
+    }, [dm])
 
     const loadScript = (src) => {
         return new Promise((resolve) => {
@@ -128,7 +129,7 @@ const Checkout = () => {
                             <p>Note :- Change Address or Phone <Link className="maincart111" to={`/profile/${isAuth()._id}`}>Edit now</Link></p>
                         </div>
                         <div className="maincart12">
-                        <button onClick={paymentHandler}>Pay Now</button>
+                            <button onClick={paymentHandler}>Pay Now</button>
                         </div>
                     </div>
                 ) :
@@ -150,19 +151,6 @@ const Checkout = () => {
                             isAuth() && isAuth().phone == null ? <Redirect to={`/profile/${isAuth()._id}`} /> :
                                 showCheckout()
                         }</div>
-                }
-            </div>
-
-            <div className="maincart9">
-                {
-                    getCart().map((l, o) => (
-                        l.category == "5f5f13c80f137d00170ba26d" ?
-                            <div> <input type="string" placeholder="dd/mm/year" /> <br />
-                                <input type="string" placeholder="hr/min" /><br />
-                                <input type="string" placeholder="custom message" />
-                            </div>
-                            : null
-                    ))
                 }
             </div>
 

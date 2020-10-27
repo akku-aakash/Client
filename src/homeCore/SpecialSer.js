@@ -19,7 +19,7 @@ const SpecialSer = () => {
                     <img src={Coming} alt="comming soon"/>
                 </div>
                 <div className="cele2">
-                    <h1>Comming Soon</h1>
+                    <h1>Launch on New Year</h1>
                 </div>
             </div>
         </div>

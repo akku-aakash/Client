@@ -77,7 +77,7 @@ const Register = () => {
         </div>
         <div className="reg2">
           <div className="reg21">
-            <h2>Sign Up <span>| Sign In</span></h2>
+            <h2><span>Sign Up</span> <span>| Sign In</span></h2>
             <Form onSubmit={handleSubmit}>
               <Form.Group >
                 <Form.Control type="text" placeholder="name" onChange={handleChange('name')} value={name} />

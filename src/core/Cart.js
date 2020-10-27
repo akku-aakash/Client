@@ -10,10 +10,19 @@ import {Helmet} from 'react-helmet'
 
 const Cart = () => {
     const [items, setItems] = useState([]);
+    const [d, setd] = useState(5)
+
+    var min = 1;
+    var max = 100;
+    var rand = min + (Math.random() * (max - min));
+
+    const setdm = () => {
+        setd(rand)
+    }
 
     useEffect(() => {
         setItems(getCart());
-    }, [])
+    }, [d])
 
     const showItems = items => {
         return (
@@ -24,6 +33,8 @@ const Cart = () => {
                             showAtToCart={false}
                             cartUpdate={true}
                             showRemoveProductButton={true}
+                            dm={d}
+                            setdm ={setdm}
                         />
                     ))
                 }
@@ -56,7 +67,7 @@ const Cart = () => {
                         </div>
                         <div className="maincart4">
                             <h2>Your cart summary</h2>
-                            <Checkout products={items}/>
+                            <Checkout products={items} dm={d}/>
                         </div>
                     </div>
                 </div>

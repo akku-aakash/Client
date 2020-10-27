@@ -7,10 +7,10 @@ import Cardd1 from '../core/Cardd1';
 import Cardd2 from '../core/Cardd2';
 import AliceCarousel from 'react-alice-carousel'
 import Menu from '../core/Menu'
-import Ballon from '../images_icons/Baloons.svg'
-import Deco from '../images_icons/bunting.svg'
-import Serv from '../images_icons/rocking.svg'
 import { Helmet } from 'react-helmet';
+import Banner from '../images_icons/Banner 2-min.jpg'
+import Banner1 from '../ceimage/Banner 2.1-min.jpg'
+import { Row, Col, Container } from 'react-bootstrap'
 
 const Unique = () => {
     const [productByPhoto, setProductByPhoto] = useState([])
@@ -122,7 +122,7 @@ const Unique = () => {
         0: { items: 1 },
         800: { items: 2 },
         1200: { items: 3 },
-      }
+    }
 
     return (
         <div className="unique">
@@ -136,21 +136,10 @@ const Unique = () => {
             <ToastContainer />
             <div className="diy2">
                 <div className="diy3">
-                    <div className="diy4">
-                        <div className="diy5">
-                            <img src={Ballon} alt="" />
-                        </div>
-                        <div className="diy6">
-                            <h3>Welcome To BunnyBash</h3>
-                            <h5>Parties | Rentals | Moments</h5>
-                        </div>
-                        <div className="diy7">
-                            <img src={Serv} alt="" />
-                        </div>
-                        <div className="diy8">
-                            <img src={Deco} alt="" />
-                        </div>
-                    </div>
+                    <img src={Banner} alt="diyKit" />
+                </div>
+                <div className="diy333">
+                    <img src={Banner1} alt="diyKit" />
                 </div>
             </div>
             <div className="pro14">
@@ -305,8 +294,80 @@ const Unique = () => {
                     <Link to='/products/subCategory/5f5f137c0f137d00170ba26b'> <p className="diy122">View More</p></Link>
                 </div>
             </div>
+            <div className="home13">
+                <h2 style={{ textAlign: 'center' }}>WHY US?</h2>
+                <div className="home91">
+                    <div className="home94">
+                        <div className="home92">
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                        </div>
+                        <h1><i className="fa fa-gift"></i></h1>
+                        <div className="home93">
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+                <div className="home130">
+                    <Container fluid style={{ margin: "0px", padding: "0%" }}>
+                        <Row className="home134">
+                            <Col xs={12} sm={6} md={4} lg={3}>
+                                <div className="home131">
+                                    <div className="home132"><i className="fa fa-star"></i></div>
+                                    <h6 style={{ color: '#f1bc19' }}>Experience with Experiments</h6>
+                                </div>
+                            </Col>
+                            <Col xs={12} sm={6} md={4} lg={3}>
+                                <div className="home131">
+                                    <div className="home132"><i className="fa fa-star"></i></div>
+                                    <h6><span style={{ color: 'black' }}>Living with</span></h6>
+                                    <h6 style={{ color: '#f1bc19' }}>#VocalForLocal</h6>
+                                    <h6><span style={{ color: 'black' }}>Dream</span></h6>
+                                </div>
+                            </Col>
+                            <Col xs={12} sm={6} md={4} lg={3}>
+                                <div className="home131">
+                                    <div className="home132"><i className="fa fa-star"></i></div>
+                                    <h6 style={{ color: '#f1bc19' }}>Hand Crafted</h6>
+                                    <h6 style={{ color: '#f1bc19' }}>Products</h6>
+                                </div>
+                            </Col>
+                            <Col xs={12} sm={6} md={4} lg={3}>
+                                <div className="home131">
+                                    <div className="home132"><i className="fa fa-star"></i></div>
+                                    <h6 style={{ color: '#f1bc19' }}>Promotion DIY</h6>
+                                    <h6 style={{ color: '#f1bc19' }}>Culture</h6>
+                                </div>
+                            </Col>
+                        </Row>
+                    </Container>
+                </div>
+            </div>
+
         </div>
     );
 };
 
 export default Unique;
+
+
+// <div className="diy4">
+// <div className="diy5">
+//     <img src={Ballon} alt="" />
+// </div>
+// <div className="diy6">
+//     <h3>Welcome To BunnyBash</h3>
+//     <h5>Parties | Rentals | Moments</h5>
+// </div>
+// <div className="diy7">
+//     <img src={Serv} alt="" />
+// </div>
+// <div className="diy8">
+//     <img src={Deco} alt="" />
+// </div>
+// </div>

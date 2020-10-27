@@ -1,7 +1,33 @@
 .diy{
     background-color: #f0f0f0;
 }
-.diy2{
+.diy3 img{
+    width: 100%;
+}
+.diy333{
+    visibility: hidden;
+    height: 0px;
+}
+.diy333 img{
+    width: 100%;
+}
+@media screen and (max-width: 700px){
+    .diy3{
+        visibility: hidden;
+        height: 0px !important;
+    }
+    .diy3 img{
+        visibility: hidden;
+        height: 0px !important;
+    }
+    .diy333{
+        visibility: visible;
+        top: -60 !important;
+        position: relative;
+        height: auto !important;
+    }
+}
+/* .diy2{
     height: 65vh;
     padding-top: 60px;
     margin-bottom: 25px;
@@ -89,7 +115,7 @@
     .diy7 img{
         height: 0vh;
     }
-}
+} */
 .unique{
     background-color: #f0f0f0;
 }
