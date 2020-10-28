@@ -408,3 +408,60 @@
     }
   }
                              
+
+  .expp{
+    width: 388px;
+    margin: auto;
+  }
+  .expp1{
+    display: flex;
+    list-style-type: none;
+  }
+  .expp1 li{
+    font-size: 40px;
+    text-align: center;
+    margin: 0px 18px;
+    color: #f1bc19;
+    cursor: pointer;
+  }
+  .expp1 li:hover{
+    color: darkorange;
+  }
+  .expp1 li p{
+    font-size: 16px;
+    text-align: center;
+    margin-top: -15px;
+    color: darkorange;
+  }
+
+  @media screen and (max-width: 450px){
+    .expp{
+      width: 305px;
+      margin: auto;
+    }
+    .expp1{
+      display: flex;
+      list-style-type: none;
+    }
+    .expp1 li{
+      font-size: 35px;
+      text-align: center;
+      margin: 0px 14px;
+      color: #f1bc19;
+      cursor: pointer;
+    }
+    .expp1 li:hover{
+      color: darkorange;
+    }
+    .expp1 li p{
+      font-size: 14px;
+      text-align: center;
+      margin-top: -15px;
+      color: darkorange;
+    }
+  }
+  .expp2{
+    margin: 40px 0px;
+    position: relative;
+    top: -10px;
+  }

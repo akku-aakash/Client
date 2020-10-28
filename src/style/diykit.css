@@ -27,12 +27,12 @@
         height: auto !important;
     }
 }
-/* .diy2{
+.diy2mic{
     height: 65vh;
     padding-top: 60px;
     margin-bottom: 25px;
 }
-.diy3{
+.diy3mic{
     background: linear-gradient(90deg, #33e7ff, rgb(248, 139, 139));
     background-color: wheat;
     width: 85%;
@@ -84,7 +84,7 @@
     height: 55vh;
 }
 @media screen and (max-width : 950px){
-    .diy3{
+    .diy3mic{
         width: 95%;
     }
     .diy4{
@@ -99,7 +99,7 @@
     }
 }
 @media screen and (max-width : 700px){
-    .diy3{
+    .diy3mic{
         width: 100%;
     }
     .diy4{
@@ -115,7 +115,7 @@
     .diy7 img{
         height: 0vh;
     }
-} */
+}
 .unique{
     background-color: #f0f0f0;
 }

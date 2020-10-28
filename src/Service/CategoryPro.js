@@ -9,14 +9,15 @@ import { Helmet } from 'react-helmet';
 const Products = (props) => {
 
     const [product, setProduct] = useState([])
+    const [city, setCity] = useState('Banglore')
 
     useEffect(() => {
         const subCatId = props.match.params.productId
         loadSingleProduct(subCatId)
-    }, [props])
+    }, [city, props])
 
     const loadSingleProduct = subCatId => {
-        axios.get(`${process.env.REACT_APP_API_URL}/service/by/sub/category?subCategory=${subCatId}&limit=50`)
+        axios.get(`${process.env.REACT_APP_API_URL}/service/by/sub/category?subCategory=${subCatId}&limit=50&search=${city}`)
             .then(res => {
                 setProduct(res.data)
                 console.log(res.data)
@@ -36,7 +37,7 @@ const Products = (props) => {
             </Helmet>
             <Menu />
             <div className="pro14">
-                <h2 style={{ textAlign: 'center' }}>Services</h2>
+                <h2 style={{ textAlign: 'center' }}>Services for {city}</h2>
                 <div className="pro15">
                     <div className="home114">
                         <div className="home112">
@@ -54,21 +55,36 @@ const Products = (props) => {
                         </div>
                     </div>
                 </div>
+                <div className="expp2">
+                    <div className="expp">
+                        <ul className="expp1">
+                            <li onClick={() => setCity('Goa')}><i className="fa fa-home"></i> <p>Goa</p></li>
+                            <li onClick={() => setCity('Hyderabad')}><i className="fa fa-home"></i> <p>Hyderabad</p></li>
+                            <li onClick={() => setCity('Mumbai')}><i className="fa fa-home"></i><p>Mumbai</p></li>
+                            <li onClick={() => setCity('Pune')}><i className="fa fa-home"></i><p>Pune</p></li>
+                        </ul>
+                    </div>
+                </div>
                 <div className="pro16">
                     <Container fluid >
-                        <Row>
-                            {
-                                product
-                                    .map((product, i) => {
-                                        return (
-                                            <Col xs={12} sm={6} lg={4} style={{ margin: "10px 0px 40px 0px" }}>
-                                                <Cardd key={i} product={product} />
-                                            </Col>
-                                        )
+                        {
+                            product && product.length === 0 ?
+                                <h4>No Service found in {city}</h4>
+                                :
+                                <Row>
+                                    {
+                                        product
+                                            .map((product, i) => {
+                                                return (
+                                                    <Col xs={12} sm={6} lg={4} style={{ margin: "10px 0px 40px 0px" }}>
+                                                        <Cardd key={i} product={product} />
+                                                    </Col>
+                                                )
+                                            }
+                                            )
                                     }
-                                    )
-                            }
-                        </Row>
+                                </Row>
+                        }
                     </Container>
                 </div>
             </div>

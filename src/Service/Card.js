@@ -27,6 +27,7 @@ const Card = ({ product }) => {
         count: 1
     }])
     
+    
     const pla = () => {
 
         if (availCoup.code === coupon) {
