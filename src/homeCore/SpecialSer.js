@@ -1,12 +1,13 @@
 import React from 'react';
 import Menu from '../core/Menu'
 import { Helmet } from 'react-helmet';
-import Coming from '../images_icons/coming.svg'
 import '../style/Cele.css'
+import Cele from '../shimg/CeleBash.png'
+import Cele1 from '../images_icons/coming.svg'
 
 const SpecialSer = () => {
     return (
-        <div>
+        <div className="fjf">
             <Helmet>
                 <title>Cele Bash</title>
                 <meta name="description" content="Cele Bash Category" />
@@ -16,10 +17,13 @@ const SpecialSer = () => {
             <Menu />
             <div className="cele">
                 <div className="cele1">
-                    <img src={Coming} alt="comming soon"/>
+                    <img src={Cele} alt="comming soon" />
+                </div>
+                <div className="celee1">
+                    <img src={Cele1} alt="comming soon" />
                 </div>
                 <div className="cele2">
-                    <h1>Launch on New Year</h1>
+                    <h1>Launch this New Year 2021</h1>
                 </div>
             </div>
         </div>

@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { itemTotal } from '../helpers/CartHelper'
-import Bunny from '../images_icons/bunny.svg'
+import Bunny from '../cwimage/BunnyBash Logo.png'
 import { FaUser, FaCartArrowDown, FaHome } from 'react-icons/fa';
 
 const isActive = (history, path) => {

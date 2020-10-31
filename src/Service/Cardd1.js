@@ -16,7 +16,7 @@ const Cardd = ({ product }) => {
     const ShowImage = ({ item, url }) => {
 
         const arr = item.photo
-        
+
         return (
             <div className='ch2'>
                 {
@@ -36,6 +36,10 @@ const Cardd = ({ product }) => {
                 <div className="ch3">
                     <h3>{product.name.substring(0, 40)}</h3>
                     <h4>Rs. {product.price}/-</h4>
+                    <Link className="ch1" to='products/experience'>
+                        <button className='chbutton'>
+                            <i className="fa fa-cart-plus" aria-hidden="true"></i><p>View Now</p></button>
+                    </Link>
                 </div>
             </div>
         </div>

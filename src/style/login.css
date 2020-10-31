@@ -130,19 +130,14 @@
 .reg1{
     width: 60%;
 }
-.reg11{
-    width: 60%;
+.reg12{
+    width: 70%;
     margin: auto;
-    margin-top: 50px;
-}
-.reg11 h2{
-    font-family: "Shadows Into Light";
-    font-weight: 800;
-    font-size: 32px;
+    margin-top: 40px;
 }
 .reg12 img{
-    width: 100%;
-    height: 70vh;
+    width: 90%;
+    height: auto;
 }
 .reg2{
     width: 40%;
@@ -224,5 +219,14 @@
     .reg11 h2{
         font-family: "Shadows Into Light";
         font-size: 30px;
+    }
+    .reg12{
+        width: 90%;
+        margin: auto;
+        margin-top: 30px;
+    }
+    .reg12 img{
+        width: 100%;
+        height: auto;
     }
 }

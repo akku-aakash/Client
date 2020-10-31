@@ -7,6 +7,7 @@ import axios from 'axios'
 import { toast, ToastContainer } from 'react-toastify'
 import { isAuth, getCookie } from '../helpers/auth'
 import { generateTokenRazor, createServiceOrder } from '../core/apiCore';
+import { Form } from 'react-bootstrap'
 
 const Card = ({ product }) => {
 
@@ -26,8 +27,12 @@ const Card = ({ product }) => {
         Semail: product.Semail,
         count: 1
     }])
-    
-    
+    const [extra, setExtra] = useState([{
+        date: '',
+        time: '',
+        special: ''
+    }])
+
     const pla = () => {
 
         if (availCoup.code === coupon) {
@@ -79,7 +84,10 @@ const Card = ({ product }) => {
             transaction_id: paymentData.razorpay_payment_id,
             amount: (amount / 100),
             address: isAuth().address,
-            phone: isAuth().phone
+            phone: isAuth().phone,
+            time: extra && extra.time,
+            date: extra && extra.date,
+            special: extra && extra.special,
         }
 
         createServiceOrder(userId, token, createOrderData)
@@ -154,7 +162,7 @@ const Card = ({ product }) => {
                 {product && (
                     <div>
                         <div>
-                            <button className="btncart" onClick={paymentHandler}>Pay Now</button>
+                            <button className="btncart" onClick={paymentHandler}>Book Now</button>
                         </div>
                     </div>
                 )
@@ -187,16 +195,19 @@ const Card = ({ product }) => {
                                     }</h6> :
                                         <h3><i className="fa fa-inr"></i> {product.price}  <span> {product.fakeprice}</span> <sup>{((fakeprice - priiice) / fakeprice * 100).toFixed(0)}% off</sup></h3>
                                 }
-                                <p>FREE Shipping</p>
-                                <p>{product.description.substring(0, 300)}</p>
+                                <p></p>
+                                <p>{product.description.substring(0, 200)}</p>
                                 <div className="card3">
                                     <div className="card4">
-                                        <input type="text" placeholder="Pin Code" value={Pin} onChange={(e) => setPin(e.target.value)} />
+                                        <input type="text" placeholder="DD / MM / YYYY" value={extra.date} onChange={(e) => setExtra({ ...extra, date: e.target.value })} />
                                         <div className="coup">
-                                            <p>Delivery Availability</p>
-                                            <p className="coup2">{
-                                                availPin[0] && availPin[0].Has_Prepaid ? <p style={{ color: 'green' }}><i class="fa fa-check-circle" aria-hidden="true"></i></p> : <p style={{ color: 'red' }}>{Pin && <p><i class="fa fa-times-circle" aria-hidden="true"></i></p>}</p>
-                                            }</p>
+                                            <p>Choose the date</p>
+                                        </div>
+                                    </div>
+                                    <div className="card4">
+                                        <input type="text" placeholder=" Hr : mm  AM/PM" value={extra.time} onChange={(e) => setExtra({ ...extra, time: e.target.value })} />
+                                        <div className="coup">
+                                            <p>Choose the time</p>
                                         </div>
                                     </div>
                                     <div className="card4">
@@ -211,6 +222,12 @@ const Card = ({ product }) => {
                                             }</p>
                                         </div>
                                     </div>
+                                </div>
+                                <div className="kkd">
+                                    <Form.Group>
+                                        <Form.Label>Special Request</Form.Label>
+                                        <Form.Control as="textarea" rows={3} value={extra.special} onChange={(e) => setExtra({ ...extra, special: e.target.value })} placeholder="Special Request"/>
+                                    </Form.Group>
                                 </div>
                                 <div className="finall">
                                     <div className="finall1">

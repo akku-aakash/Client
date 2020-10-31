@@ -12,6 +12,8 @@ import Loading from '../homeCore/LoadingPage'
 import Deco from '../images_icons/bunting.svg'
 import Serv from '../images_icons/rocking.svg'
 import Ballon from '../images_icons/Baloons.svg'
+import Bang from '../shimg/Bangalore.png'
+import Mum from '../shimg/Mumbai.png'
 
 const Experience = () => {
 
@@ -71,7 +73,7 @@ const Experience = () => {
             .map((product, i) => {
                 return (
                     <div>
-                        <Cardd key={i} product={product} />
+                        <Cardd key={i} product={product} city={city}/>
                     </div>
                 )
             }
@@ -83,7 +85,7 @@ const Experience = () => {
             .map((product, i) => {
                 return (
                     <div>
-                        <Cardd key={i} product={product} />
+                        <Cardd key={i} product={product} city={city}/>
                     </div>
                 )
             }
@@ -95,7 +97,7 @@ const Experience = () => {
             .map((product, i) => {
                 return (
                     <div>
-                        <Cardd key={i} product={product} />
+                        <Cardd key={i} product={product} city={city}/>
                     </div>
                 )
             }
@@ -139,10 +141,8 @@ const Experience = () => {
                     <div>
                         <div className="expp">
                             <ul className="expp1">
-                                <li onClick={() => setCity('Goa')}><i className="fa fa-home"></i> <p>Goa</p></li>
-                                <li onClick={() => setCity('Hyderabad')}><i className="fa fa-home"></i> <p>Hyderabad</p></li>
-                                <li onClick={() => setCity('Mumbai')}><i className="fa fa-home"></i><p>Mumbai</p></li>
-                                <li onClick={() => setCity('Pune')}><i className="fa fa-home"></i><p>Pune</p></li>
+                                <li onClick={() => setCity('Banglore')}><img src={Bang} alt="del" /><p>Bangalore</p></li>
+                                <li onClick={() => setCity('Mumbai')}><img src={Mum} alt="del" /><p>Mumbai</p></li>
                             </ul>
                         </div>
                     </div>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import '../style/cardd.css';
 
-const Cardd = ({ product }) => {
+const Cardd = ({ product, city }) => {
 
 
     const [redirect, setRedirect] = useState(false);
@@ -16,7 +16,7 @@ const Cardd = ({ product }) => {
     const ShowImage = ({ item, url }) => {
 
         const arr = item.photo
-        
+
         return (
             <div className='ch2'>
                 {
@@ -30,12 +30,16 @@ const Cardd = ({ product }) => {
         <div className="ch">
             <div className="ch1">
                 {shouldRedirect(redirect)}
-                <Link className="ch1" to={`/service/${product._id}`}>
+                <Link className="ch1" to={`/service/${product._id}/${city}`}>
                     <ShowImage url="service" item={product} />
                 </Link>
                 <div className="ch3">
                     <h3>{product.name.substring(0, 40)}</h3>
                     <h4>Rs. {product.price}/-</h4>
+                    <Link className="ch1" to={`/service/${product._id}/${city}`}>
+                        <button className='chbutton'>
+                            <i className="fa fa-cart-plus" aria-hidden="true"></i><p>View Now</p></button>
+                    </Link>
                 </div>
             </div>
         </div>

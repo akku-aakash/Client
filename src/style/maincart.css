@@ -18,14 +18,14 @@
 .maincart4 h2:nth-child(1){
     text-align: center;
     color: black;
-    font-family: "Shadows Into Light";
     font-weight: bold;
-    font-size: 45px;
+    font-size: 32px;
     border-bottom: 2px solid rgb(201, 201, 201);
 }
 .maincart4 h2:nth-child(2){
     text-align: center;
     font-weight: bold;
+    font-size: 25px;
 }
 .maincart1{
     font-size: 30px;

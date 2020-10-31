@@ -6,7 +6,7 @@ import { Redirect } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap'
 import Menu from '../core/Menu'
 import '../style/login.css'
-import Reg from '../images_icons/register.svg'
+import Reg from '../shimg/Sign Up.png'
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -67,10 +67,6 @@ const Register = () => {
       <ToastContainer />
       <div className="reg">
         <div className="reg1">
-          <div className="reg11">
-            <h2>Some people look for a beautiful place.</h2>
-            <h2>We make a place beautiful for you.</h2>
-          </div>
           <div className="reg12">
             <img src={Reg} alt="register image" />
           </div>

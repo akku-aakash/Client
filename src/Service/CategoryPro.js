@@ -5,6 +5,10 @@ import '../style/product.css';
 import Menu from '../core/Menu'
 import { Col, Row, Container } from 'react-bootstrap'
 import { Helmet } from 'react-helmet';
+import Goa from '../shimg/Goa.png'
+import Hyd from '../shimg/Hyd.png'
+import Mum from '../shimg/Mumbai.png'
+import Pune from '../shimg/Pune.png'
 
 const Products = (props) => {
 
@@ -37,7 +41,7 @@ const Products = (props) => {
             </Helmet>
             <Menu />
             <div className="pro14">
-                <h2 style={{ textAlign: 'center' }}>Services for {city}</h2>
+                <h2 style={{ textAlign: 'center' }}>Services in {city}</h2>
                 <div className="pro15">
                     <div className="home114">
                         <div className="home112">
@@ -58,10 +62,10 @@ const Products = (props) => {
                 <div className="expp2">
                     <div className="expp">
                         <ul className="expp1">
-                            <li onClick={() => setCity('Goa')}><i className="fa fa-home"></i> <p>Goa</p></li>
-                            <li onClick={() => setCity('Hyderabad')}><i className="fa fa-home"></i> <p>Hyderabad</p></li>
-                            <li onClick={() => setCity('Mumbai')}><i className="fa fa-home"></i><p>Mumbai</p></li>
-                            <li onClick={() => setCity('Pune')}><i className="fa fa-home"></i><p>Pune</p></li>
+                            <li onClick={() => setCity('Goa')}><img src={Goa} alt="del" /><p>Goa</p></li>
+                            <li onClick={() => setCity('Hyderabad')}><img src={Hyd} alt="del" /> <p>Hyderabad</p></li>
+                            <li onClick={() => setCity('Mumbai')}><img src={Mum} alt="del" /><p>Mumbai</p></li>
+                            <li onClick={() => setCity('Pune')}><img src={Pune} alt="del" /><p>Pune</p></li>
                         </ul>
                     </div>
                 </div>
@@ -77,7 +81,7 @@ const Products = (props) => {
                                             .map((product, i) => {
                                                 return (
                                                     <Col xs={12} sm={6} lg={4} style={{ margin: "10px 0px 40px 0px" }}>
-                                                        <Cardd key={i} product={product} />
+                                                        <Cardd key={i} product={product} city={city}/>
                                                     </Col>
                                                 )
                                             }
