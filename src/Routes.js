@@ -65,7 +65,7 @@ const Routes = () => {
 
                     <Route path='/product/:productId' exact component={Products} />
                     <Route path='/products/subCategory/:productId' exact component={CategoryPro} />
-                    <Route path='/service/:productId/:city' exact component={Service} />
+                    <Route path='/service/:productId' exact component={Service} />
                     <Route path='/service/subCategory/:productId' exact component={Servicepro} />
                     <Route path='/cart' exact component={Cart} />
                     <AdminRoute path='/admin/dashboard' exact component={AdminDashboard} />
