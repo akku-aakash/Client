@@ -29,7 +29,7 @@ const Products = (props) => {
         $(document).ready(function () {
             $(this).scrollTop(0);
         });
-    }, [])
+    }, [product, relatedProduct])
 
     const loadSingleProduct = async productId => {
         await axios.get(`${process.env.REACT_APP_API_URL}/product/${productId}`)
