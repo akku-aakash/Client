@@ -1,11 +1,20 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Menu from '../core/Menu'
 import { Helmet } from 'react-helmet';
 import '../style/Cele.css'
 import Cele from '../shimg/CeleBash.png'
 import Cele1 from '../images_icons/coming.svg'
+import $ from 'jquery';
 
 const SpecialSer = () => {
+
+    useEffect(() => {
+        $(document).ready(function () {
+            $(this).scrollTop(0);
+        });
+    }, [])
+    
+
     return (
         <div className="fjf">
             <Helmet>

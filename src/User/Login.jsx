@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState,useEffect ,Fragment } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import { authenticate, isAuth } from '../helpers/auth';
@@ -7,6 +7,7 @@ import { Form, Button } from 'react-bootstrap'
 import Menu from '../core/Menu'
 import '../style/login.css'
 import Love from '../images_icons/login.png'
+import $ from 'jquery';
 
 const Login = ({ history }) => {
   const [formData, setFormData] = useState({
@@ -56,6 +57,12 @@ const Login = ({ history }) => {
       toast.error('Please fill all fields');
     }
   };
+
+  useEffect(() => {
+    $(document).ready(function () {
+        $(this).scrollTop(0);
+    });
+}, [])
 
 
   return (

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Menu from '../core/Menu'
 import { Helmet } from 'react-helmet';
 import { Container, Row, Col } from 'react-bootstrap';
@@ -20,8 +20,17 @@ import Img15 from '../cwimage/dk3.jpg'
 import Img16 from '../cwimage/po1.jpg'
 import Img17 from '../cwimage/po2.jpg'
 import Img18 from '../cwimage/po3.jpg'
+import $ from 'jquery';
 
 const CopWork = () => {
+
+    useEffect(() => {
+        $(document).ready(function () {
+            $(this).scrollTop(0);
+        });
+    }, [])
+    
+
     return (
         <div className="copwork">
             <Helmet>

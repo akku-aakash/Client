@@ -11,6 +11,7 @@ import { Helmet } from 'react-helmet';
 import Banner from '../images_icons/Banner 2-min.jpg'
 import Banner1 from '../ceimage/Banner 2.1-min.jpg'
 import { Row, Col, Container } from 'react-bootstrap'
+import $ from 'jquery';
 
 const Unique = () => {
     const [productByPhoto, setProductByPhoto] = useState([])
@@ -123,6 +124,13 @@ const Unique = () => {
         800: { items: 2 },
         1200: { items: 3 },
     }
+
+    useEffect(() => {
+        $(document).ready(function () {
+            $(this).scrollTop(0);
+        });
+    }, [])
+    
 
     return (
         <div className="unique">

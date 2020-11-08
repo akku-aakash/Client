@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Menu from '../core/Menu'
 import { Helmet } from 'react-helmet';
 import { Container, Row, Col } from 'react-bootstrap';
@@ -15,8 +15,17 @@ import Img12 from '../shimg/pt2.jpg'
 import Img13 from '../shimg/ya.jpg'
 import Img14 from '../shimg/ya1.jpg'
 import Img15 from '../shimg/ya2.jpg'
+import $ from 'jquery';
 
 const Store = () => {
+
+    useEffect(() => {
+        $(document).ready(function () {
+            $(this).scrollTop(0);
+        });
+    }, [])
+    
+
     return (
         <div>
             <Helmet>

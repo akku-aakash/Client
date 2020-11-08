@@ -21,6 +21,7 @@ import Icon3 from '../speicall/sp 1.svg'
 import Icon4 from '../speicall/sp 2.svg'
 import Icon5 from '../speicall/sp 3.svg'
 import Icon6 from '../speicall/sp 4.svg'
+import $ from 'jquery';
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
@@ -67,6 +68,12 @@ const Home = () => {
       });
 
   }
+
+  useEffect(() => {
+    $(document).ready(function () {
+        $(this).scrollTop(0);
+    });
+}, [])
 
 
   useEffect(() => {

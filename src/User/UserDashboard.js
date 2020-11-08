@@ -6,11 +6,19 @@ import moment from 'moment';
 import { ToastContainer, toast } from 'react-toastify';
 import Menu from '../core/Menu'
 import { Helmet } from 'react-helmet'
+import $ from 'jquery';
 
 const UserDashboard = ({ history }) => {
     const [historyPro, setHistoryProduct] = useState([])
     const { name, email, Address, phone } = isAuth();
     const token = getCookie('token');
+
+    useEffect(() => {
+        $(document).ready(function () {
+            $(this).scrollTop(0);
+        });
+    }, [])
+    
 
     const init = () => {
         axios.get(`${process.env.REACT_APP_API_URL}/orders/by/user/${isAuth()._id}`, {

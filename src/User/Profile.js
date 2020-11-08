@@ -5,6 +5,7 @@ import { Form, Button } from 'react-bootstrap'
 import Love from '../images_icons/login.svg'
 import Menu from '../core/Menu'
 import {Helmet} from 'react-helmet'
+import $ from 'jquery';
 
 const Profile = () => {
 
@@ -46,6 +47,13 @@ const Profile = () => {
                 setValues({ ...values, error: true })
             });
     }
+
+    useEffect(() => {
+        $(document).ready(function () {
+            $(this).scrollTop(0);
+        });
+    }, [])
+    
 
     const updateProfile = (userId, token, email, password, name, street, city, state, phone) => {
         const user = { email, password, name, Address: { street, city, state }, phone }

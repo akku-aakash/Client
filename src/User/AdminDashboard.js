@@ -3,6 +3,7 @@ import { isAuth } from '../helpers/auth';
 import { Link } from 'react-router-dom';
 import Menu from '../core/Menu'
 import SRC from '../images_icons/undraw_pure_love_ay8a.svg'
+import $ from 'jquery';
 
 const AdminDashboard = () => {
 
@@ -16,6 +17,13 @@ const AdminDashboard = () => {
             navlinksss.classList.toggle("active");
         })
     })
+
+    useEffect(() => {
+        $(document).ready(function () {
+            $(this).scrollTop(0);
+        });
+    }, [])
+    
 
     return (
         <div>

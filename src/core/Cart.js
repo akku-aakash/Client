@@ -6,6 +6,7 @@ import Checkout from './Checkout';
 import '../style/maincart.css';
 import Menu from './Menu'
 import { Helmet } from 'react-helmet'
+import $ from 'jquery';
 
 const Cart = () => {
     const [items, setItems] = useState([]);
@@ -18,6 +19,13 @@ const Cart = () => {
     const setdm = () => {
         setd(rand)
     }
+
+    useEffect(() => {
+        $(document).ready(function () {
+            $(this).scrollTop(0);
+        });
+    }, [])
+    
 
     useEffect(() => {
         setItems(getCart());

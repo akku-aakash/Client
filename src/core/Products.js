@@ -8,7 +8,7 @@ import "react-alice-carousel/lib/alice-carousel.css";
 import Menu from './Menu'
 import { Helmet } from 'react-helmet';
 import Loading from '../homeCore/LoadingPage';
-
+import $ from 'jquery';
 
 const Products = (props) => {
     const [loading, setLoading] = useState(true);
@@ -24,6 +24,12 @@ const Products = (props) => {
         loadSingleProduct(productId)
         relatedProductFetch(productId)
     }, [props])
+
+    useEffect(() => {
+        $(document).ready(function () {
+            $(this).scrollTop(0);
+        });
+    }, [])
 
     const loadSingleProduct = async productId => {
         await axios.get(`${process.env.REACT_APP_API_URL}/product/${productId}`)

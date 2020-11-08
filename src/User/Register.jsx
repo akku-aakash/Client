@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, useEffect,Fragment } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import { isAuth } from '../helpers/auth';
@@ -7,6 +7,7 @@ import { Form, Button } from 'react-bootstrap'
 import Menu from '../core/Menu'
 import '../style/login.css'
 import Reg from '../shimg/Sign Up.png'
+import $ from 'jquery';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -21,6 +22,13 @@ const Register = () => {
   const handleChange = text => e => {
     setFormData({ ...formData, [text]: e.target.value });
   };
+
+  useEffect(() => {
+    $(document).ready(function () {
+        $(this).scrollTop(0);
+    });
+}, [])
+
 
   const handleSubmit = e => {
     e.preventDefault();

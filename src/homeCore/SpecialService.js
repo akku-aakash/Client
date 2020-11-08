@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Menu from '../core/Menu'
 import { Helmet } from 'react-helmet';
 import { Container, Row, Col } from 'react-bootstrap';
@@ -16,8 +16,17 @@ import Img8 from '../imag/pic9.jpg'
 import Img9 from '../imag/pic10.jpg'
 import Img10 from '../imag/pic11.jpg'
 import Img11 from '../imag/pic12.jpg'
+import $ from 'jquery';
 
 const SpecialService = () => {
+
+    useEffect(() => {
+        $(document).ready(function () {
+            $(this).scrollTop(0);
+        });
+    }, [])
+    
+
     return (
         <div>
             <Helmet>

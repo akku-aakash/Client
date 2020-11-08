@@ -8,6 +8,7 @@ import { Helmet } from 'react-helmet';
 import Goa from '../shimg/Goa.png'
 import Hyd from '../shimg/Hyd.png'
 import Mum from '../shimg/Mumbai.png'
+import $ from 'jquery';
 import Pune from '../shimg/Pune.png'
 
 const Products = (props) => {
@@ -30,6 +31,13 @@ const Products = (props) => {
                 console.log(err)
             })
     }
+
+    useEffect(() => {
+        $(document).ready(function () {
+            $(this).scrollTop(0);
+        });
+    }, [])
+    
 
     return (
         <div className="pro">

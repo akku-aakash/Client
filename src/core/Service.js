@@ -8,7 +8,7 @@ import "react-alice-carousel/lib/alice-carousel.css";
 import Menu from './Menu'
 import { Helmet } from 'react-helmet';
 import Loading from '../homeCore/LoadingPage';
-
+import $ from 'jquery';
 
 const Products = (props) => {
     const [loading, setLoading] = useState(true);
@@ -18,6 +18,8 @@ const Products = (props) => {
     const [inc, setInc] = useState([]);
     const [exc, setExc] = useState([]);
     const [bef, setBef] = useState([]);
+
+    
 
     useEffect(() => {
         const productId = props.match.params.productId
@@ -103,7 +105,12 @@ const Products = (props) => {
         element3.classList.add("acctive");
     }
 
-
+    useEffect(() => {
+        $(document).ready(function () {
+            $(this).scrollTop(0);
+        });
+    }, [])
+    
 
     const state1 = {
         galleryItems: relatedProduct

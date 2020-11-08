@@ -5,6 +5,7 @@ import { Form, Button } from 'react-bootstrap';
 import Menu from '../core/Menu'
 import '../style/login.css'
 import Forgot from '../images_icons/resetpass.svg'
+import $ from 'jquery';
 
 const ResetPassword = ({ match }) => {
   const [formData, setFormData] = useState({
@@ -55,6 +56,12 @@ const ResetPassword = ({ match }) => {
       toast.error('Passwords don\'t matches');
     }
   };
+
+  useEffect(() => {
+    $(document).ready(function () {
+        $(this).scrollTop(0);
+    });
+}, [])
 
 
   return (

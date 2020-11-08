@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Menu from '../core/Menu'
 import { Helmet } from 'react-helmet';
 import { Container, Row, Col } from 'react-bootstrap';
@@ -21,8 +21,17 @@ import Img17 from '../scimage/fc4.jpg'
 import Img18 from '../scimage/fc5.jpg'
 import Img19 from '../scimage/sm.jpg'
 import Img20 from '../scimage/tp1.jpg'
+import $ from 'jquery';
 
 const School = () => {
+
+    useEffect(() => {
+        $(document).ready(function () {
+            $(this).scrollTop(0);
+        });
+    }, [])
+    
+
     return (
         <div>
             <Helmet>

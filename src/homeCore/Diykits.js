@@ -12,11 +12,19 @@ import { Helmet } from 'react-helmet';
 import Banner from '../images_icons/Banner 1-min.jpg'
 import Banner1 from '../ceimage/Banner 1.1-min.jpg'
 import { Row, Col, Container } from 'react-bootstrap'
+import $ from 'jquery';
 
 const Diykits = () => {
     const [productByCelebrate, setProductByCelebrate] = useState([])
     const [productByParty, setProductByParty] = useState([])
     const [productByPersonal, setProductByPersonal] = useState([])
+
+    useEffect(() => {
+        $(document).ready(function () {
+            $(this).scrollTop(0);
+        });
+    }, [])
+    
 
     const loadProductByPersonal = () => {
         axios

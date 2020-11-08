@@ -14,6 +14,7 @@ import Serv from '../images_icons/rocking.svg'
 import Ballon from '../images_icons/Baloons.svg'
 import Bang from '../shimg/Bangalore.png'
 import Mum from '../shimg/Mumbai.png'
+import $ from 'jquery';
 
 const Experience = () => {
 
@@ -34,6 +35,13 @@ const Experience = () => {
                 toast.error(`Server Error`, err);
             });
     }
+
+    useEffect(() => {
+        $(document).ready(function () {
+            $(this).scrollTop(0);
+        });
+    }, [])
+    
 
     const loadProductBySurprise = () => {
         axios
