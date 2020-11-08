@@ -1,6 +1,7 @@
 *{
     margin: 0px;
     padding: 0px;
+    font-family: 'Montserrat';
 }
 body{
     font-family: 'Montserrat';
@@ -409,6 +410,7 @@ body{
     color: #efbf00;
     border-radius: 5px;
     letter-spacing: 1px;
+    font-family: 'Montserrat';
 }
 .home12:hover{
     text-decoration:none !important;
