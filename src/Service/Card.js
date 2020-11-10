@@ -2,20 +2,23 @@ import React, { useState, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import ShowImage from './ShowImage';
 import '../style/card.css';
-import { Container, Row, Col } from 'react-bootstrap';
+import '../style/sercard.css'
+import { Container, Row, Col, Dropdown, DropdownButton } from 'react-bootstrap';
 import axios from 'axios'
 import { toast, ToastContainer } from 'react-toastify'
 import { isAuth, getCookie } from '../helpers/auth'
 import { generateTokenRazor, createServiceOrder } from '../core/apiCore';
 import { Form } from 'react-bootstrap'
 
-const Card = ({ product }) => {
+const Card = ({ product, cityyy }) => {
 
+    const [des, setDes] = useState(product.descriptiona);
+    const [inc, setInc] = useState(product.inclusiona);
+    const [exc, setExc] = useState(product.exclusiona);
+    const [bef, setBef] = useState(product.beforeyoua);
     const userId = isAuth() && isAuth()._id;
     const token = getCookie('token');
-    const [Pin, setPin] = useState('');
     const firstuser = isAuth() && isAuth().firstbuy
-    const [availPin, setavailPin] = useState([])
     const [coupon, setCoupon] = useState('');
     const [availCoup, setavailCoup] = useState([])
     const { fakeprice, price } = product;
@@ -52,22 +55,6 @@ const Card = ({ product }) => {
         pla()
     }, [coupon])
 
-    useEffect(() => {
-        checkPin()
-    }, [Pin])
-
-    const checkPin = () => {
-        axios
-            .get(`${process.env.REACT_APP_API_URL}/delivery/availabe`, {
-                params: {
-                    Pincode: Pin
-                }
-            })
-            .then(res =>
-                setavailPin(res.data),
-            )
-            .catch(err => console.error(err));
-    }
 
     const checkCoup = () => {
         axios
@@ -170,47 +157,116 @@ const Card = ({ product }) => {
             </div>)
     }
 
-
-
     return (
         <div className="card">
             <ToastContainer />
             <div className="card1">
                 <Container fluid>
                     <Row>
-                        <Col sm={12} md={5}>
-                            <ShowImage item={product} url="service" />
-                        </Col>
-                        <Col sm={12} md={7}>
-                            <div className="card2">
+                        <Col sm={12} lg={8}>
+                            <div className="sercardd">
                                 <h2>{product.name} </h2>
+                                <p>{cityyy}</p>
+                                <div className="sercardd12">
+                                    <ShowImage item={product} url="service" />
+                                </div>
+                                <div className="sercardd13">
+                                    <DropdownButton id="droppdown" title="Description">
+                                        <div className="sercardd14">
+                                            <p>{product.description}</p>
+                                            <ul>
+                                                {des.map((element, i) => (
+                                                    <div key={i}>{element != null ?
+                                                        <li>{element}</li> :
+                                                        <h1 className="prooo">d</h1>}</div>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    </DropdownButton>
+                                    <DropdownButton id="droppdown" title="Before You Order">
+                                        <div className="sercardd14">
+                                            <ul>
+                                                {bef.map((element, i) => (
+                                                    <div key={i}>{element != null ?
+                                                        <li>{element}</li> :
+                                                        <h1 className="prooo">d</h1>}</div>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    </DropdownButton>
+                                    <DropdownButton id="droppdown" title="Inclusion & Exclusions">
+                                        <div className="sercardd14">
+                                            <h6>Inclusion</h6>
+                                            <ul>
+                                                {inc.map((element, i) => (
+                                                    <div key={i}>{element != null ?
+                                                        <li>{element}</li> :
+                                                        <h1 className="prooo">d</h1>}</div>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                        <div className="sercardd14">
+                                            <h6>Exclusion</h6>
+                                            <ul>
+                                                {exc.map((element, i) => (
+                                                    <div key={i}>{element != null ?
+                                                        <li>{element}</li> :
+                                                        <h1 className="prooo">d</h1>}</div>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    </DropdownButton>
+                                    <DropdownButton id="droppdown" title="Refund And Cancelation Policy">
+                                        <div className="sercardd14">
+                                            <p>{product.description}</p>
+                                        </div>
+                                        <div className="sercardd14">
+                                            <ul>
+                                                {des.map((element, i) => (
+                                                    <div key={i}>{element != null ?
+                                                        <li>{element}</li> :
+                                                        <h1 className="prooo">d</h1>}</div>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    </DropdownButton>
+                                </div>
+                            </div>
+                        </Col>
+                        <Col sm={12} lg={4}>
+                            <div className="sercardd2">
+                                {
+                                    availCoup.code === coupon ? <h6>{
+                                        firstuser === true ? <h3> Starting from <i className="fa fa-inr"></i>{
+                                            priiice
+                                        }</h3> : <h3> Starting from<i className="fa fa-inr"></i> {product.price}  <span> {product.fakeprice}</span></h3>
+                                    }</h6> :
+                                        <h3>Starting from <i className="fa fa-inr"></i> {product.price}  <span> {product.fakeprice}</span> <sup>{((fakeprice - priiice) / fakeprice * 100).toFixed(0)}% off</sup></h3>
+                                }
                                 {
                                     product.active = 1 ? <p style={{ color: 'green', fontWeight: 'bold' }}>Active</p> : <p style={{ color: 'red', fontWeight: 'bold' }}>Not Active Currently</p>
                                 }
-                                {
-                                    availCoup.code === coupon ? <h6>{
-                                        firstuser === true ? <h3><i className="fa fa-inr"></i>{
-                                            priiice
-                                        }</h3> : <h3><i className="fa fa-inr"></i> {product.price}  <span> {product.fakeprice}</span></h3>
-                                    }</h6> :
-                                        <h3><i className="fa fa-inr"></i> {product.price}  <span> {product.fakeprice}</span> <sup>{((fakeprice - priiice) / fakeprice * 100).toFixed(0)}% off</sup></h3>
-                                }
-                                <p></p>
-                                <p>{product.description.substring(0, 200)}</p>
-                                <div className="card3">
-                                    <div className="card4">
+                                <ul>
+                                    <li>- Handpicked Sevices</li>
+                                    <li>- Secure Payments</li>
+                                    <li>- Hassle-free Planning</li>
+                                    <li>- No hidden Charges</li>
+                                    <li>- 100% Customer Satisfaction</li>
+                                </ul>
+                                <div className="sercardd21">
+                                    <div className="sercardd22">
                                         <input type="text" placeholder="DD / MM / YYYY" value={extra.date} onChange={(e) => setExtra({ ...extra, date: e.target.value })} />
                                         <div className="coup">
                                             <p>Choose the date</p>
                                         </div>
                                     </div>
-                                    <div className="card4">
+                                    <div className="sercardd23">
                                         <input type="text" placeholder=" Hr : mm  AM/PM" value={extra.time} onChange={(e) => setExtra({ ...extra, time: e.target.value })} />
                                         <div className="coup">
                                             <p>Choose the time</p>
                                         </div>
                                     </div>
-                                    <div className="card4">
+                                    <div className="sercardd24">
                                         <input type="text" placeholder="Promo Code" value={coupon} onChange={(e) => setCoupon(e.target.value)} />
                                         <div className="coup">
                                             <p>Promo Code</p>
@@ -222,12 +278,12 @@ const Card = ({ product }) => {
                                             }</p>
                                         </div>
                                     </div>
-                                </div>
-                                <div className="kkd">
-                                    <Form.Group>
-                                        <Form.Label>Special Request</Form.Label>
-                                        <Form.Control as="textarea" rows={3} value={extra.special} onChange={(e) => setExtra({ ...extra, special: e.target.value })} placeholder="Special Request"/>
-                                    </Form.Group>
+                                    <div>
+                                        <Form.Group>
+                                            <Form.Label>Special Request</Form.Label>
+                                            <Form.Control className="sercardd25" as="textarea" rows={3} value={extra.special} onChange={(e) => setExtra({ ...extra, special: e.target.value })} placeholder="Special Request" />
+                                        </Form.Group>
+                                    </div>
                                 </div>
                                 <div className="finall">
                                     <div className="finall1">

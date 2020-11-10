@@ -8,25 +8,25 @@ const ShowImage = ({ item, url }) => {
     }
 
     return (
-        <div className="cardPic">
-            <div className="cardPic2">
+        <div className="cardPicser">
+            <div className="cardPicser2">
                 {
-                    arr && arr.map((element,i) => {
-                        return(
-                            <div className="cardPic3" onClick={change}>
-                            <img src={`${process.env.REACT_APP_API_URL}/${url}/photo/${item._id}?photoId=${element._id}`}
-                            alt={element.name} />
+                    arr && arr.map((element, i) => {
+                        return (
+                            <div className="cardPicser3" onClick={change}>
+                                <img src={`${process.env.REACT_APP_API_URL}/${url}/photo/${item._id}?photoId=${element._id}`}
+                                    alt={element.name} />
                             </div>
                         )
                     })
                 }
             </div>
-            <div className="cardPic1" >
+            <div className="cardPicser1" >
                 {
                     arr && <img src={`${process.env.REACT_APP_API_URL}/${url}/photo/${item._id}?photoId=${arr[0]._id}`}
-                    alt={item.name}
-                    className="main-img"
-                />
+                        alt={item.name}
+                        className="main-img"
+                    />
                 }
             </div>
         </div>

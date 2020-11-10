@@ -14,12 +14,8 @@ const Products = (props) => {
     const [loading, setLoading] = useState(true);
     const [product, setProduct] = useState({})
     const [relatedProduct, setRelatedProduct] = useState([])
-    const [des, setDes] = useState([]);
-    const [inc, setInc] = useState([]);
-    const [exc, setExc] = useState([]);
-    const [bef, setBef] = useState([]);
 
-    
+    const cityyy = props.match.params.cityName
 
     useEffect(() => {
         const productId = props.match.params.productId
@@ -31,10 +27,6 @@ const Products = (props) => {
         await axios.get(`${process.env.REACT_APP_API_URL}/service/${productId}`)
             .then(res => {
                 setProduct(res.data)
-                setDes(res.data.descriptiona)
-                setInc(res.data.inclusiona)
-                setExc(res.data.exclusiona)
-                setBef(res.data.beforeyoua)
                 setLoading(false);
             })
             .catch(err => {
@@ -52,65 +44,12 @@ const Products = (props) => {
             })
     }
 
-    const changeScreen = () => {
-        const proo = document.querySelector('.pro6')
-        proo.style.marginLeft = '0vw';
-
-        var element = document.querySelector(".pro10");
-        element.classList.add("acctive");
-        var element1 = document.querySelector(".pro11");
-        element1.classList.remove("acctive");
-        var element2 = document.querySelector(".pro12");
-        element2.classList.remove("acctive");
-        var element3 = document.querySelector(".pro13");
-        element3.classList.remove("acctive");
-    }
-    const changeScreen1 = () => {
-        const prooo = document.querySelector('.pro6')
-        prooo.style.marginLeft = '-100vw';
-
-        var element = document.querySelector(".pro10");
-        element.classList.remove("acctive");
-        var element1 = document.querySelector(".pro11");
-        element1.classList.add("acctive");
-        var element2 = document.querySelector(".pro12");
-        element2.classList.remove("acctive");
-        var element3 = document.querySelector(".pro13");
-        element3.classList.remove("acctive");
-    }
-    const changeScreen2 = () => {
-        const proooo = document.querySelector('.pro6')
-        proooo.style.marginLeft = '-200vw';
-
-        var element = document.querySelector(".pro10");
-        element.classList.remove("acctive");
-        var element1 = document.querySelector(".pro11");
-        element1.classList.remove("acctive");
-        var element2 = document.querySelector(".pro12");
-        element2.classList.add("acctive");
-        var element3 = document.querySelector(".pro13");
-        element3.classList.remove("acctive");
-    }
-    const changeScreen3 = () => {
-        const prooooo = document.querySelector('.pro6')
-        prooooo.style.marginLeft = '-300vw';
-
-        var element = document.querySelector(".pro10");
-        element.classList.remove("acctive");
-        var element1 = document.querySelector(".pro11");
-        element1.classList.remove("acctive");
-        var element2 = document.querySelector(".pro12");
-        element2.classList.remove("acctive");
-        var element3 = document.querySelector(".pro13");
-        element3.classList.add("acctive");
-    }
-
     useEffect(() => {
         $(document).ready(function () {
             $(this).scrollTop(0);
         });
-    }, [])
-    
+    }, [product])
+
 
     const state1 = {
         galleryItems: relatedProduct
@@ -144,58 +83,9 @@ const Products = (props) => {
             <div>
                 {
                     product && product.description &&
-                    <Card product={product} showViewProductButthon={false} />
+                    <Card product={product} cityyy={cityyy} showViewProductButthon={false} />
                 }
             </div>
-            {
-                loading ? <Loading /> :
-                    <div className="pro2">
-                        <div className="pro3">
-                            <ul className="pro4">
-                                <li onClick={changeScreen}><button className="pro10 acctive">Description</button></li>
-                                <li onClick={changeScreen1}><button className="pro11">Inclusion & Exclusions</button></li>
-                                <li onClick={changeScreen2}><button className="pro12">Before you Order</button></li>
-                                <li onClick={changeScreen3}><button className="pro13">Refund & Cancellation Policy</button></li>
-                            </ul>
-                        </div>
-                        <div className="pro5">
-                            <div className="pro6">
-                                <div className="pro7">
-                                    <div className="pro8">
-                                        <p>{product.description}</p>
-                                        <ul className="pro9">{des.map((element, i) => (
-                                            <div key={i}>{element != null ? <li>{element}</li> : <h1 className="prooo">d</h1>}</div>
-                                        ))}</ul>
-                                    </div>
-                                </div>
-                                <div className="pro7">
-                                    <div className="pro8">
-                                        <h3>Inclusions</h3>
-                                        <ul>{inc.map((element, i) => (
-                                            <div key={i}>{element != null ? <li>{element}</li> : <h1 className="prooo">d</h1>}</div>
-                                        ))}</ul>
-                                        <h3>Exclusions</h3>
-                                        <ul>{exc.map((element, i) => (
-                                            <div key={i}>{element != null ? <li>{element}</li> : <h1 className="prooo">d</h1>}</div>
-                                        ))}</ul>
-                                    </div>
-                                </div>
-                                <div className="pro7">
-                                    <div className="pro8">
-                                        <ul>{bef.map((element, i) => (
-                                            <div key={i}>{element != null ? <li>{element}</li> : <h1 className="prooo">d</h1>}</div>
-                                        ))}</ul>
-                                    </div>
-                                </div>
-                                <div className="pro7">
-                                    <div className="pro8">
-                                        <p>{product.description}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            }
 
             <div className="pro1411">
                 <h2 style={{ textAlign: 'center' }}>Related Products</h2>

@@ -1,0 +1,153 @@
+.sercardd{
+    width: 80%;
+    margin: auto;
+    padding-top: 15px;
+}
+.sercardd h2{
+    font-size: 33px;
+}
+.sercardd p{
+    margin-top: -10px;
+}
+.sercardd13{
+    width: 100%;
+    margin: auto;
+}
+#droppdown{
+    width: 100% !important;
+    background-color: white;
+    color: black;
+    outline: none;
+    border: none;
+    box-shadow: 2px 1px 5px rgb(75, 75, 75);
+    margin: 10px 0;
+    height: 40px;
+    border-radius: 6px !important;
+}
+.sercardd14{
+    padding: 15px;
+}
+.sercardd14 ul{
+    padding-left: 15px;
+}
+.cardPicser{
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: -20px;
+}
+.cardPicser1{
+    padding: 30px 0px;
+}
+.cardPicser1 img{
+    width: 98%;
+    height: auto;
+    border-radius: 30px;
+    box-shadow: 15px 15px 15px #acabab;
+}
+.cardPicser2{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: -10px;
+}
+.cardPicser3{
+    margin: 20px;
+}
+.cardPicser3 img{
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 2px 2px 10px grey;
+    transition: .3s ease-in;
+}
+.cardPicser3 img:hover{
+    transform: translateX(-2px);
+}
+ @media screen and (max-width: 700px) {
+    .cardPicser2{
+        margin-top: -20px;
+    }
+    .cardPicser{
+        margin-top: -20px;
+    }
+    .sercardd{
+        width: 98%;
+    }
+ }
+.sercardd2{
+    width: 90%;
+    margin-right: auto;
+    background-color: white;
+    border-radius: 25px;
+    margin-top: 40px;
+    padding: 15px;
+}
+.sercardd2 h3{
+    font-size: 28px;
+    line-height: 45px;
+}
+.sercardd2 h3 span{
+    font-size: 25px;
+    line-height: 45px;
+    text-decoration: line-through;
+    color: red;
+}
+.sercardd2 h3 sup{
+    font-size: 20px;
+    color: green;
+}
+.sercardd2 ul{
+    list-style-type: none;
+}
+.sercardd2 ul li{
+    color: red;
+}
+.sercardd22 input{
+    border: none;
+    background-color: #f0f0f0;
+    height: 32px;
+    border-radius: 5px;
+    outline: none;
+}
+.sercardd23 input{
+    border: none;
+    background-color: #f0f0f0;
+    height: 32px;
+    border-radius: 5px;
+    outline: none;
+}
+.sercardd24 input{
+    border: none;
+    background-color: #f0f0f0;
+    height: 32px;
+    border-radius: 5px;
+    outline: none;
+}
+.sercardd25{
+    border: none;
+    background-color: #f0f0f0 !important;
+    border-radius: 5px;
+    outline: none;
+}
+
+@media screen and (max-width: 987px) {
+    .sercardd2{
+        width: 82%;
+        margin: auto;
+        background-color: white;
+        border-radius: 25px;
+        margin-top: 40px;
+        padding: 15px;
+    }
+ }
+ @media screen and (max-width: 650px) {
+    .sercardd2{
+        width: 98%;
+        margin: auto;
+        background-color: white;
+        border-radius: 25px;
+        margin-top: 40px;
+        padding: 15px;
+    }
+ }
