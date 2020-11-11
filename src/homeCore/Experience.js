@@ -115,10 +115,11 @@ const Experience = () => {
     return (
         <div>
             <Helmet>
-                <title>Experiences</title>
-                <meta name="description" content="Experience fadsfasdf  adsfsadf " />
+                <title>Book candlelight dinner, balloon decorator, birthday surprise planner</title>
+                <meta name="description" content="Book surprises and experiences for birthday, anniversary and proposals. " />
                 <meta name="author" content="Bunny Bash" />
-                <meta name="robots" content="index, follow"></meta>
+                <meta name="robots" content="index, follow" />
+                <meta name="keywords" content="book experiences, book surprises, birthday planner, balloon decorator, candlelight dinner, poolside dinner, surprise planners, party planners, anniversary planner" />
             </Helmet>
             <ToastContainer />
             {    loading ?

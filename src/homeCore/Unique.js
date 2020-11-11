@@ -130,15 +130,16 @@ const Unique = () => {
             $(this).scrollTop(0);
         });
     }, [])
-    
+
 
     return (
         <div className="unique">
             <Helmet>
-                <title>Unique Category</title>
-                <meta name="description" content="Unique category" />
+                <title>Buy unique surprise gifts online | Personalised gifts by Bunny Bash </title>
+                <meta name="description" content="Buy unique gifts with personalization for your loved ones as birthday gifts, anniversary gifts, surprise gifts, ideal for parents, boyfriend, girlfriend, husband or wife." />
                 <meta name="author" content="Bunny Bash" />
-                <meta name="robots" content="index, follow"></meta>
+                <meta name="robots" content="index, follow" />
+                <meta name="keywords" content="unique gifts, unique gift ideas, birthday gifts, anniversary gifts, virtual gift ideas, virtual gifts online, surprise gifts, gifts for him, gifts for her " />
             </Helmet>
             <Menu />
             <ToastContainer />

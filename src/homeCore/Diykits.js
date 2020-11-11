@@ -112,10 +112,11 @@ const Diykits = () => {
         <div className="diy">
             <Menu />
             <Helmet>
-                <title>DiyKits</title>
-                <meta name="description" content="diykit diykit" />
-                <meta name="author" content="Bunny Bash" />
-                <meta name="robots" content="index, follow"></meta>
+            <title>Do it yourself theme party boxes, diy decor box </title>
+            <meta name="description" content="Buy birthday decoration kit online. Give personal touch to birthday, anniversary, baby shower, housewarming parties, festive celebrations, and pets birthdays" />
+            <meta name="author" content="Bunny Bash" />
+            <meta name="robots" content="index, follow" />
+            <meta name="keywords" content="diy decor box, birthday decoration kit online, festive diy boxes, baby shower diy kit, pets birthday kit, anniversary decor kit, surprise decor kit" />
             </Helmet>
             <ToastContainer />
             <div className="diy2">
